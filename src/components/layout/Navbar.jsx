@@ -21,7 +21,7 @@ export default function Navbar() {
     return (
         <>
             <header className="relative z-50 w-full pt-4 px-4 sm:px-6 lg:px-8 bg-transparent pointer-events-none">
-                <div className="max-w-7xl mx-auto bg-white/80 backdrop-blur-xl border border-white/50 shadow-2xl rounded-2xl w-full pointer-events-auto transition-all duration-300">
+                <div className="max-w-7xl mx-auto bg-[#FCF9F2]/90 backdrop-blur-xl border border-[#C59B27]/30 shadow-xl rounded-2xl w-full pointer-events-auto transition-all duration-300">
                     {/* Unified Row: IATMSI Logo, Partner Logos, Submit */}
                     <div className="relative flex items-center justify-between py-1.5 px-3 lg:px-4 lg:py-1.5 gap-x-2 lg:gap-x-4">
                         
@@ -46,7 +46,7 @@ export default function Navbar() {
                                         className="h-6 sm:h-8 md:h-9 lg:h-10 w-auto object-contain" 
                                     />
                                     {index < siteConfig.branding.partnerLogos.length - 1 && (
-                                        <div className="hidden sm:block w-px h-5 sm:h-6 bg-gray-300"></div>
+                                        <div className="hidden sm:block w-px h-5 sm:h-6 bg-[#C59B27]/30"></div>
                                     )}
                                 </div>
                             ))}
@@ -60,7 +60,7 @@ export default function Navbar() {
                                     href={siteConfig.externalLinks.submissionPortal.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center px-4.5 py-1.5 border border-transparent rounded-md shadow-sm text-[12.5px] font-bold !text-white bg-primary-900 hover:bg-primary-950 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-900 transition-all transform hover:scale-105"
+                                    className="inline-flex items-center justify-center px-4.5 py-1.5 border border-[#C59B27]/50 rounded-md shadow-sm text-[12.5px] font-bold !text-[#FAF5EB] bg-[#2B080C] hover:bg-[#3C0C16] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2B080C] transition-all transform hover:scale-105"
                                 >
                                     Submit Paper
                                 </a>
