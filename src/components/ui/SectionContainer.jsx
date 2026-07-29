@@ -1,9 +1,7 @@
 // Vertical Ornament Bar Sub-component (matching user screenshot)
 function VerticalBarOrnament({ className = '' }) {
     return (
-        <div className={`flex flex-col items-center justify-between pointer-events-none select-none h-full py-4 ${className}`}>
-            {/* Top Diamond */}
-            <span className="text-[#C59B27] text-xs font-bold leading-none">◆</span>
+        <div className={`flex flex-col items-center justify-between pointer-events-none select-none h-full py-2 ${className}`}>
             {/* Upper Line */}
             <div className="w-[1px] flex-1 bg-gradient-to-b from-[#C59B27]/70 via-[#C59B27]/30 to-[#C59B27]/70 my-2" />
             {/* Middle Filigree Knot */}
@@ -14,8 +12,6 @@ function VerticalBarOrnament({ className = '' }) {
             </div>
             {/* Lower Line */}
             <div className="w-[1px] flex-1 bg-gradient-to-b from-[#C59B27]/70 via-[#C59B27]/30 to-[#C59B27]/70 my-2" />
-            {/* Bottom Diamond */}
-            <span className="text-[#C59B27] text-xs font-bold leading-none">◆</span>
         </div>
     );
 }
@@ -36,12 +32,6 @@ export default function SectionContainer({
                     <div className="bg-[#FAF5EB] rounded-2xl md:rounded-[2.25rem] shadow-xl border border-[#2B080C]/30 p-2 sm:p-3 relative overflow-hidden">
                         {/* Inner Inset Gold Frame */}
                         <div className="border border-[#C59B27]/50 rounded-xl md:rounded-[1.75rem] p-5 sm:p-8 md:p-12 lg:px-16 relative bg-[#FCF9F2]">
-                            
-                            {/* 4 Corner Diamonds */}
-                            <span className="absolute top-2.5 left-2.5 text-[#C59B27] text-xs select-none font-bold">◆</span>
-                            <span className="absolute top-2.5 right-2.5 text-[#C59B27] text-xs select-none font-bold">◆</span>
-                            <span className="absolute bottom-2.5 left-2.5 text-[#C59B27] text-xs select-none font-bold">◆</span>
-                            <span className="absolute bottom-2.5 right-2.5 text-[#C59B27] text-xs select-none font-bold">◆</span>
 
                             {/* Left & Right Vertical Ornament Bars (Desktop) */}
                             <div className="hidden xl:block absolute left-3 top-8 bottom-8 w-4">
