@@ -37,12 +37,20 @@ export function SectionHeader({
     className = '',
 }) {
     return (
-        <div className={`mb-8 md:mb-10 ${centered ? 'text-center' : ''} ${className}`}>
-            <h2 className="text-base md:text-2xl md:text-3xl font-bold text-neutral-900 mb-3 md:mb-4">
+        <div className={`mb-10 md:mb-12 ${centered ? 'text-center' : ''} ${className}`}>
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-wider uppercase mb-3">
                 {title}
             </h2>
+            
+            {/* Regal Gold Diamond Line Motif */}
+            <div className={`flex items-center gap-3 my-3 ${centered ? 'justify-center' : 'justify-start'}`}>
+                <div className="h-[2px] w-12 sm:w-20 bg-gradient-to-r from-transparent to-amber-500 rounded-full" />
+                <span className="text-amber-500 text-xs font-bold select-none">◆</span>
+                <div className="h-[2px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-amber-500 rounded-full" />
+            </div>
+
             {subtitle && (
-                <p className="text-sm md:text-base text-neutral-600 max-w-3xl mx-auto">
+                <p className="text-sm md:text-base text-slate-600 max-w-3xl mx-auto leading-relaxed font-normal mt-2">
                     {subtitle}
                 </p>
             )}

@@ -1,6 +1,22 @@
 @import "tailwindcss";
 
 @theme {
+  /* Himalayan Gold & Champagne Palette */
+  --color-amber-50: #fffdf0;
+  --color-amber-100: #fef9c3;
+  --color-amber-200: #fde68a;
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #e5b869;
+  --color-amber-500: #d4af37;
+  --color-amber-600: #c59b27;
+  --color-amber-700: #a17a18;
+  --color-amber-800: #855f13;
+  --color-amber-900: #6b4b10;
+
+  /* Executive Dark Midnight & Warm Porcelain */
+  --color-midnight: #0b1120;
+  --color-porcelain: #fafafc;
+
   /* IEEE Blue Palette */
   --color-primary-50: #e6f0fa;
   --color-primary-100: #cce0f5;
@@ -38,6 +54,7 @@
   --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --shadow-card-hover: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-gold: 0 8px 30px rgba(212, 175, 55, 0.15);
 }
 
 /* Base Styles */

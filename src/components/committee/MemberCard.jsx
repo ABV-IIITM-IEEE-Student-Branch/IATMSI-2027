@@ -9,12 +9,12 @@ export default function MemberCard({ member }) {
             .slice(0, 2);
 
     return (
-        <div className="flex-1 w-full min-w-[240px] max-w-[260px] bg-white rounded-xl shadow-sm border border-neutral-100 p-4 xl:p-5 text-center hover:shadow-md transition-shadow flex flex-col items-center justify-start">
+        <div className="flex-1 w-full min-w-[240px] max-w-[260px] bg-white rounded-2xl border border-slate-200 border-t-2 border-t-amber-500 p-5 text-center shadow-sm hover:shadow-xl hover:border-amber-500 transition-all flex flex-col items-center justify-start group">
             {/* Avatar */}
             {member.profileUrl ? (
                 <a href={member.profileUrl} target="_blank" rel="noopener noreferrer" className="block relative group flex-shrink-0">
                     <div
-                        className="w-20 h-20 xl:w-24 xl:h-24 rounded-2xl mb-3 mx-auto flex items-center justify-center text-base xl:text-base font-bold text-white shadow-md overflow-hidden transition-transform duration-300 group-hover:scale-105 bg-primary-800"
+                        className="w-20 h-20 xl:w-24 xl:h-24 rounded-2xl mb-3.5 mx-auto flex items-center justify-center text-lg font-bold text-amber-300 shadow-md overflow-hidden transition-transform duration-300 group-hover:scale-105 bg-[#002855] ring-2 ring-amber-500/60"
                     >
                         {member.image ? (
                             <img
@@ -29,7 +29,7 @@ export default function MemberCard({ member }) {
                 </a>
             ) : (
                 <div
-                    className="w-20 h-20 xl:w-24 xl:h-24 rounded-2xl mb-3 mx-auto flex items-center justify-center text-base xl:text-base font-bold text-white shadow-md overflow-hidden flex-shrink-0 bg-primary-800"
+                    className="w-20 h-20 xl:w-24 xl:h-24 rounded-2xl mb-3.5 mx-auto flex items-center justify-center text-lg font-bold text-amber-300 shadow-md overflow-hidden flex-shrink-0 bg-[#002855] ring-2 ring-amber-500/60"
                 >
                     {member.image ? (
                         <img
@@ -45,9 +45,9 @@ export default function MemberCard({ member }) {
 
             {/* Details */}
             <div className="flex flex-col flex-grow items-center justify-start w-full">
-                <h3 className="text-base xl:text-xl font-bold font-bold text-neutral-900 leading-snug mb-1 text-center w-full">
+                <h3 className="text-base xl:text-lg font-extrabold text-slate-900 leading-snug mb-1 text-center w-full">
                     {member.profileUrl ? (
-                        <a href={member.profileUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary-700 transition-colors">
+                        <a href={member.profileUrl} target="_blank" rel="noopener noreferrer" className="hover:text-amber-600 transition-colors">
                             {member.name}
                         </a>
                     ) : (
@@ -56,13 +56,13 @@ export default function MemberCard({ member }) {
                 </h3>
 
                 {member.designation && (
-                    <p className="text-primary-700 text-xs xl:text-sm font-semibold mb-1 text-center w-full">
+                    <span className="inline-block px-2.5 py-0.5 my-1 text-[11px] font-bold text-amber-700 bg-amber-500/10 border border-amber-500/30 rounded-full text-center">
                         {member.designation}
-                    </p>
+                    </span>
                 )}
 
                 {member.affiliation && (
-                    <p className="text-neutral-500 text-xs xl:text-sm leading-tight text-center w-full">
+                    <p className="text-slate-600 text-xs xl:text-xs font-medium leading-relaxed text-center w-full mt-1">
                         {member.affiliation}
                     </p>
                 )}
@@ -70,9 +70,9 @@ export default function MemberCard({ member }) {
                 {member.email && (
                     <a
                         href={`mailto:${member.email}`}
-                        className="mt-2 text-primary-600 hover:text-primary-800 text-xs inline-flex items-center gap-1 transition-colors"
+                        className="mt-2.5 text-primary-700 hover:text-amber-600 text-xs font-semibold inline-flex items-center gap-1 transition-colors"
                     >
-                        <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-3.5 h-3.5 flex-shrink-0 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                         <span className="truncate">{member.email}</span>
