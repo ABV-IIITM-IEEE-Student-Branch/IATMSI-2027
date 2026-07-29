@@ -29,7 +29,7 @@ export default function SectionContainer({
             {background === 'white' || background === 'light' ? (
                 <div className="max-w-[92rem] mx-auto px-2 sm:px-4 lg:px-6">
                     {/* Single Frame Card Container */}
-                    <div className="bg-[#FCF9F2] rounded-2xl md:rounded-[2rem] shadow-xl border border-[#C59B27]/60 p-5 sm:p-8 md:p-12 lg:px-16 relative overflow-hidden">
+                    <div className="bg-[#FCF9F2] rounded-2xl md:rounded-[2rem] border border-[#C59B27]/60 p-5 sm:p-8 md:p-12 lg:px-16 relative overflow-hidden">
 
                         {/* Left & Right Vertical Ornament Bars (Desktop) */}
                         <div className="hidden xl:block absolute left-4 top-8 bottom-8 w-4">
