@@ -1,4 +1,4 @@
-// Vertical Ornament Bar Sub-component (matching user screenshot)
+// Vertical Ornament Bar Sub-component
 function VerticalBarOrnament({ className = '' }) {
     return (
         <div className={`flex flex-col items-center justify-between pointer-events-none select-none h-full py-2 ${className}`}>
@@ -28,23 +28,20 @@ export default function SectionContainer({
         <section id={id} className={`py-6 md:py-10 ${background === 'dark' ? 'bg-[#2B080C] text-white' : ''} ${className}`} style={style}>
             {background === 'white' || background === 'light' ? (
                 <div className="max-w-[92rem] mx-auto px-2 sm:px-4 lg:px-6">
-                    {/* Outer Card with Maroon Frame & Shadow */}
-                    <div className="bg-[#FAF5EB] rounded-2xl md:rounded-[2.25rem] shadow-xl border border-[#2B080C]/30 p-2 sm:p-3 relative overflow-hidden">
-                        {/* Inner Inset Gold Frame */}
-                        <div className="border border-[#C59B27]/50 rounded-xl md:rounded-[1.75rem] p-5 sm:p-8 md:p-12 lg:px-16 relative bg-[#FCF9F2]">
+                    {/* Single Frame Card Container */}
+                    <div className="bg-[#FCF9F2] rounded-2xl md:rounded-[2rem] shadow-xl border border-[#C59B27]/60 p-5 sm:p-8 md:p-12 lg:px-16 relative overflow-hidden">
 
-                            {/* Left & Right Vertical Ornament Bars (Desktop) */}
-                            <div className="hidden xl:block absolute left-3 top-8 bottom-8 w-4">
-                                <VerticalBarOrnament />
-                            </div>
-                            <div className="hidden xl:block absolute right-3 top-8 bottom-8 w-4">
-                                <VerticalBarOrnament />
-                            </div>
+                        {/* Left & Right Vertical Ornament Bars (Desktop) */}
+                        <div className="hidden xl:block absolute left-4 top-8 bottom-8 w-4">
+                            <VerticalBarOrnament />
+                        </div>
+                        <div className="hidden xl:block absolute right-4 top-8 bottom-8 w-4">
+                            <VerticalBarOrnament />
+                        </div>
 
-                            {/* Content Inner Container */}
-                            <div className="xl:px-8">
-                                {children}
-                            </div>
+                        {/* Content Inner Container */}
+                        <div className="xl:px-8">
+                            {children}
                         </div>
                     </div>
                 </div>
