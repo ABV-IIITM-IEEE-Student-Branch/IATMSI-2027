@@ -8,8 +8,8 @@ export default function Footer() {
     return (
         <footer className="bg-[#2B080C] text-[#FAF5EB] font-sans border-t-2 border-[#C59B27] relative z-20">
             {/* Main Footer Container */}
-            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 lg:py-16">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16 items-start">
+            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-8 lg:py-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start">
 
                     {/* Column 1: Conference Info & Organizer */}
                     <div className="flex flex-col space-y-4">
@@ -121,7 +121,7 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Separator Line */}
-                <div className="mt-12 mb-6 w-full h-[1px] bg-gradient-to-r from-transparent via-[#C59B27]/40 to-transparent" />
+                <div className="mt-6 mb-3 w-full h-[1px] bg-gradient-to-r from-transparent via-[#C59B27]/40 to-transparent" />
 
                 {/* Copyright Bar */}
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs !text-[#FAF5EB]/70 font-medium">
