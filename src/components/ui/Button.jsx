@@ -18,7 +18,7 @@ export default function Button({
         ghost: 'bg-transparent text-primary-700 hover:bg-primary-50',
     };
 
-    const explicitStyles = variant === 'primary' ? { backgroundColor: '#002855', color: '#ffffff' } : {};
+    const explicitStyles = variant === 'primary' ? { backgroundColor: '#5B1824', color: '#ffffff' } : {};
 
     const sizes = {
         sm: 'px-3 py-1.5 text-sm',

@@ -5,7 +5,7 @@ import { NAV_ITEMS } from '../../constants/routes';
 export default function NavLinks({
     className = "",
     itemClassName = "",
-    activeColor = "#002855",
+    activeColor = "#5B1824",
     inactiveColor = "#525252",
     onItemClick,
     enableAnimation = false,

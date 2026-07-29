@@ -154,7 +154,7 @@ export default function Navbar() {
                                 href={siteConfig.externalLinks.submissionPortal.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center justify-center w-full px-4 py-3 rounded-lg text-sm font-bold text-[#002855] bg-white hover:bg-gray-100 transition-all"
+                                className="flex items-center justify-center w-full px-4 py-3 rounded-lg text-sm font-bold text-[#5B1824] bg-white hover:bg-gray-100 transition-all"
                             >
                                 Submit Paper
                             </a>

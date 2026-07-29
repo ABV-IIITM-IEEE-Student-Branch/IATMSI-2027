@@ -13,18 +13,18 @@ export default function IntroSection() {
                 {/* Left: Text Content */}
                 <div className="lg:col-span-7 xl:col-span-8 text-left space-y-8">
                     <div className="space-y-3">
-                        <h2 className="text-base md:text-2xl md:text-3xl font-bold text-neutral-900">
+                        <h2 className="text-xl md:text-3xl font-extrabold text-[#5B1824] uppercase tracking-wide">
                             {`Welcome to ${conferenceInfo.shortTitle}`}
                         </h2>
-                        <p className="text-sm md:text-base text-neutral-600">
+                        <p className="text-sm md:text-base text-neutral-600 font-medium">
                             {conferenceInfo.fullTitle}
                         </p>
-                        <div className="w-16 h-1 bg-primary-600 rounded-full mt-4" />
+                        <div className="w-16 h-1 bg-[#5B1824] rounded-full mt-4" />
                     </div>
 
                     <div className="prose text-neutral-600 text-justify max-w-none space-y-4">
                         {homeIntroContent.paragraphs?.map((p, i) => (
-                            <p key={i} className="leading-relaxed text-sm sm:text-base text-slate-700">
+                            <p key={i} className="leading-relaxed text-sm sm:text-base text-neutral-700">
                                 {p}
                             </p>
                         ))}
@@ -33,11 +33,11 @@ export default function IntroSection() {
                             <div className="py-4">
                                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pl-0 list-none m-0">
                                     {homeIntroContent.tracks.map((track, i) => (
-                                        <li key={i} className="flex items-start gap-3 bg-white p-3.5 rounded-xl border border-slate-200 border-t-2 border-t-amber-500/80 shadow-sm hover:shadow-md hover:border-amber-500 transition-all group">
-                                            <div className="w-6 h-6 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center flex-shrink-0 mt-0.5 text-amber-600 font-bold text-xs group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                                        <li key={i} className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-xl border border-neutral-200 border-t-2 border-t-[#5B1824] shadow-sm hover:shadow-md hover:border-[#D4A244] transition-all group">
+                                            <div className="w-6 h-6 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center flex-shrink-0 mt-0.5 text-amber-700 font-extrabold text-xs group-hover:bg-[#5B1824] group-hover:text-white transition-colors">
                                                 {i + 1}
                                             </div>
-                                            <span className="text-sm font-semibold text-slate-800 leading-snug">{track}</span>
+                                            <span className="text-sm font-bold text-neutral-800 leading-snug">{track}</span>
                                         </li>
                                     ))}
                                 </ul>
@@ -45,17 +45,17 @@ export default function IntroSection() {
                         )}
 
                         {homeIntroContent.closingParagraph && (
-                            <p className="leading-relaxed text-sm sm:text-base text-slate-700 bg-amber-500/5 p-4 rounded-xl border-l-4 border-amber-500">
+                            <p className="leading-relaxed text-sm sm:text-base text-neutral-700 bg-amber-500/5 p-4 rounded-xl border-l-4 border-[#D4A244]">
                                 {homeIntroContent.closingParagraph}
                             </p>
                         )}
                     </div>
 
                     <div className="pt-4 flex flex-wrap gap-4 justify-start">
-                        <Button to={ROUTES.TRACKS} variant="primary" size="md" className="bg-[#002855] hover:bg-[#001a3a] text-white border-b-2 border-amber-500 shadow-md hover:shadow-lg transition-all">
+                        <Button to={ROUTES.TRACKS} variant="primary" size="md" className="bg-[#5B1824] hover:bg-[#722332] text-white border-b-2 border-[#D4A244] shadow-md hover:shadow-lg transition-all">
                             Call for Papers →
                         </Button>
-                        <Button to={ROUTES.ABOUT} variant="outline" size="md" className="border-amber-500/40 text-slate-800 hover:bg-amber-500/10">
+                        <Button to={ROUTES.ABOUT} variant="outline" size="md" className="border-amber-500/40 text-neutral-800 hover:bg-amber-500/10">
                             Learn More
                         </Button>
                     </div>
@@ -65,17 +65,17 @@ export default function IntroSection() {
                 <div className="lg:col-span-5 xl:col-span-4 relative flex justify-center lg:justify-end">
                     <div className="relative max-w-[360px] w-full">
                         {/* Decorative background */}
-                        <div className="absolute -inset-4 bg-gradient-to-tr from-amber-500/20 via-primary-900/10 to-transparent rounded-[2.5rem] opacity-70 blur-lg" />
-                        <div className="relative rounded-2xl shadow-2xl border border-amber-500/30 bg-slate-900 overflow-hidden text-white">
-                            <div className="bg-[#002855] p-6 border-b border-amber-500/30 relative">
+                        <div className="absolute -inset-4 bg-gradient-to-tr from-amber-500/20 via-[#5B1824]/10 to-transparent rounded-[2.5rem] opacity-70 blur-lg" />
+                        <div className="relative rounded-2xl shadow-xl border border-amber-500/30 bg-[#210A10] overflow-hidden text-white">
+                            <div className="bg-[#5B1824] p-6 border-b border-amber-500/30 relative">
                                 <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
                                 <span className="inline-block px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[10px] font-bold tracking-wider uppercase mb-2">
                                     5th Edition IEEE
                                 </span>
                                 <h3 className="text-xl font-extrabold !text-white mb-1.5">{conferenceInfo.shortTitle}</h3>
-                                <p className="text-xs !text-slate-300 leading-relaxed font-medium">{conferenceInfo.fullTitle}</p>
+                                <p className="text-xs !text-amber-100/90 leading-relaxed font-medium">{conferenceInfo.fullTitle}</p>
                             </div>
-                            <div className="p-6 space-y-5 bg-[#0B1120]">
+                            <div className="p-6 space-y-5 bg-[#2C0A10]">
                                 <div className="flex items-center gap-3.5">
                                     <div className="w-9 h-9 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-center justify-center text-amber-400">
                                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -83,7 +83,7 @@ export default function IntroSection() {
                                         </svg>
                                     </div>
                                     <div>
-                                        <p className="text-[10px] text-amber-400/80 uppercase tracking-widest font-bold">Conference Dates</p>
+                                        <p className="text-[10px] text-amber-400/90 uppercase tracking-widest font-bold">Conference Dates</p>
                                         <p className="text-sm font-bold text-white">{conferenceInfo.dates}</p>
                                     </div>
                                 </div>
@@ -95,7 +95,7 @@ export default function IntroSection() {
                                         </svg>
                                     </div>
                                     <div>
-                                        <p className="text-[10px] text-amber-400/80 uppercase tracking-widest font-bold">Venue & Host</p>
+                                        <p className="text-[10px] text-amber-400/90 uppercase tracking-widest font-bold">Venue & Host</p>
                                         <p className="text-sm font-bold text-white">{conferenceInfo.venue.shortName}</p>
                                     </div>
                                 </div>
@@ -106,7 +106,7 @@ export default function IntroSection() {
                                         </svg>
                                     </div>
                                     <div>
-                                        <p className="text-[10px] text-amber-400/80 uppercase tracking-widest font-bold">Mode</p>
+                                        <p className="text-[10px] text-amber-400/90 uppercase tracking-widest font-bold">Mode</p>
                                         <p className="text-sm font-bold text-white">{conferenceInfo.mode} Event</p>
                                     </div>
                                 </div>
