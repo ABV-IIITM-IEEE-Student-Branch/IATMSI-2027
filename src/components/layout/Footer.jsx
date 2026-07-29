@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
     return (
-        <footer className="bg-[#2B080C] text-[#FAF5EB] font-sans border-t-2 border-[#C59B27] relative z-20">
+        <footer className="bg-[#4A121A] text-[#FAF5EB] font-sans border-t-2 border-[#C59B27] relative z-20">
             {/* Main Footer Container */}
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-8 lg:py-10">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start">
@@ -24,7 +24,7 @@ export default function Footer() {
                             {conferenceInfo.fullTitle}
                         </p>
 
-                        <div className="bg-[#3C0C16]/80 rounded-xl p-4 border border-[#C59B27]/40 shadow-md space-y-1">
+                        <div className="bg-[#611822]/80 rounded-xl p-4 border border-[#C59B27]/40 shadow-md space-y-1">
                             <span className="text-[10px] font-extrabold uppercase tracking-widest !text-[#F0CB6F]">
                                 Organized By
                             </span>

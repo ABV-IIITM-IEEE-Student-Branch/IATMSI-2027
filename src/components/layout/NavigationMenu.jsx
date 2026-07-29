@@ -10,7 +10,7 @@ export default function NavigationMenu() {
     };
 
     return (
-        <div className="bg-[#2B080C] shadow-lg border-b-2 border-[#C59B27] z-40 relative">
+        <div className="bg-[#4A121A] shadow-lg border-b-2 border-[#C59B27] z-40 relative">
             <nav className="hidden lg:flex flex-1 flex-wrap justify-center items-center gap-x-3 xl:gap-x-5 gap-y-2 px-3 xl:px-6 py-2.5">
                 {navigationTree.map((item) => (
                     item.type === 'link' ? (
@@ -53,7 +53,7 @@ export default function NavigationMenu() {
                             <div className="absolute top-full left-0 w-full h-3 bg-transparent"></div>
                             
                             {/* Dropdown Container */}
-                            <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 bg-[#2B080C] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-[#C59B27]/40 rounded-lg overflow-hidden">
+                            <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 bg-[#4A121A] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-[#C59B27]/40 rounded-lg overflow-hidden">
                                 <div className="py-2 flex flex-col">
                                     {item.items.map((subItem) => (
                                         <Link

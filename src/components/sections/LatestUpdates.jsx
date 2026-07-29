@@ -11,9 +11,9 @@ export default function LatestUpdates() {
     if (!updates || updates.length === 0) return null;
 
     return (
-        <div className="w-full bg-[#5B1824] border-y border-amber-500/30 relative z-20 flex h-10 sm:h-12 overflow-hidden group">
+        <div className="w-full bg-[#722332] border-y border-amber-500/30 relative z-20 flex h-10 sm:h-12 overflow-hidden group">
             {/* Flat Dark Label Block */}
-            <div className="bg-[#3C0C16] px-4 sm:px-6 flex items-center justify-center z-30 shrink-0 border-r border-amber-500/30">
+            <div className="bg-[#4A121A] px-4 sm:px-6 flex items-center justify-center z-30 shrink-0 border-r border-amber-500/30">
                 <span className="font-extrabold tracking-wider uppercase flex items-center gap-2.5 text-xs sm:text-sm text-amber-300">
                     <span className="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></span>
                     <span className="hidden sm:inline">Latest</span> Updates
@@ -21,7 +21,7 @@ export default function LatestUpdates() {
             </div>
 
             {/* Scrolling Content */}
-            <div className="flex-1 flex items-center bg-[#5B1824] text-white">
+            <div className="flex-1 flex items-center bg-[#722332] text-white">
                 <div className="animate-marquee group-hover:[animation-play-state:paused] whitespace-nowrap flex items-center gap-8 pl-6">
                     {/* Duplicate list for seamless loop */}
                     {[...updates, ...updates, ...updates].map((update, index) => (

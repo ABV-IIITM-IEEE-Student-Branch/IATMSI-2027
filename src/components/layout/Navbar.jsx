@@ -60,7 +60,7 @@ export default function Navbar() {
                                     href={siteConfig.externalLinks.submissionPortal.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center px-4.5 py-1.5 border border-[#C59B27]/50 rounded-md shadow-sm text-[12.5px] font-bold !text-[#FAF5EB] bg-[#2B080C] hover:bg-[#3C0C16] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2B080C] transition-all transform hover:scale-105"
+                                    className="inline-flex items-center justify-center px-4.5 py-1.5 border border-[#C59B27]/50 rounded-md shadow-sm text-[12.5px] font-bold !text-[#FAF5EB] bg-[#4A121A] hover:bg-[#611822] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#4A121A] transition-all transform hover:scale-105"
                                 >
                                     Submit Paper
                                 </a>

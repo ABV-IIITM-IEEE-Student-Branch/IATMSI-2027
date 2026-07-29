@@ -22,10 +22,10 @@ export default function SectionContainer({
     background = 'white',
     id,
 }) {
-    const style = background === 'dark' ? { backgroundColor: '#2B080C' } : {};
+    const style = background === 'dark' ? { backgroundColor: '#4A121A' } : {};
 
     return (
-        <section id={id} className={`py-6 md:py-10 ${background === 'dark' ? 'bg-[#2B080C] text-white' : ''} ${className}`} style={style}>
+        <section id={id} className={`py-6 md:py-10 ${background === 'dark' ? 'bg-[#4A121A] text-white' : ''} ${className}`} style={style}>
             {background === 'white' || background === 'light' ? (
                 <div className="max-w-[92rem] mx-auto px-2 sm:px-4 lg:px-6">
                     {/* Single Frame Card Container */}
@@ -62,7 +62,7 @@ export function SectionHeader({
 }) {
     return (
         <div className={`mb-10 md:mb-12 ${centered ? 'text-center' : ''} ${className}`}>
-            <h2 className="text-xl md:text-3xl lg:text-4xl font-extrabold text-[#2B080C] tracking-wider uppercase mb-3">
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-extrabold text-[#4A121A] tracking-wider uppercase mb-3">
                 {title}
             </h2>
             
