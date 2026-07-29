@@ -2,6 +2,21 @@ import { useState, useEffect } from 'react';
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { aboutConferenceData } from '../../data/homeData';
 
+function renderFormattedText(text) {
+    if (!text) return null;
+    const parts = text.split(/(\*\*.*?\*\*)/g);
+    return parts.map((part, index) => {
+        if (part.startsWith('**') && part.endsWith('**')) {
+            return (
+                <strong key={index} className="font-extrabold text-[#4A121A]">
+                    {part.slice(2, -2)}
+                </strong>
+            );
+        }
+        return part;
+    });
+}
+
 export default function AboutConfSection() {
     const { title, paragraphs, thematicTracks, closingParagraph, targetDate } = aboutConferenceData;
 
@@ -43,12 +58,12 @@ export default function AboutConfSection() {
             <div className="space-y-6 text-neutral-800 text-sm md:text-base leading-relaxed">
                 {/* Paragraph 1 */}
                 <p className="font-medium text-justify">
-                    {paragraphs[0]}
+                    {renderFormattedText(paragraphs[0])}
                 </p>
 
                 {/* Paragraph 2 */}
                 <p className="font-medium text-justify">
-                    {paragraphs[1]}
+                    {renderFormattedText(paragraphs[1])}
                 </p>
 
                 {/* Thematic Tracks Bullet List */}
@@ -72,7 +87,7 @@ export default function AboutConfSection() {
 
                 {/* Paragraph 3 */}
                 <p className="font-medium text-justify">
-                    {closingParagraph}
+                    {renderFormattedText(closingParagraph)}
                 </p>
             </div>
 
