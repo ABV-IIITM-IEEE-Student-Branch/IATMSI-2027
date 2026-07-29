@@ -16,66 +16,62 @@ export const navigationTree = [
     items: [
       { id: 'about-iatmsi', label: 'About IATMSI-2027', path: '/about' },
       { id: 'history', label: 'IATMSI History', path: '/about/history' },
-      { id: 'committees', label: 'Committees', path: '/committee' },
+      { id: 'committees', label: 'IATMSI Committees', path: '/committee' },
       { id: 'track-chairs', label: 'Track Chairs', path: '/about/track-chairs' },
     ]
   },
   {
-    id: 'call-for-papers',
-    label: 'Call for Papers',
+    id: 'for-authors',
+    label: 'For Authors',
     type: 'dropdown',
     items: [
-      { id: 'tracks', label: 'Conference Tracks', path: '/call-for-papers/tracks' },
-      { id: 'paper-submission', label: 'Paper Submission', path: '/call-for-papers/paper-submission' },
-      { id: 'important-dates', label: 'Important Dates', path: '/important-dates' },
-      { id: 'call-for-reviewers', label: 'Call for Reviewers', path: '/call-for-reviewers' },
+      { id: 'camera-ready', label: 'Instructions for Camera Ready Paper Submission', path: '/authors/camera-ready' },
+      { id: 'copyright', label: 'Instructions for IEEE E-Copyright Submission', path: '/authors/copyright' },
+      { id: 'oral-guidelines', label: 'Oral Presenter\'s Guidelines', path: '/authors/oral-guidelines' },
+      { id: 'poster-guidelines', label: 'Poster Presenter\'s Guidelines', path: '/authors/poster-guidelines' },
+      { id: 'venue-travel', label: 'Venue/Travel', path: '/authors/venue-travel' },
+      { id: 'gallery', label: 'Gallery', path: '/authors/gallery' },
     ]
   },
+  { id: 'call-for-papers', label: 'Call for Papers', type: 'link', path: '/call-for-papers/tracks' },
+  { id: 'conference-program', label: 'Conference Program', type: 'link', path: '/conference-program' },
+  { id: 'paper-submission', label: 'Paper Submission', type: 'link', path: '/call-for-papers/paper-submission' },
+  { id: 'sponsorship', label: 'Sponsorship/Exhibits', type: 'link', path: '/sponsorship' },
+  { id: 'registration', label: 'Registration', type: 'link', path: '/registration' },
+  { id: 'important-dates', label: 'Important Dates', type: 'link', path: '/important-dates' },
+  { id: 'call-for-reviewers', label: 'Call for Reviewers', type: 'link', path: '/call-for-reviewers' },
+  { id: 'workshops', label: 'Workshops/Tutorials', type: 'link', path: '/workshops' },
   {
-    id: 'program',
-    label: 'Program',
-    type: 'dropdown',
-    items: [
-      { id: 'conference-program', label: 'Conference Program', path: '/conference-program' },
-      { id: 'keynote', label: 'Keynote & Invited Talks', path: '/keynote' },
-      { id: 'workshops', label: 'Workshops & Tutorials', path: '/workshops' },
-    ]
-  },
-  {
-    id: 'authors-registration',
-    label: 'Authors & Registration',
-    type: 'dropdown',
-    items: [
-      { id: 'registration', label: 'Registration & Fees', path: '/registration' },
-      { id: 'camera-ready', label: 'Camera Ready Submission', path: '/authors/camera-ready' },
-      { id: 'copyright', label: 'IEEE E-Copyright', path: '/authors/copyright' },
-      { id: 'oral-guidelines', label: 'Oral Presenter Guidelines', path: '/authors/oral-guidelines' },
-      { id: 'poster-guidelines', label: 'Poster Presenter Guidelines', path: '/authors/poster-guidelines' },
-    ]
-  },
-  {
-    id: 'awards-sponsorship',
-    label: 'Awards & Sponsorship',
+    id: 'awards',
+    label: 'Awards/Grants',
     type: 'dropdown',
     items: [
       { id: 'hardnovate', label: 'Hardnovate Contest', path: '/awards/hardnovate' },
       { id: 'rising-researcher', label: 'Rising Researcher Award', path: '/awards/rising-researcher' },
       { id: 'excellence-research', label: 'Excellence in Research Award', path: '/awards/excellence' },
       { id: 'doctoral-dissertation', label: 'IEEE Doctoral Dissertation Award', path: '/awards/doctoral' },
+      { id: 'simulation-excellence', label: 'Simulation Excellence Award', path: '/awards/simulation' },
       { id: 'best-paper', label: 'Best Paper Awards', path: '/awards/best-paper' },
-      { id: 'fellowships', label: 'Travel/Registration Grants', path: '/awards/fellowships' },
-      { id: 'sponsorship', label: 'Sponsorship & Exhibits', path: '/sponsorship' },
+      { id: 'fellowships', label: 'Fellowships (Travel/Registration Grants)', path: '/awards/fellowships' },
+    ]
+  },
+  { id: 'keynote', label: 'Keynote and Invited Talks', type: 'link', path: '/keynote' },
+  {
+    id: 'help',
+    label: 'Help',
+    type: 'dropdown',
+    items: [
+      { id: 'contact', label: 'Contact Us', path: '/contact' },
+      { id: 'faqs', label: 'FAQs', path: '/help/faqs' },
     ]
   },
   {
-    id: 'venue-travel',
-    label: 'Venue & Travel',
+    id: 'extra',
+    label: 'Extra',
     type: 'dropdown',
     items: [
-      { id: 'venue-travel-info', label: 'Venue & Travel Info', path: '/authors/venue-travel' },
       { id: 'travel-visa', label: 'Travel Visa Info', path: '/travel/visa' },
       { id: 'explore-gwalior', label: 'Explore Gwalior', path: '/travel/explore-gwalior' },
-      { id: 'contact', label: 'Contact Us & FAQs', path: '/contact' },
     ]
   }
 ];

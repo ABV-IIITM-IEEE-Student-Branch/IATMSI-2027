@@ -11,14 +11,14 @@ export default function NavigationMenu() {
 
     return (
         <div className="bg-[#2B080C] shadow-lg border-b-2 border-[#C59B27] z-40 relative">
-            <nav className="hidden lg:flex flex-1 flex-wrap justify-center items-center gap-x-6 xl:gap-x-10 gap-y-2 px-4 xl:px-8 py-3">
+            <nav className="hidden lg:flex flex-1 flex-wrap justify-center items-center gap-x-3 xl:gap-x-5 gap-y-2 px-3 xl:px-6 py-2.5">
                 {navigationTree.map((item) => (
                     item.type === 'link' ? (
                         <NavLink
                             key={item.id}
                             to={item.path}
                             className={({ isActive }) =>
-                                `text-[13px] xl:text-[14px] font-bold tracking-widest uppercase transition-all duration-200 py-1 px-2 relative ${
+                                `text-[11px] xl:text-[12px] font-bold tracking-wider uppercase transition-all duration-200 py-1 px-1.5 relative ${
                                     isActive
                                         ? '!text-[#F0CB6F]'
                                         : '!text-[#FAF5EB] hover:!text-[#F0CB6F]'
@@ -29,24 +29,24 @@ export default function NavigationMenu() {
                                 <>
                                     <span>{item.label.toUpperCase()}</span>
                                     {isActive && (
-                                        <span className="absolute -bottom-[12px] left-1/2 -translate-x-1/2 w-8 h-[3px] bg-[#C59B27] rounded-full shadow-sm" />
+                                        <span className="absolute -bottom-[8px] left-1/2 -translate-x-1/2 w-6 h-[2.5px] bg-[#C59B27] rounded-full shadow-sm" />
                                     )}
                                 </>
                             )}
                         </NavLink>
                     ) : (
                         <div key={item.id} className="relative group flex items-center">
-                            <button className={`flex items-center text-[13px] xl:text-[14px] font-bold tracking-widest uppercase transition-all duration-200 py-1 px-2 relative ${
+                            <button className={`flex items-center text-[11px] xl:text-[12px] font-bold tracking-wider uppercase transition-all duration-200 py-1 px-1.5 relative ${
                                 isDropdownActive(item)
                                     ? '!text-[#F0CB6F]'
                                     : '!text-[#FAF5EB] hover:!text-[#F0CB6F]'
                             }`}>
                                 <span>{item.label.toUpperCase()}</span>
-                                <svg className="w-3.5 h-3.5 ml-1.5 text-[#C59B27] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-3 h-3 ml-1 text-[#C59B27] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                                 </svg>
                                 {isDropdownActive(item) && (
-                                    <span className="absolute -bottom-[12px] left-1/2 -translate-x-1/2 w-8 h-[3px] bg-[#C59B27] rounded-full shadow-sm" />
+                                    <span className="absolute -bottom-[8px] left-1/2 -translate-x-1/2 w-6 h-[2.5px] bg-[#C59B27] rounded-full shadow-sm" />
                                 )}
                             </button>
                             {/* Transparent bridge */}
