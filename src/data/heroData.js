@@ -18,4 +18,4 @@ export const heroCta = {
     }
 };
 
-export const heroTagline = '(Conference Record: ) Scopus Indexed, Hybrid Event, May 20-22, 2027';
+export const heroTagline = '(Conference Record: #73195) Scopus Indexed, Hybrid Event, May 20-22, 2027';

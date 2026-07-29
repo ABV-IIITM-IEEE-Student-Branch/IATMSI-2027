@@ -3,6 +3,7 @@
 export const conferenceInfo = {
     shortTitle: 'IATMSI-2027',
     fullTitle: 'IEEE International Conference on Interdisciplinary Approaches in Technology and Management for Social Innovation (IATMSI-2027)',
+    conferenceRecord: '73195',
     mode: 'Hybrid',
     dates: 'May 20-22, 2027',
     organizedBy: 'ABV-IIITM IEEE Student Branch, Gwalior, Madhya Pradesh, India',
