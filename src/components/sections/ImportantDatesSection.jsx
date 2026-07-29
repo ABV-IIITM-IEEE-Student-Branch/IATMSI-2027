@@ -4,7 +4,7 @@ import { importantDates } from '../../data/conferenceData';
 
 export default function ImportantDatesSection() {
     return (
-        <div className="bg-neutral-50 pb-16">
+        <div className="bg-[#FAF6EE] pb-16">
             
 
             <section className="py-8 md:py-12">

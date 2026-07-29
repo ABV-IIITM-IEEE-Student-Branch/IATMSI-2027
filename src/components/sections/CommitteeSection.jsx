@@ -10,7 +10,7 @@ import MemberCard from '../committee/MemberCard';
 
 export default function CommitteeSection() {
     return (
-        <div className="bg-neutral-50 pb-16">
+        <div className="bg-[#FAF6EE] pb-16">
             {/* Page Header */}
             
 

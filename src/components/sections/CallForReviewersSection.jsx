@@ -3,7 +3,7 @@ import { siteConfig } from '../../data/siteConfig';
 
 export default function CallForReviewersSection() {
     return (
-        <div className="bg-neutral-50 pb-16 min-h-screen">
+        <div className="bg-[#FAF6EE] pb-16 min-h-screen">
             <section className="py-12 md:py-16">
                 <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden">
