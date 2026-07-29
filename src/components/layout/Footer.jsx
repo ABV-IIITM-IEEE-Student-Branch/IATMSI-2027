@@ -1,129 +1,190 @@
 import { conferenceInfo } from '../../data/conferenceData';
 import { contactPerson } from '../../data/committeeData';
-import { navigationTree, footerQuickLinks } from '../../data/navigationData';
+import { footerQuickLinks } from '../../data/navigationData';
+import { siteConfig } from '../../data/siteConfig';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
-    // We now use footerQuickLinks instead of flattening navigationTree
-
     return (
-        <footer className="relative bg-gradient-to-b from-[#2D0A10] to-[#1F070B] text-white overflow-hidden font-sans border-t-[3px] border-[#D4A244]">
-            {/* Background Glow Effect */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#D4A244] opacity-[0.04] blur-[120px] rounded-full pointer-events-none"></div>
+        <footer className="relative bg-[#1A0508] text-[#FAF5EB] overflow-hidden font-sans border-t-2 border-[#C59B27]">
+            {/* Ambient Gold Radial Glow Background */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-[#C59B27] opacity-[0.06] blur-[140px] rounded-full pointer-events-none" />
 
-            {/* Main footer content */}
-            <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
+            {/* Top Ornamental Divider Bar */}
+            <div className="bg-[#2B080C] py-3 border-b border-[#C59B27]/30 relative z-10">
+                <div className="max-w-7xl mx-auto px-4 flex items-center justify-between text-xs font-bold tracking-widest uppercase text-[#F0CB6F]/90">
+                    <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#C59B27] animate-pulse" />
+                        <span>IEEE Conference Record #73195</span>
+                    </div>
+                    <div className="hidden sm:flex items-center gap-3 text-[#C59B27]">
+                        <span>✧</span>
+                        <div className="w-16 h-[1px] bg-[#C59B27]/50" />
+                        <span>◆</span>
+                        <div className="w-16 h-[1px] bg-[#C59B27]/50" />
+                        <span>✧</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <span>Hybrid Event</span>
+                        <span className="text-[#C59B27]">|</span>
+                        <span>May 20-22, 2027</span>
+                    </div>
+                </div>
+            </div>
 
-                    {/* Column 1: Branding */}
-                    <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-4">
-                        <div className="space-y-2">
-                            <h3 className="text-base lg:text-xl font-bold font-extrabold !text-white tracking-tight drop-shadow-md">
+            {/* Main Content Grid */}
+            <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-14 pb-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 items-start">
+
+                    {/* Column 1: Conference Branding & Organizers */}
+                    <div className="flex flex-col space-y-4">
+                        <div>
+                            <span className="text-2xl lg:text-3xl font-black text-[#F0CB6F] tracking-tight drop-shadow-md">
                                 {conferenceInfo.shortTitle}
-                            </h3>
-                            <div className="h-1 w-12 bg-[#D4A244] rounded-full mx-auto md:mx-0 opacity-80"></div>
+                            </span>
+                            <div className="h-[2px] w-14 bg-[#C59B27] mt-2 rounded-full" />
                         </div>
-                        <p className="!text-amber-100/90 text-sm leading-relaxed max-w-xs font-medium text-shadow-sm">
+                        <p className="text-xs lg:text-sm text-[#FAF5EB]/80 leading-relaxed font-medium">
                             {conferenceInfo.fullTitle}
                         </p>
-                        <div className="bg-white/5 rounded-xl p-4 border border-amber-500/20 w-full backdrop-blur-sm shadow-inner group hover:bg-white/10 transition-colors duration-300">
-                            <p className="!text-amber-300 text-xs font-bold uppercase tracking-wider mb-2">Organized By</p>
-                            <p className="!text-white font-semibold text-sm leading-snug">
+                        <div className="bg-[#2B080C]/80 rounded-xl p-4 border border-[#C59B27]/30 backdrop-blur-md shadow-lg space-y-1">
+                            <p className="text-[11px] font-bold uppercase tracking-wider text-[#F0CB6F]">
+                                Organized By
+                            </p>
+                            <p className="text-xs font-semibold text-[#FAF5EB] leading-snug">
                                 {conferenceInfo.organizedBy}
                             </p>
                         </div>
                     </div>
 
                     {/* Column 2: Quick Links */}
-                    <div className="flex flex-col items-center md:items-start space-y-4 w-full">
-                        <h4 className="text-lg font-bold tracking-wide uppercase !text-amber-300 drop-shadow-sm border-b-2 border-[#D4A244]/40 pb-1 mb-2">
-                            Quick Links
+                    <div className="flex flex-col space-y-4">
+                        <h4 className="text-sm font-extrabold uppercase tracking-widest text-[#F0CB6F] border-b border-[#C59B27]/30 pb-2">
+                            Quick Navigation
                         </h4>
-                        <ul className="space-y-2 text-sm text-center md:text-left">
+                        <ul className="space-y-2.5 text-xs font-medium">
                             {footerQuickLinks.map((link) => (
                                 <li key={link.id}>
-                                    <Link to={link.path} className="!text-amber-100/90 hover:!text-amber-300 transition-colors flex items-center gap-2 justify-center md:justify-start group">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-[#D4A244] opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                                        {link.label}
+                                    <Link
+                                        to={link.path}
+                                        className="text-[#FAF5EB]/80 hover:text-[#F0CB6F] transition-all flex items-center gap-2 group"
+                                    >
+                                        <span className="text-[#C59B27] opacity-60 group-hover:opacity-100 transition-opacity">◆</span>
+                                        <span className="group-hover:translate-x-1 transition-transform">{link.label}</span>
                                     </Link>
                                 </li>
                             ))}
+                            <li>
+                                <Link
+                                    to="/committee"
+                                    className="text-[#FAF5EB]/80 hover:text-[#F0CB6F] transition-all flex items-center gap-2 group"
+                                >
+                                    <span className="text-[#C59B27] opacity-60 group-hover:opacity-100 transition-opacity">◆</span>
+                                    <span className="group-hover:translate-x-1 transition-transform">Committees</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/call-for-papers/tracks"
+                                    className="text-[#FAF5EB]/80 hover:text-[#F0CB6F] transition-all flex items-center gap-2 group"
+                                >
+                                    <span className="text-[#C59B27] opacity-60 group-hover:opacity-100 transition-opacity">◆</span>
+                                    <span className="group-hover:translate-x-1 transition-transform">Conference Tracks</span>
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 
-                    {/* Column 3: Contact Info */}
-                    <div className="flex flex-col items-center md:items-start space-y-4">
-                        <h4 className="text-lg font-bold tracking-wide uppercase !text-amber-300 drop-shadow-sm border-b-2 border-[#D4A244]/40 pb-1 mb-2">
-                            Contact Info
+                    {/* Column 3: Contact & Venue */}
+                    <div className="flex flex-col space-y-4">
+                        <h4 className="text-sm font-extrabold uppercase tracking-widest text-[#F0CB6F] border-b border-[#C59B27]/30 pb-2">
+                            Contact & Venue
                         </h4>
-
-                        <div className="space-y-4 w-full">
+                        <div className="space-y-3.5 text-xs text-[#FAF5EB]/80">
                             {/* Venue */}
-                            <div className="flex flex-col items-center md:items-start gap-1">
-                                <div className="flex items-center gap-2 text-[#D4A244]">
-                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                                    <span className="text-xs font-bold uppercase tracking-wider">Venue</span>
+                            <div className="flex items-start gap-3">
+                                <span className="text-[#C59B27] text-sm mt-0.5">📍</span>
+                                <div>
+                                    <p className="font-bold text-[#FAF5EB] uppercase text-[10px] tracking-wider text-[#F0CB6F]/90">Venue Address</p>
+                                    <p className="leading-snug mt-0.5">{conferenceInfo.venue.address}</p>
                                 </div>
-                                <p className="!text-amber-100/90 text-sm leading-snug text-center md:text-left">
-                                    {conferenceInfo.venue.address}
-                                </p>
                             </div>
 
                             {/* Email */}
-                            <div className="flex flex-col items-center md:items-start gap-1">
-                                <div className="flex items-center gap-2 text-[#D4A244]">
-                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                                    <span className="text-xs font-bold uppercase tracking-wider">Email</span>
+                            <div className="flex items-start gap-3">
+                                <span className="text-[#C59B27] text-sm mt-0.5">✉️</span>
+                                <div>
+                                    <p className="font-bold uppercase text-[10px] tracking-wider text-[#F0CB6F]/90">Email Support</p>
+                                    <a
+                                        href={`mailto:${contactPerson.email}`}
+                                        className="text-[#FAF5EB] hover:text-[#F0CB6F] transition-colors underline decoration-[#C59B27]/40 underline-offset-2"
+                                    >
+                                        {contactPerson.email}
+                                    </a>
                                 </div>
-                                <p className="!text-amber-100/90 text-sm font-medium">
-                                    <a href={`mailto:${contactPerson.email}`} className="!text-amber-100 hover:!text-amber-300 transition-colors border-b border-amber-500/30 pb-0.5">{contactPerson.email}</a>
-                                </p>
                             </div>
 
                             {/* Phone */}
                             {contactPerson.phones[0] !== 'TBD' && (
-                                <div className="flex flex-col items-center md:items-start gap-1">
-                                    <div className="flex items-center gap-2 text-[#D4A244]">
-                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                                        <span className="text-xs font-bold uppercase tracking-wider">Phone</span>
+                                <div className="flex items-start gap-3">
+                                    <span className="text-[#C59B27] text-sm mt-0.5">📞</span>
+                                    <div>
+                                        <p className="font-bold uppercase text-[10px] tracking-wider text-[#F0CB6F]/90">Phone Numbers</p>
+                                        <p className="font-mono text-[#FAF5EB] mt-0.5">{contactPerson.phones.join(' | ')}</p>
                                     </div>
-                                    <p className="!text-amber-100/90 text-sm font-mono tracking-tight">
-                                        {contactPerson.phones.join(' | ')}
-                                    </p>
                                 </div>
                             )}
                         </div>
                     </div>
 
-                </div>
-
-                {/* Separator Line */}
-                <div className="mt-6 mb-3 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-
-                {/* Dates Row */}
-                <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-sm text-center md:text-left !text-white pb-2">
-                    <div className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#D4A244] animate-pulse"></span>
-                        <span className="font-medium tracking-wide">Dates: <span className="!text-white">{conferenceInfo.dates}</span></span>
+                    {/* Column 4: Key Portals & Links */}
+                    <div className="flex flex-col space-y-4">
+                        <h4 className="text-sm font-extrabold uppercase tracking-widest text-[#F0CB6F] border-b border-[#C59B27]/30 pb-2">
+                            IEEE Portals
+                        </h4>
+                        <div className="space-y-2.5">
+                            <a
+                                href={siteConfig.externalLinks.submissionPortal.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block w-full py-2.5 px-4 bg-[#2B080C] hover:bg-[#3C0C16] border border-[#C59B27]/50 rounded-lg text-center text-xs font-bold text-[#F0CB6F] transition-all transform hover:-translate-y-0.5 shadow-md"
+                            >
+                                Microsoft CMT Submission
+                            </a>
+                            <a
+                                href={siteConfig.externalLinks.paperTemplate.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block w-full py-2 px-4 bg-white/5 hover:bg-white/10 border border-[#C59B27]/30 rounded-lg text-center text-xs font-medium text-[#FAF5EB] transition-colors"
+                            >
+                                IEEE Manuscript Template
+                            </a>
+                            <Link
+                                to="/call-for-reviewers"
+                                className="block w-full py-2 px-4 bg-white/5 hover:bg-white/10 border border-[#C59B27]/30 rounded-lg text-center text-xs font-medium text-[#FAF5EB] transition-colors"
+                            >
+                                Call for Reviewers
+                            </Link>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            {/* Bottom bar */}
-            <div className="bg-[#19050A] border-t border-amber-500/20">
-                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-3">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-2 text-xs tracking-wide !text-amber-100/80 font-medium">
-                        <p className="hover:text-amber-200 transition-colors">
-                            © 2026 {conferenceInfo.shortTitle}. All Rights Reserved.
-                        </p>
+                </div>
+
+                {/* Bottom Separator Line */}
+                <div className="mt-12 mb-6 w-full h-[1px] bg-gradient-to-r from-transparent via-[#C59B27]/40 to-transparent" />
+
+                {/* Copyright & Host Bar */}
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-[#FAF5EB]/70 font-medium">
+                    <p>© 2027 {conferenceInfo.shortTitle}. All Rights Reserved.</p>
+                    <div className="flex items-center gap-2 text-[#F0CB6F]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#C59B27]" />
                         <a
-                            href="https://iiitm.ac.in"
+                            href={siteConfig.branding.instituteUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="!text-amber-100 hover:!text-amber-300 transition-colors flex items-center gap-2"
+                            className="hover:underline hover:text-[#FAF5EB] transition-colors font-semibold"
                         >
-                            <span className="w-px h-2.5 bg-amber-500/40 block"></span>
-                            {conferenceInfo.venue.shortName}
+                            {siteConfig.branding.instituteName}
                         </a>
                     </div>
                 </div>
