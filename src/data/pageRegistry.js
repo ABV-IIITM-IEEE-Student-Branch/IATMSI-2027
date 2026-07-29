@@ -16,7 +16,14 @@ export const pageRegistry = [
         path: '/',
         sections: [
             { sectionId: 'hero', props: { isHomePage: true } },
-            { sectionId: 'intro', props: {} },
+            { sectionId: 'aboutConfSection', props: {} },
+            { sectionId: 'programScheduleSection', props: {} },
+            { sectionId: 'callForPapersSection', props: {} },
+            { sectionId: 'themeTracksSection', props: {} },
+            { sectionId: 'awardsContestSection', props: {} },
+            { sectionId: 'teaserVideosSection', props: {} },
+            { sectionId: 'patronChairsSection', props: {} },
+            { sectionId: 'supportersSection', props: {} },
         ]
     },
 

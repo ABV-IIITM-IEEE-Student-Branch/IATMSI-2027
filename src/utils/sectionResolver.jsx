@@ -16,6 +16,16 @@ import IntroSection from '../components/sections/IntroSection';
 import AboutInstitute from '../components/sections/AboutInstitute';
 import PlaceholderSection from '../components/sections/PlaceholderSection';
 
+// Home Page Specific Sections
+import AboutConfSection from '../components/sections/AboutConfSection';
+import ProgramScheduleSection from '../components/sections/ProgramScheduleSection';
+import CallForPapersSection from '../components/sections/CallForPapersSection';
+import ThemeTracksSection from '../components/sections/ThemeTracksSection';
+import AwardsContestSection from '../components/sections/AwardsContestSection';
+import TeaserVideosSection from '../components/sections/TeaserVideosSection';
+import PatronChairsSection from '../components/sections/PatronChairsSection';
+import SupportersSection from '../components/sections/SupportersSection';
+
 // Temporary inline component for Divider
 function Divider() {
     return (
@@ -44,4 +54,14 @@ export const sectionResolver = {
     travelVisaSection: TravelVisaSection,
     venueDirectionsSection: VenueDirectionsSection,
     placeholder: PlaceholderSection,
+
+    // Home Page Sections
+    aboutConfSection: AboutConfSection,
+    programScheduleSection: ProgramScheduleSection,
+    callForPapersSection: CallForPapersSection,
+    themeTracksSection: ThemeTracksSection,
+    awardsContestSection: AwardsContestSection,
+    teaserVideosSection: TeaserVideosSection,
+    patronChairsSection: PatronChairsSection,
+    supportersSection: SupportersSection,
 };
