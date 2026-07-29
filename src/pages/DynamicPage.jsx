@@ -17,7 +17,7 @@ export default function DynamicPage({ pageId }) {
     return (
         <>
             {/* Unified Sticky Header for Non-Hero Pages */}
-            <div className={`z-50 w-full flex flex-col ${heroSection ? 'fixed md:sticky top-0 h-0 overflow-visible' : 'sticky top-0 bg-gray-100 shadow-sm'}`}>
+            <div className={`z-50 w-full flex flex-col ${heroSection ? 'fixed md:sticky top-0 h-0 overflow-visible' : 'sticky top-0 bg-[#FAF5EB] shadow-sm'}`}>
                 <Navbar />
                 
                 {!heroSection && (
