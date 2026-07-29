@@ -33,8 +33,8 @@ export default function TravelVisaSection() {
                             </p>
                             <div className="grid md:grid-cols-2 gap-6">
                                 {visaInfo.types.map((type, index) => (
-                                    <div key={index} className={index === 0 ? "bg-blue-50 rounded-xl p-6 border border-blue-100" : "bg-slate-50 rounded-xl p-6 border border-slate-200"}>
-                                        <h3 className={`text-base font-bold mb-2 ${index === 0 ? "text-blue-900" : "text-slate-900"}`}>{type.name}</h3>
+                                    <div key={index} className={index === 0 ? "bg-[#FAF8F5] rounded-xl p-6 border border-amber-500/30" : "bg-slate-50 rounded-xl p-6 border border-slate-200"}>
+                                        <h3 className={`text-base font-extrabold mb-2 ${index === 0 ? "text-[#5B1824]" : "text-slate-900"}`}>{type.name}</h3>
                                         <p className="text-slate-600 text-sm leading-relaxed">
                                             {type.description}
                                         </p>
@@ -42,7 +42,7 @@ export default function TravelVisaSection() {
                                             href={type.eligibility}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-blue-700 hover:text-blue-900 transition-colors"
+                                            className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-[#5B1824] hover:text-[#722332] transition-colors"
                                         >
                                             {index === 0 ? "Check Eligibility →" : "Embassy Portal →"}
                                         </a>
@@ -54,9 +54,9 @@ export default function TravelVisaSection() {
 
                     {/* Documents Required */}
                     <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-                        <div className="px-6 py-4 bg-primary-900">
-                            <h2 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-2">
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="px-6 py-4 bg-[#5B1824] border-b-2 border-[#D4A244]">
+                            <h2 className="text-2xl md:text-3xl font-extrabold text-white flex items-center gap-2">
+                                <svg className="w-6 h-6 text-[#D4A244]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                 </svg>
                                 2. Documents Required
@@ -65,12 +65,12 @@ export default function TravelVisaSection() {
                         <div className="p-6">
                             <ul className="space-y-4">
                                 {visaInfo.requiredDocuments.map((item, i) => (
-                                    <li key={i} className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-100">
-                                        <div className="w-8 h-8 bg-blue-600 text-white rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">
+                                    <li key={i} className="flex items-start gap-3 p-4 bg-[#FAF8F5] rounded-xl border border-amber-500/20">
+                                        <div className="w-8 h-8 bg-[#5B1824] text-amber-300 rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5 border border-[#D4A244]">
                                             {i + 1}
                                         </div>
                                         <div>
-                                            <p className="text-slate-600 text-sm leading-relaxed mt-1">
+                                            <p className="text-slate-700 text-sm leading-relaxed mt-1 font-medium">
                                                 <ReactMarkdown components={{ p: React.Fragment }}>{item}</ReactMarkdown>
                                             </p>
                                         </div>
@@ -81,19 +81,19 @@ export default function TravelVisaSection() {
                     </div>
 
                     {/* Request Visa Letter */}
-                    <div className="bg-gradient-to-r from-blue-50 to-white rounded-2xl shadow-sm border border-blue-100 p-8 text-center">
-                        <svg className="w-12 h-12 text-blue-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="bg-[#FAF8F5] rounded-2xl shadow-sm border border-amber-500/30 p-8 text-center">
+                        <svg className="w-12 h-12 text-[#5B1824] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
-                        <h3 className="text-xl font-bold font-bold text-slate-900 mb-2">Request Your Visa Invitation Letter</h3>
-                        <p className="text-slate-600 mb-6 max-w-lg mx-auto">
+                        <h3 className="text-xl font-extrabold text-[#5B1824] mb-2">Request Your Visa Invitation Letter</h3>
+                        <p className="text-slate-700 mb-6 max-w-lg mx-auto leading-relaxed">
                             {visaInfo.invitationLetterInfo}
                         </p>
                         <a
                             href="mailto:iatmsi2027@iiitm.ac.in?subject=Visa Invitation Letter Request - IATMSI-2027"
                             className="inline-flex items-center gap-2 px-6 py-3 bg-[#5B1824] hover:bg-[#722332] !text-white font-bold rounded-xl border-b-2 border-[#D4A244] transition-all shadow-md"
                         >
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-5 h-5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
                             iatmsi2027@iiitm.ac.in
@@ -102,9 +102,9 @@ export default function TravelVisaSection() {
 
                     {/* How to Apply */}
                     <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-                        <div className="px-6 py-4 bg-primary-900">
-                            <h2 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-2">
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="px-6 py-4 bg-[#5B1824] border-b-2 border-[#D4A244]">
+                            <h2 className="text-2xl md:text-3xl font-extrabold text-white flex items-center gap-2">
+                                <svg className="w-6 h-6 text-[#D4A244]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                                 </svg>
                                 3. How to Apply
@@ -113,11 +113,11 @@ export default function TravelVisaSection() {
                         <div className="p-6 space-y-8">
                             {/* e-Conference */}
                             <div>
-                                <h3 className="font-bold text-blue-900 text-xl font-bold mb-4">For e-Conference Visa (if eligible)</h3>
+                                <h3 className="font-extrabold text-[#5B1824] text-xl mb-4">For e-Conference Visa (if eligible)</h3>
                                 <ol className="space-y-3">
                                     {visaInfo.applicationSteps.map((step, i) => (
                                         <li key={i} className="flex items-start gap-3">
-                                            <span className="w-7 h-7 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">{i + 1}</span>
+                                            <span className="w-7 h-7 bg-amber-500/10 text-[#5B1824] border border-amber-500/30 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">{i + 1}</span>
                                             <span className="text-slate-700 text-base pt-0.5">{step}</span>
                                         </li>
                                     ))}
@@ -143,8 +143,8 @@ export default function TravelVisaSection() {
 
                     {/* Processing Times */}
                     <div className="grid md:grid-cols-2 gap-6">
-                        <div className="bg-blue-50 rounded-2xl p-6 border border-blue-100 text-center">
-                            <div className="text-base font-black text-blue-700 mb-1">{visaInfo.processingTime.split(',')[0].replace(' for e-Conference', '')}</div>
+                        <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-amber-500/30 text-center">
+                            <div className="text-base font-black text-[#5B1824] mb-1">{visaInfo.processingTime.split(',')[0].replace(' for e-Conference', '')}</div>
                             <p className="text-slate-600 text-sm font-medium">e-Conference Visa Processing</p>
                         </div>
                         <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center">

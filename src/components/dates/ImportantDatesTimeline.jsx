@@ -1,31 +1,31 @@
 import { importantDates } from '../../data/conferenceData';
 
 export default function ImportantDatesTimeline() {
-    // IEEE Blue toned cards palette
+    // Royal Crimson & Gold toned cards palette
     const colors = [
         {
-            bg: 'bg-blue-50',
-            border: 'border-blue-200',
-            text: 'text-blue-900',
-            hexBg: 'bg-blue-600'
+            bg: 'bg-amber-500/10',
+            border: 'border-amber-500/30',
+            text: 'text-[#5B1824]',
+            hexBg: 'bg-[#5B1824]'
         },
         {
-            bg: 'bg-sky-50',
-            border: 'border-sky-200',
-            text: 'text-sky-900',
-            hexBg: 'bg-sky-600'
+            bg: 'bg-rose-500/10',
+            border: 'border-rose-500/30',
+            text: 'text-[#5B1824]',
+            hexBg: 'bg-[#722332]'
         },
         {
-            bg: 'bg-indigo-50',
-            border: 'border-indigo-200',
-            text: 'text-indigo-900',
-            hexBg: 'bg-indigo-600'
+            bg: 'bg-amber-500/10',
+            border: 'border-amber-500/30',
+            text: 'text-[#5B1824]',
+            hexBg: 'bg-[#5B1824]'
         },
         {
-            bg: 'bg-cyan-50',
-            border: 'border-cyan-200',
-            text: 'text-cyan-900',
-            hexBg: 'bg-cyan-600'
+            bg: 'bg-rose-500/10',
+            border: 'border-rose-500/30',
+            text: 'text-[#5B1824]',
+            hexBg: 'bg-[#722332]'
         },
     ];
 

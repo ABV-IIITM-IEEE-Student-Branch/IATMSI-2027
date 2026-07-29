@@ -17,7 +17,7 @@ export default function SectionContainer({
         <section id={id} className={`py-8 md:py-12 ${background === 'dark' ? 'bg-[#5B1824] text-white' : ''} ${background === 'primary' ? 'bg-primary-50' : ''} ${className}`} style={style}>
             {background === 'white' || background === 'light' ? (
                 <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="bg-[#FAF8F5] rounded-[2.5rem] shadow-sm border border-amber-500/20 p-8 md:p-14">
+                    <div className="bg-[#FAF6EE] rounded-[2.5rem] shadow-sm border border-amber-500/20 p-8 md:p-14">
                         {children}
                     </div>
                 </div>

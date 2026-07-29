@@ -32,8 +32,8 @@ export default function PaperSubmissionSection() {
                         {submissionPortalInfo.description}
                     </div>
 
-                    <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg my-8">
-                        <h3 className="text-xl font-bold font-bold text-blue-900 mt-0 mb-4">Submission Portal</h3>
+                    <div className="bg-[#FAF8F5] border-l-4 border-[#5B1824] p-6 rounded-r-lg my-8 border border-amber-500/20">
+                        <h3 className="text-xl font-black text-[#5B1824] mt-0 mb-4">Submission Portal</h3>
                         <div className="flex items-center gap-4 flex-wrap">
                             <Button href={siteConfig.externalLinks.submissionPortal.url} variant="primary" external>
                                 Submit a Paper
@@ -51,7 +51,7 @@ export default function PaperSubmissionSection() {
                                 {templateInfo.description}
                             </p>
                             <div className="flex gap-3">
-                                <a href={siteConfig.externalLinks.paperTemplate.url} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-blue-600 hover:text-blue-800 underline decoration-2 underline-offset-4">
+                                <a href={siteConfig.externalLinks.paperTemplate.url} target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-[#5B1824] hover:text-[#722332] underline decoration-2 underline-offset-4">
                                     Template
                                 </a>
                             </div>

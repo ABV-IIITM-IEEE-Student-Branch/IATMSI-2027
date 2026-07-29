@@ -103,26 +103,26 @@ export default function Footer() {
                 {/* Dates Row */}
                 <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-sm text-center md:text-left !text-white pb-2">
                     <div className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#4da6ff] animate-pulse"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#D4A244] animate-pulse"></span>
                         <span className="font-medium tracking-wide">Dates: <span className="!text-white">{conferenceInfo.dates}</span></span>
                     </div>
                 </div>
             </div>
 
             {/* Bottom bar */}
-            <div className="bg-[#001a3a] border-t border-white/10">
-                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-2">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-2 text-xs tracking-wide !text-white font-medium">
-                        <p className="hover:text-white transition-colors">
+            <div className="bg-[#19050A] border-t border-amber-500/20">
+                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-3">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-2 text-xs tracking-wide !text-amber-100/80 font-medium">
+                        <p className="hover:text-amber-200 transition-colors">
                             © 2026 {conferenceInfo.shortTitle}. All Rights Reserved.
                         </p>
                         <a
                             href="https://iiitm.ac.in"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="!text-white hover:text-[#4da6ff] transition-colors flex items-center gap-2"
+                            className="!text-amber-100 hover:!text-amber-300 transition-colors flex items-center gap-2"
                         >
-                            <span className="w-px h-2.5 bg-white block"></span>
+                            <span className="w-px h-2.5 bg-amber-500/40 block"></span>
                             {conferenceInfo.venue.shortName}
                         </a>
                     </div>
