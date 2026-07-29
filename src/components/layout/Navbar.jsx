@@ -21,7 +21,7 @@ export default function Navbar() {
     return (
         <>
             <header className="relative z-50 w-full pt-4 px-4 sm:px-6 lg:px-8 bg-transparent pointer-events-none">
-                <div className="max-w-7xl mx-auto bg-[#FCF9F2]/90 backdrop-blur-xl border border-[#C59B27]/30 shadow-xl rounded-2xl w-full pointer-events-auto transition-all duration-300">
+                <div className="max-w-7xl mx-auto bg-[#FCF9F2]/65 backdrop-blur-xl border border-[#C59B27]/30 shadow-xl rounded-2xl w-full pointer-events-auto transition-all duration-300">
                     {/* Unified Row: IATMSI Logo, Partner Logos, Submit */}
                     <div className="relative flex items-center justify-between py-1.5 px-3 lg:px-4 lg:py-1.5 gap-x-2 lg:gap-x-4">
                         
