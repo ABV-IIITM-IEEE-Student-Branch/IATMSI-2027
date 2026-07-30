@@ -81,13 +81,13 @@ export const awardsContestData = {
     title: "Awards & Contests",
     subtitle: "Recognizing Research Excellence, Innovation & Talent",
     items: [
-        { id: 'hardnovate', title: "Hardnovate Contest", path: "/awards/hardnovate", badge: "Contest" },
-        { id: 'rising-researcher', title: "Rising Researcher Award", path: "/awards/rising-researcher", badge: "Award" },
-        { id: 'excellence', title: "Excellence in Research Award", path: "/awards/excellence", badge: "Award" },
-        { id: 'doctoral', title: "IEEE Doctoral Dissertation Award", path: "/awards/doctoral", badge: "Best Thesis" },
-        { id: 'simulation', title: "Simulation Excellence Award", path: "/awards/simulation", badge: "Award" },
-        { id: 'best-paper', title: "Best Paper Awards", path: "/awards/best-paper", badge: "Honors" },
-        { id: 'fellowships', title: "Fellowships (Travel / Registration Grants)", path: "/awards/fellowships", badge: "Grants" }
+        { id: 'hardnovate', title: "Hardnovate Contest", path: "/awards/hardnovate", badge: "Contest", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+        { id: 'rising-researcher', title: "Rising Researcher Award", path: "/awards/rising-researcher", badge: "Award", icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" },
+        { id: 'excellence', title: "Excellence in Research Award", path: "/awards/excellence", badge: "Award", icon: "M5 3v4a5 5 0 005 5h4a5 5 0 005-5V3H5zm0 0H3v3a3 3 0 003 3h1m12-6h2v3a3 3 0 01-3 3h-1m-5 5v5m-3 0h6" },
+        { id: 'doctoral', title: "IEEE Doctoral Dissertation Award", path: "/awards/doctoral", badge: "Best Thesis", icon: "M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" },
+        { id: 'simulation', title: "Simulation Excellence Award", path: "/awards/simulation", badge: "Award", icon: "M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+        { id: 'best-paper', title: "Best Paper Awards", path: "/awards/best-paper", badge: "Honors", icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+        { id: 'fellowships', title: "Fellowships (Travel / Registration Grants)", path: "/awards/fellowships", badge: "Grants", icon: "M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 001 1.732 2 2 0 000 3.536A2 2 0 003 17v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 00-1-1.732 2 2 0 000-3.536A2 2 0 0021 10V7a2 2 0 00-2-2H5z" }
     ]
 };
 
