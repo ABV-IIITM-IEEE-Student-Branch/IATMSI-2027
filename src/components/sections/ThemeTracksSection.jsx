@@ -27,7 +27,11 @@ export default function ThemeTracksSection() {
                     >
                         <div className="space-y-3">
                             <div className="flex items-center justify-between">
-                                <span className="text-3xl">{track.icon}</span>
+                                <div className="w-10 h-10 rounded-xl bg-[#722332]/10 border border-[#C59B27]/30 text-[#722332] flex items-center justify-center flex-shrink-0">
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={track.icon} />
+                                    </svg>
+                                </div>
                                 <span className="text-xs font-extrabold text-[#722332] bg-[#FAF5EB] px-3 py-1 rounded-full border border-[#C59B27]/30">
                                     Track {track.id}
                                 </span>
@@ -44,7 +48,9 @@ export default function ThemeTracksSection() {
 
                         <div className="pt-4 mt-4 border-t border-neutral-100 flex items-center justify-between text-xs font-bold text-[#722332]">
                             <span>Explore Details</span>
-                            <span className="group-hover:translate-x-1 transition-transform">→</span>
+                            <svg className="w-4 h-4 text-[#722332] transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
                         </div>
                     </div>
                 ))}

@@ -120,6 +120,15 @@ export default function Footer() {
 
                 </div>
 
+                {/* Acknowledgments / CMT Disclaimer */}
+                {siteConfig.acknowledgments && siteConfig.acknowledgments.length > 0 && (
+                    <div className="mt-8 pt-4 border-t border-[#C59B27]/20 text-center text-xs text-[#FAF5EB]/75 max-w-4xl mx-auto leading-relaxed italic">
+                        {siteConfig.acknowledgments.map((item, index) => (
+                            <p key={index}>{item}</p>
+                        ))}
+                    </div>
+                )}
+
                 {/* Bottom Separator Line */}
                 <div className="mt-6 mb-3 w-full h-[1px] bg-gradient-to-r from-transparent via-[#C59B27]/40 to-transparent" />
 
