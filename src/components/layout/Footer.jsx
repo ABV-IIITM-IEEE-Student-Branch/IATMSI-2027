@@ -122,7 +122,7 @@ export default function Footer() {
 
                 {/* Acknowledgments / CMT Disclaimer */}
                 {siteConfig.acknowledgments && siteConfig.acknowledgments.length > 0 && (
-                    <div className="mt-8 pt-4 border-t border-[#C59B27]/20 text-center text-xs text-[#FAF5EB]/75 max-w-4xl mx-auto leading-relaxed italic">
+                    <div className="mt-8 pt-4 border-t border-[#C59B27]/30 text-center text-xs !text-white max-w-4xl mx-auto leading-relaxed italic">
                         {siteConfig.acknowledgments.map((item, index) => (
                             <p key={index}>{item}</p>
                         ))}
@@ -133,13 +133,13 @@ export default function Footer() {
                 <div className="mt-6 mb-3 w-full h-[1px] bg-gradient-to-r from-transparent via-[#C59B27]/40 to-transparent" />
 
                 {/* Copyright Bar */}
-                <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs !text-[#FAF5EB]/70 font-medium">
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs !text-white font-medium">
                     <p>© 2027 {conferenceInfo.shortTitle}. All Rights Reserved.</p>
                     <a
                         href={siteConfig.branding.instituteUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="!text-[#FAF5EB]/80 hover:!text-[#F0CB6F] transition-colors font-semibold"
+                        className="!text-white hover:!text-[#F0CB6F] transition-colors font-semibold"
                     >
                         {siteConfig.branding.instituteName}
                     </a>
