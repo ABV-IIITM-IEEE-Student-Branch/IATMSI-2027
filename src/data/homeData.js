@@ -140,28 +140,5 @@ export const patronChairsData = {
 
 export const supportersData = {
     title: "Supporters & Sponsors",
-    categories: [
-        {
-            id: "platinum",
-            tier: "PLATINUM SPONSOR",
-            sponsors: [
-                { name: "IEEE Madhya Pradesh Section", logo: "/images/ieee-mp.png" },
-                { name: "IEEE Nepal Section", logo: "/images/ieee-nepal.png" }
-            ]
-        },
-        {
-            id: "silver",
-            tier: "SILVER SPONSOR",
-            sponsors: [
-                { name: "ABV-IIITM Gwalior", logo: "/images/iiitm-logo.png" }
-            ]
-        },
-        {
-            id: "event",
-            tier: "EVENT SPONSOR",
-            sponsors: [
-                { name: "IEEE Student Branch ABV-IIITM", logo: "/images/ieee-sb.png" }
-            ]
-        }
-    ]
+    categories: []
 };
