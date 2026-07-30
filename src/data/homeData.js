@@ -140,5 +140,21 @@ export const patronChairsData = {
 
 export const supportersData = {
     title: "Supporters & Sponsors",
-    categories: []
+    categories: [
+        {
+            id: "platinum",
+            tier: "PLATINUM SPONSOR",
+            sponsors: []
+        },
+        {
+            id: "silver",
+            tier: "SILVER SPONSOR",
+            sponsors: []
+        },
+        {
+            id: "event",
+            tier: "EVENT SPONSOR",
+            sponsors: []
+        }
+    ]
 };
