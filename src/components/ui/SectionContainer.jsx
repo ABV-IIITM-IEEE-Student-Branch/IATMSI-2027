@@ -62,7 +62,7 @@ export function SectionHeader({
 }) {
     return (
         <div className={`mb-10 md:mb-12 ${centered ? 'text-center' : ''} ${className}`}>
-            <h2 className="text-xl md:text-3xl lg:text-4xl font-extrabold text-[#4A121A] tracking-wider uppercase mb-3">
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-[#4A121A] tracking-wider uppercase mb-3">
                 {title}
             </h2>
             
