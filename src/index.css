@@ -50,7 +50,7 @@
 
   /* Typography */
   --font-sans: 'Inter', 'Roboto', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
 
   /* Soft Flat Shadows */
   --shadow-card: 0 2px 10px rgba(91, 24, 36, 0.04);
