@@ -15,6 +15,7 @@ export const sectionManifest = [
     { id: 'faqsSection', component: 'FaqsSection', requiresData: ['faqsData'] },
     { id: 'hardnovateSection', component: 'HardnovateSection', requiresData: ['hardnovateData'] },
     { id: 'risingResearcherSection', component: 'RisingResearcherSection', requiresData: ['risingResearcherData'] },
+    { id: 'excellenceResearchSection', component: 'ExcellenceResearchSection', requiresData: ['excellenceResearchData'] },
     { id: 'divider', component: 'Divider', requiresData: [] },
     { id: 'placeholder', component: 'PlaceholderSection', requiresData: [] },
 ];
@@ -245,8 +246,8 @@ export const pageRegistry = [
         title: 'EXCELLENCE IN RESEARCH AWARD',
         path: '/awards/excellence',
         sections: [
-            { sectionId: 'hero', props: { title: "Excellence in Research Award", subtitle: `` } },
-            { sectionId: 'placeholder', props: { title: 'Excellence in Research Award' } }
+            { sectionId: 'hero', props: { title: "Excellence in Research Award", subtitle: `Honoring mid-career & senior research leaders in Engineering, Science, and Management` } },
+            { sectionId: 'excellenceResearchSection', props: {} }
         ]
     },
     {
