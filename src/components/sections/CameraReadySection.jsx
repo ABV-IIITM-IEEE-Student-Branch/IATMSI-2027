@@ -1,20 +1,22 @@
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { cameraReadyData } from '../../data/cameraReadyData';
 
-function SampleImagePlaceholder({ title, description }) {
+function SampleImageCard({ title, imageUrl }) {
+    if (!imageUrl) return null;
+
     return (
-        <div className="my-6 p-6 rounded-2xl bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] border-2 border-dashed border-[#C59B27]/60 shadow-xs text-center flex flex-col items-center justify-center gap-2">
-            <div className="w-12 h-12 rounded-full bg-[#722332]/10 text-[#722332] flex items-center justify-center border border-[#C59B27]/40">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-            </div>
-            <span className="text-xs font-black uppercase tracking-widest text-[#722332] bg-white px-3.5 py-1 rounded-full border border-[#C59B27]/40 shadow-2xs">
+        <div className="my-6 p-4 rounded-2xl bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] border border-[#C59B27]/50 shadow-sm text-center flex flex-col items-center justify-center">
+            <span className="text-xs font-black uppercase tracking-widest text-[#722332] bg-white px-3.5 py-1 rounded-full border border-[#C59B27]/40 shadow-2xs mb-3">
                 {title}
             </span>
-            <p className="text-xs text-neutral-600 font-semibold max-w-md">
-                {description || "Sample screenshot placeholder for CMT / IEEE PDF eXpress portal interface."}
-            </p>
+            <div className="overflow-hidden rounded-xl border border-[#C59B27]/30 shadow-md bg-white p-2 w-full max-w-3xl">
+                <img
+                    src={imageUrl}
+                    alt={title}
+                    className="w-full h-auto object-contain rounded-lg max-h-[550px] mx-auto"
+                    loading="lazy"
+                />
+            </div>
         </div>
     );
 }
@@ -27,6 +29,7 @@ export default function CameraReadySection() {
         howToSubmitText,
         copyrightSection,
         pdfExpressSection,
+        sampleImages,
     } = cameraReadyData;
 
     return (
@@ -119,8 +122,8 @@ export default function CameraReadySection() {
                     <p>{howToSubmitText[5]}</p>
                 </div>
 
-                {/* Sample Image 1 Placeholder */}
-                <SampleImagePlaceholder title="Sample Image 1" description="Microsoft CMT Portal - Create camera-ready submission interface screenshot." />
+                {/* Sample Image 1 */}
+                <SampleImageCard title="Sample Image 1" imageUrl={sampleImages.sample1} />
             </div>
 
             {/* 3. Instructions for Authors to Create Final PDF for IATMSI-2027 Submission */}
@@ -159,8 +162,8 @@ export default function CameraReadySection() {
                     </div>
                 </div>
 
-                {/* Sample Image 2 Placeholder */}
-                <SampleImagePlaceholder title="Sample Image 2" description="Manuscript First Page Bottom - Copyright clearance code notice position screenshot." />
+                {/* Sample Image 2 */}
+                <SampleImageCard title="Sample Image 2" imageUrl={sampleImages.sample2} />
             </div>
 
             {/* 4. IEEE PDF eXpress Detailed Steps */}
@@ -183,8 +186,8 @@ export default function CameraReadySection() {
                         1. {pdfExpressSection.accountCreationSteps[0]}
                     </p>
 
-                    {/* Sample Image 3 Placeholder */}
-                    <SampleImagePlaceholder title="Sample Image 3" description="IEEE PDF eXpress Account Creation Signup Page screenshot." />
+                    {/* Sample Image 3 */}
+                    <SampleImageCard title="Sample Image 3" imageUrl={sampleImages.sample3} />
 
                     <div className="bg-white p-4 rounded-xl border border-[#C59B27]/30 space-y-2 text-xs md:text-sm text-neutral-800">
                         <p className="font-bold text-[#4A121A]">Enter the following:</p>
@@ -213,38 +216,49 @@ export default function CameraReadySection() {
                         {pdfExpressSection.nextStepTitle}
                     </h4>
 
-                    {/* Sequential Steps with Sample Image Placeholders */}
+                    {/* Sequential Steps with Real Sample Images */}
                     <div className="space-y-6">
+                        {/* Step 1 & 2 */}
                         <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-4 md:p-5 rounded-xl border border-[#C59B27]/40 space-y-3">
                             <p className="text-xs md:text-sm font-bold text-[#4A121A]">{pdfExpressSection.nextSteps[0]}</p>
                             <p className="text-xs md:text-sm font-bold text-[#4A121A]">{pdfExpressSection.nextSteps[1]}</p>
-                            <SampleImagePlaceholder title="Sample Image 4" description="Associate Account with Conference interface screenshot." />
+                            <SampleImageCard title="Sample Image 4" imageUrl={sampleImages.sample4} />
                             <p className="text-xs md:text-sm font-medium text-neutral-700">{pdfExpressSection.nextSteps[2]}</p>
                             <p className="text-xs md:text-sm font-medium text-neutral-700">{pdfExpressSection.nextSteps[3]}</p>
-                            <SampleImagePlaceholder title="Sample Image 5" description="PDF eXpress Dashboard interface screenshot." />
+                            <SampleImageCard title="Sample Image 5" imageUrl={sampleImages.sample5} />
                         </div>
 
+                        {/* Step 5 - 8 */}
                         <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-4 md:p-5 rounded-xl border border-[#C59B27]/40 space-y-3">
                             <p className="text-xs md:text-sm font-bold text-[#4A121A]">{pdfExpressSection.nextSteps[4]}</p>
-                            <SampleImagePlaceholder title="Sample Image 6" description="Create New Title button interface screenshot." />
+                            <SampleImageCard title="Sample Image 6" imageUrl={sampleImages.sample6} />
                             <p className="text-xs md:text-sm font-bold text-[#4A121A]">{pdfExpressSection.nextSteps[5]}</p>
-                            <SampleImagePlaceholder title="Sample Image 7" description="Enter Paper Title interface screenshot." />
+                            <SampleImageCard title="Sample Image 7" imageUrl={sampleImages.sample7} />
                             <p className="text-xs md:text-sm font-medium text-neutral-700">{pdfExpressSection.nextSteps[6]}</p>
-                            <SampleImagePlaceholder title="Sample Image 8" description="Upload File (Word/PDF) interface screenshot." />
+                            <SampleImageCard title="Sample Image 8" imageUrl={sampleImages.sample8} />
                             <p className="text-xs md:text-sm font-medium text-neutral-700">{pdfExpressSection.nextSteps[7]}</p>
-                            <SampleImagePlaceholder title="Sample Image 9" description="Continue confirmation interface screenshot." />
+                            <SampleImageCard title="Sample Image 9" imageUrl={sampleImages.sample9} />
                         </div>
 
-                        <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-4 md:p-5 rounded-xl border border-[#C59B27]/40 space-y-3">
+                        {/* Step 9 - 14 with Sample Image 10, 11, 12, 13 */}
+                        <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-4 md:p-5 rounded-xl border border-[#C59B27]/40 space-y-4">
                             <p className="text-xs md:text-sm font-bold text-[#4A121A]">{pdfExpressSection.nextSteps[8]}</p>
-                            <SampleImagePlaceholder title="Sample Image 10" description="Conversion in Progress / Conversion Success message screenshot." />
-                            <ul className="list-disc list-inside space-y-2 text-xs md:text-sm font-medium text-neutral-800 pt-2">
-                                <li>{pdfExpressSection.nextSteps[9]}</li>
-                                <li>{pdfExpressSection.nextSteps[10]}</li>
-                                <li>{pdfExpressSection.nextSteps[11]}</li>
-                                <li>{pdfExpressSection.nextSteps[12]}</li>
-                                <li className="font-bold text-[#722332]">{pdfExpressSection.nextSteps[13]}</li>
-                            </ul>
+                            <SampleImageCard title="Sample Image 10" imageUrl={sampleImages.sample10} />
+
+                            <p className="text-xs md:text-sm font-bold text-[#4A121A]">{pdfExpressSection.nextSteps[9]}</p>
+                            <SampleImageCard title="Sample Image 11" imageUrl={sampleImages.sample11} />
+
+                            <p className="text-xs md:text-sm font-bold text-[#4A121A]">{pdfExpressSection.nextSteps[10]}</p>
+                            <SampleImageCard title="Sample Image 12" imageUrl={sampleImages.sample12} />
+
+                            <p className="text-xs md:text-sm font-bold text-[#4A121A]">{pdfExpressSection.nextSteps[11]}</p>
+                            <SampleImageCard title="Sample Image 13" imageUrl={sampleImages.sample13} />
+
+                            <div className="bg-white p-4 rounded-xl border border-[#C59B27]/30 space-y-2 text-xs md:text-sm font-medium text-neutral-800">
+                                <p className="font-black text-[#722332] text-sm uppercase">{pdfExpressSection.nextSteps[12]}</p>
+                                <p className="text-neutral-700">{pdfExpressSection.nextSteps[13]}</p>
+                                <p className="font-bold text-[#4A121A]">{pdfExpressSection.nextSteps[14]}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
