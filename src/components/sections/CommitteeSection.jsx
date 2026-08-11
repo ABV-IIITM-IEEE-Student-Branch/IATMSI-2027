@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import {
     conferencePatrons,
@@ -56,6 +56,14 @@ function MemberTextCard({ member }) {
 
 export default function CommitteeSection() {
     const [selectedTab, setSelectedTab] = useState('all');
+    const scrollContainerRef = useRef(null);
+
+    const scrollTabs = (direction) => {
+        if (scrollContainerRef.current) {
+            const amount = direction === 'left' ? -280 : 280;
+            scrollContainerRef.current.scrollBy({ left: amount, behavior: 'smooth' });
+        }
+    };
 
     const filteredGroups = selectedTab === 'all'
         ? committeeGroups
@@ -69,31 +77,59 @@ export default function CommitteeSection() {
                 centered={true}
             />
 
-            {/* Committee Category Quick Nav Bar */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar scroll-smooth">
+            {/* Committee Category Quick Nav Bar with Custom Scrollbar & Controls */}
+            <div className="relative mb-8 group">
+                {/* Left Scroll Arrow */}
                 <button
-                    onClick={() => setSelectedTab('all')}
-                    className={`px-4 py-2 rounded-xl font-black text-xs uppercase tracking-wider whitespace-nowrap transition-all border ${
-                        selectedTab === 'all'
-                            ? 'bg-[#722332] text-[#FAF5EB] border-[#C59B27] shadow-md'
-                            : 'bg-white text-[#4A121A] border-[#C59B27]/40 hover:bg-[#FAF5EB]'
-                    }`}
+                    onClick={() => scrollTabs('left')}
+                    aria-label="Scroll Tabs Left"
+                    className="hidden sm:flex absolute -left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-[#722332] text-[#FAF5EB] items-center justify-center shadow-md border border-[#C59B27] hover:bg-[#5B1824] transition-all transform hover:scale-105"
                 >
-                    All Committees ({committeeGroups.reduce((acc, g) => acc + g.data.length, 0)})
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+                    </svg>
                 </button>
-                {committeeGroups.map((group) => (
+
+                {/* Horizontal Scroll Container */}
+                <div
+                    ref={scrollContainerRef}
+                    className="flex items-center gap-2 overflow-x-auto pb-3 custom-scrollbar scroll-smooth px-1"
+                >
                     <button
-                        key={group.id}
-                        onClick={() => setSelectedTab(group.id)}
+                        onClick={() => setSelectedTab('all')}
                         className={`px-4 py-2 rounded-xl font-black text-xs uppercase tracking-wider whitespace-nowrap transition-all border ${
-                            selectedTab === group.id
+                            selectedTab === 'all'
                                 ? 'bg-[#722332] text-[#FAF5EB] border-[#C59B27] shadow-md'
                                 : 'bg-white text-[#4A121A] border-[#C59B27]/40 hover:bg-[#FAF5EB]'
                         }`}
                     >
-                        {group.title} ({group.data.length})
+                        All Committees ({committeeGroups.reduce((acc, g) => acc + g.data.length, 0)})
                     </button>
-                ))}
+                    {committeeGroups.map((group) => (
+                        <button
+                            key={group.id}
+                            onClick={() => setSelectedTab(group.id)}
+                            className={`px-4 py-2 rounded-xl font-black text-xs uppercase tracking-wider whitespace-nowrap transition-all border ${
+                                selectedTab === group.id
+                                    ? 'bg-[#722332] text-[#FAF5EB] border-[#C59B27] shadow-md'
+                                    : 'bg-white text-[#4A121A] border-[#C59B27]/40 hover:bg-[#FAF5EB]'
+                            }`}
+                        >
+                            {group.title} ({group.data.length})
+                        </button>
+                    ))}
+                </div>
+
+                {/* Right Scroll Arrow */}
+                <button
+                    onClick={() => scrollTabs('right')}
+                    aria-label="Scroll Tabs Right"
+                    className="hidden sm:flex absolute -right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-[#722332] text-[#FAF5EB] items-center justify-center shadow-md border border-[#C59B27] hover:bg-[#5B1824] transition-all transform hover:scale-105"
+                >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
             </div>
 
             {/* Committee Groups List */}

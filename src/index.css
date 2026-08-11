@@ -237,3 +237,52 @@ tbody tr:hover {
     }
   }
 }
+
+/* Custom Regal Gold & Crimson Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF5EB;
+  border-radius: 9999px;
+  border: 1px solid rgba(197, 155, 39, 0.25);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #722332 0%, #C59B27 100%);
+  border-radius: 9999px;
+  border: 1.5px solid #FAF5EB;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #722332;
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #C59B27 #FAF5EB;
+}
+
+/* Custom Horizontal Scrollbar Utility */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #FAF5EB;
+  border-radius: 9999px;
+  border: 1px solid rgba(197, 155, 39, 0.3);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #C59B27;
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #722332;
+}
