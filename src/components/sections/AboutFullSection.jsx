@@ -39,13 +39,16 @@ export default function AboutFullSection() {
 
     return (
         <div className="space-y-12">
-            {/* 1. Quick Stats Header Grid */}
-            <SectionContainer id="about-stats" className="!py-0">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {/* 1. Detailed IATMSI-2027 Conference Section */}
+            <SectionContainer id="about-iatmsi">
+                <SectionHeader title={iatmsi.title} centered={true} />
+
+                {/* Integrated 4 Stat Metric Cards */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-10">
                     {stats.map((stat, idx) => (
                         <div
                             key={idx}
-                            className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-5 md:p-6 rounded-2xl border-2 border-[#C59B27]/40 shadow-sm text-center transform hover:-translate-y-1 transition-all"
+                            className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-4 md:p-6 rounded-2xl border-2 border-[#C59B27]/40 shadow-sm text-center transform hover:-translate-y-1 transition-all"
                         >
                             <span className="text-2xl md:text-4xl font-black text-[#722332] font-mono block">
                                 {stat.value}
@@ -59,11 +62,6 @@ export default function AboutFullSection() {
                         </div>
                     ))}
                 </div>
-            </SectionContainer>
-
-            {/* 2. Detailed IATMSI-2027 Conference Section */}
-            <SectionContainer id="about-iatmsi">
-                <SectionHeader title={iatmsi.title} centered={false} />
 
                 <div className="space-y-6 text-neutral-800 text-sm md:text-base leading-relaxed">
                     {/* Paragraph 1 */}
