@@ -138,13 +138,19 @@ body {
 
 /* Link Styles */
 a {
-  color: #004c99;
+  color: inherit;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-a:hover {
-  color: #006eb8;
+p a, li a {
+  color: #722332;
+  font-weight: 600;
+}
+
+p a:hover, li a:hover {
+  color: #5B1824;
+  text-decoration: underline;
 }
 
 /* Utility Classes */
