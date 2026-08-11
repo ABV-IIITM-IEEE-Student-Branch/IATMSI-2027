@@ -77,13 +77,13 @@ export default function CommitteeSection() {
                 centered={true}
             />
 
-            {/* Committee Category Quick Nav Bar with Custom Scrollbar & Controls */}
-            <div className="relative mb-8 group">
+            {/* Committee Category Quick Nav Bar with Flex Scroll Controls */}
+            <div className="flex items-center gap-2 mb-8">
                 {/* Left Scroll Arrow */}
                 <button
                     onClick={() => scrollTabs('left')}
                     aria-label="Scroll Tabs Left"
-                    className="hidden sm:flex absolute -left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-[#722332] text-[#FAF5EB] items-center justify-center shadow-md border border-[#C59B27] hover:bg-[#5B1824] transition-all transform hover:scale-105"
+                    className="hidden sm:flex z-10 w-8 h-8 rounded-full bg-[#722332] text-[#FAF5EB] items-center justify-center shadow-md border border-[#C59B27] hover:bg-[#5B1824] transition-all transform hover:scale-105 flex-shrink-0"
                 >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
@@ -93,7 +93,7 @@ export default function CommitteeSection() {
                 {/* Horizontal Scroll Container */}
                 <div
                     ref={scrollContainerRef}
-                    className="flex items-center gap-2 overflow-x-auto pb-3 custom-scrollbar scroll-smooth px-1"
+                    className="flex-1 flex items-center gap-2 overflow-x-auto pb-3 custom-scrollbar scroll-smooth px-1"
                 >
                     <button
                         onClick={() => setSelectedTab('all')}
@@ -124,7 +124,7 @@ export default function CommitteeSection() {
                 <button
                     onClick={() => scrollTabs('right')}
                     aria-label="Scroll Tabs Right"
-                    className="hidden sm:flex absolute -right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-[#722332] text-[#FAF5EB] items-center justify-center shadow-md border border-[#C59B27] hover:bg-[#5B1824] transition-all transform hover:scale-105"
+                    className="hidden sm:flex z-10 w-8 h-8 rounded-full bg-[#722332] text-[#FAF5EB] items-center justify-center shadow-md border border-[#C59B27] hover:bg-[#5B1824] transition-all transform hover:scale-105 flex-shrink-0"
                 >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
