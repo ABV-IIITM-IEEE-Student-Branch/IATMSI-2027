@@ -6,6 +6,7 @@ export const sectionManifest = [
     { id: 'aboutInstitute', component: 'AboutInstitute', requiresData: ['conferenceData'] },
     { id: 'aboutFullSection', component: 'AboutFullSection', requiresData: ['conferenceData'] },
     { id: 'historySection', component: 'HistorySection', requiresData: ['historyData'] },
+    { id: 'trackChairsSection', component: 'TrackChairsSection', requiresData: ['trackChairsData'] },
     { id: 'divider', component: 'Divider', requiresData: [] },
     { id: 'placeholder', component: 'PlaceholderSection', requiresData: [] },
 ];
@@ -62,8 +63,8 @@ export const pageRegistry = [
         title: 'TRACK CHAIRS',
         path: '/about/track-chairs',
         sections: [
-            { sectionId: 'hero', props: { title: "TRACK CHAIRS", subtitle: `` } },
-            { sectionId: 'placeholder', props: { title: 'Track Chairs' } }
+            { sectionId: 'hero', props: { title: "Thematic Track Chairs", subtitle: `Distinguished academic and industry leaders managing the 6 thematic technical tracks of IATMSI-2027.` } },
+            { sectionId: 'trackChairsSection', props: {} }
         ]
     },
 
