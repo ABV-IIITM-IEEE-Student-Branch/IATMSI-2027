@@ -18,6 +18,7 @@ export const sectionManifest = [
     { id: 'excellenceResearchSection', component: 'ExcellenceResearchSection', requiresData: ['excellenceResearchData'] },
     { id: 'doctoralAwardSection', component: 'DoctoralAwardSection', requiresData: ['doctoralAwardData'] },
     { id: 'simulationAwardSection', component: 'SimulationAwardSection', requiresData: ['simulationAwardData'] },
+    { id: 'bestPaperAwardSection', component: 'BestPaperAwardSection', requiresData: ['bestPaperAwardData'] },
     { id: 'divider', component: 'Divider', requiresData: [] },
     { id: 'placeholder', component: 'PlaceholderSection', requiresData: [] },
 ];
@@ -284,8 +285,8 @@ export const pageRegistry = [
         title: 'BEST PAPER AWARDS',
         path: '/awards/best-paper',
         sections: [
-            { sectionId: 'hero', props: { title: "Best Paper Awards", subtitle: `` } },
-            { sectionId: 'placeholder', props: { title: 'Best Paper Awards' } }
+            { sectionId: 'hero', props: { title: "Best Paper Awards", subtitle: `Recognizing outstanding technical contributions and presentation excellence` } },
+            { sectionId: 'bestPaperAwardSection', props: {} }
         ]
     },
     {

@@ -14,6 +14,7 @@ import RisingResearcherSection from '../components/sections/RisingResearcherSect
 import ExcellenceResearchSection from '../components/sections/ExcellenceResearchSection';
 import DoctoralAwardSection from '../components/sections/DoctoralAwardSection';
 import SimulationAwardSection from '../components/sections/SimulationAwardSection';
+import BestPaperAwardSection from '../components/sections/BestPaperAwardSection';
 import TracksGridSection from '../components/sections/TracksGridSection';
 import SubmissionCtaSection from '../components/sections/SubmissionCtaSection';
 import CallForReviewersSection from '../components/sections/CallForReviewersSection';
@@ -70,6 +71,7 @@ export const sectionResolver = {
     excellenceResearchSection: ExcellenceResearchSection,
     doctoralAwardSection: DoctoralAwardSection,
     simulationAwardSection: SimulationAwardSection,
+    bestPaperAwardSection: BestPaperAwardSection,
     callForReviewersSection: CallForReviewersSection,
     committeeSection: CommitteeSection,
     contactSection: ContactSection,
