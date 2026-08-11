@@ -19,6 +19,7 @@ export const sectionManifest = [
     { id: 'doctoralAwardSection', component: 'DoctoralAwardSection', requiresData: ['doctoralAwardData'] },
     { id: 'simulationAwardSection', component: 'SimulationAwardSection', requiresData: ['simulationAwardData'] },
     { id: 'bestPaperAwardSection', component: 'BestPaperAwardSection', requiresData: ['bestPaperAwardData'] },
+    { id: 'fellowshipsSection', component: 'FellowshipsSection', requiresData: ['fellowshipsData'] },
     { id: 'divider', component: 'Divider', requiresData: [] },
     { id: 'placeholder', component: 'PlaceholderSection', requiresData: [] },
 ];
@@ -294,8 +295,8 @@ export const pageRegistry = [
         title: 'FELLOWSHIPS (TRAVEL/REGISTRATION GRANTS)',
         path: '/awards/fellowships',
         sections: [
-            { sectionId: 'hero', props: { title: "Fellowships & Grants", subtitle: `` } },
-            { sectionId: 'placeholder', props: { title: 'Fellowships and Grants' } }
+            { sectionId: 'hero', props: { title: "IEEE IATMSI 2027 Fellowship Program", subtitle: `Registration waivers, accommodation, and travel grants for students and faculty` } },
+            { sectionId: 'fellowshipsSection', props: {} }
         ]
     },
 
