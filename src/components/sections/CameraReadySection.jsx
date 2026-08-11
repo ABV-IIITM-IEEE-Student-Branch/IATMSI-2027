@@ -43,11 +43,11 @@ export default function CameraReadySection() {
                 <div className="overflow-x-auto rounded-xl border border-[#C59B27]/40">
                     <table className="w-full text-left border-collapse">
                         <thead>
-                            <tr className="bg-[#722332] text-[#FAF5EB]">
-                                <th className="p-4 text-xs md:text-sm font-black uppercase tracking-wider border-r border-[#C59B27]/30">
+                            <tr className="bg-gradient-to-r from-[#FAF5EB] via-[#F5EBDC] to-[#FAF5EB] text-[#722332] border-b-2 border-[#C59B27]">
+                                <th className="p-4 text-xs md:text-sm font-black uppercase tracking-wider border-r border-[#C59B27]/30 text-[#722332] bg-[#FAF5EB]">
                                     Activity / Event
                                 </th>
-                                <th className="p-4 text-xs md:text-sm font-black uppercase tracking-wider">
+                                <th className="p-4 text-xs md:text-sm font-black uppercase tracking-wider text-[#722332] bg-[#FAF5EB]">
                                     Date
                                 </th>
                             </tr>

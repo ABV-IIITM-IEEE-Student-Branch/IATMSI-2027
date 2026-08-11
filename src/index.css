@@ -186,9 +186,10 @@ td {
 }
 
 th {
-  background-color: #722332;
-  color: #FAF5EB;
-  font-weight: 700;
+  background-color: #FAF5EB;
+  color: #722332;
+  font-weight: 800;
+  border-bottom: 2px solid rgba(197, 155, 39, 0.6);
 }
 
 tbody tr:hover {
