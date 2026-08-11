@@ -12,6 +12,7 @@ export const sectionManifest = [
     { id: 'oralGuidelinesSection', component: 'OralGuidelinesSection', requiresData: ['oralGuidelinesData'] },
     { id: 'posterGuidelinesSection', component: 'PosterGuidelinesSection', requiresData: ['posterGuidelinesData'] },
     { id: 'venueTravelKathmanduSection', component: 'VenueTravelKathmanduSection', requiresData: ['venueTravelData'] },
+    { id: 'faqsSection', component: 'FaqsSection', requiresData: ['faqsData'] },
     { id: 'divider', component: 'Divider', requiresData: [] },
     { id: 'placeholder', component: 'PlaceholderSection', requiresData: [] },
 ];
@@ -170,7 +171,7 @@ export const pageRegistry = [
         path: '/sponsorship',
         sections: [
             { sectionId: 'hero', props: { title: "Sponsorship & Exhibits", subtitle: `` } },
-            { sectionId: 'placeholder', props: { title: 'Sponsorship and Exhibits' } }
+            { sectionId: 'placeholder', props: { title: 'Sponsorship & Exhibits' } }
         ]
     },
 
@@ -202,7 +203,7 @@ export const pageRegistry = [
         title: 'CALL FOR REVIEWERS',
         path: '/call-for-reviewers',
         sections: [
-            { sectionId: 'hero', props: { title: "Call for Reviewers", subtitle: `` } },
+            { sectionId: 'hero', props: { title: "Call for Reviewers", subtitle: `Join the technical review committee for IATMSI-2027.` } },
             { sectionId: 'callForReviewersSection', props: {} }
         ]
     },
@@ -214,11 +215,11 @@ export const pageRegistry = [
         path: '/workshops',
         sections: [
             { sectionId: 'hero', props: { title: "Workshops & Tutorials", subtitle: `` } },
-            { sectionId: 'placeholder', props: { title: 'Workshops and Tutorials' } }
+            { sectionId: 'placeholder', props: { title: 'Workshops & Tutorials' } }
         ]
     },
 
-    // --- AWARDS/GRANTS ---
+    // --- AWARDS ---
     {
         id: 'hardnovate',
         title: 'HARDNOVATE CONTEST',
@@ -247,9 +248,9 @@ export const pageRegistry = [
         ]
     },
     {
-        id: 'doctoral-dissertation',
+        id: 'dissertation-award',
         title: 'IEEE DOCTORAL DISSERTATION AWARD',
-        path: '/awards/doctoral',
+        path: '/awards/dissertation',
         sections: [
             { sectionId: 'hero', props: { title: "IEEE Doctoral Dissertation Award", subtitle: `` } },
             { sectionId: 'placeholder', props: { title: 'IEEE Doctoral Dissertation Award' } }
@@ -309,8 +310,17 @@ export const pageRegistry = [
         title: 'FAQS',
         path: '/help/faqs',
         sections: [
-            { sectionId: 'hero', props: { title: "Frequently Asked Questions", subtitle: `` } },
-            { sectionId: 'placeholder', props: { title: 'FAQs' } }
+            { sectionId: 'hero', props: { title: "Frequently Asked Questions", subtitle: `Find quick answers to common questions regarding paper submission, registration, certificates, and policies.` } },
+            { sectionId: 'faqsSection', props: {} }
+        ]
+    },
+    {
+        id: 'faqs-direct',
+        title: 'FAQS',
+        path: '/faqs',
+        sections: [
+            { sectionId: 'hero', props: { title: "Frequently Asked Questions", subtitle: `Find quick answers to common questions regarding paper submission, registration, certificates, and policies.` } },
+            { sectionId: 'faqsSection', props: {} }
         ]
     },
 

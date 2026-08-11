@@ -8,6 +8,7 @@ import CopyrightSection from '../components/sections/CopyrightSection';
 import OralGuidelinesSection from '../components/sections/OralGuidelinesSection';
 import PosterGuidelinesSection from '../components/sections/PosterGuidelinesSection';
 import VenueTravelKathmanduSection from '../components/sections/VenueTravelKathmanduSection';
+import FaqsSection from '../components/sections/FaqsSection';
 import TracksGridSection from '../components/sections/TracksGridSection';
 import SubmissionCtaSection from '../components/sections/SubmissionCtaSection';
 import CallForReviewersSection from '../components/sections/CallForReviewersSection';
@@ -58,6 +59,7 @@ export const sectionResolver = {
     oralGuidelinesSection: OralGuidelinesSection,
     posterGuidelinesSection: PosterGuidelinesSection,
     venueTravelKathmanduSection: VenueTravelKathmanduSection,
+    faqsSection: FaqsSection,
     callForReviewersSection: CallForReviewersSection,
     committeeSection: CommitteeSection,
     contactSection: ContactSection,
