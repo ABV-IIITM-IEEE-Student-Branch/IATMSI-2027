@@ -9,6 +9,7 @@ export const sectionManifest = [
     { id: 'trackChairsSection', component: 'TrackChairsSection', requiresData: ['trackChairsData'] },
     { id: 'cameraReadySection', component: 'CameraReadySection', requiresData: ['cameraReadyData'] },
     { id: 'copyrightSection', component: 'CopyrightSection', requiresData: ['copyrightData'] },
+    { id: 'oralGuidelinesSection', component: 'OralGuidelinesSection', requiresData: ['oralGuidelinesData'] },
     { id: 'divider', component: 'Divider', requiresData: [] },
     { id: 'placeholder', component: 'PlaceholderSection', requiresData: [] },
 ];
@@ -94,8 +95,8 @@ export const pageRegistry = [
         title: 'ORAL PRESENTER\'S GUIDELINES',
         path: '/authors/oral-guidelines',
         sections: [
-            { sectionId: 'hero', props: { title: "Oral Presenter's Guidelines", subtitle: `` } },
-            { sectionId: 'placeholder', props: { title: "Oral Presenter's Guidelines" } }
+            { sectionId: 'hero', props: { title: "Oral Presenter's Guidelines", subtitle: `Official presentation template, time allotment, slide recommendations, and presentation mode requirements.` } },
+            { sectionId: 'oralGuidelinesSection', props: {} }
         ]
     },
     {
