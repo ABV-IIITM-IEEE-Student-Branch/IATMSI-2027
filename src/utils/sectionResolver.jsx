@@ -3,6 +3,7 @@ import AboutObjectivesSection from '../components/sections/AboutObjectivesSectio
 import AboutFullSection from '../components/sections/AboutFullSection';
 import HistorySection from '../components/sections/HistorySection';
 import TrackChairsSection from '../components/sections/TrackChairsSection';
+import CameraReadySection from '../components/sections/CameraReadySection';
 import TracksGridSection from '../components/sections/TracksGridSection';
 import SubmissionCtaSection from '../components/sections/SubmissionCtaSection';
 import CallForReviewersSection from '../components/sections/CallForReviewersSection';
@@ -48,6 +49,7 @@ export const sectionResolver = {
     aboutFullSection: AboutFullSection,
     historySection: HistorySection,
     trackChairsSection: TrackChairsSection,
+    cameraReadySection: CameraReadySection,
     callForReviewersSection: CallForReviewersSection,
     committeeSection: CommitteeSection,
     contactSection: ContactSection,

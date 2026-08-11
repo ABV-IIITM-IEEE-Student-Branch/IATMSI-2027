@@ -7,6 +7,7 @@ export const sectionManifest = [
     { id: 'aboutFullSection', component: 'AboutFullSection', requiresData: ['conferenceData'] },
     { id: 'historySection', component: 'HistorySection', requiresData: ['historyData'] },
     { id: 'trackChairsSection', component: 'TrackChairsSection', requiresData: ['trackChairsData'] },
+    { id: 'cameraReadySection', component: 'CameraReadySection', requiresData: ['cameraReadyData'] },
     { id: 'divider', component: 'Divider', requiresData: [] },
     { id: 'placeholder', component: 'PlaceholderSection', requiresData: [] },
 ];
@@ -74,8 +75,8 @@ export const pageRegistry = [
         title: 'INSTRUCTIONS FOR CAMERA READY PAPER SUBMISSION',
         path: '/authors/camera-ready',
         sections: [
-            { sectionId: 'hero', props: { title: "Camera Ready Submission", subtitle: `` } },
-            { sectionId: 'placeholder', props: { title: 'Camera Ready Submission' } }
+            { sectionId: 'hero', props: { title: "Camera-Ready Submission Guidelines", subtitle: `Step-by-step instructions for IEEE PDF eXpress verification, copyright clearance, and CMT final upload.` } },
+            { sectionId: 'cameraReadySection', props: {} }
         ]
     },
     {
