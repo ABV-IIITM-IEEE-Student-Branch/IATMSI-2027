@@ -94,10 +94,10 @@ export default function AboutConfSection() {
             {/* Live Countdown Timer Section */}
             <div className="mt-12 pt-8 border-t border-[#C59B27]/30">
                 <div className="text-center mb-8">
-                    <span className="text-xs font-extrabold text-[#722332] uppercase tracking-widest bg-[#C59B27]/15 px-4 py-1.5 rounded-full border border-[#C59B27]/40">
+                    <span className="text-xs font-extrabold text-[#722332] uppercase tracking-widest bg-[#722332]/10 px-4 py-1.5 rounded-full border border-[#C59B27]/30 shadow-xs">
                         Countdown to Conference
                     </span>
-                    <h3 className="text-xl md:text-2xl font-black text-[#4A121A] mt-3 uppercase tracking-wide">
+                    <h3 className="text-xl md:text-2xl font-black text-[#4A121A] mt-3 uppercase tracking-wide font-heading">
                         May 20–22, 2027 • Kathmandu, Nepal
                     </h3>
                 </div>
@@ -105,41 +105,41 @@ export default function AboutConfSection() {
                 {/* Timer Display Cards */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-3xl mx-auto">
                     {/* Days */}
-                    <div className="flex flex-col items-center bg-[#4A121A] text-[#FAF5EB] p-5 md:p-6 rounded-2xl shadow-xl border-2 border-[#C59B27] transform hover:-translate-y-1 transition-all">
-                        <span className="text-3xl md:text-5xl font-black text-[#F0CB6F] font-mono tracking-tight">
+                    <div className="flex flex-col items-center bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-5 md:p-6 rounded-2xl shadow-md hover:shadow-xl border-2 border-[#C59B27]/40 transform hover:-translate-y-1 transition-all">
+                        <span className="text-3xl md:text-5xl font-black text-[#722332] font-mono tracking-tight">
                             {timeLeft.days}
                         </span>
-                        <span className="text-xs font-extrabold tracking-widest uppercase text-[#FAF5EB]/80 mt-2">
+                        <span className="text-xs font-extrabold tracking-widest uppercase text-[#4A121A] mt-2">
                             Days
                         </span>
                     </div>
 
                     {/* Hours */}
-                    <div className="flex flex-col items-center bg-[#4A121A] text-[#FAF5EB] p-5 md:p-6 rounded-2xl shadow-xl border-2 border-[#C59B27] transform hover:-translate-y-1 transition-all">
-                        <span className="text-3xl md:text-5xl font-black text-[#F0CB6F] font-mono tracking-tight">
+                    <div className="flex flex-col items-center bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-5 md:p-6 rounded-2xl shadow-md hover:shadow-xl border-2 border-[#C59B27]/40 transform hover:-translate-y-1 transition-all">
+                        <span className="text-3xl md:text-5xl font-black text-[#722332] font-mono tracking-tight">
                             {timeLeft.hours.toString().padStart(2, '0')}
                         </span>
-                        <span className="text-xs font-extrabold tracking-widest uppercase text-[#FAF5EB]/80 mt-2">
+                        <span className="text-xs font-extrabold tracking-widest uppercase text-[#4A121A] mt-2">
                             Hours
                         </span>
                     </div>
 
                     {/* Minutes */}
-                    <div className="flex flex-col items-center bg-[#4A121A] text-[#FAF5EB] p-5 md:p-6 rounded-2xl shadow-xl border-2 border-[#C59B27] transform hover:-translate-y-1 transition-all">
-                        <span className="text-3xl md:text-5xl font-black text-[#F0CB6F] font-mono tracking-tight">
+                    <div className="flex flex-col items-center bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-5 md:p-6 rounded-2xl shadow-md hover:shadow-xl border-2 border-[#C59B27]/40 transform hover:-translate-y-1 transition-all">
+                        <span className="text-3xl md:text-5xl font-black text-[#722332] font-mono tracking-tight">
                             {timeLeft.minutes.toString().padStart(2, '0')}
                         </span>
-                        <span className="text-xs font-extrabold tracking-widest uppercase text-[#FAF5EB]/80 mt-2">
+                        <span className="text-xs font-extrabold tracking-widest uppercase text-[#4A121A] mt-2">
                             Minutes
                         </span>
                     </div>
 
                     {/* Seconds */}
-                    <div className="flex flex-col items-center bg-[#4A121A] text-[#FAF5EB] p-5 md:p-6 rounded-2xl shadow-xl border-2 border-[#C59B27] transform hover:-translate-y-1 transition-all">
-                        <span className="text-3xl md:text-5xl font-black text-[#F0CB6F] font-mono tracking-tight">
+                    <div className="flex flex-col items-center bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-5 md:p-6 rounded-2xl shadow-md hover:shadow-xl border-2 border-[#C59B27]/40 transform hover:-translate-y-1 transition-all">
+                        <span className="text-3xl md:text-5xl font-black text-[#722332] font-mono tracking-tight">
                             {timeLeft.seconds.toString().padStart(2, '0')}
                         </span>
-                        <span className="text-xs font-extrabold tracking-widest uppercase text-[#FAF5EB]/80 mt-2">
+                        <span className="text-xs font-extrabold tracking-widest uppercase text-[#4A121A] mt-2">
                             Seconds
                         </span>
                     </div>
