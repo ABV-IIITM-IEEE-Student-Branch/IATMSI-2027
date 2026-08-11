@@ -9,11 +9,15 @@ export default function ThemeTracksSection() {
             <SectionHeader title={title} centered={true} />
 
             {/* Main Theme Banner */}
-            <div className="bg-[#4A121A] text-[#FAF5EB] rounded-2xl p-6 md:p-8 text-center border-2 border-[#C59B27] shadow-xl mb-10">
-                <span className="text-xs font-extrabold uppercase tracking-widest text-[#F0CB6F]">
+            <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] rounded-2xl p-6 md:p-8 text-center border-2 border-[#C59B27]/40 shadow-md mb-10 relative overflow-hidden">
+                {/* Subtle background ornament glow */}
+                <div className="absolute -top-12 -right-12 w-40 h-40 bg-[#C59B27]/10 rounded-full blur-xl pointer-events-none" />
+                <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-[#722332]/5 rounded-full blur-xl pointer-events-none" />
+
+                <span className="text-xs font-extrabold uppercase tracking-widest text-[#722332] bg-[#722332]/10 px-4 py-1.5 rounded-full border border-[#C59B27]/30 shadow-xs inline-block mb-3">
                     Conference Main Theme
                 </span>
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-[#FAF5EB] mt-2 tracking-wide">
+                <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-[#4A121A] tracking-wide font-heading">
                     “{mainTheme}”
                 </h3>
             </div>
