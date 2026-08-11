@@ -7,7 +7,7 @@ export const honoraryGeneralChairs = [
         affiliation: 'ABV-IIITM, Gwalior',
         email: null,
         profileUrl: 'https://www.iiitm.ac.in/index.php/en/component/splms/teacher/prof-sri-niwas',
-        image: 'https://www.iiitm.ac.in/images/demo/teachers/1650440085_Prof.-Sri-Niwas-Singh.jpg',
+        image: 'https://lh3.googleusercontent.com/d/1TeNa7fHHLsz8W1lQs6ENRsUUTr4YH4tF',
     },
     {
         name: 'Dr. Andrii Chub',

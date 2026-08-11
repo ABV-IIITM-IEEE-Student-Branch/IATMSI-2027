@@ -119,21 +119,21 @@ export const patronChairsData = {
             name: "Prof. S. N. Singh",
             role: "Patron",
             affiliation: "Director, ABV-IIITM Gwalior, India",
-            image: "https://lh3.googleusercontent.com/d/1OoQlP6Ucwi-7L4Oe_0Sl8TCAu8urbm2w"
+            image: "https://lh3.googleusercontent.com/d/1TeNa7fHHLsz8W1lQs6ENRsUUTr4YH4tF"
         },
         {
             id: 2,
             name: "Prof. G. S. Tomar",
             role: "General Chair",
             affiliation: "IEEE MP Section, India",
-            image: "https://lh3.googleusercontent.com/d/1AczsTl9ZAEC0j4xj6NSey5ml9YsMBISh"
+            image: "https://lh3.googleusercontent.com/d/1urA5B0z_5GTwTHl411DMGgrQ-nWUQ18p"
         },
         {
             id: 3,
             name: "Dr. Somesh Kumar",
             role: "General Chair",
             affiliation: "IEEE MP Section, ABV-IIITM Gwalior, India",
-            image: "https://lh3.googleusercontent.com/d/1sWTOeNuVDQxUhysQfr9DS6z9aJ5Lypj5"
+            image: "https://lh3.googleusercontent.com/d/1WGYML01jz3WH4nyxBLNMf8_LPqzqdmKr"
         }
     ]
 };
