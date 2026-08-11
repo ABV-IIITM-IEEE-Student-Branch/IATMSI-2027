@@ -1,104 +1,82 @@
 // Camera Ready Submission data - IATMSI-2027
 
 export const cameraReadyData = {
-    title: "Instructions for Camera-Ready Paper Submission",
-    subtitle: "Complete step-by-step guide for formatting, copyright clearance, IEEE PDF eXpress verification, and CMT final upload for IATMSI-2027.",
-    
+    title: "Instructions for Camera Ready Paper Submission",
+    subtitle: "Complete submission procedure, copyright notices, and IEEE PDF eXpress guidelines for IATMSI-2027.",
+
     importantDates: [
-        { activity: "Call for Papers", date: "20th June 2026", isDeadline: false },
-        { activity: "Submission Due Date", date: "20th December 2026", isDeadline: true },
-        { activity: "Registration Open", date: "15th Oct. 2026", isDeadline: false },
-        { activity: "Notification of Acceptance", date: "30th Jan. 2027", isDeadline: false },
-        { activity: "Early-Bird Registration Closes", date: "15th Feb. 2027", isDeadline: true },
-        { activity: "Camera-Ready Paper Due", date: "20th March 2027", isDeadline: true },
-        { activity: "Last Date of Registration", date: "30th March 2027", isDeadline: true },
+        { activity: "Call for Papers", date: "20th June 2026" },
+        { activity: "Submission Due Date", date: "20th December 2026" },
+        { activity: "Notification of Acceptance", date: "30th Jan. 2027" },
+        { activity: "Camera-ready Paper Due", date: "20th March 2027" },
+        { activity: "Registration Open", date: "15th Oct. 2026" },
+        { activity: "Early-Bird Registration Closes", date: "15th Feb. 2027" },
+        { activity: "Last Date of Registration", date: "30th March 2027" }
     ],
 
-    submissionOverview: {
-        intro: "Please incorporate all reviewers' comments and suggestions received via the notification email when preparing your final camera-ready paper for the proceedings.",
-        pageLimit: "Strict maximum limit of six (06) pages.",
-        deadline: "20th March 2027",
-        registrationPolicy: "At least one author MUST complete Full Author Registration and present the accepted paper at IATMSI-2027 for the paper to be considered for inclusion on IEEE Xplore Digital Library. Each registration covers ONE (01) participant. Participating co-authors must register separately under their appropriate registration category.",
-        paymentFormUrl: "https://forms.gle/6W79XUvjbeHZxRPM6",
-        plagiarismPolicy: "The similarity index of your manuscript MUST be below 25% using standard plagiarism-checking software (e.g. Turnitin) prior to submitting the final camera-ready paper. Papers with a similarity index exceeding 25% will NOT be included in the conference proceedings or IEEE Xplore.",
-        ieeeTemplateUrl: "https://www.ieee.org/conferences/publishing/templates.html",
-        cmtPortalUrl: "https://cmt3.research.microsoft.com",
-    },
+    howToSubmitText: [
+        "You have already received the comments by the reviewers through notification email. Please incorporate the reviewers’ suggestions when preparing your camera-ready paper for the proceedings. The page limit is six pages and is strict. The final paper is to be submitted latest by 20th March 2027.",
+        "At least one author must register with Full Author Registration and present the selected paper at IATMSI-2027, in order for the paper to be considered for inclusion on IEEE Xplore. Each registration is meant for ONE (01) participant to attend the conference only. Co-author(s) who are also participating in the conference will need to register separately under the appropriate registration category. Please keep the proof of payment with you as it will be asked to be submitted.",
+        "Those who have made direct payments to the account as specified on the website under the “Registration for Indian or Nepal Delegates & Participants only” are required to submit the registration details through the provided Google Form after completing the payment: https://forms.gle/6W79XUvjbeHZxRPM6",
+        "Please make sure that the similarity index of your manuscript is below 25%, using standard plagiarism-checking software (e.g., Turnitin, etc.), before submitting the camera-ready paper from your end to confirm the submission of the paper to IEEE Xplore. If the similarity index is more than 25%, then your paper will not be included in the conference proceedings.",
+        "The authors are urged to ensure that the camera-ready submission strictly follows the IEEE Template given at https://www.ieee.org/conferences/publishing/templates.html The camera-ready papers that do not meet these requirements will not be submitted for further consideration to IEEE Xplore.",
+        "You should submit your camera-ready paper on Microsoft CMT (See Sample Image 1 given below) for IATMSI-2027. First, click on the Create camera-ready submission and upload the final PDF (Final camera-ready PDF must be generated and checked by the PDF eXpress website, and the steps are mentioned below under the heading: Instructions for Authors to Create Final PDF for IATMSI-2027 Submission)."
+    ],
 
-    copyrightClearance: {
-        title: "Instructions for Copyright Clearance Notice",
-        description: "Before generating your final PDF, add the appropriate copyright clearance code notice to the bottom of the first page of your source document (LaTeX / Word). Refer to the official IEEE template to replace the dummy footnote with the correct code based on author affiliation:",
+    copyrightSection: {
+        heading: "Instructions for Authors to Create Final PDF for IATMSI-2027 Submission",
+        subheading: "Before Creating a PDF",
+        paragraphs: [
+            "Add the copyright clearance code notice to the bottom of the first page of your source document as shown in sample image 2.",
+            "The final manuscript should have the copyright clearance code notice at the bottom of the first page. Kindly refer to the LaTex/Word template provided here: https://www.ieee.org/conferences/publishing/templates.html and replace the dummy code at the first-page bottom with this code (as shown in sample image 2):",
+            "Proofread your source document thoroughly to confirm that it will require no revision."
+        ],
         notices: [
             {
-                category: "For papers in which all authors are employed by the U.S. Government",
+                label: "For papers in which all authors are employed by the US government, the copyright notice is:",
                 code: "U.S. Government work not protected by U.S. copyright"
             },
             {
-                category: "For papers in which all authors are employed by a Crown government (UK, Canada, and Australia)",
+                label: "For papers in which all authors are employed by a Crown government (UK, Canada, and Australia), the copyright notice is:",
                 code: "979-8-3315-4677-9/27/$31.00 ©2027 Crown"
             },
             {
-                category: "For papers in which all authors are employed by the European Union",
+                label: "For papers in which all authors are employed by the European Union, the copyright notice is:",
                 code: "979-8-3315-4677-9/27/$31.00 ©2027 European Union"
             },
             {
-                category: "For all other papers",
+                label: "For all other papers the copyright notice is:",
                 code: "979-8-3315-4677-9/27/$31.00 ©2027 IEEE"
             }
         ]
     },
 
-    pdfExpressInstructions: {
-        title: "Instructions for Authors to Create Final PDF via IEEE PDF eXpress",
-        conferenceId: "68868X",
-        signupUrl: "https://ieee-pdf-express.org/account/signup",
-        loginUrl: "https://ieee-pdf-express.org/",
-        steps: [
-            {
-                step: 1,
-                title: "Create IEEE PDF eXpress Account",
-                details: "Visit https://ieee-pdf-express.org/ and click 'Create Account' or navigate directly to https://ieee-pdf-express.org/account/signup if you do not have an existing account."
-            },
-            {
-                step: 2,
-                title: "Enter Conference ID & Credentials",
-                details: "Enter 68868X as the Conference ID (Conference ID for IEEE IATMSI), enter your email address, and set a password. Follow online prompts to verify your account."
-            },
-            {
-                step: 3,
-                title: "Associate Account with IATMSI-2027",
-                details: "Log into your account with Conference ID 68868X, email address, and password. Complete your user profile and associate your account with the conference."
-            },
-            {
-                step: 4,
-                title: "Create New Paper Title",
-                details: "Navigate to your PDF eXpress Dashboard and click 'Create New Title'."
-            },
-            {
-                step: 5,
-                title: "Enter Paper Title & Details",
-                details: "Type the exact title of your accepted paper as submitted to CMT and continue."
-            },
-            {
-                step: 6,
-                title: "Upload Source File (Word / LaTeX PDF)",
-                details: "Choose your manuscript file (Word format or LaTeX generated PDF) and click Continue to start the conversion/checking process."
-            },
-            {
-                step: 7,
-                title: "Conversion & PDF Verification",
-                details: "PDF eXpress will convert and check your manuscript against IEEE format compliance specifications."
-            },
-            {
-                step: 8,
-                title: "Download Verified PDF & Approve",
-                details: "Upon successful verification message, click the 'Download PDF' icon to save the PDF eXpress verified PDF. Click the 'Approve' icon to send verification confirmation to the publication chair."
-            },
-            {
-                step: 9,
-                title: "Upload Final PDF to Microsoft CMT",
-                details: "Log into Microsoft CMT portal, select your paper, click 'Create camera-ready submission', and upload the PDF eXpress-verified PDF file as your final camera-ready submission."
-            }
+    pdfExpressSection: {
+        intro: "Prior to the Final Submission, the pdf file should be checked through PDF eXpress (https://ieee-pdf-express.org/). If you generated a pdf from Latex, then again, you have to check it through PDF eXpress. The instructions for IEEE PDF eXpress are:",
+        accountCreationTitle: "Creating your PDF eXpress Account (New user on PDF eXpress)",
+        accountCreationSteps: [
+            "Log in to the IEEE PDF eXpress site https://ieee-pdf-express.org/. First create the account on IEEE PDF eXpress site (if no account created before). Select create an account in link https://ieee-pdf-express.org/ or directly click on https://ieee-pdf-express.org/account/signup",
+            "Enter the following: 68868X for the Conference ID (68868X is the conference ID for IEEE IATMSI), your email address, and a password.",
+            "Continue to enter information as prompted.",
+            "An Online confirmation will be displayed, and an email confirmation will be sent verifying your account setup."
+        ],
+        afterVerificationText: "After Verification, log into your IEEE PDF eXpress account by entering the Conference ID, email address, and password. Complete all the details like Name etc.",
+        nextStepTitle: "Next Step is to add IATMSI-2027 to PDF eXpress Account",
+        nextSteps: [
+            "1. Login by entering Conference ID (68868X), email address and password.",
+            "2. Click Associate your account with the conference (if you have IEEE Pdf Express Account). (Sample image 4)",
+            "3. Fill up the information needed for the user profile and submit once completed.",
+            "4. Go to the Dashboard and create the new title. (Sample image 5)",
+            "5. Click create new title for your paper. (Sample image 6)",
+            "6. Enter the paper title and continue. (Sample image 7)",
+            "7. Upload File. Can be in word/pdf format (if you generated by Latex). Click Continue once file chosen. (Sample image 8)",
+            "8. Click Continue again. (Sample image 9)",
+            "9. Conversion will be in progress (Word file will take a while to complete). (Sample image 10)",
+            "10. If successful, you will get this message.",
+            "11. Click Download PDF ICON to download the pdf express verified file.",
+            "12. Click Approve ICON to send the file to the publication chair.",
+            "13. Complete! You may create a new title if you have more than one paper accepted for this conference or you can repeat the process if any change in the final paper.",
+            "14. After that, download this final pdf and upload the same on the CMT portal as the final camera ready paper."
         ]
     }
 };
