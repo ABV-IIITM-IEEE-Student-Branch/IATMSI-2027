@@ -5,6 +5,7 @@ export const sectionManifest = [
     { id: 'intro', component: 'IntroSection', requiresData: ['conferenceData'] },
     { id: 'aboutInstitute', component: 'AboutInstitute', requiresData: ['conferenceData'] },
     { id: 'aboutFullSection', component: 'AboutFullSection', requiresData: ['conferenceData'] },
+    { id: 'historySection', component: 'HistorySection', requiresData: ['historyData'] },
     { id: 'divider', component: 'Divider', requiresData: [] },
     { id: 'placeholder', component: 'PlaceholderSection', requiresData: [] },
 ];
@@ -43,8 +44,8 @@ export const pageRegistry = [
         title: 'IATMSI HISTORY',
         path: '/about/history',
         sections: [
-            { sectionId: 'hero', props: { title: "IATMSI HISTORY", subtitle: `` } },
-            { sectionId: 'placeholder', props: { title: 'IATMSI History' } }
+            { sectionId: 'hero', props: { title: "IATMSI History & Heritage", subtitle: `Explore the journey, proceedings, and research achievements of previous IATMSI editions (2022–2026).` } },
+            { sectionId: 'historySection', props: {} }
         ]
     },
     {
