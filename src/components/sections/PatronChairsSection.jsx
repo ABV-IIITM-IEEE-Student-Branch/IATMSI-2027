@@ -15,7 +15,7 @@ export default function PatronChairsSection() {
                         className="bg-[#FAF5EB] rounded-2xl p-6 border-2 border-[#C59B27]/40 shadow-lg text-center flex flex-col items-center hover:border-[#C59B27] transition-all transform hover:-translate-y-1 group"
                     >
                         {/* Profile Image Container */}
-                        <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-[#C59B27] shadow-xl mb-4 bg-[#4A121A] flex items-center justify-center text-3xl font-extrabold text-[#F0CB6F]">
+                        <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-[#C59B27] shadow-xl mb-5 bg-[#4A121A] flex items-center justify-center text-3xl font-extrabold text-[#F0CB6F] flex-shrink-0">
                             {chair.image ? (
                                 <img
                                     src={chair.image}
