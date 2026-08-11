@@ -8,6 +8,7 @@ export const sectionManifest = [
     { id: 'historySection', component: 'HistorySection', requiresData: ['historyData'] },
     { id: 'trackChairsSection', component: 'TrackChairsSection', requiresData: ['trackChairsData'] },
     { id: 'cameraReadySection', component: 'CameraReadySection', requiresData: ['cameraReadyData'] },
+    { id: 'copyrightSection', component: 'CopyrightSection', requiresData: ['copyrightData'] },
     { id: 'divider', component: 'Divider', requiresData: [] },
     { id: 'placeholder', component: 'PlaceholderSection', requiresData: [] },
 ];
@@ -84,8 +85,8 @@ export const pageRegistry = [
         title: 'INSTRUCTIONS FOR IEEE E-COPYRIGHT SUBMISSION',
         path: '/authors/copyright',
         sections: [
-            { sectionId: 'hero', props: { title: "IEEE e-Copyright", subtitle: `` } },
-            { sectionId: 'placeholder', props: { title: 'IEEE e-Copyright' } }
+            { sectionId: 'hero', props: { title: "IEEE e-Copyright Submission", subtitle: `Step-by-step procedure for completing the IEEE Electronic Copyright Form (eCF) via Microsoft CMT.` } },
+            { sectionId: 'copyrightSection', props: {} }
         ]
     },
     {
