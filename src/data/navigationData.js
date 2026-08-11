@@ -64,14 +64,5 @@ export const navigationTree = [
       { id: 'contact', label: 'Contact Us', path: '/contact' },
       { id: 'faqs', label: 'FAQs', path: '/help/faqs' },
     ]
-  },
-  {
-    id: 'extra',
-    label: 'Extra',
-    type: 'dropdown',
-    items: [
-      { id: 'travel-visa', label: 'Travel Visa Info', path: '/travel/visa' },
-      { id: 'explore-gwalior', label: 'Explore Gwalior', path: '/travel/explore-gwalior' },
-    ]
   }
 ];

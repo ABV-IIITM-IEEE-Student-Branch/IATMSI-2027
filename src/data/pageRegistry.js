@@ -322,34 +322,5 @@ export const pageRegistry = [
             { sectionId: 'hero', props: { title: "Frequently Asked Questions", subtitle: `Find quick answers to common questions regarding paper submission, registration, certificates, and policies.` } },
             { sectionId: 'faqsSection', props: {} }
         ]
-    },
-
-    // --- EXTRA ---
-    {
-        id: 'travel-visa',
-        title: 'Travel Visa Information (Old)',
-        path: '/travel/visa',
-        sections: [
-            { sectionId: 'hero', props: { title: "Travel Visa Information", subtitle: `Complete visa guidance for IATMSI-2027 international attendees` } },
-            { sectionId: 'travelVisaSection', props: {} }
-        ]
-    },
-    {
-        id: 'explore-gwalior',
-        title: 'Explore Gwalior (Old)',
-        path: '/travel/explore-gwalior',
-        sections: [
-            { sectionId: 'hero', props: { title: "Explore Gwalior", subtitle: `Discover the rich heritage and culture of the City of Music` } },
-            { sectionId: 'exploreGwaliorSection', props: {} }
-        ]
-    },
-    {
-        id: 'venue-directions',
-        title: 'Venue & Directions (Old)',
-        path: '/travel/venue',
-        sections: [
-            { sectionId: 'hero', props: { title: "Venue & Directions", subtitle: `How to reach ABV-IIITM, Gwalior for IATMSI-2027` } },
-            { sectionId: 'venueDirectionsSection', props: {} }
-        ]
     }
 ];
