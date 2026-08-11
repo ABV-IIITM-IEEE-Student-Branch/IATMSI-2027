@@ -10,6 +10,7 @@ export const sectionManifest = [
     { id: 'cameraReadySection', component: 'CameraReadySection', requiresData: ['cameraReadyData'] },
     { id: 'copyrightSection', component: 'CopyrightSection', requiresData: ['copyrightData'] },
     { id: 'oralGuidelinesSection', component: 'OralGuidelinesSection', requiresData: ['oralGuidelinesData'] },
+    { id: 'posterGuidelinesSection', component: 'PosterGuidelinesSection', requiresData: ['posterGuidelinesData'] },
     { id: 'divider', component: 'Divider', requiresData: [] },
     { id: 'placeholder', component: 'PlaceholderSection', requiresData: [] },
 ];
@@ -104,8 +105,8 @@ export const pageRegistry = [
         title: 'POSTER PRESENTER\'S GUIDELINES',
         path: '/authors/poster-guidelines',
         sections: [
-            { sectionId: 'hero', props: { title: "Poster Presenter's Guidelines", subtitle: `` } },
-            { sectionId: 'placeholder', props: { title: "Poster Presenter's Guidelines" } }
+            { sectionId: 'hero', props: { title: "Poster Presenter's Guidelines", subtitle: `Official poster board dimensions, template download link, session defense rules, and design specifications.` } },
+            { sectionId: 'posterGuidelinesSection', props: {} }
         ]
     },
     {

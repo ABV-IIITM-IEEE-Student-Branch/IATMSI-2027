@@ -6,6 +6,7 @@ import TrackChairsSection from '../components/sections/TrackChairsSection';
 import CameraReadySection from '../components/sections/CameraReadySection';
 import CopyrightSection from '../components/sections/CopyrightSection';
 import OralGuidelinesSection from '../components/sections/OralGuidelinesSection';
+import PosterGuidelinesSection from '../components/sections/PosterGuidelinesSection';
 import TracksGridSection from '../components/sections/TracksGridSection';
 import SubmissionCtaSection from '../components/sections/SubmissionCtaSection';
 import CallForReviewersSection from '../components/sections/CallForReviewersSection';
@@ -54,6 +55,7 @@ export const sectionResolver = {
     cameraReadySection: CameraReadySection,
     copyrightSection: CopyrightSection,
     oralGuidelinesSection: OralGuidelinesSection,
+    posterGuidelinesSection: PosterGuidelinesSection,
     callForReviewersSection: CallForReviewersSection,
     committeeSection: CommitteeSection,
     contactSection: ContactSection,
