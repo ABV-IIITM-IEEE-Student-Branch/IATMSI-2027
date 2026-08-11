@@ -11,6 +11,7 @@ export const sectionManifest = [
     { id: 'copyrightSection', component: 'CopyrightSection', requiresData: ['copyrightData'] },
     { id: 'oralGuidelinesSection', component: 'OralGuidelinesSection', requiresData: ['oralGuidelinesData'] },
     { id: 'posterGuidelinesSection', component: 'PosterGuidelinesSection', requiresData: ['posterGuidelinesData'] },
+    { id: 'venueTravelKathmanduSection', component: 'VenueTravelKathmanduSection', requiresData: ['venueTravelData'] },
     { id: 'divider', component: 'Divider', requiresData: [] },
     { id: 'placeholder', component: 'PlaceholderSection', requiresData: [] },
 ];
@@ -114,10 +115,8 @@ export const pageRegistry = [
         title: 'VENUE/TRAVEL',
         path: '/authors/venue-travel',
         sections: [
-            { sectionId: 'hero', props: { title: "Venue & Travel", subtitle: `Directions, Visa Information, and Exploring Gwalior` } },
-            { sectionId: 'venueDirectionsSection', props: {} },
-            { sectionId: 'travelVisaSection', props: {} },
-            { sectionId: 'exploreGwaliorSection', props: {} }
+            { sectionId: 'hero', props: { title: "Venue & Travel Information", subtitle: `Kathmandu venue location, expected weather conditions, transit routes, and UNESCO World Heritage attractions.` } },
+            { sectionId: 'venueTravelKathmanduSection', props: {} }
         ]
     },
     {
