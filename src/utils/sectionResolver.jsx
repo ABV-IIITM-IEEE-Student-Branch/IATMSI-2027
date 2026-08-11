@@ -13,6 +13,7 @@ import HardnovateSection from '../components/sections/HardnovateSection';
 import RisingResearcherSection from '../components/sections/RisingResearcherSection';
 import ExcellenceResearchSection from '../components/sections/ExcellenceResearchSection';
 import DoctoralAwardSection from '../components/sections/DoctoralAwardSection';
+import SimulationAwardSection from '../components/sections/SimulationAwardSection';
 import TracksGridSection from '../components/sections/TracksGridSection';
 import SubmissionCtaSection from '../components/sections/SubmissionCtaSection';
 import CallForReviewersSection from '../components/sections/CallForReviewersSection';
@@ -68,6 +69,7 @@ export const sectionResolver = {
     risingResearcherSection: RisingResearcherSection,
     excellenceResearchSection: ExcellenceResearchSection,
     doctoralAwardSection: DoctoralAwardSection,
+    simulationAwardSection: SimulationAwardSection,
     callForReviewersSection: CallForReviewersSection,
     committeeSection: CommitteeSection,
     contactSection: ContactSection,

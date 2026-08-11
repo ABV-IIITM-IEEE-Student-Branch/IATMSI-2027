@@ -17,6 +17,7 @@ export const sectionManifest = [
     { id: 'risingResearcherSection', component: 'RisingResearcherSection', requiresData: ['risingResearcherData'] },
     { id: 'excellenceResearchSection', component: 'ExcellenceResearchSection', requiresData: ['excellenceResearchData'] },
     { id: 'doctoralAwardSection', component: 'DoctoralAwardSection', requiresData: ['doctoralAwardData'] },
+    { id: 'simulationAwardSection', component: 'SimulationAwardSection', requiresData: ['simulationAwardData'] },
     { id: 'divider', component: 'Divider', requiresData: [] },
     { id: 'placeholder', component: 'PlaceholderSection', requiresData: [] },
 ];
@@ -274,8 +275,8 @@ export const pageRegistry = [
         title: 'SIMULATION EXCELLENCE AWARD',
         path: '/awards/simulation',
         sections: [
-            { sectionId: 'hero', props: { title: "Simulation Excellence Award", subtitle: `` } },
-            { sectionId: 'placeholder', props: { title: 'Simulation Excellence Award' } }
+            { sectionId: 'hero', props: { title: "Simulation Excellence Award", subtitle: `Recognizing computational modeling, accuracy, and simulation validation excellence` } },
+            { sectionId: 'simulationAwardSection', props: {} }
         ]
     },
     {
