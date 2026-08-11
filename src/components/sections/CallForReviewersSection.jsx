@@ -1,70 +1,100 @@
-import { reviewerInfo } from '../../data/reviewerData';
-import { siteConfig } from '../../data/siteConfig';
+import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
+import { reviewerData } from '../../data/reviewerData';
 
 export default function CallForReviewersSection() {
-    return (
-        <div className="bg-[#FAF6EE] pb-16 min-h-screen">
-            <section className="py-12 md:py-16">
-                <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden">
-                        <div className="bg-[#5B1824] px-6 py-8 text-center border-b-2 border-[#D4A244]">
-                            <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-2">Call for Reviewers</h2>
-                            <p className="text-amber-100 text-base">({reviewerInfo.intro})</p>
-                        </div>
-                        
-                        <div className="px-6 py-8 sm:p-10 bg-[#FAF8F5]">
-                            <div className="space-y-6">
-                                <div className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center mt-1">
-                                        <svg className="w-5 h-5 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold text-[#5B1824] mb-1">Who can apply?</h3>
-                                        <p className="text-neutral-700 text-base leading-relaxed">
-                                            {reviewerInfo.whoCanApply.join(' ')}
-                                        </p>
-                                    </div>
-                                </div>
+    const {
+        title,
+        subtitle,
+        paragraphs,
+        responsibilities,
+        rewardCertificate,
+        formUrl,
+        buttonLabel,
+        nominationNote,
+        closingMessage,
+    } = reviewerData;
 
-                                <div className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center mt-1">
-                                        <svg className="w-5 h-5 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold text-[#5B1824] mb-1">How to apply?</h3>
-                                        <p className="text-neutral-700 text-base leading-relaxed">
-                                            Interested researchers and experts can submit their application through our official Google Form.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <hr className="my-8 border-neutral-200" />
-                            
-                            <div className="flex flex-col items-center">
-                                <h3 className="text-xl font-bold text-[#5B1824] mb-4 flex items-center justify-center gap-2">
-                                   <span className="text-base">👉</span> Apply via {siteConfig.externalLinks.reviewerForm.name}
-                                </h3>
-                                <a 
-                                    href={siteConfig.externalLinks.reviewerForm.url} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center px-8 py-3.5 border-b-2 border-[#D4A244] rounded-xl shadow-md text-base font-bold !text-white bg-[#5B1824] hover:bg-[#722332] transition-all transform hover:scale-105 w-full sm:w-auto text-center"
-                                >
-                                    Submit Application Here
-                                </a>
-                                <p className="mt-4 text-sm text-neutral-500 font-medium break-all">
-                                    {siteConfig.externalLinks.reviewerForm.url}
-                                </p>
-                            </div>
+    return (
+        <SectionContainer id="call-for-reviewers-section">
+            <SectionHeader title={title} subtitle={subtitle} centered={true} />
+
+            {/* 1. Conference Invitation & Role Overview */}
+            <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-4">
+                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
+                    <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                    Invitation to Join the Review Committee
+                </h3>
+
+                <div className="space-y-4 text-xs md:text-sm text-neutral-700 font-medium leading-relaxed">
+                    <p className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-4 md:p-5 rounded-xl border border-[#C59B27]/40">
+                        {paragraphs[0]}
+                    </p>
+                    <p>{paragraphs[1]}</p>
+                </div>
+            </div>
+
+            {/* 2. Reviewer Responsibilities */}
+            <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
+                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
+                    <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                    Reviewer Responsibilities
+                </h3>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {responsibilities.map((resp, idx) => (
+                        <div key={idx} className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-4 rounded-xl border border-[#C59B27]/40 flex items-start gap-3">
+                            <span className="w-2.5 h-2.5 rounded-full bg-[#722332] mt-1.5 flex-shrink-0" />
+                            <p className="text-xs md:text-sm text-neutral-700 font-medium leading-relaxed">
+                                {resp}
+                            </p>
                         </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* 3. E-Certificate Reward & Application Form CTA */}
+            <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
+                <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-5 rounded-xl border border-[#C59B27]/40 flex items-center gap-3 text-xs md:text-sm font-black text-[#722332]">
+                    <svg className="w-6 h-6 text-[#722332] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
+                    <span>{rewardCertificate}</span>
+                </div>
+
+                <div className="space-y-3 pt-2">
+                    <h4 className="text-sm font-black text-[#4A121A] uppercase tracking-wider">
+                        Submit Your Application:
+                    </h4>
+                    <div>
+                        <a
+                            href={formUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2.5 bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] px-6 py-3.5 rounded-xl text-xs md:text-sm font-black uppercase tracking-wider border-2 border-[#C59B27] shadow-md transition-all scale-100 hover:scale-105"
+                        >
+                            <span>{buttonLabel}</span>
+                            <svg className="w-5 h-5 !text-[#FAF5EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+
+            {/* 4. Nominations, Diversity & Closing Message */}
+            <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-4">
+                <h3 className="text-lg md:text-xl font-black text-[#4A121A] uppercase tracking-wider border-b border-[#C59B27]/30 pb-3">
+                    Reviewer Nominations & Diversity Commitment
+                </h3>
+
+                <p className="text-xs md:text-sm text-neutral-700 font-medium leading-relaxed">
+                    {nominationNote}
+                </p>
+
+                <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-4 rounded-xl border border-[#C59B27]/40 text-xs md:text-sm font-bold text-[#722332] italic">
+                    “{closingMessage}”
+                </div>
+            </div>
+        </SectionContainer>
     );
 }
