@@ -150,49 +150,14 @@ export const conferenceHighlights = [
 ];
 
 export const importantDates = [
-    {
-        activity: 'Call for Papers',
-        date: 'May 15, 2026',
-        isDeadline: false,
-        link: null,
-    },
-    {
-        activity: 'Last Date of Paper Submission',
-        date: 'July 31, 2026',
-        oldDate: 'June 30, 2026',
-        isDeadline: true,
-        link: 'https://cmt3.research.microsoft.com/IATMSI2027/Submission/Index',
-    },
-    {
-        activity: 'Acceptance Notification',
-        date: 'July 31, 2026',
-        isDeadline: false,
-        link: null,
-    },
-    {
-        activity: 'Camera-Ready Submission',
-        date: 'August 15, 2026',
-        isDeadline: true,
-        link: 'https://cmt3.research.microsoft.com/IATMSI2027/Submission/Index',
-    },
-    {
-        activity: 'Early Bird Registration Closed',
-        date: 'August 31, 2026',
-        isDeadline: true,
-        link: 'coming_soon',
-    },
-    {
-        activity: 'Regular Registration Closed',
-        date: 'October 1, 2026',
-        isDeadline: true,
-        link: 'coming_soon',
-    },
-    {
-        activity: 'Conference Date',
-        date: 'May 20-22, 2027',
-        isDeadline: true,
-        link: 'https://cmt3.research.microsoft.com/IATMSI2027/Submission/Index',
-    },
+    { activity: 'Call for Papers', date: '20th June 2026' },
+    { activity: 'Full Paper Submission Due Date', date: '20th December 2026' },
+    { activity: 'Review Notification Deadline (Accept or Reject)', date: '30th Jan. 2027' },
+    { activity: 'Camera-ready Paper Due', date: '20th March 2027' },
+    { activity: 'Registration Open', date: '15th Oct. 2026' },
+    { activity: 'Early-Bird Registration Closes', date: '15th Feb. 2027' },
+    { activity: 'Nomination for Awards Deadline', date: 'visit to particular award page' },
+    { activity: 'Last Date of Registration:', date: '30th March 2027' }
 ];
 
 export const pioneeringFields = ['Green Tech', 'Digital Sustainability', 'Green AI', 'Policy'];
