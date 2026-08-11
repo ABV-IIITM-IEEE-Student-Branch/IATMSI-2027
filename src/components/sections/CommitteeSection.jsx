@@ -1,74 +1,123 @@
+import { useState } from 'react';
+import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import {
-    honoraryGeneralChairs,
+    conferencePatrons,
     generalChairs,
     conferenceChairs,
-    conferenceCoChairs,
-    organizingChairs,
+    organizingCoreCommittee,
+    publicityCommittee,
+    registrationCommittee,
+    publicationCommittee,
+    phdForumCommittee,
+    fellowshipAwardCommittee,
+    financeSponsorshipCommittee,
+    workshopTutorialCommittee,
+    webCommittee,
+    technicalProgrammeCommittee,
+    advisoryCommittee,
 } from '../../data/committeeData';
 
-import MemberCard from '../committee/MemberCard';
+const committeeGroups = [
+    { id: 'patrons', title: 'Conference Patrons', data: conferencePatrons },
+    { id: 'general-chairs', title: 'General Chairs', data: generalChairs },
+    { id: 'conference-chairs', title: 'Conference Chair', data: conferenceChairs },
+    { id: 'core-committee', title: 'Organizing & Core Committee', data: organizingCoreCommittee },
+    { id: 'publicity', title: 'Publicity & Promotion Committee', data: publicityCommittee },
+    { id: 'registration', title: 'Registration Committee', data: registrationCommittee },
+    { id: 'publication', title: 'Publication Committee', data: publicationCommittee },
+    { id: 'phd-forum', title: 'PhD Forum Committee', data: phdForumCommittee },
+    { id: 'fellowship', title: 'Fellowship & Award Committee', data: fellowshipAwardCommittee },
+    { id: 'finance', title: 'Finance & Sponsorship Committee', data: financeSponsorshipCommittee },
+    { id: 'workshop', title: 'Workshop & Tutorial Committee', data: workshopTutorialCommittee },
+    { id: 'web', title: 'Web Committee', data: webCommittee },
+    { id: 'tpc', title: 'Technical Programme Committee', data: technicalProgrammeCommittee },
+    { id: 'advisory', title: 'Advisory Committee', data: advisoryCommittee },
+];
+
+function MemberTextCard({ member }) {
+    return (
+        <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-4 rounded-xl border-l-4 border-[#C59B27] border-y border-r border-[#C59B27]/30 shadow-xs hover:shadow-md hover:border-[#C59B27] transition-all flex flex-col justify-between group">
+            <div>
+                <h4 className="text-sm md:text-base font-black text-[#4A121A] leading-snug group-hover:text-[#722332] transition-colors">
+                    {member.name}
+                </h4>
+                {member.role && (
+                    <span className="text-[11px] font-black text-[#722332] bg-white px-2.5 py-0.5 rounded-full border border-[#C59B27]/30 inline-block my-1.5 uppercase tracking-wider">
+                        {member.role}
+                    </span>
+                )}
+            </div>
+            <p className="text-xs text-neutral-700 font-semibold leading-relaxed mt-1">
+                {member.affiliation}
+            </p>
+        </div>
+    );
+}
 
 export default function CommitteeSection() {
+    const [selectedTab, setSelectedTab] = useState('all');
+
+    const filteredGroups = selectedTab === 'all'
+        ? committeeGroups
+        : committeeGroups.filter(g => g.id === selectedTab);
+
     return (
-        <div className="bg-[#FAF6EE] pb-16">
-            {/* Page Header */}
-            
+        <SectionContainer id="committee-section">
+            <SectionHeader
+                title="IATMSI-2027 Committees"
+                subtitle="Distinguished international leadership, advisory board, and committee chairs guiding IEEE IATMSI-2027."
+                centered={true}
+            />
 
-            <section className="py-8 md:py-10">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col gap-10">
-                        {/* Honorary General Chairs */}
-                        <div>
-                            <h2 className="text-base md:text-2xl md:text-3xl font-bold text-neutral-900 mb-5 text-center">Honorary General Chairs</h2>
-                            <div className="flex flex-wrap justify-center items-stretch gap-4">
-                                {honoraryGeneralChairs.map((member, index) => (
-                                    <MemberCard key={index} member={member} />
-                                ))}
-                            </div>
+            {/* Committee Category Quick Nav Bar */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar scroll-smooth">
+                <button
+                    onClick={() => setSelectedTab('all')}
+                    className={`px-4 py-2 rounded-xl font-black text-xs uppercase tracking-wider whitespace-nowrap transition-all border ${
+                        selectedTab === 'all'
+                            ? 'bg-[#722332] text-[#FAF5EB] border-[#C59B27] shadow-md'
+                            : 'bg-white text-[#4A121A] border-[#C59B27]/40 hover:bg-[#FAF5EB]'
+                    }`}
+                >
+                    All Committees ({committeeGroups.reduce((acc, g) => acc + g.data.length, 0)})
+                </button>
+                {committeeGroups.map((group) => (
+                    <button
+                        key={group.id}
+                        onClick={() => setSelectedTab(group.id)}
+                        className={`px-4 py-2 rounded-xl font-black text-xs uppercase tracking-wider whitespace-nowrap transition-all border ${
+                            selectedTab === group.id
+                                ? 'bg-[#722332] text-[#FAF5EB] border-[#C59B27] shadow-md'
+                                : 'bg-white text-[#4A121A] border-[#C59B27]/40 hover:bg-[#FAF5EB]'
+                        }`}
+                    >
+                        {group.title} ({group.data.length})
+                    </button>
+                ))}
+            </div>
+
+            {/* Committee Groups List */}
+            <div className="space-y-10">
+                {filteredGroups.map((group) => (
+                    <div key={group.id} className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm">
+                        <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b border-[#C59B27]/30">
+                            <h3 className="text-lg md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase flex items-center gap-2.5">
+                                <span className="w-3 h-3 rounded-full bg-[#722332]" />
+                                {group.title}
+                            </h3>
+                            <span className="text-xs font-black text-[#722332] bg-[#722332]/10 px-3 py-1 rounded-full border border-[#C59B27]/30 flex-shrink-0">
+                                {group.data.length} Members
+                            </span>
                         </div>
 
-                        {/* General Chair */}
-                        <div>
-                            <h2 className="text-base md:text-2xl md:text-3xl font-bold text-neutral-900 mb-5 text-center">General Chair</h2>
-                            <div className="flex flex-wrap justify-center items-stretch gap-4">
-                                {generalChairs.map((member, index) => (
-                                    <MemberCard key={index} member={member} />
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Conference Chairs */}
-                        <div>
-                            <h2 className="text-base md:text-2xl md:text-3xl font-bold text-neutral-900 mb-5 text-center">Conference Chairs</h2>
-                            <div className="flex flex-wrap justify-center items-stretch gap-4">
-                                {conferenceChairs.map((member, index) => (
-                                    <MemberCard key={index} member={member} />
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Conference Co-Chair */}
-                        <div>
-                            <h2 className="text-base md:text-2xl md:text-3xl font-bold text-neutral-900 mb-5 text-center">Conference Co-Chair</h2>
-                            <div className="flex flex-wrap justify-center items-stretch gap-4">
-                                {conferenceCoChairs.map((member, index) => (
-                                    <MemberCard key={index} member={member} />
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Organizing Chairs */}
-                        <div>
-                            <h2 className="text-base md:text-2xl md:text-3xl font-bold text-neutral-900 mb-5 text-center">Organizing Chairs</h2>
-                            <div className="flex flex-wrap justify-center items-stretch gap-4">
-                                {organizingChairs.map((member, index) => (
-                                    <MemberCard key={index} member={member} />
-                                ))}
-                            </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {group.data.map((member, index) => (
+                                <MemberTextCard key={index} member={member} />
+                            ))}
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                ))}
+            </div>
+        </SectionContainer>
     );
 }
