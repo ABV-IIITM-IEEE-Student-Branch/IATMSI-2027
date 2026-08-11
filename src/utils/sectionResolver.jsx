@@ -1,5 +1,6 @@
 import AboutRationaleSection from '../components/sections/AboutRationaleSection';
 import AboutObjectivesSection from '../components/sections/AboutObjectivesSection';
+import AboutFullSection from '../components/sections/AboutFullSection';
 import TracksGridSection from '../components/sections/TracksGridSection';
 import SubmissionCtaSection from '../components/sections/SubmissionCtaSection';
 import CallForReviewersSection from '../components/sections/CallForReviewersSection';
@@ -42,6 +43,7 @@ export const sectionResolver = {
     divider: Divider,
     aboutRationaleSection: AboutRationaleSection,
     aboutObjectivesSection: AboutObjectivesSection,
+    aboutFullSection: AboutFullSection,
     callForReviewersSection: CallForReviewersSection,
     committeeSection: CommitteeSection,
     contactSection: ContactSection,

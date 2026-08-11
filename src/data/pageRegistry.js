@@ -4,6 +4,7 @@ export const sectionManifest = [
     { id: 'hero', component: 'HeroSection', requiresData: ['heroData'] },
     { id: 'intro', component: 'IntroSection', requiresData: ['conferenceData'] },
     { id: 'aboutInstitute', component: 'AboutInstitute', requiresData: ['conferenceData'] },
+    { id: 'aboutFullSection', component: 'AboutFullSection', requiresData: ['conferenceData'] },
     { id: 'divider', component: 'Divider', requiresData: [] },
     { id: 'placeholder', component: 'PlaceholderSection', requiresData: [] },
 ];
@@ -33,9 +34,8 @@ export const pageRegistry = [
         title: 'ABOUT IATMSI-2027',
         path: '/about',
         sections: [
-            { sectionId: 'hero', props: { title: "About the Conference", subtitle: `Learn more about IATMSI-2027 and our vision for green and sustainable technologies.` } },
-            { sectionId: 'aboutRationaleSection', props: {} },
-            { sectionId: 'aboutObjectivesSection', props: {} }
+            { sectionId: 'hero', props: { title: "About the Conference", subtitle: `IEEE International Conference on Interdisciplinary Approaches in Technology and Management for Social Innovation (IATMSI-2027)` } },
+            { sectionId: 'aboutFullSection', props: {} }
         ]
     },
     {
