@@ -13,6 +13,7 @@ export const sectionManifest = [
     { id: 'posterGuidelinesSection', component: 'PosterGuidelinesSection', requiresData: ['posterGuidelinesData'] },
     { id: 'venueTravelKathmanduSection', component: 'VenueTravelKathmanduSection', requiresData: ['venueTravelData'] },
     { id: 'faqsSection', component: 'FaqsSection', requiresData: ['faqsData'] },
+    { id: 'hardnovateSection', component: 'HardnovateSection', requiresData: ['hardnovateData'] },
     { id: 'divider', component: 'Divider', requiresData: [] },
     { id: 'placeholder', component: 'PlaceholderSection', requiresData: [] },
 ];
@@ -225,8 +226,8 @@ export const pageRegistry = [
         title: 'HARDNOVATE CONTEST',
         path: '/awards/hardnovate',
         sections: [
-            { sectionId: 'hero', props: { title: "Hardnovate Contest", subtitle: `` } },
-            { sectionId: 'placeholder', props: { title: 'Hardnovate Contest' } }
+            { sectionId: 'hero', props: { title: "Hardnovate Contest", subtitle: `Innovate. Build. Showcase — National Hardware Innovation Contest` } },
+            { sectionId: 'hardnovateSection', props: {} }
         ]
     },
     {
