@@ -16,6 +16,7 @@ export const sectionManifest = [
     { id: 'hardnovateSection', component: 'HardnovateSection', requiresData: ['hardnovateData'] },
     { id: 'risingResearcherSection', component: 'RisingResearcherSection', requiresData: ['risingResearcherData'] },
     { id: 'excellenceResearchSection', component: 'ExcellenceResearchSection', requiresData: ['excellenceResearchData'] },
+    { id: 'doctoralAwardSection', component: 'DoctoralAwardSection', requiresData: ['doctoralAwardData'] },
     { id: 'divider', component: 'Divider', requiresData: [] },
     { id: 'placeholder', component: 'PlaceholderSection', requiresData: [] },
 ];
@@ -255,8 +256,17 @@ export const pageRegistry = [
         title: 'IEEE DOCTORAL DISSERTATION AWARD',
         path: '/awards/dissertation',
         sections: [
-            { sectionId: 'hero', props: { title: "IEEE Doctoral Dissertation Award", subtitle: `` } },
-            { sectionId: 'placeholder', props: { title: 'IEEE Doctoral Dissertation Award' } }
+            { sectionId: 'hero', props: { title: "IEEE Doctoral Dissertation Award", subtitle: `Exclusive research forum and award for recent and graduating PhD scholars` } },
+            { sectionId: 'doctoralAwardSection', props: {} }
+        ]
+    },
+    {
+        id: 'doctoral-award-direct',
+        title: 'IEEE DOCTORAL DISSERTATION AWARD',
+        path: '/awards/doctoral',
+        sections: [
+            { sectionId: 'hero', props: { title: "IEEE Doctoral Dissertation Award", subtitle: `Exclusive research forum and award for recent and graduating PhD scholars` } },
+            { sectionId: 'doctoralAwardSection', props: {} }
         ]
     },
     {
