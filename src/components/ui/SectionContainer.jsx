@@ -30,17 +30,24 @@ export default function SectionContainer({
                 <div className="max-w-[92rem] mx-auto px-2 sm:px-4 lg:px-6">
                     {/* Single Frame Card Container */}
                     <div className="bg-[#FCF9F2] rounded-2xl md:rounded-[2rem] border border-[#C59B27]/60 p-5 sm:p-8 md:p-12 lg:px-16 relative overflow-hidden">
+                        {/* Gold Diamond Lattice Texture Overlay */}
+                        <div 
+                            className="absolute inset-0 pointer-events-none opacity-35 z-0" 
+                            style={{
+                                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 30 0 L 60 30 L 30 60 L 0 30 Z M 30 10 L 50 30 L 30 50 L 10 30 Z' fill='none' stroke='%23c59b27' stroke-width='0.8' stroke-opacity='0.3'/%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%23c59b27' fill-opacity='0.35'/%3E%3C/svg%3E")`
+                            }} 
+                        />
 
                         {/* Left & Right Vertical Ornament Bars (Desktop) */}
-                        <div className="hidden xl:block absolute left-4 top-8 bottom-8 w-4">
+                        <div className="hidden xl:block absolute left-4 top-8 bottom-8 w-4 z-10">
                             <VerticalBarOrnament />
                         </div>
-                        <div className="hidden xl:block absolute right-4 top-8 bottom-8 w-4">
+                        <div className="hidden xl:block absolute right-4 top-8 bottom-8 w-4 z-10">
                             <VerticalBarOrnament />
                         </div>
 
                         {/* Content Inner Container */}
-                        <div className="xl:px-8">
+                        <div className="xl:px-8 relative z-10">
                             {children}
                         </div>
                     </div>
