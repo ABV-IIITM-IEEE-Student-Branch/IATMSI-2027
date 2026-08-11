@@ -106,13 +106,11 @@ export default function TrackChairsSection() {
                                         <h4 className="text-sm md:text-base font-black text-[#4A121A] leading-snug group-hover:text-[#722332] transition-colors">
                                             {member.name}
                                         </h4>
-                                        <span className={`text-[11px] font-black px-2.5 py-0.5 rounded-full inline-block my-1.5 uppercase tracking-wider ${
-                                            member.role === 'Chair'
-                                                ? 'bg-[#722332] text-[#FAF5EB] shadow-xs'
-                                                : 'bg-white text-[#722332] border border-[#C59B27]/30'
-                                        }`}>
-                                            {member.role}
-                                        </span>
+                                        {member.role && member.role !== 'Member' && (
+                                            <span className="text-[11px] font-black bg-[#722332] text-[#FAF5EB] px-2.5 py-0.5 rounded-full inline-block my-1.5 uppercase tracking-wider shadow-xs">
+                                                {member.role}
+                                            </span>
+                                        )}
                                     </div>
                                     <p className="text-xs text-neutral-700 font-semibold leading-relaxed mt-1">
                                         {member.affiliation}

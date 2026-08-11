@@ -41,7 +41,7 @@ function MemberTextCard({ member }) {
                 <h4 className="text-sm md:text-base font-black text-[#4A121A] leading-snug group-hover:text-[#722332] transition-colors">
                     {member.name}
                 </h4>
-                {member.role && (
+                {member.role && member.role !== 'Member' && member.role !== 'Organizing Committee Member' && (
                     <span className="text-[11px] font-black text-[#722332] bg-white px-2.5 py-0.5 rounded-full border border-[#C59B27]/30 inline-block my-1.5 uppercase tracking-wider">
                         {member.role}
                     </span>
