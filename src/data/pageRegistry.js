@@ -14,6 +14,7 @@ export const sectionManifest = [
     { id: 'venueTravelKathmanduSection', component: 'VenueTravelKathmanduSection', requiresData: ['venueTravelData'] },
     { id: 'faqsSection', component: 'FaqsSection', requiresData: ['faqsData'] },
     { id: 'hardnovateSection', component: 'HardnovateSection', requiresData: ['hardnovateData'] },
+    { id: 'risingResearcherSection', component: 'RisingResearcherSection', requiresData: ['risingResearcherData'] },
     { id: 'divider', component: 'Divider', requiresData: [] },
     { id: 'placeholder', component: 'PlaceholderSection', requiresData: [] },
 ];
@@ -235,8 +236,8 @@ export const pageRegistry = [
         title: 'RISING RESEARCHER AWARD',
         path: '/awards/rising-researcher',
         sections: [
-            { sectionId: 'hero', props: { title: "Rising Researcher Award", subtitle: `` } },
-            { sectionId: 'placeholder', props: { title: 'Rising Researcher Award' } }
+            { sectionId: 'hero', props: { title: "Rising Researcher Award", subtitle: `Recognizing early-career excellence across Engineering, Science, and Management` } },
+            { sectionId: 'risingResearcherSection', props: {} }
         ]
     },
     {

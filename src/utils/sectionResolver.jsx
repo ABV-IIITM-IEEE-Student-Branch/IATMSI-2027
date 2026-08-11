@@ -10,6 +10,7 @@ import PosterGuidelinesSection from '../components/sections/PosterGuidelinesSect
 import VenueTravelKathmanduSection from '../components/sections/VenueTravelKathmanduSection';
 import FaqsSection from '../components/sections/FaqsSection';
 import HardnovateSection from '../components/sections/HardnovateSection';
+import RisingResearcherSection from '../components/sections/RisingResearcherSection';
 import TracksGridSection from '../components/sections/TracksGridSection';
 import SubmissionCtaSection from '../components/sections/SubmissionCtaSection';
 import CallForReviewersSection from '../components/sections/CallForReviewersSection';
@@ -62,6 +63,7 @@ export const sectionResolver = {
     venueTravelKathmanduSection: VenueTravelKathmanduSection,
     faqsSection: FaqsSection,
     hardnovateSection: HardnovateSection,
+    risingResearcherSection: RisingResearcherSection,
     callForReviewersSection: CallForReviewersSection,
     committeeSection: CommitteeSection,
     contactSection: ContactSection,
