@@ -97,16 +97,16 @@ export const teaserVideosData = {
         {
             id: 1,
             title: "ABV-IIITM Gwalior IEEE SB ANTHEM",
-            youtubeId: "dQw4w9WgXcQ", // Embed or thumbnail player
-            thumbnail: "https://lh3.googleusercontent.com/d/1OoQlP6Ucwi-7L4Oe_0Sl8TCAu8urbm2w",
-            embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+            youtubeId: "WYPeqEFVgoo",
+            thumbnail: "https://img.youtube.com/vi/WYPeqEFVgoo/hqdefault.jpg",
+            embedUrl: "https://www.youtube.com/embed/WYPeqEFVgoo"
         },
         {
             id: 2,
             title: "IEEE IATMSI-2027 Teaser Video",
-            youtubeId: "dQw4w9WgXcQ",
-            thumbnail: "https://lh3.googleusercontent.com/d/1bDYy_ReDauwg-bWK_cXmcHeNcSC7EWVh",
-            embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+            youtubeId: "_i28dauNR1s",
+            thumbnail: "https://img.youtube.com/vi/_i28dauNR1s/hqdefault.jpg",
+            embedUrl: "https://www.youtube.com/embed/_i28dauNR1s"
         }
     ]
 };
