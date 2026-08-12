@@ -12,7 +12,7 @@ function SampleImageCard({ img }) {
 
     return (
         <div className="my-6 p-4 md:p-6 rounded-2xl bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] border-2 border-[#C59B27]/40 shadow-xs space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#C59B27]/30 pb-3">
+            <div className="border-b border-[#C59B27]/30 pb-3">
                 <div className="flex items-center gap-2.5">
                     <span className="w-8 h-8 rounded-full bg-[#722332] text-white flex items-center justify-center text-xs font-black">
                         {img.id}
@@ -21,17 +21,6 @@ function SampleImageCard({ img }) {
                         {displayTitle}
                     </h4>
                 </div>
-                <a
-                    href={img.driveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#722332] hover:underline self-start sm:self-auto bg-white px-3 py-1 rounded-lg border border-[#C59B27]/40"
-                >
-                    <span>Open in Drive</span>
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                </a>
             </div>
 
             <p className="text-xs md:text-sm text-neutral-700 font-medium">
