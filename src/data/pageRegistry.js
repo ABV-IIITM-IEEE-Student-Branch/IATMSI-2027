@@ -20,6 +20,7 @@ export const sectionManifest = [
     { id: 'simulationAwardSection', component: 'SimulationAwardSection', requiresData: ['simulationAwardData'] },
     { id: 'bestPaperAwardSection', component: 'BestPaperAwardSection', requiresData: ['bestPaperAwardData'] },
     { id: 'fellowshipsSection', component: 'FellowshipsSection', requiresData: ['fellowshipsData'] },
+    { id: 'sponsorshipSection', component: 'SponsorshipSection', requiresData: ['sponsorshipData'] },
     { id: 'divider', component: 'Divider', requiresData: [] },
     { id: 'placeholder', component: 'PlaceholderSection', requiresData: [] },
 ];
@@ -177,8 +178,8 @@ export const pageRegistry = [
         title: 'SPONSORSHIP/EXHIBITS',
         path: '/sponsorship',
         sections: [
-            { sectionId: 'hero', props: { title: "Sponsorship & Exhibits", subtitle: `` } },
-            { sectionId: 'placeholder', props: { title: 'Sponsorship & Exhibits' } }
+            { sectionId: 'hero', props: { title: "Be a Sponsor or Partner", subtitle: `Partner with IEEE IATMSI-2027 to showcase your organization and support technological innovation` } },
+            { sectionId: 'sponsorshipSection', props: {} }
         ]
     },
 
