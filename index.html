@@ -21,6 +21,53 @@
   <div id="root"></div>
 
   <script type="module" src="/src/main.jsx"></script>
+  <script>
+    // Weavr Visual WYSIWYG Dev Bridge
+    if (window.self !== window.top) {
+      const enableWeavrEditing = () => {
+        const style = document.createElement('style');
+        style.id = 'weavr-editor-styles';
+        style.innerHTML = `
+          [contenteditable="true"] {
+            outline: 2px dashed #d4a244 !important;
+            outline-offset: 3px !important;
+            transition: all 0.15s ease !important;
+            cursor: text !important;
+          }
+          [contenteditable="true"]:hover {
+            outline: 2px solid #722332 !important;
+            background-color: rgba(212, 162, 68, 0.1) !important;
+          }
+          [contenteditable="true"]:focus {
+            outline: 2px solid #d4a244 !important;
+            background-color: rgba(212, 162, 68, 0.15) !important;
+            box-shadow: 0 4px 12px rgba(114, 35, 50, 0.15) !important;
+          }
+        `;
+        document.head.appendChild(style);
+
+        const makeEditable = () => {
+          document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, button, a, span.font-black, span.font-bold, li, td, th').forEach((el) => {
+            if (el.tagName === 'A') {
+              el.addEventListener('click', (e) => e.preventDefault());
+            }
+            el.setAttribute('contenteditable', 'true');
+            el.setAttribute('spellcheck', 'false');
+          });
+        };
+
+        setTimeout(makeEditable, 800);
+        const observer = new MutationObserver(makeEditable);
+        observer.observe(document.body, { childList: true, subtree: true });
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', enableWeavrEditing);
+      } else {
+        enableWeavrEditing();
+      }
+    }
+  </script>
 </body>
 
 </html>
