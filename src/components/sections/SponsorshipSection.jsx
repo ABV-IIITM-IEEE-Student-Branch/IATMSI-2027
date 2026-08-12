@@ -22,7 +22,7 @@ export default function SponsorshipSection() {
                         Partnership Opportunities
                     </span>
                     <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase">
-                        Sponsorship Flyer & Brochure Downloads
+                        Sponsorship Flyer & Brochure
                     </h3>
                 </div>
 
