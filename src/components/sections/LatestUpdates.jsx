@@ -11,7 +11,7 @@ export default function LatestUpdates() {
     if (!updates || updates.length === 0) return null;
 
     return (
-        <div className="w-full bg-[#722332] border-y border-amber-500/30 relative z-20 flex h-10 sm:h-12 overflow-hidden group">
+        <div data-weavr-source="latestUpdates" className="w-full bg-[#722332] border-y border-amber-500/30 relative z-20 flex h-10 sm:h-12 overflow-hidden group">
             {/* Flat Dark Label Block */}
             <div className="bg-[#4A121A] px-4 sm:px-6 flex items-center justify-center z-30 shrink-0 border-r border-amber-500/30">
                 <span className="font-extrabold tracking-wider uppercase flex items-center gap-2.5 text-xs sm:text-sm text-amber-300">

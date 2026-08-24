@@ -1,17 +1,30 @@
 // Page Registry - IATMSI-2027
 
+// Every available section, and the data files it renders content from.
+//
+// `requiresData` must list every data file a section reads. Besides
+// documenting the section, it is what lets an external editor know which file
+// a piece of on-screen text came from when the same words appear in more than
+// one place (a page title duplicated here and in the section's own data, say).
+// A section whose list is wrong or missing simply falls back to being
+// non-editable in place, never to editing the wrong field.
 export const sectionManifest = [
-    { id: 'hero', component: 'HeroSection', requiresData: ['heroData'] },
+    { id: 'hero', component: 'HeroSection', requiresData: ['heroData', 'conferenceData', 'pageRegistry'] },
     { id: 'intro', component: 'IntroSection', requiresData: ['conferenceData'] },
     { id: 'aboutInstitute', component: 'AboutInstitute', requiresData: ['conferenceData'] },
     { id: 'aboutFullSection', component: 'AboutFullSection', requiresData: ['conferenceData'] },
+    { id: 'aboutRationaleSection', component: 'AboutRationaleSection', requiresData: ['conferenceData'] },
+    { id: 'aboutObjectivesSection', component: 'AboutObjectivesSection', requiresData: ['conferenceData'] },
     { id: 'historySection', component: 'HistorySection', requiresData: ['historyData'] },
     { id: 'trackChairsSection', component: 'TrackChairsSection', requiresData: ['trackChairsData'] },
-    { id: 'cameraReadySection', component: 'CameraReadySection', requiresData: ['cameraReadyData'] },
+    { id: 'cameraReadySection', component: 'CameraReadySection', requiresData: ['cameraReadyData', 'siteConfig'] },
     { id: 'copyrightSection', component: 'CopyrightSection', requiresData: ['copyrightData'] },
     { id: 'oralGuidelinesSection', component: 'OralGuidelinesSection', requiresData: ['oralGuidelinesData'] },
     { id: 'posterGuidelinesSection', component: 'PosterGuidelinesSection', requiresData: ['posterGuidelinesData'] },
     { id: 'venueTravelKathmanduSection', component: 'VenueTravelKathmanduSection', requiresData: ['venueTravelData'] },
+    { id: 'venueDirectionsSection', component: 'VenueDirectionsSection', requiresData: ['conferenceData', 'travelData'] },
+    { id: 'travelVisaSection', component: 'TravelVisaSection', requiresData: ['travelData'] },
+    { id: 'exploreGwaliorSection', component: 'ExploreGwaliorSection', requiresData: ['travelData'] },
     { id: 'faqsSection', component: 'FaqsSection', requiresData: ['faqsData'] },
     { id: 'hardnovateSection', component: 'HardnovateSection', requiresData: ['hardnovateData'] },
     { id: 'risingResearcherSection', component: 'RisingResearcherSection', requiresData: ['risingResearcherData'] },
@@ -21,6 +34,25 @@ export const sectionManifest = [
     { id: 'bestPaperAwardSection', component: 'BestPaperAwardSection', requiresData: ['bestPaperAwardData'] },
     { id: 'fellowshipsSection', component: 'FellowshipsSection', requiresData: ['fellowshipsData'] },
     { id: 'sponsorshipSection', component: 'SponsorshipSection', requiresData: ['sponsorshipData'] },
+    { id: 'callForReviewersSection', component: 'CallForReviewersSection', requiresData: ['reviewerData'] },
+    { id: 'committeeSection', component: 'CommitteeSection', requiresData: ['committeeData'] },
+    { id: 'contactSection', component: 'ContactSection', requiresData: ['contactData'] },
+    { id: 'importantDatesSection', component: 'ImportantDatesSection', requiresData: ['conferenceData'] },
+    { id: 'paperSubmissionSection', component: 'PaperSubmissionSection', requiresData: ['submissionData'] },
+    { id: 'registrationSection', component: 'RegistrationSection', requiresData: ['registrationData'] },
+    { id: 'tracksGridSection', component: 'TracksGridSection', requiresData: ['tracksData'] },
+    { id: 'submissionCtaSection', component: 'SubmissionCtaSection', requiresData: ['siteConfig', 'tracksData'] },
+
+    // Home page sections
+    { id: 'aboutConfSection', component: 'AboutConfSection', requiresData: ['conferenceData', 'homeData'] },
+    { id: 'programScheduleSection', component: 'ProgramScheduleSection', requiresData: ['homeData'] },
+    { id: 'callForPapersSection', component: 'CallForPapersSection', requiresData: ['homeData'] },
+    { id: 'themeTracksSection', component: 'ThemeTracksSection', requiresData: ['homeData'] },
+    { id: 'awardsContestSection', component: 'AwardsContestSection', requiresData: ['homeData'] },
+    { id: 'teaserVideosSection', component: 'TeaserVideosSection', requiresData: ['homeData'] },
+    { id: 'patronChairsSection', component: 'PatronChairsSection', requiresData: ['homeData'] },
+    { id: 'supportersSection', component: 'SupportersSection', requiresData: ['homeData'] },
+
     { id: 'divider', component: 'Divider', requiresData: [] },
     { id: 'placeholder', component: 'PlaceholderSection', requiresData: [] },
 ];

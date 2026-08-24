@@ -1,4 +1,4 @@
-import { pageRegistry } from '../data/pageRegistry';
+import { pageRegistry, sectionManifest } from '../data/pageRegistry';
 import { sectionResolver } from '../utils/sectionResolver';
 import NavigationMenu from '../components/layout/NavigationMenu';
 import LatestUpdates from '../components/sections/LatestUpdates';
@@ -59,5 +59,20 @@ function SectionRenderer({ section }) {
         console.warn(`Component not found for sectionId: ${section.sectionId}`);
         return null;
     }
-    return <Component {...section.props} />;
+
+    // Tag the section with the data files it renders from, so an external
+    // editor can tell which file a piece of on-screen text belongs to when the
+    // same words appear in several places. `display: contents` keeps this
+    // wrapper out of layout entirely.
+    const manifestEntry = sectionManifest.find(s => s.id === section.sectionId);
+    const sources = manifestEntry?.requiresData ?? [];
+
+    const rendered = <Component {...section.props} />;
+    if (sources.length === 0) return rendered;
+
+    return (
+        <div data-weavr-source={sources.join(' ')} style={{ display: 'contents' }}>
+            {rendered}
+        </div>
+    );
 }

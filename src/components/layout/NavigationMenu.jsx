@@ -10,7 +10,7 @@ export default function NavigationMenu() {
     };
 
     return (
-        <div className="bg-[#4A121A] shadow-lg border-b-2 border-[#C59B27] z-40 relative">
+        <div data-weavr-source="navigationData pageRegistry" className="bg-[#4A121A] shadow-lg border-b-2 border-[#C59B27] z-40 relative">
             <nav className="hidden lg:flex flex-1 flex-wrap justify-center items-center gap-x-3 xl:gap-x-5 gap-y-2 px-3 xl:px-6 py-2.5">
                 {navigationTree.map((item) => (
                     item.type === 'link' ? (

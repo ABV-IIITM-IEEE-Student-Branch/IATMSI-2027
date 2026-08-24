@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
     return (
-        <footer className="bg-[#4A121A] text-[#FAF5EB] font-sans border-t-2 border-[#C59B27] relative z-20">
+        <footer data-weavr-source="siteConfig conferenceData committeeData navigationData" className="bg-[#4A121A] text-[#FAF5EB] font-sans border-t-2 border-[#C59B27] relative z-20">
             {/* Main Footer Container */}
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-8 lg:py-10">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start">

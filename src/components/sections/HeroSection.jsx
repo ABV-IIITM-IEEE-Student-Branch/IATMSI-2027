@@ -67,7 +67,14 @@ export default function HeroSection({ title, subtitle, isHomePage = false }) {
                         {/* Main Title */}
                         <div className="flex flex-col gap-4 mb-6">
                             <h1 className="text-white font-light leading-tight drop-shadow-lg">
-                                <span className="block text-xl md:text-2xl lg:text-3xl font-black mb-2 leading-snug text-white drop-shadow-xl uppercase tracking-widest">
+                                {/* Per-page title comes from pageRegistry; only the
+                                    fallback comes from conferenceData. Naming the
+                                    source here keeps an editor from confusing the
+                                    two when both hold the same words. */}
+                                <span
+                                    data-weavr-source={title ? 'pageRegistry' : 'conferenceData'}
+                                    className="block text-xl md:text-2xl lg:text-3xl font-black mb-2 leading-snug text-white drop-shadow-xl uppercase tracking-widest"
+                                >
                                     {title || conferenceInfo.fullTitle}
                                 </span>
                             </h1>
@@ -75,7 +82,10 @@ export default function HeroSection({ title, subtitle, isHomePage = false }) {
 
                         {/* Subtitle / Tagline */}
                         {(subtitle || (isHomePage && heroTagline)) && (
-                            <p className="hidden md:block text-sm md:text-base font-bold !text-white mb-8 max-w-6xl mx-auto drop-shadow-[0_4px_6px_rgba(0,0,0,1)] tracking-wide leading-relaxed">
+                            <p
+                                data-weavr-source={subtitle ? 'pageRegistry' : 'heroData'}
+                                className="hidden md:block text-sm md:text-base font-bold !text-white mb-8 max-w-6xl mx-auto drop-shadow-[0_4px_6px_rgba(0,0,0,1)] tracking-wide leading-relaxed"
+                            >
                                 {subtitle || heroTagline}
                             </p>
                         )}
