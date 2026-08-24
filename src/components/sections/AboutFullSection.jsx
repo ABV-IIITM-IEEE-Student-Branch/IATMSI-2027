@@ -4,15 +4,7 @@ import { aboutPageData } from '../../data/conferenceData';
 function renderFormattedText(text) {
     if (!text) return null;
     // Highlight key statistics and important terms
-    const highlights = [
-        '4,700 paper submissions',
-        'less than 10%',
-        'Kathmandu, Nepal',
-        'Enabling the Change! Social Innovation for Sustainable Societies',
-        'Advancing Technology for Humanity',
-        '460,000+',
-        'Local Host and Co-Organizer'
-    ];
+    const highlights = aboutPageData.highlightTerms;
 
     let formatted = text;
     highlights.forEach(term => {

@@ -41,6 +41,15 @@ export const aboutPageData = {
         title: "About the Conference",
         subtitle: "IEEE International Conference on Interdisciplinary Approaches in Technology and Management for Social Innovation (IATMSI-2027)"
     },
+    highlightTerms: [
+        '4,700 paper submissions',
+        'less than 10%',
+        'Kathmandu, Nepal',
+        'Enabling the Change! Social Innovation for Sustainable Societies',
+        'Advancing Technology for Humanity',
+        '460,000+',
+        'Local Host and Co-Organizer'
+    ],
     stats: [
         { label: "Edition", value: "5th", description: "Globally Recognized IEEE Series" },
         { label: "Submissions (Previous)", value: "4,700+", description: "Papers Submitted to IEEE IATMSI-2026" },
