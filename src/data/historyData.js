@@ -1,7 +1,7 @@
 // History data - IATMSI Series (2022 - 2026)
 
 export const historyOverviewData = {
-    title: "IATMSI Conference Series History",
+    title: "IATMSI Series History",
     subtitle: "A legacy of interdisciplinary innovation, global research excellence, and socially impactful technologies.",
     ieeeNotice: "All papers of IATMSI-2022, IATMSI-2024, IATMSI-2025, and IATMSI-2026 have been published in the IEEE Xplore Digital Library and indexed by Scopus, Google Scholar, and major indexing databases.",
     editions: [
