@@ -1,17 +1,26 @@
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
-import { attractions } from '../../data/travelData';
+import { attractions, exploreIntro, exploreClosingTitle, exploreClosingNote } from '../../data/travelData';
+import ReactMarkdown from 'react-markdown';
+import React from 'react';
 
 export default function ExploreGwaliorSection() {
     return (
         <>
-            
+
 
             <SectionContainer background="white">
                 <div className="max-w-5xl mx-auto space-y-12">
                     {/* Intro */}
                     <div className="prose prose max-w-none text-slate-600 text-center">
                         <p className="text-base leading-relaxed max-w-3xl mx-auto">
-                            Gwalior, known as the <strong className="text-[#5B1824] font-bold">City of Music</strong> and one of the most historic cities in central India, offers conference attendees a chance to explore centuries of royal heritage, stunning architecture, and vibrant culture - all within easy reach of the ABV-IIITM campus.
+                            <ReactMarkdown
+                                components={{
+                                    p: React.Fragment,
+                                    strong: ({ children }) => <strong className="text-[#5B1824] font-bold">{children}</strong>,
+                                }}
+                            >
+                                {exploreIntro}
+                            </ReactMarkdown>
                         </p>
                     </div>
 
@@ -50,9 +59,9 @@ export default function ExploreGwaliorSection() {
 
                     {/* Travel Tip */}
                     <div className="bg-[#FAF8F5] rounded-2xl p-8 border border-amber-500/30 text-center shadow-sm">
-                        <h3 className="text-[#5B1824] text-xl font-extrabold mb-2">Need help planning your visit?</h3>
+                        <h3 className="text-[#5B1824] text-xl font-extrabold mb-2">{exploreClosingTitle}</h3>
                         <p className="text-neutral-700 text-sm max-w-2xl mx-auto leading-relaxed">
-                            The conference organizing committee will be happy to assist you with local travel recommendations during the event. An information desk will be available at the registration counter.
+                            {exploreClosingNote}
                         </p>
                     </div>
                 </div>

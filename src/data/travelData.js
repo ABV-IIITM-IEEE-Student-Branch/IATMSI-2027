@@ -94,6 +94,12 @@ export const venueInfo = {
   ],
 };
 
+export const exploreIntro = 'Gwalior, known as the **City of Music** and one of the most historic cities in central India, offers conference attendees a chance to explore centuries of royal heritage, stunning architecture, and vibrant culture - all within easy reach of the ABV-IIITM campus.';
+
+export const exploreClosingTitle = 'Need help planning your visit?';
+
+export const exploreClosingNote = 'The conference organizing committee will be happy to assist you with local travel recommendations during the event. An information desk will be available at the registration counter.';
+
 export const attractions = [
     {
         id: 'gwalior-fort',
