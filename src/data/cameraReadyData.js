@@ -4,6 +4,9 @@ export const cameraReadyData = {
     title: "Instructions for Camera Ready Paper Submission",
     subtitle: "Complete submission procedure, copyright notices, and IEEE PDF eXpress guidelines for IATMSI-2027.",
 
+    registrationFormUrl: "https://forms.gle/6W79XUvjbeHZxRPM6",
+    conferenceIdCmt: "68868X",
+
     importantDates: [
         { activity: "Call for Papers", date: "20th June 2026" },
         { activity: "Submission Due Date", date: "20th December 2026" },

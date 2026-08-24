@@ -1,5 +1,6 @@
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { cameraReadyData } from '../../data/cameraReadyData';
+import { siteConfig } from '../../data/siteConfig';
 
 function SampleImageCard({ title, imageUrl }) {
     if (!imageUrl) return null;
@@ -30,6 +31,8 @@ export default function CameraReadySection() {
         copyrightSection,
         pdfExpressSection,
         sampleImages,
+        registrationFormUrl,
+        conferenceIdCmt,
     } = cameraReadyData;
 
     return (
@@ -86,7 +89,7 @@ export default function CameraReadySection() {
                     <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-4 md:p-5 rounded-xl border border-[#C59B27]/40">
                         <p className="mb-3">{howToSubmitText[2]}</p>
                         <a
-                            href="https://forms.gle/6W79XUvjbeHZxRPM6"
+                            href={registrationFormUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] px-4 py-2 rounded-xl text-xs md:text-sm font-black uppercase tracking-wider border border-[#C59B27] transition-all shadow-sm"
@@ -107,7 +110,7 @@ export default function CameraReadySection() {
                     <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-4 md:p-5 rounded-xl border border-[#C59B27]/40">
                         <p className="mb-3">{howToSubmitText[4]}</p>
                         <a
-                            href="https://www.ieee.org/conferences/publishing/templates.html"
+                            href={siteConfig.externalLinks.paperTemplate.url}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-white !text-[#722332] hover:bg-[#FAF5EB] px-4 py-2 rounded-xl text-xs md:text-sm font-black uppercase tracking-wider border-2 border-[#C59B27] transition-all"
@@ -192,7 +195,7 @@ export default function CameraReadySection() {
                     <div className="bg-white p-4 rounded-xl border border-[#C59B27]/30 space-y-2 text-xs md:text-sm text-neutral-800">
                         <p className="font-bold text-[#4A121A]">Enter the following:</p>
                         <ul className="list-disc list-inside space-y-1 text-neutral-700">
-                            <li><strong className="text-[#722332]">68868X</strong> for the Conference ID (Conference ID for IEEE IATMSI)</li>
+                            <li><strong className="text-[#722332]">{conferenceIdCmt}</strong> for the Conference ID (Conference ID for IEEE IATMSI)</li>
                             <li>Your email address</li>
                             <li>A password</li>
                         </ul>
