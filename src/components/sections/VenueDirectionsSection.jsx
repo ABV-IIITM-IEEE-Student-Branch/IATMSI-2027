@@ -97,7 +97,7 @@ export default function VenueDirectionsSection() {
                             allowFullScreen=""
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
-                            title="ABV-IIITM, Gwalior Location"
+                            title={`${conferenceInfo.venue.shortName} Location`}
                         ></iframe>
                     </div>
 

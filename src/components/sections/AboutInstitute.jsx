@@ -32,7 +32,7 @@ export default function AboutInstitute() {
                                 <div className="absolute inset-0 bg-primary-900/10 group-hover:bg-transparent transition-colors duration-500" />
                                 <img
                                     src={aboutInstitute.iiitmImage}
-                                    alt="ABV-IIITM, Gwalior"
+                                    alt={aboutInstitute.iiitmImageAlt}
                                     className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                                 />
                             </div>
@@ -56,7 +56,7 @@ export default function AboutInstitute() {
                                     <div className="absolute inset-0 bg-primary-900/10 group-hover:bg-transparent transition-colors duration-500" />
                                     <img
                                         src={aboutInstitute.coeImage}
-                                        alt="Center of Excellence Facility"
+                                        alt={aboutInstitute.coeImageAlt}
                                         className="aspect-video w-full object-cover group-hover:scale-105 transition-transform duration-700"
                                     />
                                 </div>

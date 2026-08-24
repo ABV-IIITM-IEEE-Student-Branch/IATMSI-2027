@@ -147,9 +147,11 @@ export const conferenceScope = `The conference covers a broad spectrum of green,
 export const aboutInstitute = {
     iiitmHeading: 'About ABV-IIITM, Gwalior',
     iiitmImage: 'https://lh3.googleusercontent.com/d/1bDYy_ReDauwg-bWK_cXmcHeNcSC7EWVh',
+    iiitmImageAlt: 'ABV-IIITM, Gwalior',
     iiitm: `Atal Bihari Vajpayee – Indian Institute of Information Technology & Management (ABV-IIITM), Gwalior, was established in 1997 by the Ministry of Human Resource Development, Government of India. It is a premier institute known for excellence in Information Technology and Management education. Located in Gwalior, Madhya Pradesh, the institute promotes a vibrant academic culture rooted in research and innovation. ABV-IIITM maintains strong industry linkages, encouraging real-world learning and collaboration. It has been accredited with a NAAC 'A' grade and holds the status of an Institute of National Importance. The institute strives to create future-ready professionals through cutting-edge curriculum and interdisciplinary learning. Its mission is to integrate technology, management, and research for societal and industrial impact.`,
     coeHeading: 'Center of Excellence - Sustainable Technology & Green Mobility',
     coeImage: 'https://theacademicinsights.com/wp-content/uploads/2022/01/Atal-Bihari-Vajpayee-Indian-Institute-of-Information-Technology-and-Management-BSOY-2021.jpg',
+    coeImageAlt: 'Center of Excellence Facility',
     coe: `The Center of Excellence - Sustainable Technology and Green Mobility at ABV-IIITM, Gwalior focuses on advancing research and innovation in sustainable technologies, green manufacturing, electric mobility, clean energy systems, and circular economy. The center serves as a hub for interdisciplinary collaboration, bridging engineering, management, and policy domains to address critical challenges in sustainability and environmental stewardship.`,
 };
 
