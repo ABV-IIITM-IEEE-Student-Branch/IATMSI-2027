@@ -9,6 +9,7 @@ export default function SponsorshipSection() {
         documents,
         contactEmails,
         committee,
+        queriesIntro,
     } = sponsorshipData;
 
     return (
@@ -74,7 +75,7 @@ export default function SponsorshipSection() {
 
                 <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-5 md:p-6 rounded-xl border border-[#C59B27]/40 space-y-4">
                     <p className="text-xs md:text-sm text-neutral-800 font-semibold leading-relaxed">
-                        Any queries or discussions related to sponsorship or corporate partnership can be addressed to our dedicated sponsorship committee:
+                        {queriesIntro}
                     </p>
 
                     <div className="flex flex-wrap gap-3 pt-1">
