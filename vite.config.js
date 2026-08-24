@@ -6,11 +6,49 @@ import { promisify } from 'util';
 
 const execAsync = promisify(exec);
 
+// Escapes text for safe insertion into an HTML attribute or element content.
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+// Replaces the content="..." value of a <meta name="X" ...> tag in an HTML string.
+function replaceMetaContent(html, name, value) {
+  const pattern = new RegExp(
+    `(<meta[^>]*name=["']${name}["'][^>]*content=["'])[^"']*(["'][^>]*>)`,
+    'i'
+  );
+  return html.replace(pattern, `$1${escapeHtml(value)}$2`);
+}
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
+    {
+      // Keeps index.html's <title> and SEO <meta> tags in sync with
+      // siteConfig.seo (src/data/siteConfig.js) so that data file remains
+      // the single source of truth per .agents/AGENTS.md - editing the
+      // static HTML directly is harmless, this plugin overwrites it.
+      name: 'html-seo-from-siteconfig',
+      async transformIndexHtml(html) {
+        const { siteConfig } = await import('./src/data/siteConfig.js');
+        const { title, description, keywords, author } = siteConfig.seo;
+
+        let result = html.replace(
+          /<title>[\s\S]*?<\/title>/i,
+          `<title>${escapeHtml(title)}</title>`
+        );
+        result = replaceMetaContent(result, 'description', description);
+        result = replaceMetaContent(result, 'keywords', keywords);
+        result = replaceMetaContent(result, 'author', author);
+        return result;
+      },
+    },
     {
       name: 'weavr-git-publisher',
       configureServer(server) {
