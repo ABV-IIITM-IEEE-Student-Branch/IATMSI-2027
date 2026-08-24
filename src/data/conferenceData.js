@@ -122,9 +122,40 @@ export const conferenceObjectives = [
 export const conferenceScope = `The conference covers a broad spectrum of green, digital, and sustainable technologies addressing manufacturing, service, energy, electronics, mobility, agriculture, environment, and governance. It integrates technological innovation with policy, entrepreneurship, and real-world implementation, ensuring relevance for both developed and developing economies.`;
 
 export const aboutInstitute = {
+    iiitmHeading: 'About ABV-IIITM, Gwalior',
+    iiitmImage: 'https://lh3.googleusercontent.com/d/1bDYy_ReDauwg-bWK_cXmcHeNcSC7EWVh',
     iiitm: `Atal Bihari Vajpayee – Indian Institute of Information Technology & Management (ABV-IIITM), Gwalior, was established in 1997 by the Ministry of Human Resource Development, Government of India. It is a premier institute known for excellence in Information Technology and Management education. Located in Gwalior, Madhya Pradesh, the institute promotes a vibrant academic culture rooted in research and innovation. ABV-IIITM maintains strong industry linkages, encouraging real-world learning and collaboration. It has been accredited with a NAAC 'A' grade and holds the status of an Institute of National Importance. The institute strives to create future-ready professionals through cutting-edge curriculum and interdisciplinary learning. Its mission is to integrate technology, management, and research for societal and industrial impact.`,
+    coeHeading: 'Center of Excellence - Sustainable Technology & Green Mobility',
+    coeImage: 'https://theacademicinsights.com/wp-content/uploads/2022/01/Atal-Bihari-Vajpayee-Indian-Institute-of-Information-Technology-and-Management-BSOY-2021.jpg',
     coe: `The Center of Excellence - Sustainable Technology and Green Mobility at ABV-IIITM, Gwalior focuses on advancing research and innovation in sustainable technologies, green manufacturing, electric mobility, clean energy systems, and circular economy. The center serves as a hub for interdisciplinary collaboration, bridging engineering, management, and policy domains to address critical challenges in sustainability and environmental stewardship.`,
 };
+
+export const instituteHighlights = [
+    {
+        icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253',
+        title: '9 Technical Tracks',
+        description: 'Covering green tech, energy, mobility & more',
+        link: '/call-for-papers/tracks',
+    },
+    {
+        icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
+        title: '3-Day Conference',
+        description: 'May 20-22, 2027 at ABV-IIITM, Gwalior',
+        link: '/important-dates',
+    },
+    {
+        icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z',
+        title: 'Global Platform',
+        description: 'Researchers, industry & policymakers',
+        link: '/about',
+    },
+    {
+        icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138z',
+        title: 'SDG Aligned',
+        description: 'Net-Zero, ESG & Climate Action',
+        link: '/about',
+    },
+];
 
 export const conferenceHighlights = [
     {
