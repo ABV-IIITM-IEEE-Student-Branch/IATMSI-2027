@@ -253,6 +253,28 @@ export const advisoryCommittee = [
     { name: 'Dr. Priyanka Kaushik', role: null, affiliation: 'NIMS University, Rajasthan, India' },
 ];
 
+export const committeeSectionHeader = {
+    title: 'IATMSI-2027 Committees',
+    subtitle: 'Distinguished international leadership, advisory board, and committee chairs guiding IEEE IATMSI-2027.',
+};
+
+export const committeeGroupManifest = [
+    { id: 'patrons', title: 'Conference Patrons', dataKey: 'conferencePatrons' },
+    { id: 'general-chairs', title: 'General Chairs', dataKey: 'generalChairs' },
+    { id: 'conference-chairs', title: 'Conference Chair', dataKey: 'conferenceChairs' },
+    { id: 'core-committee', title: 'Organizing & Core Committee', dataKey: 'organizingCoreCommittee' },
+    { id: 'publicity', title: 'Publicity & Promotion Committee', dataKey: 'publicityCommittee' },
+    { id: 'registration', title: 'Registration Committee', dataKey: 'registrationCommittee' },
+    { id: 'publication', title: 'Publication Committee', dataKey: 'publicationCommittee' },
+    { id: 'phd-forum', title: 'PhD Forum Committee', dataKey: 'phdForumCommittee' },
+    { id: 'fellowship', title: 'Fellowship & Award Committee', dataKey: 'fellowshipAwardCommittee' },
+    { id: 'finance', title: 'Finance & Sponsorship Committee', dataKey: 'financeSponsorshipCommittee' },
+    { id: 'workshop', title: 'Workshop & Tutorial Committee', dataKey: 'workshopTutorialCommittee' },
+    { id: 'web', title: 'Web Committee', dataKey: 'webCommittee' },
+    { id: 'tpc', title: 'Technical Programme Committee', dataKey: 'technicalProgrammeCommittee' },
+    { id: 'advisory', title: 'Advisory Committee', dataKey: 'advisoryCommittee' },
+];
+
 export const contactPerson = {
     name: 'Dr. Pinku Ranjan',
     designation: 'Organizing Chair & Contact',

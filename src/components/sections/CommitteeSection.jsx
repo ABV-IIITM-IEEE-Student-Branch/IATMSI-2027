@@ -1,6 +1,8 @@
 import { useState, useRef } from 'react';
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import {
+    committeeGroupManifest,
+    committeeSectionHeader,
     conferencePatrons,
     generalChairs,
     conferenceChairs,
@@ -17,22 +19,28 @@ import {
     advisoryCommittee,
 } from '../../data/committeeData';
 
-const committeeGroups = [
-    { id: 'patrons', title: 'Conference Patrons', data: conferencePatrons },
-    { id: 'general-chairs', title: 'General Chairs', data: generalChairs },
-    { id: 'conference-chairs', title: 'Conference Chair', data: conferenceChairs },
-    { id: 'core-committee', title: 'Organizing & Core Committee', data: organizingCoreCommittee },
-    { id: 'publicity', title: 'Publicity & Promotion Committee', data: publicityCommittee },
-    { id: 'registration', title: 'Registration Committee', data: registrationCommittee },
-    { id: 'publication', title: 'Publication Committee', data: publicationCommittee },
-    { id: 'phd-forum', title: 'PhD Forum Committee', data: phdForumCommittee },
-    { id: 'fellowship', title: 'Fellowship & Award Committee', data: fellowshipAwardCommittee },
-    { id: 'finance', title: 'Finance & Sponsorship Committee', data: financeSponsorshipCommittee },
-    { id: 'workshop', title: 'Workshop & Tutorial Committee', data: workshopTutorialCommittee },
-    { id: 'web', title: 'Web Committee', data: webCommittee },
-    { id: 'tpc', title: 'Technical Programme Committee', data: technicalProgrammeCommittee },
-    { id: 'advisory', title: 'Advisory Committee', data: advisoryCommittee },
-];
+const committeeDataByKey = {
+    conferencePatrons,
+    generalChairs,
+    conferenceChairs,
+    organizingCoreCommittee,
+    publicityCommittee,
+    registrationCommittee,
+    publicationCommittee,
+    phdForumCommittee,
+    fellowshipAwardCommittee,
+    financeSponsorshipCommittee,
+    workshopTutorialCommittee,
+    webCommittee,
+    technicalProgrammeCommittee,
+    advisoryCommittee,
+};
+
+const committeeGroups = committeeGroupManifest.map((group) => ({
+    id: group.id,
+    title: group.title,
+    data: committeeDataByKey[group.dataKey],
+}));
 
 function MemberTextCard({ member }) {
     return (
@@ -72,8 +80,8 @@ export default function CommitteeSection() {
     return (
         <SectionContainer id="committee-section">
             <SectionHeader
-                title="IATMSI-2027 Committees"
-                subtitle="Distinguished international leadership, advisory board, and committee chairs guiding IEEE IATMSI-2027."
+                title={committeeSectionHeader.title}
+                subtitle={committeeSectionHeader.subtitle}
                 centered={true}
             />
 
