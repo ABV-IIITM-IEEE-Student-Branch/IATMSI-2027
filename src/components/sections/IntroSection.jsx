@@ -70,7 +70,7 @@ export default function IntroSection() {
                             <div className="bg-[#5B1824] p-6 border-b border-amber-500/30 relative">
                                 <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
                                 <span className="inline-block px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[10px] font-bold tracking-wider uppercase mb-2">
-                                    5th Edition IEEE
+                                    {conferenceInfo.edition} Edition IEEE
                                 </span>
                                 <h3 className="text-xl font-extrabold !text-white mb-1.5">{conferenceInfo.shortTitle}</h3>
                                 <p className="text-xs !text-amber-100/90 leading-relaxed font-medium">{conferenceInfo.fullTitle}</p>
