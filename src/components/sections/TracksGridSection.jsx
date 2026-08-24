@@ -2,7 +2,7 @@ import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { tracks, cfpData } from '../../data/tracksData';
 
 export default function TracksGridSection() {
-    const { title, subtitle, downloadCfpUrl, theme, introText } = cfpData;
+    const { title, subtitle, downloadCfpUrl, theme, introText, xploreNote } = cfpData;
 
     return (
         <SectionContainer id="call-for-papers-tracks-section">
@@ -40,7 +40,7 @@ export default function TracksGridSection() {
                 {/* IEEE Xplore Indexing Note */}
                 <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-4 rounded-xl border border-[#C59B27]/40 text-xs md:text-sm font-semibold text-[#4A121A]">
                     <span className="font-black text-[#722332] uppercase mr-2">IEEE Xplore Publication:</span>
-                    All accepted and presented papers will undergo submission for possible inclusion into IEEE Xplore subject to meeting IEEE Xplore’s scope and quality requirements.
+                    {xploreNote}
                 </div>
             </div>
 
