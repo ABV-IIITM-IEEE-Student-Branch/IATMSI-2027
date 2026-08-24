@@ -90,13 +90,13 @@ export default function TravelVisaSection() {
                             {visaInfo.invitationLetterInfo}
                         </p>
                         <a
-                            href="mailto:iatmsi2027@iiitm.ac.in?subject=Visa Invitation Letter Request - IATMSI-2027"
+                            href={`mailto:${visaInfo.contactEmail}?subject=Visa Invitation Letter Request - IATMSI-2027`}
                             className="inline-flex items-center gap-2 px-6 py-3 bg-[#5B1824] hover:bg-[#722332] !text-white font-bold rounded-xl border-b-2 border-[#D4A244] transition-all shadow-md"
                         >
                             <svg className="w-5 h-5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
-                            iatmsi2027@iiitm.ac.in
+                            {visaInfo.contactEmail}
                         </a>
                     </div>
 

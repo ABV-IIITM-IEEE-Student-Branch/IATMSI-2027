@@ -24,6 +24,7 @@ export const visaInfo = {
     '**Flight Itinerary:** A copy of your return/onward flight itinerary.',
   ],
   invitationLetterInfo: 'To receive your official visa invitation letter, please email us at the address below with your full name, passport number, affiliation, and paper ID (if applicable).',
+  contactEmail: 'iatmsi2027@iiitm.ac.in',
   applicationSteps: [
     'Visit the official e-Visa portal: indianvisaonline.gov.in',
     'Fill in the application form and upload the required documents.',
