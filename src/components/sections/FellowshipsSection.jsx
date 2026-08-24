@@ -12,6 +12,7 @@ export default function FellowshipsSection() {
         guidelines,
         importantDates,
         coordinators,
+        applicationNotes,
     } = fellowshipsData;
 
     return (
@@ -87,9 +88,9 @@ export default function FellowshipsSection() {
                 </h3>
 
                 <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-5 rounded-xl border border-[#C59B27]/40 text-xs md:text-sm text-neutral-800 font-semibold space-y-2">
-                    <p>• Provide correct email and phone details for official communication.</p>
-                    <p>• Mandatory Letter of Recommendation (LOR) from Guide/HOD for students, or HOD/Registrar for faculty.</p>
-                    <p>• Submit only one form per applicant (multiple entries will be rejected).</p>
+                    {applicationNotes.map((note, idx) => (
+                        <p key={idx}>• {note}</p>
+                    ))}
                 </div>
 
                 {/* Form Link CTA Button */}

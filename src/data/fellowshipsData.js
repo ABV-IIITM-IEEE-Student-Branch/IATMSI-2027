@@ -45,6 +45,12 @@ export const fellowshipsData = {
         { event: "Fellowship Acceptance Deadline", date: "30th March 2027" }
     ],
 
+    applicationNotes: [
+        "Provide correct email and phone details for official communication.",
+        "Mandatory Letter of Recommendation (LOR) from Guide/HOD for students, or HOD/Registrar for faculty.",
+        "Submit only one form per applicant (multiple entries will be rejected)."
+    ],
+
     coordinators: {
         student: {
             name: "Mr. Jay Kumar Vagairya",
