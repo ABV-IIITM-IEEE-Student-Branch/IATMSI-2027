@@ -1,5 +1,6 @@
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { venueInfo } from '../../data/travelData';
+import { conferenceInfo } from '../../data/conferenceData';
 import ReactMarkdown from 'react-markdown';
 import React from 'react';
 
@@ -73,7 +74,7 @@ export default function VenueDirectionsSection() {
                                 </div>
                                 <div>
                                     <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white">Conference Venue</h2>
-                                    <p className="text-amber-300 text-sm font-semibold">IATMSI-2027 • May 20-22, 2027</p>
+                                    <p className="text-amber-300 text-sm font-semibold">{conferenceInfo.shortTitle} • {conferenceInfo.dates}</p>
                                 </div>
                             </div>
                             <div className="mt-6 space-y-1">
@@ -89,7 +90,7 @@ export default function VenueDirectionsSection() {
                     {/* Google Map */}
                     <div className="rounded-2xl overflow-hidden shadow-lg border border-amber-500/20">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3578.2!2d78.1675!3d26.2183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3976c5d00d84f9c7%3A0x2b6d88d54b1f0ad7!2sABV-Indian%20Institute%20of%20Information%20Technology%20%26%20Management%20Gwalior!5e0!3m2!1sen!2sin!4v1708234567890!5m2!1sen!2sin"
+                            src={conferenceInfo.venue.mapEmbedUrl}
                             width="100%"
                             height="350"
                             style={{ border: 0 }}
