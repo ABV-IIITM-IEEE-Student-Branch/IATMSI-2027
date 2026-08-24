@@ -1,12 +1,12 @@
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
-import { importantDates } from '../../data/conferenceData';
+import { importantDates, importantDatesHeader } from '../../data/conferenceData';
 
 export default function ImportantDatesSection() {
     return (
         <SectionContainer id="important-dates-section">
             <SectionHeader
-                title="Important Dates"
-                subtitle="Mark your calendar with key deadlines and milestones for IATMSI-2027"
+                title={importantDatesHeader.title}
+                subtitle={importantDatesHeader.subtitle}
                 centered={true}
             />
 

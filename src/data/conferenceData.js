@@ -122,6 +122,11 @@ export const aboutPageData = {
     }
 };
 
+export const conferenceObjectivesHeader = {
+    title: 'Conference Objectives',
+    subtitle: 'The primary objectives of IATMSI-2027',
+};
+
 export const conferenceObjectives = [
     'Promote cutting-edge research and innovation in green and sustainable technologies.',
     'Facilitate interdisciplinary and cross-sectoral knowledge exchange among academia, industry, startups, policymakers, and practitioners.',
@@ -190,6 +195,11 @@ export const conferenceHighlights = [
         iconId: "leaf"
     }
 ];
+
+export const importantDatesHeader = {
+    title: 'Important Dates',
+    subtitle: 'Mark your calendar with key deadlines and milestones for IATMSI-2027',
+};
 
 export const importantDates = [
     { activity: 'Call for Papers', date: '20th June 2026' },
