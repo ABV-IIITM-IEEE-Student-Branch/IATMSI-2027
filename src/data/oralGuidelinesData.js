@@ -26,5 +26,7 @@ export const oralGuidelinesData = {
         "Innovative Approach / Methodology",
         "Key Research Results",
         "Comparative Evaluation & Discussion"
-    ]
+    ],
+
+    goldenRuleNote: "Prepare approximately 10 slides (1 slide per 1 minute of presentation speech). Avoid overcrowding slides with excessive text or complex diagrams."
 };

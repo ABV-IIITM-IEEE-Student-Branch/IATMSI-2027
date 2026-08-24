@@ -9,6 +9,7 @@ export default function OralGuidelinesSection() {
         timeAllotment,
         paragraphs,
         structureElements,
+        goldenRuleNote,
     } = oralGuidelinesData;
 
     return (
@@ -132,7 +133,7 @@ export default function OralGuidelinesSection() {
                             Golden Rule of Thumb
                         </span>
                         <p className="text-xs text-neutral-700 font-semibold">
-                            Prepare approximately 10 slides (1 slide per 1 minute of presentation speech). Avoid overcrowding slides with excessive text or complex diagrams.
+                            {goldenRuleNote}
                         </p>
                     </div>
                 </div>
