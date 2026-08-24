@@ -9,11 +9,11 @@ export default function AboutRationaleSection() {
                 <div className="order-1 lg:order-1">
                     <div className="inline-flex items-center gap-2 mb-6 px-3 py-1 bg-amber-500/10 border border-amber-500/30 rounded-full">
                         <span className="w-2 h-2 rounded-full bg-[#D4A244] animate-pulse"></span>
-                        <span className="text-xs font-extrabold text-[#5B1824] uppercase tracking-widest">Introduction</span>
+                        <span className="text-xs font-extrabold text-[#5B1824] uppercase tracking-widest">{aboutRationaleContent.badge}</span>
                     </div>
 
                     <SectionHeader
-                        title="Background & Rationale"
+                        title={aboutRationaleContent.title}
                         centered={false}
                         className="!mb-8"
                     />
@@ -43,9 +43,9 @@ export default function AboutRationaleSection() {
                                 </div>
                                 <div>
                                     <h3 className="text-xl font-black text-[#5B1824] tracking-tight leading-none uppercase">
-                                        Conference
+                                        {aboutRationaleContent.scopeCard.heading}
                                     </h3>
-                                    <div className="text-[#8A2E3D] font-bold text-base tracking-wider">SCOPE & VISION</div>
+                                    <div className="text-[#8A2E3D] font-bold text-base tracking-wider">{aboutRationaleContent.scopeCard.subheading}</div>
                                 </div>
                             </div>
 
@@ -55,7 +55,7 @@ export default function AboutRationaleSection() {
                                 </p>
 
                                 <div className="pt-8 border-t border-amber-500/20">
-                                    <h4 className="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-4">Pioneering Fields</h4>
+                                    <h4 className="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-4">{aboutRationaleContent.pioneeringFieldsLabel}</h4>
                                     <div className="flex flex-wrap gap-2">
                                         {pioneeringFields.map((tag, i) => (
                                             <span key={i} className="px-3 py-1 bg-amber-500/10 border border-amber-500/30 rounded-lg text-xs font-bold text-[#5B1824] uppercase tracking-wider">

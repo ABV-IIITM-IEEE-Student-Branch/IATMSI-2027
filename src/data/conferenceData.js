@@ -34,8 +34,15 @@ export const homeIntroContent = {
 };
 
 export const aboutRationaleContent = {
+    badge: 'Introduction',
+    title: 'Background & Rationale',
     mainIntro: `The accelerating impacts of climate change, resource depletion, environmental degradation, and energy insecurity have made sustainability a defining global priority. Technological innovations-when aligned with environmental responsibility and social inclusivity-can play a transformative role in addressing these challenges. Emerging paradigms such as Green Manufacturing, Industry 5.0, Circular Economy, Digital Sustainability, Clean Energy Systems, and Green Mobility are redefining how industries, governments, and societies function.`,
     aboutConference: `In this context, the International Conference on Green and Sustainable Technology-2026 (IATMSI-2027) aims to provide a premier global platform for researchers, academicians, industry professionals, policymakers, startups, and practitioners to deliberate, disseminate, and co-create solutions for sustainable development. The conference emphasizes interdisciplinary integration of engineering and management disciplines including digital technologies, energy systems, environmental science, agriculture, electronics, policy, and innovation ecosystems.`,
+    scopeCard: {
+        heading: 'Conference',
+        subheading: 'SCOPE & VISION',
+    },
+    pioneeringFieldsLabel: 'Pioneering Fields',
 };
 
 export const aboutPageData = {
