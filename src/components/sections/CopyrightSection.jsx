@@ -12,7 +12,7 @@ function SampleImageCard({ img }) {
         : img.title;
 
     return (
-        <div className="my-6 p-4 md:p-6 rounded-2xl bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] border-2 border-[#C59B27]/40 shadow-xs space-y-4">
+        <div data-weavr-source="copyrightData" className="my-6 p-4 md:p-6 rounded-2xl bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] border-2 border-[#C59B27]/40 shadow-xs space-y-4">
             <div className="border-b border-[#C59B27]/30 pb-3">
                 <div className="flex items-center gap-2.5">
                     <span className="w-8 h-8 rounded-full bg-[#722332] text-white flex items-center justify-center text-xs font-black">

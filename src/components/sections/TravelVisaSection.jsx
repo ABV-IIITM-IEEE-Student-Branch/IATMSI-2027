@@ -9,7 +9,7 @@ export default function TravelVisaSection() {
         <>
             
 
-            <SectionContainer background="white">
+            <SectionContainer dataSource="travelData" background="white">
                 <div className="max-w-4xl mx-auto space-y-12">
                     {/* Welcome */}
                     <div className="prose prose max-w-none text-slate-600">

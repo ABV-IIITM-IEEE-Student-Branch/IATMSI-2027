@@ -41,7 +41,7 @@ export default function LatestUpdates() {
                                     target={update.link.startsWith('http') ? '_blank' : '_self'}
                                     rel={update.link.startsWith('http') ? 'noopener noreferrer' : ''}
                                 >
-                                    Read more &rarr;
+                                    {latestUpdatesLabels.readMore}
                                 </a>
                             )}
                             

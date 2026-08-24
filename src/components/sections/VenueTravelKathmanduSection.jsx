@@ -13,7 +13,7 @@ export default function VenueTravelKathmanduSection() {
     } = venueTravelData;
 
     return (
-        <SectionContainer id="venue-travel-section">
+        <SectionContainer dataSource="venueTravelData" id="venue-travel-section">
             <SectionHeader title={title} subtitle={subtitle} centered={true} />
 
             {/* 1. Venue Location Overview */}

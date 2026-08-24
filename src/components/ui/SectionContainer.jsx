@@ -21,11 +21,15 @@ export default function SectionContainer({
     className = '',
     background = 'white',
     id,
+    // Names the src/data files this section renders from. External editors use
+    // it to tell apart identical text coming from different sources - the same
+    // person listed as both a committee member and a track chair, say.
+    dataSource,
 }) {
     const style = background === 'dark' ? { backgroundColor: '#4A121A' } : {};
 
     return (
-        <section id={id} className={`py-6 md:py-10 ${background === 'dark' ? 'bg-[#4A121A] text-white' : ''} ${className}`} style={style}>
+        <section id={id} data-weavr-source={dataSource} className={`py-6 md:py-10 ${background === 'dark' ? 'bg-[#4A121A] text-white' : ''} ${className}`} style={style}>
             {background === 'white' || background === 'light' ? (
                 <div className="max-w-[92rem] mx-auto px-2 sm:px-4 lg:px-6">
                     {/* Single Frame Card Container */}

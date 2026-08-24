@@ -5,7 +5,7 @@ import Button from '../ui/Button';
 
 export default function SubmissionCtaSection() {
     return (
-        <SectionContainer background="primary">
+        <SectionContainer dataSource="tracksData siteConfig" background="primary">
             <div className="text-center">
                 <h2 className="text-2xl md:text-3xl font-bold text-primary-900 mb-4">
                     {submissionCta.title}

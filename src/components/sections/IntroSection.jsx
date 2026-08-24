@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { homeIntroContent, conferenceInfo } from '../../data/conferenceData';
+import { aboutPageData, conferenceInfo } from '../../data/conferenceData';
 import { ROUTES } from '../../constants/routes';
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import Button from '../ui/Button';
@@ -7,7 +7,7 @@ import { introLabels } from '../../data/conferenceData';
 
 export default function IntroSection() {
     return (
-        <SectionContainer background="white" className="relative overflow-hidden">
+        <SectionContainer dataSource="conferenceData" background="white" className="relative overflow-hidden">
 
             {/* Intro Content & Poster Grid */}
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center mb-20 max-w-7xl mx-auto relative z-10">
@@ -24,16 +24,16 @@ export default function IntroSection() {
                     </div>
 
                     <div className="prose text-neutral-600 text-justify max-w-none space-y-4">
-                        {homeIntroContent.paragraphs?.map((p, i) => (
+                        {aboutPageData.iatmsi.paragraphs?.map((p, i) => (
                             <p key={i} className="leading-relaxed text-sm sm:text-base text-neutral-700">
                                 {p}
                             </p>
                         ))}
 
-                        {homeIntroContent.tracks && homeIntroContent.tracks.length > 0 && (
+                        {aboutPageData.iatmsi.thematicTracks && aboutPageData.iatmsi.thematicTracks.length > 0 && (
                             <div className="py-4">
                                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pl-0 list-none m-0">
-                                    {homeIntroContent.tracks.map((track, i) => (
+                                    {aboutPageData.iatmsi.thematicTracks.map((track, i) => (
                                         <li key={i} className="flex items-start gap-3 bg-[#FAF8F5] p-3.5 rounded-xl border border-neutral-200 border-t-2 border-t-[#5B1824] shadow-sm hover:shadow-md hover:border-[#D4A244] transition-all group">
                                             <div className="w-6 h-6 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center flex-shrink-0 mt-0.5 text-amber-700 font-extrabold text-xs group-hover:bg-[#5B1824] group-hover:text-white transition-colors">
                                                 {i + 1}
@@ -45,9 +45,9 @@ export default function IntroSection() {
                             </div>
                         )}
 
-                        {homeIntroContent.closingParagraph && (
+                        {aboutPageData.iatmsi.closingParagraph && (
                             <p className="leading-relaxed text-sm sm:text-base text-neutral-700 bg-amber-500/5 p-4 rounded-xl border-l-4 border-[#D4A244]">
-                                {homeIntroContent.closingParagraph}
+                                {aboutPageData.iatmsi.closingParagraph}
                             </p>
                         )}
                     </div>

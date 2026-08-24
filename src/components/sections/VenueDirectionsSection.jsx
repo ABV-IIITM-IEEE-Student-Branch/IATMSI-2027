@@ -8,7 +8,7 @@ import { venueDirectionsLabels } from '../../data/travelData';
 // Common sub-component
 function DirectionCard({ icon, title, distance, time, steps }) {
     return (
-        <div className="bg-[#FAF8F5] rounded-2xl p-6 md:p-8 shadow-sm border border-amber-500/20 hover:shadow-md transition-shadow relative overflow-hidden group">
+        <div data-weavr-source="travelData conferenceData" className="bg-[#FAF8F5] rounded-2xl p-6 md:p-8 shadow-sm border border-amber-500/20 hover:shadow-md transition-shadow relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-amber-500/10 transition-colors"></div>
             
             <div className="flex flex-col md:flex-row gap-6 relative z-10">

@@ -20,7 +20,7 @@ export default function PaperSubmissionSection() {
     } = paperSubmissionData;
 
     return (
-        <SectionContainer id="paper-submission-section">
+        <SectionContainer dataSource="submissionData" id="paper-submission-section">
             <SectionHeader title={title} subtitle={subtitle} centered={true} />
 
             {/* 1. Manuscript Formatting & Guidelines */}

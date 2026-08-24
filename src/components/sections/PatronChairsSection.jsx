@@ -5,7 +5,7 @@ export default function PatronChairsSection() {
     const { title, chairs } = patronChairsData;
 
     return (
-        <SectionContainer id="patron-chairs">
+        <SectionContainer dataSource="homeData" id="patron-chairs">
             <SectionHeader title={title} centered={true} />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">

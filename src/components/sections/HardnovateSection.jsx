@@ -22,7 +22,7 @@ export default function HardnovateSection() {
     } = hardnovateData;
 
     return (
-        <SectionContainer id="hardnovate-section">
+        <SectionContainer dataSource="hardnovateData" id="hardnovate-section">
             <SectionHeader title={title} subtitle={`${tagline} — ${subtitle}`} centered={true} />
 
             {/* 1. Contest Overview & Prize Pool Card */}

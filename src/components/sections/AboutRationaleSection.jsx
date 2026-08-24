@@ -3,7 +3,7 @@ import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 
 export default function AboutRationaleSection() {
     return (
-        <SectionContainer background="white" className="relative">
+        <SectionContainer dataSource="conferenceData" background="white" className="relative">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start relative z-10">
                 {/* Left Column: Text Content */}
                 <div className="order-1 lg:order-1">

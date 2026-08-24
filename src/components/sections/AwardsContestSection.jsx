@@ -7,7 +7,7 @@ export default function AwardsContestSection() {
     const { title, subtitle, items } = awardsContestData;
 
     return (
-        <SectionContainer id="awards-contests">
+        <SectionContainer dataSource="homeData" id="awards-contests">
             <SectionHeader title={title} subtitle={subtitle} centered={true} />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -14,7 +14,7 @@ export default function RegistrationSection() {
     } = registrationPageData;
 
     return (
-        <SectionContainer id="registration-section">
+        <SectionContainer dataSource="registrationData" id="registration-section">
             <SectionHeader title={title} subtitle={subtitle} centered={true} />
 
             {/* 1. Overview & Fee Table Placeholder Card */}

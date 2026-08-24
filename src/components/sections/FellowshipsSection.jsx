@@ -17,7 +17,7 @@ export default function FellowshipsSection() {
     } = fellowshipsData;
 
     return (
-        <SectionContainer id="fellowships-section">
+        <SectionContainer dataSource="fellowshipsData" id="fellowships-section">
             <SectionHeader title={title} subtitle={subtitle} centered={true} />
 
             {/* 1. Overview & 3 Fellowship Types Grid */}

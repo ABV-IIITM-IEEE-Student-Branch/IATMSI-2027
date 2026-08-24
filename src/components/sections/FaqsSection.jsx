@@ -24,7 +24,7 @@ export default function FaqsSection() {
     });
 
     return (
-        <SectionContainer id="faqs-section">
+        <SectionContainer dataSource="faqsData" id="faqs-section">
             <SectionHeader title={title} subtitle={subtitle} centered={true} />
 
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-8">

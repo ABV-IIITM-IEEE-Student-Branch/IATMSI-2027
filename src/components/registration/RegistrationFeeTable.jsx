@@ -3,7 +3,7 @@ import { registrationTableLabels } from '../../data/registrationData';
 
 export default function RegistrationFeeTable() {
     return (
-        <div className="space-y-8">
+        <div data-weavr-source="registrationData" className="space-y-8">
             {/* Fee Table */}
             <div className="overflow-x-auto shadow-sm rounded-2xl border border-neutral-200 border-t-2 border-t-[#D4A244] bg-[#FAF8F5]">
                 <table className="w-full border-collapse">

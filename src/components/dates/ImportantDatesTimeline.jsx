@@ -30,7 +30,7 @@ export default function ImportantDatesTimeline() {
     ];
 
     return (
-        <div className="relative py-12 flex flex-col items-center w-full overflow-hidden">
+        <div data-weavr-source="conferenceData" className="relative py-12 flex flex-col items-center w-full overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 z-0 opacity-5 pointer-events-none">
                 <div className="absolute inset-0 bg-[radial-gradient(var(--color-primary-900)_1px,transparent_1px)] bg-[size:40px_40px]"></div>

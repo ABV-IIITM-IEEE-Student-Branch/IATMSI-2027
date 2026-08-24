@@ -25,7 +25,7 @@ export default function DoctoralAwardSection() {
     } = doctoralAwardData;
 
     return (
-        <SectionContainer id="doctoral-award-section">
+        <SectionContainer dataSource="doctoralAwardData" id="doctoral-award-section">
             <SectionHeader title={title} subtitle={subtitle} centered={true} />
 
             {/* 1. Award Overview, Best Thesis Badge & Flyer Button */}

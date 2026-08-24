@@ -6,7 +6,7 @@ export default function ThemeTracksSection() {
     const { title, mainTheme, tracks } = themesData;
 
     return (
-        <SectionContainer id="themes">
+        <SectionContainer dataSource="homeData" id="themes">
             <SectionHeader title={title} centered={true} />
 
             {/* Main Theme Banner */}

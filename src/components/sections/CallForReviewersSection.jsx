@@ -16,7 +16,7 @@ export default function CallForReviewersSection() {
     } = reviewerData;
 
     return (
-        <SectionContainer id="call-for-reviewers-section">
+        <SectionContainer dataSource="reviewerData" id="call-for-reviewers-section">
             <SectionHeader title={title} subtitle={subtitle} centered={true} />
 
             {/* 1. Conference Invitation & Role Overview */}

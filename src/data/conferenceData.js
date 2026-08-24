@@ -17,21 +17,6 @@ export const conferenceInfo = {
     },
 };
 
-export const homeIntroContent = {
-    paragraphs: [
-        `The 5th IEEE International Conference on Interdisciplinary Approaches in Technology and Management for Social Innovation (IATMSI-2027) is a globally recognized conference series organized under the aegis of the IEEE community. The conference is planned to be held in Kathmandu, Nepal, in association with the IEEE Madhya Pradesh Section, IEEE Nepal Section, ABV-IIITM IEEE Student Branch and collaborating academic and industry partners. Over the years, IATMSI has emerged as a premier international platform for researchers, academicians, industry experts, policymakers, and students to share innovative ideas and research outcomes addressing societal challenges through technology and management.`,
-        `The conference features a comprehensive technical program comprising keynote lectures by internationally renowned experts, invited talks, parallel technical sessions, workshops, tutorials, special sessions, industry forums, and panel discussions on emerging technologies and societal challenges. To recognize excellence and encourage innovation, IATMSI presents several prestigious awards, including the Hardnovate Contest Award, Rising Researcher Award, Excellence in Research Award, IEEE Doctoral Dissertation (Best Thesis) Award, Simulation Excellence Award, and Best Paper Awards. In addition, selected participants are supported through fellowships, student grants, and travel assistance programs, further promoting research collaboration, knowledge exchange, and professional development within the global scientific community. The conference will encompass the following broad thematic tracks:`
-    ],
-    tracks: [
-        "Innovative Solutions for Healthcare, Biomedical Engineering and Sustainable Development",
-        "Power, Control, Energy, and Intelligent Transportation Technologies",
-        "AI, Data Science, IoT, and Computer Vision-Enabled Technologies",
-        "Green, Flexible Electronics, VLSI, Communication, and Sensor-Based Technologies",
-        "IT-enabled Management for Social Innovation",
-        "Quantum Technologies, Digital Twins, Industry 5.0 and Smart Manufacturing"
-    ],
-    closingParagraph: `IATMSI-2027 will be conducted in a hybrid mode, enabling both physical and virtual participation from across the globe. Continuing this legacy, IATMSI-2027, with the theme “Enabling the Change! Social Innovation for Sustainable Societies”, will be hosted in Kathmandu, Nepal, a city renowned for its rich cultural heritage, vibrant academic environment, and strategic location in South Asia. The conference will provide an exceptional platform for researchers, academicians, industry leaders, policymakers, and students to exchange ideas and showcase innovations that address pressing societal challenges through technology and management. Hosting IATMSI-2027 in Kathmandu will further strengthen international collaboration, foster interdisciplinary partnerships, and offer participants unique opportunities for high-impact discussions, professional networking, knowledge sharing, and innovation-driven research activities aimed at building sustainable and inclusive societies.`
-};
 
 export const aboutRationaleContent = {
     badge: 'Introduction',

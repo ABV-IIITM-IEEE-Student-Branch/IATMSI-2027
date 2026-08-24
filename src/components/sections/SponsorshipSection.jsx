@@ -14,7 +14,7 @@ export default function SponsorshipSection() {
     } = sponsorshipData;
 
     return (
-        <SectionContainer id="sponsorship-section">
+        <SectionContainer dataSource="sponsorshipData" id="sponsorship-section">
             <SectionHeader title={title} subtitle={subtitle} centered={true} />
 
             {/* 1. Overview & Sponsorship Documents (Flyer & Brochure) */}

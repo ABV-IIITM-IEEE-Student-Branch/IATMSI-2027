@@ -44,7 +44,7 @@ const committeeGroups = committeeGroupManifest.map((group) => ({
 
 function MemberTextCard({ member }) {
     return (
-        <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-4 rounded-xl border-l-4 border-[#C59B27] border-y border-r border-[#C59B27]/30 shadow-xs hover:shadow-md hover:border-[#C59B27] transition-all flex flex-col justify-between group">
+        <div data-weavr-source="committeeData" className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-4 rounded-xl border-l-4 border-[#C59B27] border-y border-r border-[#C59B27]/30 shadow-xs hover:shadow-md hover:border-[#C59B27] transition-all flex flex-col justify-between group">
             <div>
                 <h4 className="text-sm md:text-base font-black text-[#4A121A] leading-snug group-hover:text-[#722332] transition-colors">
                     {member.name}

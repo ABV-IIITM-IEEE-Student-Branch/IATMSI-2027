@@ -19,7 +19,7 @@ export default function RisingResearcherSection() {
     } = risingResearcherData;
 
     return (
-        <SectionContainer id="rising-researcher-section">
+        <SectionContainer dataSource="risingResearcherData" id="rising-researcher-section">
             <SectionHeader title={title} subtitle={subtitle} centered={true} />
 
             {/* 1. Award Overview, Benefits & Flyer Button */}

@@ -19,7 +19,7 @@ export default function TrackChairsSection() {
         : tracks.filter(t => t.number === Number(selectedTrack));
 
     return (
-        <SectionContainer id="track-chairs-section">
+        <SectionContainer dataSource="trackChairsData" id="track-chairs-section">
             <SectionHeader
                 title={title}
                 subtitle={subtitle}

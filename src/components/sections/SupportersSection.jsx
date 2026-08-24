@@ -5,7 +5,7 @@ export default function SupportersSection() {
     const { title, categories } = supportersData;
 
     return (
-        <SectionContainer id="supporters">
+        <SectionContainer dataSource="homeData" id="supporters">
             <SectionHeader title={title} centered={true} />
 
             <div className="max-w-5xl mx-auto py-2">

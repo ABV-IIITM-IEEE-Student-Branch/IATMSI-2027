@@ -5,7 +5,7 @@ export default function TeaserVideosSection() {
     const { title, videos } = teaserVideosData;
 
     return (
-        <SectionContainer id="teaser-videos">
+        <SectionContainer dataSource="homeData" id="teaser-videos">
             <SectionHeader title={title} centered={true} />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">

@@ -22,7 +22,7 @@ export default function SimulationAwardSection() {
     } = simulationAwardData;
 
     return (
-        <SectionContainer id="simulation-award-section">
+        <SectionContainer dataSource="simulationAwardData" id="simulation-award-section">
             <SectionHeader title={title} subtitle={subtitle} centered={true} />
 
             {/* 1. Award Overview, Objective & Flyer Download */}

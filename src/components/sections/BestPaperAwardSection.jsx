@@ -14,7 +14,7 @@ export default function BestPaperAwardSection() {
     } = bestPaperAwardData;
 
     return (
-        <SectionContainer id="best-paper-award-section">
+        <SectionContainer dataSource="bestPaperAwardData" id="best-paper-award-section">
             <SectionHeader title={title} subtitle={subtitle} centered={true} />
 
             {/* 1. Award Categories (Track Best Papers + Overall Best Paper) */}

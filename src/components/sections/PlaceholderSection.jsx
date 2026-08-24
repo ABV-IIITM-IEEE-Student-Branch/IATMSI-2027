@@ -1,7 +1,7 @@
 import { placeholderLabels } from '../../data/siteConfig';
 export default function PlaceholderSection({ title }) {
     return (
-        <section className="py-24 bg-neutral-50 min-h-[50vh] flex items-center justify-center">
+        <section data-weavr-source="siteConfig" className="py-24 bg-neutral-50 min-h-[50vh] flex items-center justify-center">
             <div className="max-w-3xl mx-auto px-4 text-center">
                 <div className="bg-white p-12 rounded-2xl shadow-xl border border-neutral-100">
                     <svg className="w-16 h-16 mx-auto text-primary-300 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

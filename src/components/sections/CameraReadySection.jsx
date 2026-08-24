@@ -7,7 +7,7 @@ function SampleImageCard({ title, imageUrl }) {
     if (!imageUrl) return null;
 
     return (
-        <div className="my-6 p-4 rounded-2xl bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] border border-[#C59B27]/50 shadow-sm text-center flex flex-col items-center justify-center">
+        <div data-weavr-source="cameraReadyData siteConfig" className="my-6 p-4 rounded-2xl bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] border border-[#C59B27]/50 shadow-sm text-center flex flex-col items-center justify-center">
             <span className="text-xs font-black uppercase tracking-widest text-[#722332] bg-white px-3.5 py-1 rounded-full border border-[#C59B27]/40 shadow-2xs mb-3">
                 {title}
             </span>

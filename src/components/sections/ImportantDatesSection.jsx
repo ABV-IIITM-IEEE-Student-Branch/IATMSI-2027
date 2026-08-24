@@ -4,7 +4,7 @@ import { importantDatesLabels } from '../../data/conferenceData';
 
 export default function ImportantDatesSection() {
     return (
-        <SectionContainer id="important-dates-section">
+        <SectionContainer dataSource="conferenceData" id="important-dates-section">
             <SectionHeader
                 title={importantDatesHeader.title}
                 subtitle={importantDatesHeader.subtitle}

@@ -6,7 +6,7 @@ export default function TracksGridSection() {
     const { title, subtitle, downloadCfpUrl, theme, introText, xploreNote } = cfpData;
 
     return (
-        <SectionContainer id="call-for-papers-tracks-section">
+        <SectionContainer dataSource="tracksData" id="call-for-papers-tracks-section">
             <SectionHeader title={title} subtitle={subtitle} centered={true} />
 
             {/* CFP Download & Theme Banner */}

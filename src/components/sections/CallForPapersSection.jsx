@@ -7,7 +7,7 @@ export default function CallForPapersSection() {
     const { title, description, cmtDisclaimer, submitRoute, registrationRoute, detailsRoute } = callForPapersData;
 
     return (
-        <SectionContainer id="call-for-papers">
+        <SectionContainer dataSource="homeData" id="call-for-papers">
             <SectionHeader title={title} centered={true} />
 
             <div className="space-y-4 text-neutral-800 text-sm md:text-base leading-relaxed max-w-4xl mx-auto">

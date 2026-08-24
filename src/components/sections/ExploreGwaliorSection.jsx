@@ -8,7 +8,7 @@ export default function ExploreGwaliorSection() {
         <>
 
 
-            <SectionContainer background="white">
+            <SectionContainer dataSource="travelData" background="white">
                 <div className="max-w-5xl mx-auto space-y-12">
                     {/* Intro */}
                     <div className="prose prose max-w-none text-slate-600 text-center">

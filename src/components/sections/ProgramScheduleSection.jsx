@@ -7,7 +7,7 @@ export default function ProgramScheduleSection() {
     const { title, subtitle, description, linkText, linkRoute } = programScheduleData;
 
     return (
-        <SectionContainer id="program-schedule">
+        <SectionContainer dataSource="homeData" id="program-schedule">
             <SectionHeader title={title} subtitle={subtitle} centered={true} />
 
             <div className="max-w-4xl mx-auto bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] text-[#4A121A] rounded-2xl md:rounded-[2rem] p-6 md:p-10 shadow-md border-2 border-[#C59B27]/40 text-center relative overflow-hidden">

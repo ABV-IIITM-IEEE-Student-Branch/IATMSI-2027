@@ -14,7 +14,7 @@ export default function OralGuidelinesSection() {
     } = oralGuidelinesData;
 
     return (
-        <SectionContainer id="oral-guidelines-section">
+        <SectionContainer dataSource="oralGuidelinesData" id="oral-guidelines-section">
             <SectionHeader title={title} subtitle={subtitle} centered={true} />
 
             {/* Template Download CTA & Time Allotment Grid */}

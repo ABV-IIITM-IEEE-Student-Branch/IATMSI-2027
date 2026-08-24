@@ -11,4 +11,5 @@ export const latestUpdatesLabels = {
     tickerPrefix: "Latest",
     tickerTitle: "Updates",
     newBadge: "NEW",
+    readMore: "Read more →",
 };

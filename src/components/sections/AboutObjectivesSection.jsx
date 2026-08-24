@@ -4,7 +4,7 @@ import Card from '../ui/Card';
 
 export default function AboutObjectivesSection() {
     return (
-        <SectionContainer background="light">
+        <SectionContainer dataSource="conferenceData" background="light">
             <div className="max-w-4xl mx-auto text-center mb-12">
                 <SectionHeader
                     title={conferenceObjectivesHeader.title}

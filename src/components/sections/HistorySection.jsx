@@ -6,7 +6,7 @@ export default function HistorySection() {
     const { title, subtitle, ieeeNotice, editions } = historyOverviewData;
 
     return (
-        <div className="space-y-12">
+        <div data-weavr-source="historyData" className="space-y-12">
             {/* IEEE Xplore Indexing Banner */}
             <SectionContainer id="history-ieee-notice">
                 <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] rounded-2xl md:rounded-[2rem] p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-md">

@@ -3,7 +3,7 @@ import JournalCard from './JournalCard';
 
 export default function JournalList() {
     return (
-        <div className="space-y-12 max-w-5xl mx-auto">
+        <div data-weavr-source="journalsData" className="space-y-12 max-w-5xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {journals.map((journal) => (
                     <JournalCard key={journal.id} journal={journal} />

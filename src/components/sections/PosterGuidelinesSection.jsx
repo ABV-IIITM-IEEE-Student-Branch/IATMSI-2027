@@ -14,7 +14,7 @@ export default function PosterGuidelinesSection() {
     } = posterGuidelinesData;
 
     return (
-        <SectionContainer id="poster-guidelines-section">
+        <SectionContainer dataSource="posterGuidelinesData" id="poster-guidelines-section">
             <SectionHeader title={title} subtitle={subtitle} centered={true} />
 
             {/* Poster Template Download & Board Dimensions */}

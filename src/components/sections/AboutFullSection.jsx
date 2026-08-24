@@ -18,7 +18,7 @@ function renderFormattedText(text) {
     return parts.map((part, index) => {
         if (part.startsWith('__STRONG__') && part.endsWith('__STRONG__')) {
             return (
-                <strong key={index} className="font-black text-[#4A121A]">
+                <strong data-weavr-source="conferenceData" key={index} className="font-black text-[#4A121A]">
                     {part.slice(10, -10)}
                 </strong>
             );

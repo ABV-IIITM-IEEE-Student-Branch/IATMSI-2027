@@ -19,7 +19,7 @@ export default function ExcellenceResearchSection() {
     } = excellenceResearchData;
 
     return (
-        <SectionContainer id="excellence-research-section">
+        <SectionContainer dataSource="excellenceResearchData" id="excellence-research-section">
             <SectionHeader title={title} subtitle={subtitle} centered={true} />
 
             {/* 1. Award Overview, Benefits & Flyer Button */}

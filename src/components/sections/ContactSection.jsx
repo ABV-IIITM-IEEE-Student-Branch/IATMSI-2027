@@ -22,7 +22,7 @@ export default function ContactSection() {
     };
 
     return (
-        <SectionContainer id="contact-section">
+        <SectionContainer dataSource="contactData" id="contact-section">
             <SectionHeader title={title} subtitle={subtitle} centered={true} />
 
             {/* Main Light Porcelain / Ivory Container Card */}

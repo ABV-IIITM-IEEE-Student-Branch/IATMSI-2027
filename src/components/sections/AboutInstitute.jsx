@@ -5,7 +5,7 @@ import { aboutInstitute, instituteHighlights } from '../../data/conferenceData';
 
 export default function AboutInstitute() {
     return (
-        <div className="space-y-1">
+        <div data-weavr-source="conferenceData" className="space-y-1">
             {/* About ABV-IIITM, Gwalior */}
             <SectionContainer background="white" className="!pt-16 !pb-12">
                 <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
