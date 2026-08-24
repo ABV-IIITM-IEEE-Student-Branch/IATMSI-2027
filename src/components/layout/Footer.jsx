@@ -134,7 +134,7 @@ export default function Footer() {
 
                 {/* Copyright Bar */}
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs !text-white font-medium">
-                    <p>© 2027 {conferenceInfo.shortTitle}. All Rights Reserved.</p>
+                    <p>© {siteConfig.copyrightYear} {conferenceInfo.shortTitle}. All Rights Reserved.</p>
                     <a
                         href={siteConfig.branding.instituteUrl}
                         target="_blank"

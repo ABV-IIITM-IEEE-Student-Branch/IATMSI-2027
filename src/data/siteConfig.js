@@ -1,6 +1,9 @@
 // Site configuration - IATMSI-2027
 
 export const siteConfig = {
+  // Footer copyright year
+  copyrightYear: 2027,
+
   // SEO & HTML <head>
   seo: {
     title: 'IATMSI-2027 | IEEE International Conference on Interdisciplinary Approaches in Technology and Management for Social Innovation',
