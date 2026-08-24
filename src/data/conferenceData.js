@@ -12,6 +12,7 @@ export const conferenceInfo = {
         name: 'Atal Bihari Vajpayee – Indian Institute of Information Technology and Management (ABV-IIITM)',
         shortName: 'ABV-IIITM, Gwalior',
         address: 'ABV-IIITM Gwalior, Morena Rd, IIITM Campus, Gwalior, Madhya Pradesh, India- 474015',
+        city: 'Kathmandu, Nepal',
         mapEmbedUrl: 'https://maps.google.com/maps?q=ABV-IIITM+Gwalior+%4026.2485,78.1746&z=15&output=embed',
     },
 };

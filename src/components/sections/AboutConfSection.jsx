@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { aboutConferenceData } from '../../data/homeData';
+import { conferenceInfo } from '../../data/conferenceData';
 
 function renderFormattedText(text) {
     if (!text) return null;
@@ -98,7 +99,7 @@ export default function AboutConfSection() {
                         Countdown to Conference
                     </span>
                     <h3 className="text-xl md:text-2xl font-black text-[#4A121A] mt-3 uppercase tracking-wide font-heading">
-                        May 20–22, 2027 • Kathmandu, Nepal
+                        {conferenceInfo.dates} • {conferenceInfo.venue.city}
                     </h3>
                 </div>
 
