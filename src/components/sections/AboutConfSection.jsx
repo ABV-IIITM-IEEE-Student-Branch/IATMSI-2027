@@ -56,7 +56,10 @@ export default function AboutConfSection() {
         <SectionContainer id="about-conference">
             <SectionHeader title={title} centered={true} />
 
-            <div className="space-y-6 text-neutral-800 text-sm md:text-base leading-relaxed">
+            {/* Everything in here is aboutConferenceData (homeData); naming it
+                explicitly keeps an editor from confusing this copy with the
+                near-identical wording kept in conferenceData. */}
+            <div data-weavr-source="homeData" className="space-y-6 text-neutral-800 text-sm md:text-base leading-relaxed">
                 {/* Paragraph 1 */}
                 <p className="font-medium text-justify">
                     {renderFormattedText(paragraphs[0])}
