@@ -22,3 +22,15 @@ export const contactData = {
         mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14131.026410291992!2d85.3240!3d27.7172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198a307baabf%3A0xb5137c1565548c77!2sKathmandu%2044600%2C%20Nepal!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp"
     }
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const contactLabels = {
+    emailAddress: "Email Address",
+    phoneNumbers: "Phone Numbers",
+    sendUsAMessage: "Send Us a Message",
+    yourName: "Your name",
+    yourEmail: "Your email",
+    subject: "Subject",
+    yourMessageOptional: "Your message (optional)",
+    submitMessage: "Submit Message",
+};

@@ -1,5 +1,6 @@
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { venueTravelData } from '../../data/venueTravelData';
+import { venueTravelLabels } from '../../data/venueTravelData';
 
 export default function VenueTravelKathmanduSection() {
     const {
@@ -20,7 +21,7 @@ export default function VenueTravelKathmanduSection() {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#C59B27]/30 pb-4">
                     <div>
                         <span className="text-xs font-black uppercase tracking-widest text-[#FAF5EB] bg-[#722332] px-3 py-1 rounded-full shadow-xs inline-block mb-2">
-                            Conference Venue
+                            {venueTravelLabels.conferenceVenue}
                         </span>
                         <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase">
                             {venueInfo.city}
@@ -55,7 +56,7 @@ export default function VenueTravelKathmanduSection() {
                 <div className="border-b border-[#C59B27]/30 pb-4">
                     <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase flex items-center gap-3">
                         <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                        Weather Conditions in Kathmandu
+                        {venueTravelLabels.weatherConditionsInKathmandu}
                     </h3>
                     <p className="text-xs md:text-sm text-neutral-600 font-semibold mt-1">
                         {weatherConditions.season}
@@ -84,7 +85,7 @@ export default function VenueTravelKathmanduSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    How to Reach Kathmandu
+                    {venueTravelLabels.howToReachKathmandu}
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -92,7 +93,7 @@ export default function VenueTravelKathmanduSection() {
                     <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-5 rounded-xl border border-[#C59B27]/40 space-y-3">
                         <div className="flex items-center gap-2">
                             <span className="text-xs font-black uppercase text-[#FAF5EB] bg-[#722332] px-2.5 py-0.5 rounded-full">
-                                By Air
+                                {venueTravelLabels.byAir}
                             </span>
                             <h4 className="text-sm font-black text-[#4A121A]">{howToReach.byAir.title}</h4>
                         </div>
@@ -108,7 +109,7 @@ export default function VenueTravelKathmanduSection() {
                     <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-5 rounded-xl border border-[#C59B27]/40 space-y-3">
                         <div className="flex items-center gap-2">
                             <span className="text-xs font-black uppercase text-[#FAF5EB] bg-[#722332] px-2.5 py-0.5 rounded-full">
-                                By Road
+                                {venueTravelLabels.byRoad}
                             </span>
                             <h4 className="text-sm font-black text-[#4A121A]">{howToReach.byRoad.title}</h4>
                         </div>
@@ -139,10 +140,10 @@ export default function VenueTravelKathmanduSection() {
                 <div className="border-b border-[#C59B27]/30 pb-4">
                     <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase flex items-center gap-3">
                         <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                        Kathmandu Nearby Attractions
+                        {venueTravelLabels.kathmanduNearbyAttractions}
                     </h3>
                     <p className="text-xs md:text-sm text-neutral-600 font-semibold mt-1">
-                        Explore UNESCO World Heritage Sites & Himalayan vistas across Kathmandu Valley.
+                        {venueTravelLabels.exploreUnescoWorldHeritageSitesHimalayan}
                     </p>
                 </div>
 

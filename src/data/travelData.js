@@ -151,3 +151,20 @@ export const attractions = [
         image: 'https://www.madhyapradeshdmc.com/images/gujari-mahal-01.webp',
     },
 ];
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const travelVisaLabels = {
+    youWillNeedToApplyFor: "You will need to apply for a",
+    conferenceVisa: "Conference Visa",
+    requestYourVisaInvitationLetter: "Request Your Visa Invitation Letter",
+    forEConferenceVisaIfEligible: "For e-Conference Visa (if eligible)",
+    forTraditionalConferenceVisa: "For Traditional Conference Visa",
+    traditionalConferenceVisaProcessing: "Traditional Conference Visa Processing",
+};
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const venueDirectionsLabels = {
+    conferenceVenue: "Conference Venue",
+    fromMajorCities: "From Major Cities",
+    localTransportTips: "Local Transport Tips",
+};

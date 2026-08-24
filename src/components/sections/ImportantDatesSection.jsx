@@ -1,5 +1,6 @@
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { importantDates, importantDatesHeader } from '../../data/conferenceData';
+import { importantDatesLabels } from '../../data/conferenceData';
 
 export default function ImportantDatesSection() {
     return (
@@ -16,10 +17,10 @@ export default function ImportantDatesSection() {
                         <thead>
                             <tr className="bg-gradient-to-r from-[#FAF5EB] via-[#F5EBDC] to-[#FAF5EB] text-[#722332] border-b-2 border-[#C59B27]">
                                 <th className="p-4 text-xs md:text-sm font-black uppercase tracking-wider border-r border-[#C59B27]/30 text-[#722332] bg-[#FAF5EB]">
-                                    Activity / Event
+                                    {importantDatesLabels.activityEvent}
                                 </th>
                                 <th className="p-4 text-xs md:text-sm font-black uppercase tracking-wider text-[#722332] bg-[#FAF5EB]">
-                                    Date
+                                    {importantDatesLabels.date}
                                 </th>
                             </tr>
                         </thead>

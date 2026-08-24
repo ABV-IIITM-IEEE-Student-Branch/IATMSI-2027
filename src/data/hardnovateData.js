@@ -68,3 +68,19 @@ export const hardnovateData = {
         }
     }
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const hardnovateLabels = {
+    hardwareInnovationStage: "Hardware Innovation Stage",
+    downloadOfficialFlyerPng: "Download Official Flyer (.png)",
+    contestThemes: "Contest Themes",
+    whoCanParticipateRules: "Who Can Participate & Rules",
+    mandatoryWorkingPrototypeRule: "Mandatory Working Prototype Rule",
+    downloadHardnovatePosterTemplatePptx: "Download Hardnovate Poster Template (.pptx)",
+    registrationLogisticsFees: "Registration & Logistics Fees",
+    resourceLogisticsSupportCharges: "Resource & Logistics Support Charges",
+    accountDetails: "Account Details",
+    registerForHardnovateGoogleForm: "Register for Hardnovate (Google Form)",
+    contestTimeline: "Contest Timeline",
+    contestCoordinators: "Contest Coordinators",
+};

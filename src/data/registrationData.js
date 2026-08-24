@@ -72,3 +72,24 @@ export const registrationPageData = {
         ]
     }
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const registrationTableLabels = {
+    registrationFeeStructureIatmsi2027: "Registration Fee Structure (IATMSI-2027)",
+    authorSCategory: "Author's Category",
+    earlyBirdRegistration: "Early Bird Registration",
+    regularRegistration: "Regular Registration",
+    indianInr: "Indian (INR)",
+    foreignUsd: "Foreign (USD)",
+    indianInr2: "Indian (INR)",
+    foreignUsd2: "Foreign (USD)",
+    importantRegistrationNotes: "Important Registration Notes",
+    registrationProcessGuidelines: "Registration Process & Guidelines",
+};
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const registrationLabels = {
+    onlineRegistration: "Online Registration",
+    registrationCategoryFeeStructure: "Registration Category Fee Structure",
+    registrationGuidelinesInclusions: "Registration Guidelines & Inclusions",
+};

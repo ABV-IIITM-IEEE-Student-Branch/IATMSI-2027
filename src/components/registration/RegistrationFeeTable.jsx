@@ -1,4 +1,5 @@
 import { feeStructure, registrationNotes, registrationProcess } from '../../data/registrationData';
+import { registrationTableLabels } from '../../data/registrationData';
 
 export default function RegistrationFeeTable() {
     return (
@@ -10,27 +11,27 @@ export default function RegistrationFeeTable() {
                         {/* Header Row 1 */}
                         <tr>
                             <th colSpan="5" className="p-4 text-center font-extrabold text-base bg-[#5B1824] text-white uppercase tracking-wider border-b-2 border-[#D4A244]">
-                                Registration Fee Structure (IATMSI-2027)
+                                {registrationTableLabels.registrationFeeStructureIatmsi2027}
                             </th>
                         </tr>
                         {/* Header Row 2 */}
                         <tr>
                             <th rowSpan="2" className="p-3.5 text-center font-bold text-sm bg-[#3C0C16] text-white border-r border-[#5B1824]">
-                                Author&apos;s Category
+                                {registrationTableLabels.authorSCategory}
                             </th>
                             <th colSpan="2" className="p-3 text-center font-bold text-sm bg-[#FDF7E7] text-amber-900 border-r border-amber-500/30">
-                                Early Bird Registration
+                                {registrationTableLabels.earlyBirdRegistration}
                             </th>
                             <th colSpan="2" className="p-3 text-center font-bold text-sm bg-[#722332] text-white">
-                                Regular Registration
+                                {registrationTableLabels.regularRegistration}
                             </th>
                         </tr>
                         {/* Header Row 3 */}
                         <tr className="bg-[#722332] text-white text-xs font-semibold">
-                            <th className="p-3 text-center border-r border-amber-500/30 bg-[#FBF0CF] text-amber-900">Indian (INR)</th>
-                            <th className="p-3 text-center border-r border-[#8A2E3D] bg-[#FBF0CF] text-amber-900">Foreign (USD)</th>
-                            <th className="p-3 text-center border-r border-[#8A2E3D]">Indian (INR)</th>
-                            <th className="p-3 text-center">Foreign (USD)</th>
+                            <th className="p-3 text-center border-r border-amber-500/30 bg-[#FBF0CF] text-amber-900">{registrationTableLabels.indianInr}</th>
+                            <th className="p-3 text-center border-r border-[#8A2E3D] bg-[#FBF0CF] text-amber-900">{registrationTableLabels.foreignUsd}</th>
+                            <th className="p-3 text-center border-r border-[#8A2E3D]">{registrationTableLabels.indianInr2}</th>
+                            <th className="p-3 text-center">{registrationTableLabels.foreignUsd2}</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-neutral-200">
@@ -53,7 +54,7 @@ export default function RegistrationFeeTable() {
             <div className="bg-amber-500/5 border border-amber-500/20 border-l-4 border-l-[#D4A244] rounded-xl p-6 shadow-sm">
                 <h3 className="text-lg font-extrabold text-neutral-900 mb-3 flex items-center gap-2">
                     <span className="text-[#D4A244]">◆</span>
-                    Important Registration Notes
+                    {registrationTableLabels.importantRegistrationNotes}
                 </h3>
                 <ul className="space-y-2.5">
                     {registrationNotes.map((note, index) => (
@@ -73,7 +74,7 @@ export default function RegistrationFeeTable() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                         </svg>
                     </span>
-                    Registration Process & Guidelines
+                    {registrationTableLabels.registrationProcessGuidelines}
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

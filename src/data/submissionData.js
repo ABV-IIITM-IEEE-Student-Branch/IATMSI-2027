@@ -29,3 +29,20 @@ export const paperSubmissionData = {
         description: "IEEE reserves the right to exclude a paper from distribution after the conference (e.g., by not including it in IEEE Xplore) if the paper is not presented at the conference. Papers are reviewed on the basis that they do not contain plagiarized material and have not been submitted to any other conference at the same time (double submission). These matters are taken very seriously and IEEE will take action against any author who has engaged in either practice."
     }
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const paperSubmissionLabels = {
+    manuscriptGuidelinesPageLimit: "Manuscript Guidelines & Page Limit",
+    ieeeConferenceTemplates: "IEEE Conference Templates",
+    automatedDoclatexConverter: "Automated DocLatex Converter",
+    submissionPortal: "Submission Portal",
+    microsoftCmtSubmission: "Microsoft CMT Submission",
+    submissionDeadline: "Submission Deadline",
+    submitAPaperMicrosoftCmt: "Submit a Paper (Microsoft CMT)",
+    downloadCallForPapersPdf: "Download Call for Papers (.pdf)",
+    ieeeManuscriptFormats: "IEEE Manuscript Formats:",
+    ieeeTemplatesWebpage: "IEEE Templates Webpage",
+    latexTemplate: "LaTeX Template",
+    msWordDocTemplate: "MS Word (.doc) Template",
+    reviewingProcessPeerReviewSystem: "Reviewing Process & Peer-Review System",
+};

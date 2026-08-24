@@ -1,6 +1,7 @@
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { cameraReadyData } from '../../data/cameraReadyData';
 import { siteConfig } from '../../data/siteConfig';
+import { cameraReadyLabels } from '../../data/cameraReadyData';
 
 function SampleImageCard({ title, imageUrl }) {
     if (!imageUrl) return null;
@@ -43,7 +44,7 @@ export default function CameraReadySection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 overflow-hidden">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase mb-6 flex items-center gap-3 border-b border-[#C59B27]/30 pb-4">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Important Dates
+                    {cameraReadyLabels.importantDates}
                 </h3>
 
                 <div className="overflow-x-auto rounded-xl border border-[#C59B27]/40">
@@ -51,10 +52,10 @@ export default function CameraReadySection() {
                         <thead>
                             <tr className="bg-gradient-to-r from-[#FAF5EB] via-[#F5EBDC] to-[#FAF5EB] text-[#722332] border-b-2 border-[#C59B27]">
                                 <th className="p-4 text-xs md:text-sm font-black uppercase tracking-wider border-r border-[#C59B27]/30 text-[#722332] bg-[#FAF5EB]">
-                                    Activity / Event
+                                    {cameraReadyLabels.activityEvent}
                                 </th>
                                 <th className="p-4 text-xs md:text-sm font-black uppercase tracking-wider text-[#722332] bg-[#FAF5EB]">
-                                    Date
+                                    {cameraReadyLabels.date}
                                 </th>
                             </tr>
                         </thead>
@@ -78,7 +79,7 @@ export default function CameraReadySection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    How to Submit the camera-ready paper?
+                    {cameraReadyLabels.howToSubmitTheCameraReady}
                 </h3>
 
                 <div className="space-y-4 text-sm md:text-base text-neutral-700 font-medium leading-relaxed">
@@ -94,7 +95,7 @@ export default function CameraReadySection() {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] px-4 py-2 rounded-xl text-xs md:text-sm font-black uppercase tracking-wider border border-[#C59B27] transition-all shadow-sm"
                         >
-                            <span className="!text-[#FAF5EB]">Registration Details Google Form</span>
+                            <span className="!text-[#FAF5EB]">{cameraReadyLabels.registrationDetailsGoogleForm}</span>
                             <svg className="w-4 h-4 !text-[#FAF5EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
@@ -115,7 +116,7 @@ export default function CameraReadySection() {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-white !text-[#722332] hover:bg-[#FAF5EB] px-4 py-2 rounded-xl text-xs md:text-sm font-black uppercase tracking-wider border-2 border-[#C59B27] transition-all"
                         >
-                            <span className="!text-[#722332]">IEEE Conference Templates</span>
+                            <span className="!text-[#722332]">{cameraReadyLabels.ieeeConferenceTemplates}</span>
                             <svg className="w-4 h-4 !text-[#722332]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>
@@ -149,7 +150,7 @@ export default function CameraReadySection() {
                 {/* Copyright Clearance Codes List */}
                 <div className="space-y-4 pt-2">
                     <h5 className="text-sm font-black text-[#4A121A] uppercase tracking-wider">
-                        Copyright Clearance Code Notices:
+                        {cameraReadyLabels.copyrightClearanceCodeNotices}
                     </h5>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {copyrightSection.notices.map((notice, idx) => (
@@ -173,7 +174,7 @@ export default function CameraReadySection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    IEEE PDF eXpress Instructions
+                    {cameraReadyLabels.ieeePdfExpressInstructions}
                 </h3>
 
                 <p className="text-sm md:text-base text-neutral-700 font-medium leading-relaxed">
@@ -193,11 +194,11 @@ export default function CameraReadySection() {
                     <SampleImageCard title="Sample Image 3" imageUrl={sampleImages.sample3} />
 
                     <div className="bg-white p-4 rounded-xl border border-[#C59B27]/30 space-y-2 text-xs md:text-sm text-neutral-800">
-                        <p className="font-bold text-[#4A121A]">Enter the following:</p>
+                        <p className="font-bold text-[#4A121A]">{cameraReadyLabels.enterTheFollowing}</p>
                         <ul className="list-disc list-inside space-y-1 text-neutral-700">
                             <li><strong className="text-[#722332]">{conferenceIdCmt}</strong> for the Conference ID (Conference ID for IEEE IATMSI)</li>
-                            <li>Your email address</li>
-                            <li>A password</li>
+                            <li>{cameraReadyLabels.yourEmailAddress}</li>
+                            <li>{cameraReadyLabels.aPassword}</li>
                         </ul>
                     </div>
 

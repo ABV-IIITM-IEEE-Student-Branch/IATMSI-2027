@@ -26,3 +26,11 @@ export const reviewerData = {
 
     closingMessage: "We look forward to your participation and contributions to the success of IEEE IATMSI-2027. Thank you for considering our invitation, and we hope to have the pleasure of working with you."
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const reviewerLabels = {
+    invitationToJoinTheReviewCommittee: "Invitation to Join the Review Committee",
+    reviewerResponsibilities: "Reviewer Responsibilities",
+    submitYourApplication: "Submit Your Application:",
+    reviewerNominationsDiversityCommitment: "Reviewer Nominations & Diversity Commitment",
+};

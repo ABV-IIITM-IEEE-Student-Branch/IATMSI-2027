@@ -89,3 +89,23 @@ export const doctoralAwardData = {
         }
     }
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const doctoralAwardLabels = {
+    phdResearchForum: "PhD Research Forum",
+    showcaseYourDoctoralResearch: "Showcase Your Doctoral Research",
+    downloadAwardFlyerPdf: "Download Award Flyer (.pdf)",
+    whyParticipateInThePhdForum: "Why Participate in the PhD Forum?",
+    eligibilityResearchTracks: "Eligibility & Research Tracks",
+    eligibleConferenceResearchTracks: "Eligible Conference Research Tracks:",
+    abstractSubmissionGuidelinesPresentationTemplates: "Abstract Submission Guidelines & Presentation Templates",
+    selectionProcedure: "Selection Procedure:",
+    downloadOralPresentationFormatPptx: "Download Oral Presentation Format (.pptx)",
+    downloadPosterPresentationFormatPptx: "Download Poster Presentation Format (.pptx)",
+    registrationFeesFeeWaiverPolicy: "Registration Fees & Fee Waiver Policy",
+    specialFeeWaiverForAcceptedIatmsi: "Special Fee Waiver for Accepted IATMSI Authors",
+    nominationChargesNonAuthors: "Nomination Charges (Non-Authors)",
+    accountGatewayDetails: "Account & Gateway Details",
+    awardTimeline: "Award Timeline",
+    awardCoordinators: "Award Coordinators",
+};

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../constants/routes';
 import { navigationTree } from '../../data/navigationData';
-import { siteConfig } from '../../data/siteConfig';
+import { siteConfig, navLabels } from '../../data/siteConfig';
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -62,7 +62,7 @@ export default function Navbar() {
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center justify-center px-4.5 py-1.5 border border-[#C59B27]/50 rounded-md shadow-sm text-[12.5px] font-bold !text-[#FAF5EB] bg-[#4A121A] hover:bg-[#611822] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#4A121A] transition-all transform hover:scale-105"
                                 >
-                                    Submit Paper
+                                    {navLabels.submitPaper}
                                 </a>
                             </div>
 
@@ -156,7 +156,7 @@ export default function Navbar() {
                                 rel="noopener noreferrer"
                                 className="flex items-center justify-center w-full px-4 py-3 rounded-lg text-sm font-bold text-[#5B1824] bg-white hover:bg-gray-100 transition-all"
                             >
-                                Submit Paper
+                                {navLabels.submitPaper}
                             </a>
                         </div>
                     </div>

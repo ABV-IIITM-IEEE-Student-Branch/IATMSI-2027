@@ -30,3 +30,17 @@ export const oralGuidelinesData = {
 
     goldenRuleNote: "Prepare approximately 10 slides (1 slide per 1 minute of presentation speech). Avoid overcrowding slides with excessive text or complex diagrams."
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const oralGuidelinesLabels = {
+    officialPresentationTemplate: "Official Presentation Template",
+    downloadPresentationFormatPptx: "Download Presentation Format (.pptx)",
+    totalAllottedTime: "Total Allotted Time",
+    presentationSpeech: "Presentation Speech",
+    liveQADiscussion: "Live Q&A Discussion",
+    strictTimeManagementScheduleAdherence: "Strict Time Management & Schedule Adherence",
+    livePresentationIeeeXplorePolicy: "Live Presentation & IEEE Xplore Policy",
+    recommendedSlideStructure: "Recommended Slide Structure",
+    slideDesignPaceGuidelines: "Slide Design & Pace Guidelines",
+    goldenRuleOfThumb: "Golden Rule of Thumb",
+};

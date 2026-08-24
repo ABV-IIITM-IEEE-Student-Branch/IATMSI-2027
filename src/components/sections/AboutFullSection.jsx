@@ -1,5 +1,6 @@
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { aboutPageData } from '../../data/conferenceData';
+import { aboutFullLabels } from '../../data/conferenceData';
 
 function renderFormattedText(text) {
     if (!text) return null;
@@ -70,7 +71,7 @@ export default function AboutFullSection() {
                     <div className="bg-[#FAF5EB] rounded-2xl p-6 md:p-8 border-l-4 border-[#722332] border-y border-r border-[#C59B27]/40 shadow-sm my-6">
                         <div className="flex items-center gap-3 mb-3">
                             <span className="text-xs font-black uppercase tracking-widest text-[#722332] bg-[#722332]/10 px-3 py-1 rounded-full border border-[#C59B27]/30">
-                                Conference Heritage & Impact
+                                {aboutFullLabels.conferenceHeritageImpact}
                             </span>
                         </div>
                         <p className="font-medium text-justify text-neutral-900 leading-relaxed">
@@ -118,7 +119,7 @@ export default function AboutFullSection() {
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-[#C59B27]/30">
                         <div>
                             <span className="text-xs font-black uppercase tracking-widest text-[#722332] bg-[#722332]/10 px-3.5 py-1 rounded-full border border-[#C59B27]/30 inline-block mb-2">
-                                Global Technical Community
+                                {aboutFullLabels.globalTechnicalCommunity}
                             </span>
                             <h3 className="text-2xl md:text-3xl font-black text-[#4A121A] font-heading tracking-wide uppercase">
                                 {aboutIEEE.title}

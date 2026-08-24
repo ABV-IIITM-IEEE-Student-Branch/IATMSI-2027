@@ -1,5 +1,6 @@
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { excellenceResearchData } from '../../data/excellenceResearchData';
+import { excellenceResearchLabels } from '../../data/excellenceResearchData';
 
 export default function ExcellenceResearchSection() {
     const {
@@ -26,10 +27,10 @@ export default function ExcellenceResearchSection() {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#C59B27]/30 pb-6">
                     <div>
                         <span className="text-xs font-black uppercase tracking-widest text-[#FAF5EB] bg-[#722332] px-3.5 py-1 rounded-full shadow-xs inline-block mb-2">
-                            Mid-Career & Senior Excellence Award
+                            {excellenceResearchLabels.midCareerSeniorExcellenceAward}
                         </span>
                         <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase">
-                            Honoring Sustained Research Contributions
+                            {excellenceResearchLabels.honoringSustainedResearchContributions}
                         </h3>
                     </div>
 
@@ -39,7 +40,7 @@ export default function ExcellenceResearchSection() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] px-5 py-3 rounded-xl text-xs md:text-sm font-black uppercase tracking-wider border border-[#C59B27] shadow-sm transition-all self-start md:self-auto flex-shrink-0"
                     >
-                        <span>Download Award Flyer (.pdf)</span>
+                        <span>{excellenceResearchLabels.downloadAwardFlyerPdf}</span>
                         <svg className="w-4 h-4 !text-[#FAF5EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
@@ -94,7 +95,7 @@ export default function ExcellenceResearchSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Eligibility Criteria
+                    {excellenceResearchLabels.eligibilityCriteria}
                 </h3>
 
                 <div className="space-y-3">
@@ -113,7 +114,7 @@ export default function ExcellenceResearchSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Submission Requirements
+                    {excellenceResearchLabels.submissionRequirements}
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -134,7 +135,7 @@ export default function ExcellenceResearchSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Evaluation Criteria
+                    {excellenceResearchLabels.evaluationCriteria}
                 </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -153,13 +154,13 @@ export default function ExcellenceResearchSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Nomination Charges & Application Form
+                    {excellenceResearchLabels.nominationChargesApplicationForm}
                 </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-5 rounded-xl border border-[#C59B27]/40 text-center">
                         <span className="text-xs font-black uppercase text-neutral-600 tracking-wider block">
-                            Nomination Charges
+                            {excellenceResearchLabels.nominationCharges}
                         </span>
                         <span className="text-xl font-black text-[#722332] mt-1 block">
                             {registrationDetails.fee}
@@ -168,7 +169,7 @@ export default function ExcellenceResearchSection() {
 
                     <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-5 rounded-xl border border-[#C59B27]/40 text-center">
                         <span className="text-xs font-black uppercase text-neutral-600 tracking-wider block">
-                            Account Details for Payment
+                            {excellenceResearchLabels.accountDetailsForPayment}
                         </span>
                         <span className="text-lg font-black text-[#4A121A] bg-white px-4 py-1 rounded-full border border-[#C59B27]/30 inline-block mt-1 shadow-2xs">
                             {registrationDetails.accountDetailsStatus}
@@ -189,7 +190,7 @@ export default function ExcellenceResearchSection() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2.5 bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] px-6 py-3.5 rounded-xl text-xs md:text-sm font-black uppercase tracking-wider border-2 border-[#C59B27] shadow-md transition-all scale-100 hover:scale-105"
                     >
-                        <span>Submit Nomination Form (Google Form)</span>
+                        <span>{excellenceResearchLabels.submitNominationFormGoogleForm}</span>
                         <svg className="w-5 h-5 !text-[#FAF5EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
@@ -202,7 +203,7 @@ export default function ExcellenceResearchSection() {
                 {/* Important Dates */}
                 <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-4">
                     <h3 className="text-lg font-black text-[#4A121A] uppercase tracking-wider border-b border-[#C59B27]/30 pb-3">
-                        Award Timeline
+                        {excellenceResearchLabels.awardTimeline}
                     </h3>
                     <div className="space-y-3">
                         {importantDates.map((item, idx) => (
@@ -221,7 +222,7 @@ export default function ExcellenceResearchSection() {
                 {/* Coordinators Contact */}
                 <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-4">
                     <h3 className="text-lg font-black text-[#4A121A] uppercase tracking-wider border-b border-[#C59B27]/30 pb-3">
-                        Award Coordinators
+                        {excellenceResearchLabels.awardCoordinators}
                     </h3>
                     <div className="space-y-4">
                         {/* Student Coordinator */}

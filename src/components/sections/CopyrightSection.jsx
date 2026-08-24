@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { copyrightData } from '../../data/copyrightData';
+import { copyrightLabels } from '../../data/copyrightData';
 
 function SampleImageCard({ img }) {
     const [imageError, setImageError] = useState(false);
@@ -41,7 +42,7 @@ function SampleImageCard({ img }) {
                 ) : (
                     <div className="p-8 text-center space-y-3">
                         <p className="text-xs text-neutral-600 font-semibold">
-                            Image preview requires Google Drive permission or direct access.
+                            {copyrightLabels.imagePreviewRequiresGoogleDrivePermission}
                         </p>
                         <a
                             href={img.driveUrl}
@@ -96,7 +97,7 @@ export default function CopyrightSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    IEEE e-Copyright Submission Procedure
+                    {copyrightLabels.ieeeECopyrightSubmissionProcedure}
                 </h3>
 
                 {/* Step 1 Paragraph & Image 1 */}

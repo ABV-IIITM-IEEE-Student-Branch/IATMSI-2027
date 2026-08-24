@@ -158,3 +158,36 @@ export const supportersData = {
         }
     ]
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const aboutConfLabels = {
+    broadThematicTracks: "Broad Thematic Tracks",
+    countdownToConference: "Countdown to Conference",
+    days: "Days",
+    hours: "Hours",
+    minutes: "Minutes",
+    seconds: "Seconds",
+};
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const callForPapersLabels = {
+    forDetailsClickHere: "For Details Click Here",
+    submitNow: "Submit Now",
+    registration: "Registration",
+};
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const themeTracksLabels = {
+    conferenceMainTheme: "Conference Main Theme",
+    exploreDetails: "Explore Details",
+};
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const awardsContestLabels = {
+    forDetailsClickHere: "For Details: Click here",
+};
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const programScheduleLabels = {
+    conferenceProgramOverview: "Conference Program Overview",
+};

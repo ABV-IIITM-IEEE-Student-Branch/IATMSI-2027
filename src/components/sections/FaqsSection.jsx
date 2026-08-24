@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { faqsData } from '../../data/faqsData';
+import { faqsLabels } from '../../data/faqsData';
 
 export default function FaqsSection() {
     const { title, subtitle, categories, faqs } = faqsData;
@@ -66,7 +67,7 @@ export default function FaqsSection() {
                 <div className="space-y-4 max-w-4xl mx-auto">
                     {filteredFaqs.length === 0 ? (
                         <div className="bg-[#FAF5EB] p-8 rounded-xl border border-[#C59B27]/30 text-center text-xs md:text-sm font-bold text-neutral-600">
-                            No matching questions found. Try adjusting your search term or category filter.
+                            {faqsLabels.noMatchingQuestionsFoundTryAdjusting}
                         </div>
                     ) : (
                         filteredFaqs.map((faq) => {

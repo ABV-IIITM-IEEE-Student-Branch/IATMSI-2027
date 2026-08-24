@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { aboutConferenceData } from '../../data/homeData';
 import { conferenceInfo } from '../../data/conferenceData';
+import { aboutConfLabels } from '../../data/homeData';
 
 function renderFormattedText(text) {
     if (!text) return null;
@@ -73,7 +74,7 @@ export default function AboutConfSection() {
                 {/* Thematic Tracks Bullet List */}
                 <div className="bg-[#FAF5EB] rounded-2xl p-6 md:p-8 border border-[#C59B27]/40 shadow-sm my-6">
                     <h4 className="text-base md:text-lg font-extrabold text-[#722332] uppercase tracking-wide mb-4 flex items-center gap-2">
-                        <span className="text-[#C59B27]">◆</span> Broad Thematic Tracks
+                        <span className="text-[#C59B27]">◆</span> {aboutConfLabels.broadThematicTracks}
                     </h4>
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                         {thematicTracks.map((track, index) => (
@@ -99,7 +100,7 @@ export default function AboutConfSection() {
             <div className="mt-12 pt-8 border-t border-[#C59B27]/30">
                 <div className="text-center mb-8">
                     <span className="text-xs font-extrabold text-[#722332] uppercase tracking-widest bg-[#722332]/10 px-4 py-1.5 rounded-full border border-[#C59B27]/30 shadow-xs">
-                        Countdown to Conference
+                        {aboutConfLabels.countdownToConference}
                     </span>
                     <h3 className="text-xl md:text-2xl font-black text-[#4A121A] mt-3 uppercase tracking-wide font-heading">
                         {conferenceInfo.dates} • {conferenceInfo.venue.city}
@@ -114,7 +115,7 @@ export default function AboutConfSection() {
                             {timeLeft.days}
                         </span>
                         <span className="text-xs font-extrabold tracking-widest uppercase text-[#4A121A] mt-2">
-                            Days
+                            {aboutConfLabels.days}
                         </span>
                     </div>
 
@@ -124,7 +125,7 @@ export default function AboutConfSection() {
                             {timeLeft.hours.toString().padStart(2, '0')}
                         </span>
                         <span className="text-xs font-extrabold tracking-widest uppercase text-[#4A121A] mt-2">
-                            Hours
+                            {aboutConfLabels.hours}
                         </span>
                     </div>
 
@@ -134,7 +135,7 @@ export default function AboutConfSection() {
                             {timeLeft.minutes.toString().padStart(2, '0')}
                         </span>
                         <span className="text-xs font-extrabold tracking-widest uppercase text-[#4A121A] mt-2">
-                            Minutes
+                            {aboutConfLabels.minutes}
                         </span>
                     </div>
 
@@ -144,7 +145,7 @@ export default function AboutConfSection() {
                             {timeLeft.seconds.toString().padStart(2, '0')}
                         </span>
                         <span className="text-xs font-extrabold tracking-widest uppercase text-[#4A121A] mt-2">
-                            Seconds
+                            {aboutConfLabels.seconds}
                         </span>
                     </div>
                 </div>

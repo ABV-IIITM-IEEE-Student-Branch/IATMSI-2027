@@ -51,3 +51,24 @@ export const siteConfig = {
     'The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.',
   ],
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const footerLabels = {
+    organizedBy: "Organized By",
+    dates: "Dates:",
+    quickLinks: "Quick Links",
+    contactInfo: "Contact Info",
+    venue: "Venue",
+    email: "Email",
+    phone: "Phone",
+};
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const placeholderLabels = {
+    contentComingSoon: "Content Coming Soon",
+};
+
+// UI labels for the header — kept in data so every visible word is editable.
+export const navLabels = {
+    submitPaper: "Submit Paper",
+};

@@ -171,3 +171,8 @@ export const faqsData = {
         }
     ]
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const faqsLabels = {
+    noMatchingQuestionsFoundTryAdjusting: "No matching questions found. Try adjusting your search term or category filter.",
+};

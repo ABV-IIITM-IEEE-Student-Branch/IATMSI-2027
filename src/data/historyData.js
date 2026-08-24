@@ -120,3 +120,11 @@ export const historyOverviewData = {
         }
     ]
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const historyLabels = {
+    indexedInIeeeXploreScopus: "Indexed in IEEE Xplore & Scopus",
+    ieeeXplorePublicationsProceedings: "IEEE Xplore Publications & Proceedings",
+    ieeeXploreProceedings: "IEEE Xplore Proceedings",
+    photoGallery: "Photo Gallery",
+};

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { awardsContestData } from '../../data/homeData';
+import { awardsContestLabels } from '../../data/homeData';
 
 export default function AwardsContestSection() {
     const { title, subtitle, items } = awardsContestData;
@@ -39,7 +40,7 @@ export default function AwardsContestSection() {
                                 to={item.path}
                                 className="inline-flex items-center justify-between w-full text-xs font-bold !text-[#722332] hover:!text-[#4A121A] transition-colors"
                             >
-                                <span>For Details: Click here</span>
+                                <span>{awardsContestLabels.forDetailsClickHere}</span>
                                 <svg className="w-4 h-4 text-[#722332] transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                 </svg>

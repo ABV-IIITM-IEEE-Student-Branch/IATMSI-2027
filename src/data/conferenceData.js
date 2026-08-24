@@ -222,3 +222,24 @@ export const importantDates = [
 ];
 
 export const pioneeringFields = ['Green Tech', 'Digital Sustainability', 'Green AI', 'Policy'];
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const introLabels = {
+    callForPapers: "Call for Papers →",
+    learnMore: "Learn More",
+    conferenceDates: "Conference Dates",
+    venueHost: "Venue & Host",
+    mode: "Mode",
+};
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const importantDatesLabels = {
+    activityEvent: "Activity / Event",
+    date: "Date",
+};
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const aboutFullLabels = {
+    conferenceHeritageImpact: "Conference Heritage & Impact",
+    globalTechnicalCommunity: "Global Technical Community",
+};

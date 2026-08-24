@@ -143,3 +143,12 @@ export const submissionCta = {
     description: "Submit your camera-ready manuscript on Microsoft CMT. Final submission deadline is December 20, 2026.",
     buttonLabel: "Submit via CMT Portal"
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const tracksGridLabels = {
+    conferenceTheme: "Conference Theme",
+    downloadOfficialCfpPdf: "Download Official CFP (.pdf)",
+    ieeeXplorePublication: "IEEE Xplore Publication:",
+    technicalTracksSubtopics: "Technical Tracks & Subtopics",
+    topicsOfInterest: "Topics of Interest:",
+};

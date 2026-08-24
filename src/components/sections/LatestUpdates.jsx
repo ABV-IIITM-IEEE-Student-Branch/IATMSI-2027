@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { latestUpdates } from '../../data/latestUpdates';
+import { latestUpdates, latestUpdatesLabels } from '../../data/latestUpdates';
 
 export default function LatestUpdates() {
     const [updates, setUpdates] = useState([]);
@@ -16,7 +16,7 @@ export default function LatestUpdates() {
             <div className="bg-[#4A121A] px-4 sm:px-6 flex items-center justify-center z-30 shrink-0 border-r border-amber-500/30">
                 <span className="font-extrabold tracking-wider uppercase flex items-center gap-2.5 text-xs sm:text-sm text-amber-300">
                     <span className="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></span>
-                    <span className="hidden sm:inline">Latest</span> Updates
+                    <span className="hidden sm:inline">{latestUpdatesLabels.tickerPrefix}</span> {latestUpdatesLabels.tickerTitle}
                 </span>
             </div>
 
@@ -28,7 +28,7 @@ export default function LatestUpdates() {
                         <div key={index} className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm">
                             {update.important && (
                                 <span className="bg-amber-500/20 text-amber-300 border border-amber-500/40 text-[10px] font-extrabold px-2 py-0.5 rounded tracking-wide uppercase">
-                                    NEW
+                                    {latestUpdatesLabels.newBadge}
                                 </span>
                             )}
                             

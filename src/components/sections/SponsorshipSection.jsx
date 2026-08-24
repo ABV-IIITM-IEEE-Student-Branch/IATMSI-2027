@@ -1,5 +1,6 @@
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { sponsorshipData } from '../../data/sponsorshipData';
+import { sponsorshipLabels } from '../../data/sponsorshipData';
 
 export default function SponsorshipSection() {
     const {
@@ -20,10 +21,10 @@ export default function SponsorshipSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <div className="border-b border-[#C59B27]/30 pb-4">
                     <span className="text-xs font-black uppercase tracking-widest text-[#FAF5EB] bg-[#722332] px-3.5 py-1 rounded-full shadow-xs inline-block mb-2">
-                        Partnership Opportunities
+                        {sponsorshipLabels.partnershipOpportunities}
                     </span>
                     <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase">
-                        Sponsorship Flyer & Brochure
+                        {sponsorshipLabels.sponsorshipFlyerBrochure}
                     </h3>
                 </div>
 
@@ -56,7 +57,7 @@ export default function SponsorshipSection() {
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center justify-center gap-2 bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] px-5 py-3 rounded-xl text-xs md:text-sm font-black uppercase tracking-wider border border-[#C59B27] shadow-sm transition-all"
                             >
-                                <span>Download Document (.pdf)</span>
+                                <span>{sponsorshipLabels.downloadDocumentPdf}</span>
                                 <svg className="w-4 h-4 !text-[#FAF5EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                 </svg>
@@ -70,7 +71,7 @@ export default function SponsorshipSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Sponsorship & Partnership Queries
+                    {sponsorshipLabels.sponsorshipPartnershipQueries}
                 </h3>
 
                 <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-5 md:p-6 rounded-xl border border-[#C59B27]/40 space-y-4">
@@ -99,7 +100,7 @@ export default function SponsorshipSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Sponsorship Chairs & Contacts
+                    {sponsorshipLabels.sponsorshipChairsContacts}
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

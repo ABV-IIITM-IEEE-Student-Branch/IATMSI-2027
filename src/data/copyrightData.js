@@ -96,3 +96,9 @@ export const copyrightData = {
         }
     ]
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const copyrightLabels = {
+    imagePreviewRequiresGoogleDrivePermission: "Image preview requires Google Drive permission or direct access.",
+    ieeeECopyrightSubmissionProcedure: "IEEE e-Copyright Submission Procedure",
+};

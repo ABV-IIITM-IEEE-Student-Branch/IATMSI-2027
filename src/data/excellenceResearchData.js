@@ -80,3 +80,19 @@ export const excellenceResearchData = {
         }
     }
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const excellenceResearchLabels = {
+    midCareerSeniorExcellenceAward: "Mid-Career & Senior Excellence Award",
+    honoringSustainedResearchContributions: "Honoring Sustained Research Contributions",
+    downloadAwardFlyerPdf: "Download Award Flyer (.pdf)",
+    eligibilityCriteria: "Eligibility Criteria",
+    submissionRequirements: "Submission Requirements",
+    evaluationCriteria: "Evaluation Criteria",
+    nominationChargesApplicationForm: "Nomination Charges & Application Form",
+    nominationCharges: "Nomination Charges",
+    accountDetailsForPayment: "Account Details for Payment",
+    submitNominationFormGoogleForm: "Submit Nomination Form (Google Form)",
+    awardTimeline: "Award Timeline",
+    awardCoordinators: "Award Coordinators",
+};

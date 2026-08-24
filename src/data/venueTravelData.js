@@ -91,3 +91,14 @@ export const venueTravelData = {
         }
     ]
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const venueTravelLabels = {
+    conferenceVenue: "Conference Venue",
+    weatherConditionsInKathmandu: "Weather Conditions in Kathmandu",
+    howToReachKathmandu: "How to Reach Kathmandu",
+    byAir: "By Air",
+    byRoad: "By Road",
+    kathmanduNearbyAttractions: "Kathmandu Nearby Attractions",
+    exploreUnescoWorldHeritageSitesHimalayan: "Explore UNESCO World Heritage Sites & Himalayan vistas across Kathmandu Valley.",
+};

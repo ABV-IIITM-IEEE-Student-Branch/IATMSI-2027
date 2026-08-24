@@ -1,5 +1,6 @@
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { simulationAwardData } from '../../data/simulationAwardData';
+import { simulationAwardLabels } from '../../data/simulationAwardData';
 
 export default function SimulationAwardSection() {
     const {
@@ -29,10 +30,10 @@ export default function SimulationAwardSection() {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#C59B27]/30 pb-6">
                     <div>
                         <span className="text-xs font-black uppercase tracking-widest text-[#FAF5EB] bg-[#722332] px-3.5 py-1 rounded-full shadow-xs inline-block mb-2">
-                            Computational & Modeling Excellence
+                            {simulationAwardLabels.computationalModelingExcellence}
                         </span>
                         <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase">
-                            Honoring Exceptional Simulation Research
+                            {simulationAwardLabels.honoringExceptionalSimulationResearch}
                         </h3>
                     </div>
 
@@ -42,7 +43,7 @@ export default function SimulationAwardSection() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] px-5 py-3 rounded-xl text-xs md:text-sm font-black uppercase tracking-wider border border-[#C59B27] shadow-sm transition-all self-start md:self-auto flex-shrink-0"
                     >
-                        <span>Download Award Flyer (.pdf)</span>
+                        <span>{simulationAwardLabels.downloadAwardFlyerPdf}</span>
                         <svg className="w-4 h-4 !text-[#FAF5EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
@@ -71,7 +72,7 @@ export default function SimulationAwardSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Why Participate?
+                    {simulationAwardLabels.whyParticipate}
                 </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -90,7 +91,7 @@ export default function SimulationAwardSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Who Can Participate & Eligibility Rules
+                    {simulationAwardLabels.whoCanParticipateEligibilityRules}
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -109,7 +110,7 @@ export default function SimulationAwardSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Submission Guidelines & Required Contents
+                    {simulationAwardLabels.submissionGuidelinesRequiredContents}
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -131,7 +132,7 @@ export default function SimulationAwardSection() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 bg-white !text-[#722332] hover:bg-[#FAF5EB] px-5 py-3 rounded-xl text-xs md:text-sm font-black uppercase tracking-wider border border-[#C59B27] shadow-xs transition-all"
                     >
-                        <span>Download Simulation Award Presentation Template (.pptx)</span>
+                        <span>{simulationAwardLabels.downloadSimulationAwardPresentationTemplatePptx}</span>
                         <svg className="w-4 h-4 !text-[#722332]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
@@ -143,7 +144,7 @@ export default function SimulationAwardSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Nomination Charges & Registration Link
+                    {simulationAwardLabels.nominationChargesRegistrationLink}
                 </h3>
 
                 {/* Zero Nomination Fee Card */}
@@ -152,7 +153,7 @@ export default function SimulationAwardSection() {
                         <svg className="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        Zero Nomination Fee
+                        {simulationAwardLabels.zeroNominationFee}
                     </h4>
                     <p className="text-xs md:text-sm font-semibold leading-relaxed">
                         {nominationFeeText}
@@ -171,7 +172,7 @@ export default function SimulationAwardSection() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2.5 bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] px-6 py-3.5 rounded-xl text-xs md:text-sm font-black uppercase tracking-wider border-2 border-[#C59B27] shadow-md transition-all scale-100 hover:scale-105"
                     >
-                        <span>Submit Simulation Award Nomination (Google Form)</span>
+                        <span>{simulationAwardLabels.submitSimulationAwardNominationGoogleForm}</span>
                         <svg className="w-5 h-5 !text-[#FAF5EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
@@ -184,7 +185,7 @@ export default function SimulationAwardSection() {
                 {/* Important Dates */}
                 <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-4">
                     <h3 className="text-lg font-black text-[#4A121A] uppercase tracking-wider border-b border-[#C59B27]/30 pb-3">
-                        Award Timeline
+                        {simulationAwardLabels.awardTimeline}
                     </h3>
                     <div className="space-y-3">
                         {importantDates.map((item, idx) => (
@@ -203,7 +204,7 @@ export default function SimulationAwardSection() {
                 {/* Coordinators Contact */}
                 <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-4">
                     <h3 className="text-lg font-black text-[#4A121A] uppercase tracking-wider border-b border-[#C59B27]/30 pb-3">
-                        Award Coordinators
+                        {simulationAwardLabels.awardCoordinators}
                     </h3>
                     <div className="space-y-4">
                         {/* Student Coordinator */}

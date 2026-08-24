@@ -65,3 +65,15 @@ export const fellowshipsData = {
         }
     }
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const fellowshipsLabels = {
+    financialSupportMechanism: "Financial Support Mechanism",
+    supportingStudentsFaculty: "Supporting Students & Faculty",
+    availableFellowshipCategories: "Available Fellowship Categories:",
+    fellowshipGuidelinesRules: "Fellowship Guidelines & Rules",
+    onlineApplicationProcess: "Online Application Process",
+    clickHereToApplyForFellowship: "Click Here to Apply for Fellowship (Google Form)",
+    fellowshipProgramTimeline: "Fellowship Program Timeline",
+    fellowshipCoordinators: "Fellowship Coordinators",
+};

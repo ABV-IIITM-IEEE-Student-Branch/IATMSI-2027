@@ -37,3 +37,11 @@ export const bestPaperAwardData = {
 
     ceremonyInfo: "The awards will be presented during the Valedictory/Awards Ceremony of IATMSI 2027."
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const bestPaperLabels = {
+    awardCategories: "Award Categories",
+    physicalPresentationEligibilityMandate: "Physical Presentation Eligibility Mandate",
+    evaluationCriteria: "Evaluation Criteria",
+    recipientRewardsAwardCeremony: "Recipient Rewards & Award Ceremony",
+};

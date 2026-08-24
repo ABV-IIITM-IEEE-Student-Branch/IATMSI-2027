@@ -45,3 +45,15 @@ export const posterGuidelinesData = {
         "Keep your business cards or contact information readily available for attendees who wish to connect or collaborate at a later date."
     ]
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const posterGuidelinesLabels = {
+    officialPosterTemplateDimensions: "Official Poster Template & Dimensions",
+    downloadPosterTemplatePptx: "Download Poster Template (.pptx)",
+    maximumWidth: "Maximum Width",
+    maximumHeight: "Maximum Height",
+    boardFormat: "Board Format",
+    posterDefenseStandbyRequirement: "Poster Defense & Standby Requirement",
+    designLegibilitySpecifications: "Design & Legibility Specifications",
+    preparationNetworkingRecommendations: "Preparation & Networking Recommendations",
+};

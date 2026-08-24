@@ -2,6 +2,7 @@ import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { visaInfo } from '../../data/travelData';
 import ReactMarkdown from 'react-markdown';
 import React from 'react';
+import { travelVisaLabels } from '../../data/travelData';
 
 export default function TravelVisaSection() {
     return (
@@ -29,7 +30,7 @@ export default function TravelVisaSection() {
                         </div>
                         <div className="p-6 space-y-6">
                             <p className="text-slate-700 text-base leading-relaxed">
-                                You will need to apply for a <strong>Conference Visa</strong> to attend IATMSI-2027. India offers two types of Conference Visas:
+                                {travelVisaLabels.youWillNeedToApplyFor} <strong>{travelVisaLabels.conferenceVisa}</strong> to attend IATMSI-2027. India offers two types of Conference Visas:
                             </p>
                             <div className="grid md:grid-cols-2 gap-6">
                                 {visaInfo.types.map((type, index) => (
@@ -85,7 +86,7 @@ export default function TravelVisaSection() {
                         <svg className="w-12 h-12 text-[#5B1824] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
-                        <h3 className="text-xl font-extrabold text-[#5B1824] mb-2">Request Your Visa Invitation Letter</h3>
+                        <h3 className="text-xl font-extrabold text-[#5B1824] mb-2">{travelVisaLabels.requestYourVisaInvitationLetter}</h3>
                         <p className="text-slate-700 mb-6 max-w-lg mx-auto leading-relaxed">
                             {visaInfo.invitationLetterInfo}
                         </p>
@@ -113,7 +114,7 @@ export default function TravelVisaSection() {
                         <div className="p-6 space-y-8">
                             {/* e-Conference */}
                             <div>
-                                <h3 className="font-extrabold text-[#5B1824] text-xl mb-4">For e-Conference Visa (if eligible)</h3>
+                                <h3 className="font-extrabold text-[#5B1824] text-xl mb-4">{travelVisaLabels.forEConferenceVisaIfEligible}</h3>
                                 <ol className="space-y-3">
                                     {visaInfo.applicationSteps.map((step, i) => (
                                         <li key={i} className="flex items-start gap-3">
@@ -128,7 +129,7 @@ export default function TravelVisaSection() {
 
                             {/* Traditional */}
                             <div>
-                                <h3 className="font-bold text-slate-900 text-xl font-bold mb-4">For Traditional Conference Visa</h3>
+                                <h3 className="font-bold text-slate-900 text-xl font-bold mb-4">{travelVisaLabels.forTraditionalConferenceVisa}</h3>
                                 <ol className="space-y-3">
                                     {visaInfo.applicationStepsTraditional.map((step, i) => (
                                         <li key={i} className="flex items-start gap-3">
@@ -149,7 +150,7 @@ export default function TravelVisaSection() {
                         </div>
                         <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center">
                             <div className="text-base font-black text-slate-800 mb-1">{visaInfo.processingTime.split(',')[1].trim().replace(' for Traditional.', '')}</div>
-                            <p className="text-slate-600 text-sm font-medium">Traditional Conference Visa Processing</p>
+                            <p className="text-slate-600 text-sm font-medium">{travelVisaLabels.traditionalConferenceVisaProcessing}</p>
                         </div>
                     </div>
 

@@ -1,5 +1,6 @@
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { reviewerData } from '../../data/reviewerData';
+import { reviewerLabels } from '../../data/reviewerData';
 
 export default function CallForReviewersSection() {
     const {
@@ -22,7 +23,7 @@ export default function CallForReviewersSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-4">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Invitation to Join the Review Committee
+                    {reviewerLabels.invitationToJoinTheReviewCommittee}
                 </h3>
 
                 <div className="space-y-4 text-xs md:text-sm text-neutral-700 font-medium leading-relaxed">
@@ -37,7 +38,7 @@ export default function CallForReviewersSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Reviewer Responsibilities
+                    {reviewerLabels.reviewerResponsibilities}
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -63,7 +64,7 @@ export default function CallForReviewersSection() {
 
                 <div className="space-y-3 pt-2">
                     <h4 className="text-sm font-black text-[#4A121A] uppercase tracking-wider">
-                        Submit Your Application:
+                        {reviewerLabels.submitYourApplication}
                     </h4>
                     <div>
                         <a
@@ -84,7 +85,7 @@ export default function CallForReviewersSection() {
             {/* 4. Nominations, Diversity & Closing Message */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-4">
                 <h3 className="text-lg md:text-xl font-black text-[#4A121A] uppercase tracking-wider border-b border-[#C59B27]/30 pb-3">
-                    Reviewer Nominations & Diversity Commitment
+                    {reviewerLabels.reviewerNominationsDiversityCommitment}
                 </h3>
 
                 <p className="text-xs md:text-sm text-neutral-700 font-medium leading-relaxed">

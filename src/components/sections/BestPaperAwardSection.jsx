@@ -1,5 +1,6 @@
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { bestPaperAwardData } from '../../data/bestPaperAwardData';
+import { bestPaperLabels } from '../../data/bestPaperAwardData';
 
 export default function BestPaperAwardSection() {
     const {
@@ -20,7 +21,7 @@ export default function BestPaperAwardSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Award Categories
+                    {bestPaperLabels.awardCategories}
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -53,7 +54,7 @@ export default function BestPaperAwardSection() {
                     <svg className="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                     </svg>
-                    Physical Presentation Eligibility Mandate
+                    {bestPaperLabels.physicalPresentationEligibilityMandate}
                 </h3>
 
                 <div className="space-y-2 text-xs md:text-sm font-semibold leading-relaxed">
@@ -67,7 +68,7 @@ export default function BestPaperAwardSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Evaluation Criteria
+                    {bestPaperLabels.evaluationCriteria}
                 </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -86,7 +87,7 @@ export default function BestPaperAwardSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Recipient Rewards & Award Ceremony
+                    {bestPaperLabels.recipientRewardsAwardCeremony}
                 </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

@@ -3,6 +3,7 @@ import { homeIntroContent, conferenceInfo } from '../../data/conferenceData';
 import { ROUTES } from '../../constants/routes';
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import Button from '../ui/Button';
+import { introLabels } from '../../data/conferenceData';
 
 export default function IntroSection() {
     return (
@@ -53,10 +54,10 @@ export default function IntroSection() {
 
                     <div className="pt-4 flex flex-wrap gap-4 justify-start">
                         <Button to={ROUTES.TRACKS} variant="primary" size="md" className="bg-[#5B1824] hover:bg-[#722332] text-white border-b-2 border-[#D4A244] shadow-md hover:shadow-lg transition-all">
-                            Call for Papers →
+                            {introLabels.callForPapers}
                         </Button>
                         <Button to={ROUTES.ABOUT} variant="outline" size="md" className="border-amber-500/40 text-neutral-800 hover:bg-amber-500/10">
-                            Learn More
+                            {introLabels.learnMore}
                         </Button>
                     </div>
                 </div>
@@ -83,7 +84,7 @@ export default function IntroSection() {
                                         </svg>
                                     </div>
                                     <div>
-                                        <p className="text-[10px] text-amber-400/90 uppercase tracking-widest font-bold">Conference Dates</p>
+                                        <p className="text-[10px] text-amber-400/90 uppercase tracking-widest font-bold">{introLabels.conferenceDates}</p>
                                         <p className="text-sm font-bold text-white">{conferenceInfo.dates}</p>
                                     </div>
                                 </div>
@@ -95,7 +96,7 @@ export default function IntroSection() {
                                         </svg>
                                     </div>
                                     <div>
-                                        <p className="text-[10px] text-amber-400/90 uppercase tracking-widest font-bold">Venue & Host</p>
+                                        <p className="text-[10px] text-amber-400/90 uppercase tracking-widest font-bold">{introLabels.venueHost}</p>
                                         <p className="text-sm font-bold text-white">{conferenceInfo.venue.shortName}</p>
                                     </div>
                                 </div>
@@ -106,7 +107,7 @@ export default function IntroSection() {
                                         </svg>
                                     </div>
                                     <div>
-                                        <p className="text-[10px] text-amber-400/90 uppercase tracking-widest font-bold">Mode</p>
+                                        <p className="text-[10px] text-amber-400/90 uppercase tracking-widest font-bold">{introLabels.mode}</p>
                                         <p className="text-sm font-bold text-white">{conferenceInfo.mode} Event</p>
                                     </div>
                                 </div>

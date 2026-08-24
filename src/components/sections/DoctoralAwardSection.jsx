@@ -1,5 +1,6 @@
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { doctoralAwardData } from '../../data/doctoralAwardData';
+import { doctoralAwardLabels } from '../../data/doctoralAwardData';
 
 export default function DoctoralAwardSection() {
     const {
@@ -32,10 +33,10 @@ export default function DoctoralAwardSection() {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#C59B27]/30 pb-6">
                     <div>
                         <span className="text-xs font-black uppercase tracking-widest text-[#FAF5EB] bg-[#722332] px-3.5 py-1 rounded-full shadow-xs inline-block mb-2">
-                            PhD Research Forum
+                            {doctoralAwardLabels.phdResearchForum}
                         </span>
                         <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase">
-                            Showcase Your Doctoral Research
+                            {doctoralAwardLabels.showcaseYourDoctoralResearch}
                         </h3>
                     </div>
 
@@ -45,7 +46,7 @@ export default function DoctoralAwardSection() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] px-5 py-3 rounded-xl text-xs md:text-sm font-black uppercase tracking-wider border border-[#C59B27] shadow-sm transition-all self-start md:self-auto flex-shrink-0"
                     >
-                        <span>Download Award Flyer (.pdf)</span>
+                        <span>{doctoralAwardLabels.downloadAwardFlyerPdf}</span>
                         <svg className="w-4 h-4 !text-[#FAF5EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
@@ -72,7 +73,7 @@ export default function DoctoralAwardSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Why Participate in the PhD Forum?
+                    {doctoralAwardLabels.whyParticipateInThePhdForum}
                 </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -91,7 +92,7 @@ export default function DoctoralAwardSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Eligibility & Research Tracks
+                    {doctoralAwardLabels.eligibilityResearchTracks}
                 </h3>
 
                 <div className="space-y-3 mb-6">
@@ -106,7 +107,7 @@ export default function DoctoralAwardSection() {
                 </div>
 
                 <h4 className="text-sm font-black text-[#4A121A] uppercase tracking-wider">
-                    Eligible Conference Research Tracks:
+                    {doctoralAwardLabels.eligibleConferenceResearchTracks}
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {tracks.map((track, idx) => (
@@ -122,7 +123,7 @@ export default function DoctoralAwardSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Abstract Submission Guidelines & Presentation Templates
+                    {doctoralAwardLabels.abstractSubmissionGuidelinesPresentationTemplates}
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -137,7 +138,7 @@ export default function DoctoralAwardSection() {
                 </div>
 
                 <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-4 rounded-xl border border-[#C59B27]/40 text-xs md:text-sm text-neutral-800 font-semibold">
-                    <span className="font-black text-[#722332] uppercase block mb-1">Selection Procedure:</span>
+                    <span className="font-black text-[#722332] uppercase block mb-1">{doctoralAwardLabels.selectionProcedure}</span>
                     {selectionProcedure}
                 </div>
 
@@ -164,7 +165,7 @@ export default function DoctoralAwardSection() {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-white !text-[#722332] hover:bg-[#FAF5EB] px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider border border-[#C59B27] shadow-xs transition-all"
                         >
-                            <span>Download Oral Presentation Format (.pptx)</span>
+                            <span>{doctoralAwardLabels.downloadOralPresentationFormatPptx}</span>
                             <svg className="w-4 h-4 !text-[#722332]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                             </svg>
@@ -176,7 +177,7 @@ export default function DoctoralAwardSection() {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-white !text-[#722332] hover:bg-[#FAF5EB] px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider border border-[#C59B27] shadow-xs transition-all"
                         >
-                            <span>Download Poster Presentation Format (.pptx)</span>
+                            <span>{doctoralAwardLabels.downloadPosterPresentationFormatPptx}</span>
                             <svg className="w-4 h-4 !text-[#722332]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                             </svg>
@@ -189,7 +190,7 @@ export default function DoctoralAwardSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Registration Fees & Fee Waiver Policy
+                    {doctoralAwardLabels.registrationFeesFeeWaiverPolicy}
                 </h3>
 
                 {/* Highlighted Fee Waiver Callout */}
@@ -198,7 +199,7 @@ export default function DoctoralAwardSection() {
                         <svg className="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        Special Fee Waiver for Accepted IATMSI Authors
+                        {doctoralAwardLabels.specialFeeWaiverForAcceptedIatmsi}
                     </h4>
                     <p className="text-xs md:text-sm font-semibold leading-relaxed">
                         {feeWaiverPolicy}
@@ -208,7 +209,7 @@ export default function DoctoralAwardSection() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-5 rounded-xl border border-[#C59B27]/40 text-center">
                         <span className="text-xs font-black uppercase text-neutral-600 tracking-wider block">
-                            Nomination Charges (Non-Authors)
+                            {doctoralAwardLabels.nominationChargesNonAuthors}
                         </span>
                         <span className="text-xl font-black text-[#722332] mt-1 block">
                             {registrationDetails.fee}
@@ -217,7 +218,7 @@ export default function DoctoralAwardSection() {
 
                     <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-5 rounded-xl border border-[#C59B27]/40 text-center">
                         <span className="text-xs font-black uppercase text-neutral-600 tracking-wider block">
-                            Account & Gateway Details
+                            {doctoralAwardLabels.accountGatewayDetails}
                         </span>
                         <span className="text-lg font-black text-[#4A121A] bg-white px-4 py-1 rounded-full border border-[#C59B27]/30 inline-block mt-1 shadow-2xs">
                             {registrationDetails.accountDetailsStatus}
@@ -251,7 +252,7 @@ export default function DoctoralAwardSection() {
                 {/* Important Dates */}
                 <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-4">
                     <h3 className="text-lg font-black text-[#4A121A] uppercase tracking-wider border-b border-[#C59B27]/30 pb-3">
-                        Award Timeline
+                        {doctoralAwardLabels.awardTimeline}
                     </h3>
                     <div className="space-y-3">
                         {importantDates.map((item, idx) => (
@@ -270,7 +271,7 @@ export default function DoctoralAwardSection() {
                 {/* Coordinators Contact */}
                 <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-4">
                     <h3 className="text-lg font-black text-[#4A121A] uppercase tracking-wider border-b border-[#C59B27]/30 pb-3">
-                        Award Coordinators
+                        {doctoralAwardLabels.awardCoordinators}
                     </h3>
                     <div className="space-y-4">
                         {/* Student Coordinator */}

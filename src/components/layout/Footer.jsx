@@ -3,6 +3,7 @@ import { contactPerson } from '../../data/committeeData';
 import { footerQuickLinks } from '../../data/navigationData';
 import { siteConfig } from '../../data/siteConfig';
 import { Link } from 'react-router-dom';
+import { footerLabels } from '../../data/siteConfig';
 
 export default function Footer() {
     return (
@@ -26,7 +27,7 @@ export default function Footer() {
 
                         <div className="bg-[#611822]/80 rounded-xl p-4 border border-[#C59B27]/40 shadow-md space-y-1">
                             <span className="text-[10px] font-extrabold uppercase tracking-widest !text-[#F0CB6F]">
-                                Organized By
+                                {footerLabels.organizedBy}
                             </span>
                             <p className="text-xs font-semibold !text-[#FAF5EB] leading-snug">
                                 {conferenceInfo.organizedBy}
@@ -36,7 +37,7 @@ export default function Footer() {
                         <div className="inline-flex items-center gap-2 pt-1">
                             <span className="w-2 h-2 rounded-full bg-[#C59B27] animate-pulse" />
                             <span className="text-xs font-bold uppercase tracking-wider !text-[#F0CB6F]">
-                                Dates: <span className="!text-[#FAF5EB]">{conferenceInfo.dates}</span>
+                                {footerLabels.dates} <span className="!text-[#FAF5EB]">{conferenceInfo.dates}</span>
                             </span>
                         </div>
                     </div>
@@ -45,7 +46,7 @@ export default function Footer() {
                     <div className="flex flex-col space-y-4 md:pl-6">
                         <div>
                             <h4 className="text-sm font-extrabold uppercase tracking-widest !text-[#F0CB6F]">
-                                Quick Links
+                                {footerLabels.quickLinks}
                             </h4>
                             <div className="h-[2px] w-10 bg-[#C59B27] mt-2 rounded-full" />
                         </div>
@@ -69,7 +70,7 @@ export default function Footer() {
                     <div className="flex flex-col space-y-4">
                         <div>
                             <h4 className="text-sm font-extrabold uppercase tracking-widest !text-[#F0CB6F]">
-                                Contact Info
+                                {footerLabels.contactInfo}
                             </h4>
                             <div className="h-[2px] w-10 bg-[#C59B27] mt-2 rounded-full" />
                         </div>
@@ -82,7 +83,7 @@ export default function Footer() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
                                 <div>
-                                    <span className="text-[10px] font-bold uppercase tracking-wider !text-[#F0CB6F] block mb-0.5">Venue</span>
+                                    <span className="text-[10px] font-bold uppercase tracking-wider !text-[#F0CB6F] block mb-0.5">{footerLabels.venue}</span>
                                     <p className="leading-snug !text-[#FAF5EB]/90">{conferenceInfo.venue.address}</p>
                                 </div>
                             </div>
@@ -93,7 +94,7 @@ export default function Footer() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                                 <div>
-                                    <span className="text-[10px] font-bold uppercase tracking-wider !text-[#F0CB6F] block mb-0.5">Email</span>
+                                    <span className="text-[10px] font-bold uppercase tracking-wider !text-[#F0CB6F] block mb-0.5">{footerLabels.email}</span>
                                     <a
                                         href={`mailto:${contactPerson.email}`}
                                         className="!text-[#FAF5EB] hover:!text-[#F0CB6F] transition-colors underline decoration-[#C59B27]/40 underline-offset-2 font-medium"
@@ -110,7 +111,7 @@ export default function Footer() {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                     </svg>
                                     <div>
-                                        <span className="text-[10px] font-bold uppercase tracking-wider !text-[#F0CB6F] block mb-0.5">Phone</span>
+                                        <span className="text-[10px] font-bold uppercase tracking-wider !text-[#F0CB6F] block mb-0.5">{footerLabels.phone}</span>
                                         <p className="font-mono !text-[#FAF5EB]/90">{contactPerson.phones.join(' | ')}</p>
                                     </div>
                                 </div>

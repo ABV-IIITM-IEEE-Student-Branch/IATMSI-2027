@@ -71,3 +71,19 @@ export const simulationAwardData = {
         }
     }
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const simulationAwardLabels = {
+    computationalModelingExcellence: "Computational & Modeling Excellence",
+    honoringExceptionalSimulationResearch: "Honoring Exceptional Simulation Research",
+    downloadAwardFlyerPdf: "Download Award Flyer (.pdf)",
+    whyParticipate: "Why Participate?",
+    whoCanParticipateEligibilityRules: "Who Can Participate & Eligibility Rules",
+    submissionGuidelinesRequiredContents: "Submission Guidelines & Required Contents",
+    downloadSimulationAwardPresentationTemplatePptx: "Download Simulation Award Presentation Template (.pptx)",
+    nominationChargesRegistrationLink: "Nomination Charges & Registration Link",
+    zeroNominationFee: "Zero Nomination Fee",
+    submitSimulationAwardNominationGoogleForm: "Submit Simulation Award Nomination (Google Form)",
+    awardTimeline: "Award Timeline",
+    awardCoordinators: "Award Coordinators",
+};

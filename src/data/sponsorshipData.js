@@ -45,3 +45,12 @@ export const sponsorshipData = {
         }
     ]
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const sponsorshipLabels = {
+    partnershipOpportunities: "Partnership Opportunities",
+    sponsorshipFlyerBrochure: "Sponsorship Flyer & Brochure",
+    downloadDocumentPdf: "Download Document (.pdf)",
+    sponsorshipPartnershipQueries: "Sponsorship & Partnership Queries",
+    sponsorshipChairsContacts: "Sponsorship Chairs & Contacts",
+};

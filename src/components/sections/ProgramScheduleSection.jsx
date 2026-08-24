@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { programScheduleData } from '../../data/homeData';
+import { programScheduleLabels } from '../../data/homeData';
 
 export default function ProgramScheduleSection() {
     const { title, subtitle, description, linkText, linkRoute } = programScheduleData;
@@ -16,7 +17,7 @@ export default function ProgramScheduleSection() {
 
                 <div className="relative z-10 space-y-5">
                     <span className="text-xs font-bold uppercase tracking-widest text-[#722332] bg-[#722332]/10 px-4 py-1.5 rounded-full border border-[#C59B27]/30 shadow-xs inline-block">
-                        Conference Program Overview
+                        {programScheduleLabels.conferenceProgramOverview}
                     </span>
 
                     <p className="text-sm md:text-base text-[#3D1E24] max-w-2xl mx-auto leading-relaxed font-semibold">

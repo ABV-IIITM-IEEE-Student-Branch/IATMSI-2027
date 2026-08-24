@@ -1,5 +1,6 @@
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { fellowshipsData } from '../../data/fellowshipsData';
+import { fellowshipsLabels } from '../../data/fellowshipsData';
 
 export default function FellowshipsSection() {
     const {
@@ -23,10 +24,10 @@ export default function FellowshipsSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <div className="border-b border-[#C59B27]/30 pb-4">
                     <span className="text-xs font-black uppercase tracking-widest text-[#FAF5EB] bg-[#722332] px-3.5 py-1 rounded-full shadow-xs inline-block mb-2">
-                        Financial Support Mechanism
+                        {fellowshipsLabels.financialSupportMechanism}
                     </span>
                     <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase">
-                        Supporting Students & Faculty
+                        {fellowshipsLabels.supportingStudentsFaculty}
                     </h3>
                 </div>
 
@@ -39,7 +40,7 @@ export default function FellowshipsSection() {
 
                 {/* 3 Fellowship Types Cards */}
                 <h4 className="text-sm font-black text-[#4A121A] uppercase tracking-wider pt-2">
-                    Available Fellowship Categories:
+                    {fellowshipsLabels.availableFellowshipCategories}
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {types.map((t, idx) => (
@@ -65,7 +66,7 @@ export default function FellowshipsSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Fellowship Guidelines & Rules
+                    {fellowshipsLabels.fellowshipGuidelinesRules}
                 </h3>
 
                 <div className="space-y-3">
@@ -84,7 +85,7 @@ export default function FellowshipsSection() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
                     <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
-                    Online Application Process
+                    {fellowshipsLabels.onlineApplicationProcess}
                 </h3>
 
                 <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-5 rounded-xl border border-[#C59B27]/40 text-xs md:text-sm text-neutral-800 font-semibold space-y-2">
@@ -101,7 +102,7 @@ export default function FellowshipsSection() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2.5 bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] px-6 py-3.5 rounded-xl text-xs md:text-sm font-black uppercase tracking-wider border-2 border-[#C59B27] shadow-md transition-all scale-100 hover:scale-105"
                     >
-                        <span>Click Here to Apply for Fellowship (Google Form)</span>
+                        <span>{fellowshipsLabels.clickHereToApplyForFellowship}</span>
                         <svg className="w-5 h-5 !text-[#FAF5EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
@@ -114,7 +115,7 @@ export default function FellowshipsSection() {
                 {/* Important Dates */}
                 <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-4">
                     <h3 className="text-lg font-black text-[#4A121A] uppercase tracking-wider border-b border-[#C59B27]/30 pb-3">
-                        Fellowship Program Timeline
+                        {fellowshipsLabels.fellowshipProgramTimeline}
                     </h3>
                     <div className="space-y-3">
                         {importantDates.map((item, idx) => (
@@ -133,7 +134,7 @@ export default function FellowshipsSection() {
                 {/* Coordinators Contact */}
                 <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-4">
                     <h3 className="text-lg font-black text-[#4A121A] uppercase tracking-wider border-b border-[#C59B27]/30 pb-3">
-                        Fellowship Coordinators
+                        {fellowshipsLabels.fellowshipCoordinators}
                     </h3>
                     <div className="space-y-4">
                         {/* Student Coordinator */}

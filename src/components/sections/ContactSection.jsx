@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { contactData } from '../../data/contactData';
+import { contactLabels } from '../../data/contactData';
 
 export default function ContactSection() {
     const { title, subtitle, queryHeader, email, phoneNumbers, socialLinks, venueSection } = contactData;
@@ -41,7 +42,7 @@ export default function ContactSection() {
                             </div>
                             <div>
                                 <span className="text-[11px] font-black uppercase text-[#722332] block">
-                                    Email Address
+                                    {contactLabels.emailAddress}
                                 </span>
                                 <a href={`mailto:${email}`} className="text-[#4A121A] font-bold underline hover:text-[#722332] transition-colors">
                                     {email}
@@ -55,7 +56,7 @@ export default function ContactSection() {
                             </div>
                             <div>
                                 <span className="text-[11px] font-black uppercase text-[#722332] block">
-                                    Phone Numbers
+                                    {contactLabels.phoneNumbers}
                                 </span>
                                 <span className="text-[#4A121A] font-bold">
                                     {phoneNumbers}
@@ -131,7 +132,7 @@ export default function ContactSection() {
                     <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-6 rounded-2xl border border-[#C59B27]/40 space-y-4">
                         <h4 className="text-base font-black text-[#4A121A] uppercase tracking-wide border-b border-[#C59B27]/30 pb-3 flex items-center gap-2">
                             <span className="w-2.5 h-2.5 rounded-full bg-[#722332]" />
-                            Send Us a Message
+                            {contactLabels.sendUsAMessage}
                         </h4>
 
                         <form onSubmit={handleSubmit} className="space-y-4">
@@ -142,7 +143,7 @@ export default function ContactSection() {
                             )}
 
                             <div className="space-y-1">
-                                <label className="text-xs font-bold text-[#4A121A] block">Your name</label>
+                                <label className="text-xs font-bold text-[#4A121A] block">{contactLabels.yourName}</label>
                                 <input
                                     type="text"
                                     required
@@ -154,7 +155,7 @@ export default function ContactSection() {
                             </div>
 
                             <div className="space-y-1">
-                                <label className="text-xs font-bold text-[#4A121A] block">Your email</label>
+                                <label className="text-xs font-bold text-[#4A121A] block">{contactLabels.yourEmail}</label>
                                 <input
                                     type="email"
                                     required
@@ -166,7 +167,7 @@ export default function ContactSection() {
                             </div>
 
                             <div className="space-y-1">
-                                <label className="text-xs font-bold text-[#4A121A] block">Subject</label>
+                                <label className="text-xs font-bold text-[#4A121A] block">{contactLabels.subject}</label>
                                 <input
                                     type="text"
                                     required
@@ -178,7 +179,7 @@ export default function ContactSection() {
                             </div>
 
                             <div className="space-y-1">
-                                <label className="text-xs font-bold text-[#4A121A] block">Your message (optional)</label>
+                                <label className="text-xs font-bold text-[#4A121A] block">{contactLabels.yourMessageOptional}</label>
                                 <textarea
                                     rows={4}
                                     value={formData.message}
@@ -192,7 +193,7 @@ export default function ContactSection() {
                                 type="submit"
                                 className="bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] px-6 py-3 rounded-xl text-xs md:text-sm font-black uppercase tracking-wider border border-[#C59B27] shadow-sm transition-all cursor-pointer"
                             >
-                                Submit Message
+                                {contactLabels.submitMessage}
                             </button>
                         </form>
                     </div>

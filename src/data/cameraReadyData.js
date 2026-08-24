@@ -100,3 +100,18 @@ export const cameraReadyData = {
         sample13: "https://lh3.googleusercontent.com/d/1Y-louG9RU_lxKaGuHXkFfxZzxzrjk23d"
     }
 };
+
+// UI labels for this section — kept in data so every visible word is editable.
+export const cameraReadyLabels = {
+    importantDates: "Important Dates",
+    activityEvent: "Activity / Event",
+    date: "Date",
+    howToSubmitTheCameraReady: "How to Submit the camera-ready paper?",
+    registrationDetailsGoogleForm: "Registration Details Google Form",
+    ieeeConferenceTemplates: "IEEE Conference Templates",
+    copyrightClearanceCodeNotices: "Copyright Clearance Code Notices:",
+    ieeePdfExpressInstructions: "IEEE PDF eXpress Instructions",
+    enterTheFollowing: "Enter the following:",
+    yourEmailAddress: "Your email address",
+    aPassword: "A password",
+};

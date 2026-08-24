@@ -1,5 +1,6 @@
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { themesData } from '../../data/homeData';
+import { themeTracksLabels } from '../../data/homeData';
 
 export default function ThemeTracksSection() {
     const { title, mainTheme, tracks } = themesData;
@@ -15,7 +16,7 @@ export default function ThemeTracksSection() {
                 <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-[#722332]/5 rounded-full blur-xl pointer-events-none" />
 
                 <span className="text-xs font-extrabold uppercase tracking-widest text-[#722332] bg-[#722332]/10 px-4 py-1.5 rounded-full border border-[#C59B27]/30 shadow-xs inline-block mb-3">
-                    Conference Main Theme
+                    {themeTracksLabels.conferenceMainTheme}
                 </span>
                 <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-[#4A121A] tracking-wide font-heading">
                     “{mainTheme}”
@@ -51,7 +52,7 @@ export default function ThemeTracksSection() {
                         </div>
 
                         <div className="pt-4 mt-4 border-t border-neutral-100 flex items-center justify-between text-xs font-bold text-[#722332]">
-                            <span>Explore Details</span>
+                            <span>{themeTracksLabels.exploreDetails}</span>
                             <svg className="w-4 h-4 text-[#722332] transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                             </svg>
