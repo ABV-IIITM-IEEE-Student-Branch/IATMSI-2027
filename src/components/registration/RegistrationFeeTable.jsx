@@ -53,7 +53,7 @@ export default function RegistrationFeeTable() {
             {/* Notes */}
             <div className="bg-amber-500/5 border border-amber-500/20 border-l-4 border-l-[#D4A244] rounded-xl p-6 shadow-sm">
                 <h3 className="text-lg font-extrabold text-neutral-900 mb-3 flex items-center gap-2">
-                    <span className="text-[#D4A244]">◆</span>
+                    <span data-weavr-ignore className="text-[#D4A244]">◆</span>
                     {registrationTableLabels.importantRegistrationNotes}
                 </h3>
                 <ul className="space-y-2.5">

@@ -74,7 +74,7 @@ export default function AboutConfSection() {
                 {/* Thematic Tracks Bullet List */}
                 <div className="bg-[#FAF5EB] rounded-2xl p-6 md:p-8 border border-[#C59B27]/40 shadow-sm my-6">
                     <h4 className="text-base md:text-lg font-extrabold text-[#722332] uppercase tracking-wide mb-4 flex items-center gap-2">
-                        <span className="text-[#C59B27]">◆</span> {aboutConfLabels.broadThematicTracks}
+                        <span data-weavr-ignore className="text-[#C59B27]">◆</span> {aboutConfLabels.broadThematicTracks}
                     </h4>
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                         {thematicTracks.map((track, index) => (

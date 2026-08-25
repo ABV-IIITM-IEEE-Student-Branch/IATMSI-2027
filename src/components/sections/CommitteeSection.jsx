@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import {
     committeeGroupManifest,
+    committeeLabels,
     committeeSectionHeader,
     conferencePatrons,
     generalChairs,
@@ -39,6 +40,7 @@ const committeeDataByKey = {
 const committeeGroups = committeeGroupManifest.map((group) => ({
     id: group.id,
     title: group.title,
+    dataKey: group.dataKey,
     data: committeeDataByKey[group.dataKey],
 }));
 
@@ -111,7 +113,7 @@ export default function CommitteeSection() {
                                 : 'bg-white text-[#4A121A] border-[#C59B27]/40 hover:bg-[#FAF5EB]'
                         }`}
                     >
-                        All Committees ({committeeGroups.reduce((acc, g) => acc + g.data.length, 0)})
+                        <span>{committeeLabels.allCommitteesTab}</span> ({committeeGroups.reduce((acc, g) => acc + g.data.length, 0)})
                     </button>
                     {committeeGroups.map((group) => (
                         <button
@@ -143,14 +145,20 @@ export default function CommitteeSection() {
             {/* Committee Groups List */}
             <div className="space-y-10">
                 {filteredGroups.map((group) => (
-                    <div key={group.id} className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm">
+                    <div
+                        key={group.id}
+                        /* Names the exact array this group renders, so an editor can tell
+                           apart the same person listed on several committees. */
+                        data-weavr-source={`committeeData.${group.dataKey}`}
+                        className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm"
+                    >
                         <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b border-[#C59B27]/30">
                             <h3 className="text-lg md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase flex items-center gap-2.5">
                                 <span className="w-3 h-3 rounded-full bg-[#722332]" />
                                 {group.title}
                             </h3>
                             <span className="text-xs font-black text-[#722332] bg-[#722332]/10 px-3 py-1 rounded-full border border-[#C59B27]/30 flex-shrink-0">
-                                {group.data.length} Members
+                                {group.data.length} <span>{committeeLabels.membersSuffix}</span>
                             </span>
                         </div>
 

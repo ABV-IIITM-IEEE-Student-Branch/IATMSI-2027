@@ -10,7 +10,7 @@ export default function NavigationMenu() {
     };
 
     return (
-        <div data-weavr-source="navigationData pageRegistry" className="bg-[#4A121A] shadow-lg border-b-2 border-[#C59B27] z-40 relative">
+        <div data-weavr-source="navigationData.navigationTree" className="bg-[#4A121A] shadow-lg border-b-2 border-[#C59B27] z-40 relative">
             <nav className="hidden lg:flex flex-1 flex-wrap justify-center items-center gap-x-3 xl:gap-x-5 gap-y-2 px-3 xl:px-6 py-2.5">
                 {navigationTree.map((item) => (
                     item.type === 'link' ? (
@@ -27,7 +27,7 @@ export default function NavigationMenu() {
                         >
                             {({ isActive }) => (
                                 <>
-                                    <span>{item.label.toUpperCase()}</span>
+                                    <span>{item.label}</span>
                                     {isActive && (
                                         <span className="absolute -bottom-[8px] left-1/2 -translate-x-1/2 w-6 h-[2.5px] bg-[#C59B27] rounded-full shadow-sm" />
                                     )}
@@ -41,7 +41,7 @@ export default function NavigationMenu() {
                                     ? '!text-[#F0CB6F]'
                                     : '!text-[#FAF5EB] hover:!text-[#F0CB6F]'
                             }`}>
-                                <span>{item.label.toUpperCase()}</span>
+                                <span>{item.label}</span>
                                 <svg className="w-3 h-3 ml-1 text-[#C59B27] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                                 </svg>
@@ -59,9 +59,9 @@ export default function NavigationMenu() {
                                         <Link
                                             key={subItem.id}
                                             to={subItem.path}
-                                            className="block px-4 py-2.5 text-xs font-semibold tracking-wider !text-[#FAF5EB] hover:bg-[#C59B27]/20 hover:!text-[#F0CB6F] transition-colors"
+                                            className="block px-4 py-2.5 text-xs font-semibold tracking-wider uppercase !text-[#FAF5EB] hover:bg-[#C59B27]/20 hover:!text-[#F0CB6F] transition-colors"
                                         >
-                                            {subItem.label.toUpperCase()}
+                                            {subItem.label}
                                         </Link>
                                     ))}
                                 </div>

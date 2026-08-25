@@ -20,7 +20,7 @@ export default function Navbar() {
 
     return (
         <>
-            <header data-weavr-source="siteConfig navigationData" className="relative z-50 w-full pt-4 px-4 sm:px-6 lg:px-8 bg-transparent pointer-events-none">
+            <header data-weavr-source="siteConfig navigationData.navigationTree" className="relative z-50 w-full pt-4 px-4 sm:px-6 lg:px-8 bg-transparent pointer-events-none">
                 <div className="max-w-7xl mx-auto bg-[#FCF9F2]/65 backdrop-blur-xl border border-[#C59B27]/30 shadow-xl rounded-2xl w-full pointer-events-auto transition-all duration-300">
                     {/* Unified Row: IATMSI Logo, Partner Logos, Submit */}
                     <div className="relative flex items-center justify-between py-1.5 px-3 lg:px-4 lg:py-1.5 gap-x-2 lg:gap-x-4">
@@ -113,18 +113,18 @@ export default function Navbar() {
                                         to={item.path}
                                         onClick={() => setIsMenuOpen(false)}
                                         style={{ color: 'white' }}
-                                        className={({ isActive }) => `py-3 text-base font-medium transition-colors !text-white ${isActive ? 'font-bold' : ''}`}
+                                        className={({ isActive }) => `py-3 text-base font-medium uppercase transition-colors !text-white ${isActive ? "font-bold" : ""}`}
                                     >
-                                        {item.label.toUpperCase()}
+                                        {item.label}
                                     </NavLink>
                                 ) : (
                                     <div key={item.id} className="w-full flex flex-col items-center">
                                         <button
                                             onClick={() => toggleDropdown(item.id)}
                                             style={{ color: 'white' }}
-                                            className="flex items-center justify-center gap-2 py-3 text-base font-medium !text-white transition-colors w-full"
+                                            className="flex items-center justify-center gap-2 py-3 text-base font-medium uppercase !text-white transition-colors w-full"
                                         >
-                                            {item.label.toUpperCase()}
+                                            {item.label}
                                             <svg className={`w-4 h-4 transition-transform duration-200 ${openDropdowns[item.id] ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                             </svg>

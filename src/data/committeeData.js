@@ -281,3 +281,10 @@ export const contactPerson = {
     email: 'iatmsi@iiitm.ac.in',
     phones: ['+91-8962280784', '+91-9202731889'],
 };
+
+// Labels shown around the committee lists. The counts beside them are
+// calculated from the lists themselves, so only the wording lives here.
+export const committeeLabels = {
+    allCommitteesTab: 'All Committees',
+    membersSuffix: 'Members',
+};

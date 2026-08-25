@@ -51,14 +51,14 @@ export default function Footer() {
                             <div className="h-[2px] w-10 bg-[#C59B27] mt-2 rounded-full" />
                         </div>
 
-                        <ul className="space-y-3 text-xs sm:text-sm font-medium">
+                        <ul data-weavr-source="navigationData.footerQuickLinks" className="space-y-3 text-xs sm:text-sm font-medium">
                             {footerQuickLinks.map((link) => (
                                 <li key={link.id}>
                                     <Link
                                         to={link.path}
                                         className="!text-[#FAF5EB]/85 hover:!text-[#F0CB6F] transition-all duration-200 inline-flex items-center gap-2 group"
                                     >
-                                        <span className="text-[#C59B27] text-[10px] group-hover:translate-x-1 transition-transform">▸</span>
+                                        <span data-weavr-ignore className="text-[#C59B27] text-[10px] group-hover:translate-x-1 transition-transform">▸</span>
                                         <span className="group-hover:translate-x-0.5 transition-transform">{link.label}</span>
                                     </Link>
                                 </li>

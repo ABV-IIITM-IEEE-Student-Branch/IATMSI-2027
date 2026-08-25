@@ -5,7 +5,7 @@ function VerticalBarOrnament({ className = '' }) {
             {/* Upper Line */}
             <div className="w-[1px] flex-1 bg-gradient-to-b from-[#C59B27]/70 via-[#C59B27]/30 to-[#C59B27]/70 my-2" />
             {/* Middle Filigree Knot */}
-            <div className="flex flex-col items-center my-1 text-[#C59B27]/80">
+            <div data-weavr-ignore className="flex flex-col items-center my-1 text-[#C59B27]/80">
                 <span className="text-[10px] leading-none opacity-80">✧</span>
                 <span className="text-sm font-black leading-none my-1">◈</span>
                 <span className="text-[10px] leading-none opacity-80">✧</span>
@@ -78,7 +78,7 @@ export function SectionHeader({
             </h2>
             
             {/* Regal Gold Diamond Line Motif */}
-            <div className={`flex items-center gap-3 my-3 ${centered ? 'justify-center' : 'justify-start'}`}>
+            <div data-weavr-ignore className={`flex items-center gap-3 my-3 ${centered ? 'justify-center' : 'justify-start'}`}>
                 <span className="text-[#C59B27] text-xs select-none">✧</span>
                 <div className="h-[1.5px] w-12 sm:w-20 bg-gradient-to-r from-transparent via-[#C59B27] to-[#C59B27] rounded-full" />
                 <span className="text-[#C59B27] text-sm font-bold select-none">◆</span>
