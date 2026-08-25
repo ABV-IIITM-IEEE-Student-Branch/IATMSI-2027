@@ -1,3 +1,5 @@
+import { renderRichText } from '../../utils/richText';
+
 // Vertical Ornament Bar Sub-component
 function VerticalBarOrnament({ className = '' }) {
     return (
@@ -74,7 +76,7 @@ export function SectionHeader({
     return (
         <div className={`mb-10 md:mb-12 ${centered ? 'text-center' : ''} ${className}`}>
             <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-[#4A121A] tracking-wider uppercase mb-3">
-                {title}
+                {renderRichText(title)}
             </h2>
             
             {/* Regal Gold Diamond Line Motif */}
@@ -88,7 +90,7 @@ export function SectionHeader({
 
             {subtitle && (
                 <p className="text-sm md:text-base text-neutral-700 max-w-3xl mx-auto leading-relaxed font-normal mt-2">
-                    {subtitle}
+                    {renderRichText(subtitle)}
                 </p>
             )}
         </div>

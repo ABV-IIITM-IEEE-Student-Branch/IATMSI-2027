@@ -3,21 +3,10 @@ import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { aboutConferenceData } from '../../data/homeData';
 import { conferenceInfo } from '../../data/conferenceData';
 import { aboutConfLabels } from '../../data/homeData';
+import { renderRichText } from '../../utils/richText';
 
-function renderFormattedText(text) {
-    if (!text) return null;
-    const parts = text.split(/(\*\*.*?\*\*)/g);
-    return parts.map((part, index) => {
-        if (part.startsWith('**') && part.endsWith('**')) {
-            return (
-                <strong key={index} className="font-extrabold text-[#4A121A]">
-                    {part.slice(2, -2)}
-                </strong>
-            );
-        }
-        return part;
-    });
-}
+const renderFormattedText = (text) =>
+    renderRichText(text, { strongClassName: 'font-extrabold text-[#4A121A]' });
 
 export default function AboutConfSection() {
     const { title, paragraphs, thematicTracks, closingParagraph, targetDate } = aboutConferenceData;
