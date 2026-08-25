@@ -19,3 +19,9 @@ export const heroCta = {
 };
 
 export const heroTagline = '(Conference Record: #73195) Scopus Indexed, Hybrid Event, May 20-22, 2027';
+
+// Wording around the hero's generated lines. The conference name and dates
+// beside these come from conferenceData, so only the fixed words live here.
+export const heroLabels = {
+    welcomePrefix: 'Welcome to',
+};

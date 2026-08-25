@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../constants/routes';
 import { conferenceInfo } from '../../data/conferenceData';
-import { heroCarousel, heroCta, heroTagline } from '../../data/heroData';
+import { heroCarousel, heroCta, heroLabels, heroTagline } from '../../data/heroData';
 
 export default function HeroSection({ title, subtitle, isHomePage = false }) {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -56,12 +56,13 @@ export default function HeroSection({ title, subtitle, isHomePage = false }) {
                     <div className="text-center text-white px-4 max-w-7xl w-full">
                         {/* Welcome Line */}
                         <p className="text-white text-xl md:text-2xl font-bold tracking-widest uppercase mb-3 drop-shadow-lg">
-                            Welcome to {conferenceInfo.shortTitle}
+                            <span data-weavr-source="heroData.heroLabels">{heroLabels.welcomePrefix}</span>{' '}
+                            <span data-weavr-source="conferenceData.conferenceInfo">{conferenceInfo.shortTitle}</span>
                         </p>
 
                         {/* Date & Venue Label */}
                         <p className="text-white text-sm md:text-base uppercase tracking-[0.2em] mb-6 font-semibold drop-shadow-md">
-                            {conferenceInfo.dates} • {conferenceInfo.venue.shortName}
+                            <span data-weavr-source="conferenceData.conferenceInfo">{conferenceInfo.dates}</span> • <span data-weavr-source="conferenceData.conferenceInfo">{conferenceInfo.venue.shortName}</span>
                         </p>
 
                         {/* Main Title */}
