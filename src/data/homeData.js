@@ -180,11 +180,13 @@ export const callForPapersLabels = {
 export const themeTracksLabels = {
     conferenceMainTheme: "Conference Main Theme",
     exploreDetails: "Explore Details",
+    trackBadgePrefix: "Track",
 };
 
 // UI labels for this section — kept in data so every visible word is editable.
 export const awardsContestLabels = {
     forDetailsClickHere: "For Details: Click here",
+    awardBadge: "Award",
 };
 
 // UI labels for this section — kept in data so every visible word is editable.

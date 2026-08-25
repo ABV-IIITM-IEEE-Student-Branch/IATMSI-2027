@@ -3,6 +3,8 @@
 export const siteConfig = {
   // Footer copyright year
   copyrightYear: 2027,
+  // Follows the year and conference name in the footer line.
+  copyrightNotice: 'All Rights Reserved.',
 
   // SEO & HTML <head>
   seo: {

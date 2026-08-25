@@ -38,7 +38,7 @@ export default function ThemeTracksSection() {
                                     </svg>
                                 </div>
                                 <span className="text-xs font-extrabold text-[#722332] bg-[#FAF5EB] px-3 py-1 rounded-full border border-[#C59B27]/30">
-                                    Track {track.id}
+                                    <span>{themeTracksLabels.trackBadgePrefix}</span> {track.id}
                                 </span>
                             </div>
 
