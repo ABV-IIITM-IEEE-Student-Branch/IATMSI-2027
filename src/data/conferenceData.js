@@ -51,7 +51,7 @@ export const aboutPageData = {
         { label: "Conference Mode", value: "Hybrid", description: "Kathmandu, Nepal & Online Worldwide" }
     ],
     iatmsi: {
-        title: "About IATMSI-2027",
+        title: "About IATMSI-20277",
         paragraphs: [
             "IEEE International Conference on Interdisciplinary Approaches in Technology and Management for Social Innovation (IATMSI-2027) is the 5th edition of the globally recognized conference series organized under the aegis of the IEEE community. The conference is planned to be held in Kathmandu, Nepal, in association with the IEEE Madhya Pradesh Section, IEEE Nepal Section, ABV-IIITM IEEE Student Branch and collaborating academic and industry partners. Over the years, IATMSI has emerged as a premier international platform for researchers, academicians, industry experts, policymakers, and students to share innovative ideas and research outcomes addressing societal challenges through technology and management.",
             "IATMSI-2027 aims to disseminate cutting-edge advancements across diverse interdisciplinary domains, including communication technologies, artificial intelligence, machine learning, IoT, robotics, healthcare systems, smart agriculture, sustainable energy, power electronics, VLSI design, intelligent transportation, cybersecurity, industrial automation, biomedical engineering, data analytics, and IT-enabled management for social innovation. The conference will facilitate knowledge exchange and foster collaborations among global stakeholders committed to building sustainable and inclusive societies.",
