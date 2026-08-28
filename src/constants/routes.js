@@ -2,17 +2,41 @@
 export const ROUTES = {
     HOME: '/',
     ABOUT: '/about',
+    HISTORY: '/about/history',
+    COMMITTEE: '/committee',
+    TRACK_CHAIRS: '/about/track-chairs',
+    
+    // For Authors
+    CAMERA_READY: '/authors/camera-ready',
+    COPYRIGHT: '/authors/copyright',
+    ORAL_GUIDELINES: '/authors/oral-guidelines',
+    POSTER_GUIDELINES: '/authors/poster-guidelines',
+    VENUE_TRAVEL: '/authors/venue-travel',
+    GALLERY: '/authors/gallery',
+    
+    // Main Pages
     TRACKS: '/call-for-papers/tracks',
+    PROGRAM: '/conference-program',
+    PAPER_SUBMISSION: '/call-for-papers/paper-submission',
+    SPONSORSHIP: '/sponsorship',
+    REGISTRATION: '/registration',
     IMPORTANT_DATES: '/important-dates',
     CALL_FOR_REVIEWERS: '/call-for-reviewers',
-    REGISTRATION: '/registration',
-    TRAVEL_VISA: '/travel/visa',
-    TRAVEL_VENUE: '/travel/venue',
-    TRAVEL_EXPLORE: '/travel/explore-gwalior',
-    // Single source of truth for author submission instructions (submission + camera-ready)
-    PAPER_SUBMISSION: '/call-for-papers/paper-submission',
-    COMMITTEE: '/committee',
+    WORKSHOPS: '/workshops',
+    
+    // Awards & Grants
+    HARDNOVATE: '/awards/hardnovate',
+    RISING_RESEARCHER: '/awards/rising-researcher',
+    EXCELLENCE_RESEARCH: '/awards/excellence',
+    DOCTORAL_AWARD: '/awards/doctoral',
+    SIMULATION_AWARD: '/awards/simulation',
+    BEST_PAPER: '/awards/best-paper',
+    FELLOWSHIPS: '/awards/fellowships',
+    
+    // Others & Help
+    KEYNOTE: '/keynote',
     CONTACT: '/contact',
+    FAQS: '/help/faqs',
 };
 
 // Navigation items in required order
