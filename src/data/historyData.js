@@ -17,7 +17,9 @@ export const historyOverviewData = {
             stats: [
                 { label: "Submissions", value: "4,700+" },
                 { label: "Acceptance Rate", value: "< 10%" },
-                { label: "Mode", value: "Hybrid" }
+                { label: "Countries", value: "35+" },
+                { label: "Mode", value: "Hybrid" },
+                { label: "Keynotes & Invited Talks", value: "12+ Speakers" }
             ],
             organizers: "IEEE Madhya Pradesh Section in association with ABV-IIITM Gwalior",
             description: [
@@ -42,11 +44,13 @@ export const historyOverviewData = {
             location: "ABV-IIITM Gwalior, India",
             theme: "Enabling the Change! Social Innovation for Sustainable Societies",
             xploreUrl: "https://ieeexplore.ieee.org/xpl/conhome/10982527/proceeding",
-            galleryUrl: null,
+            galleryUrl: "https://iatmsi.iiitm.ac.in/gallery/",
             stats: [
                 { label: "Submissions", value: "2,800+" },
                 { label: "Acceptance Rate", value: "< 25%" },
-                { label: "Keynotes", value: "8 Speakers" }
+                { label: "Countries", value: "25+" },
+                { label: "Mode", value: "Hybrid" },
+                { label: "Keynotes & Invited Talks", value: "8 Speakers" }
             ],
             organizers: "Department of EEE, ABV-IIITM Gwalior & IEEE Madhya Pradesh Section",
             description: [
@@ -73,8 +77,10 @@ export const historyOverviewData = {
             galleryUrl: "https://iatmsi.iiitm.ac.in/gallery/",
             stats: [
                 { label: "Submissions", value: "1,250" },
+                { label: "Acceptance Rate", value: "< 28%" },
                 { label: "Countries", value: "33+" },
-                { label: "Keynotes", value: "10 Speakers" }
+                { label: "Mode", value: "Hybrid" },
+                { label: "Keynotes & Invited Talks", value: "10 Speakers" }
             ],
             organizers: "Department of EEE, ABV-IIITM Gwalior & IEEE Madhya Pradesh Section",
             description: [
@@ -101,8 +107,10 @@ export const historyOverviewData = {
             galleryUrl: "https://iatmsi.iiitm.ac.in/gallery/",
             stats: [
                 { label: "Submissions", value: "480" },
-                { label: "Accepted Papers", value: "195" },
-                { label: "Keynotes", value: "8 Speakers" }
+                { label: "Acceptance Rate", value: "40%" },
+                { label: "Countries", value: "14+" },
+                { label: "Mode", value: "Hybrid / In-Person" },
+                { label: "Keynotes & Invited Talks", value: "8 Speakers" }
             ],
             organizers: "ABV-IIITM Gwalior",
             description: [
