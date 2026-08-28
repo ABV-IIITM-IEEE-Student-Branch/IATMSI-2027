@@ -54,8 +54,7 @@ export default function VenueTravelKathmanduSection() {
             {/* 2. Weather Conditions */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
                 <div className="border-b border-[#C59B27]/30 pb-4">
-                    <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase flex items-center gap-3">
-                        <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                    <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase">
                         {venueTravelLabels.weatherConditionsInKathmandu}
                     </h3>
                     <p className="text-xs md:text-sm text-neutral-600 font-semibold mt-1">
@@ -83,8 +82,7 @@ export default function VenueTravelKathmanduSection() {
 
             {/* 3. How to Reach Kathmandu */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
-                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4">
                     {venueTravelLabels.howToReachKathmandu}
                 </h3>
 
@@ -138,8 +136,7 @@ export default function VenueTravelKathmanduSection() {
             {/* 4. Kathmandu Nearby Attractions */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-6">
                 <div className="border-b border-[#C59B27]/30 pb-4">
-                    <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase flex items-center gap-3">
-                        <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                    <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase">
                         {venueTravelLabels.kathmanduNearbyAttractions}
                     </h3>
                     <p className="text-xs md:text-sm text-neutral-600 font-semibold mt-1">
@@ -153,15 +150,15 @@ export default function VenueTravelKathmanduSection() {
                             key={site.id}
                             className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] rounded-xl overflow-hidden border border-[#C59B27]/40 shadow-xs hover:shadow-md hover:border-[#C59B27] transition-all flex flex-col justify-between group"
                         >
-                            <div className="h-48 overflow-hidden relative">
+                            <div className="h-60 sm:h-64 lg:h-68 overflow-hidden relative">
                                 <img
                                     src={site.image}
                                     alt={site.name}
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                                     loading="lazy"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                                <span className="absolute bottom-3 left-3 text-[11px] font-black text-white bg-[#722332]/90 px-2.5 py-0.5 rounded-full border border-[#C59B27]/40">
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                                <span className="absolute bottom-3 left-3 right-3 text-[11px] font-black text-white bg-[#722332]/90 px-3 py-1 rounded-full border border-[#C59B27]/40 shadow-xs inline-block truncate backdrop-blur-xs">
                                     {site.tagline}
                                 </span>
                             </div>

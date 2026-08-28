@@ -1,20 +1,21 @@
 // Hero data - IATMSI-2027
 
 export const heroCarousel = [
-    { id: 'hero-1', url: 'https://lh3.googleusercontent.com/d/1OoQlP6Ucwi-7L4Oe_0Sl8TCAu8urbm2w', alt: 'ABV-IIITM, Gwalior Campus' },
-    { id: 'hero-2', url: 'https://lh3.googleusercontent.com/d/1AczsTl9ZAEC0j4xj6NSey5ml9YsMBISh', alt: 'Academic session' },
-    { id: 'hero-3', url: 'https://lh3.googleusercontent.com/d/1sWTOeNuVDQxUhysQfr9DS6z9aJ5Lypj5', alt: 'Research presentation' },
-    { id: 'hero-4', url: 'https://lh3.googleusercontent.com/d/1bDYy_ReDauwg-bWK_cXmcHeNcSC7EWVh', alt: 'ABV-IIITM, Gwalior' },
+    { id: 'hero-1', url: 'https://lh3.googleusercontent.com/d/1jfjqS4ydZoXdrQ86N7tw__DXNo1Bfl68', alt: 'Pashupatinath Temple, Kathmandu' },
+    { id: 'hero-2', url: 'https://lh3.googleusercontent.com/d/1G1lQQFS0ZSucuc_odQN1KudHWJbUe-Pn', alt: 'Patan Durbar Square, Kathmandu Valley' },
+    { id: 'hero-3', url: 'https://lh3.googleusercontent.com/d/1esFxz0CH5lkthUsye_01jEdzsN2dHpCY', alt: 'Swayambhunath Stupa, Kathmandu' },
 ];
 
 export const heroCta = {
     primary: {
-        label: 'Register Now',
-        route: '/registration',
+        label: 'Call for Papers',
+        route: '/call-for-papers/tracks',
+        isExternal: false,
     },
     secondary: {
-        label: 'View Tracks',
-        route: '/call-for-papers/tracks',
+        label: 'Submit Paper',
+        route: 'https://cmt3.research.microsoft.com/IATMSI2027/Submission/Index',
+        isExternal: true,
     }
 };
 

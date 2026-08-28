@@ -52,42 +52,42 @@ export const venueTravelData = {
             name: "Pashupatinath Temple",
             tagline: "Sacred UNESCO World Heritage Hindu Temple",
             description: "One of the most sacred Hindu temple complexes in the world, located on the banks of the Bagmati River in Kathmandu.",
-            image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
+            image: "https://lh3.googleusercontent.com/d/1jfjqS4ydZoXdrQ86N7tw__DXNo1Bfl68"
         },
         {
             id: 2,
             name: "Swayambhunath Stupa (Monkey Temple)",
             tagline: "Iconic Hilltop Stupa with Panoramic City Views",
             description: "An ancient religious complex atop a hill in the Kathmandu Valley, offering breathtaking 360-degree views of Kathmandu.",
-            image: "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?auto=format&fit=crop&w=800&q=80"
+            image: "https://lh3.googleusercontent.com/d/1esFxz0CH5lkthUsye_01jEdzsN2dHpCY"
         },
         {
             id: 3,
             name: "Boudhanath Stupa",
             tagline: "One of the Largest Spherical Stupas in the World",
             description: "A massive mandala-style stupa and a central hub of Tibetan Buddhism in Nepal, surrounded by vibrant cafes and monasteries.",
-            image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80"
+            image: "https://lh3.googleusercontent.com/d/1WKdDNnMJERGax-sOWbcUMVoeVoHOTNnj"
         },
         {
             id: 4,
             name: "Kathmandu Durbar Square",
             tagline: "Historic Royal Palace & Pagoda Architecture",
             description: "The ancient royal palace square of the Malla kings, featuring intricately carved wooden temples and the Kumari Ghar.",
-            image: "https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=800&q=80"
+            image: "https://lh3.googleusercontent.com/d/1uOSHNkoTaoVXDUTux0gd0jA_9KmjjPJD"
         },
         {
             id: 5,
             name: "Patan Durbar Square & Museum",
             tagline: "City of Fine Arts & Newari Craftsmanship",
             description: "Situated in Lalitpur, famous for its magnificent Newari architecture, bronze sculptures, and rich artistic traditions.",
-            image: "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?auto=format&fit=crop&w=800&q=80"
+            image: "https://lh3.googleusercontent.com/d/1G1lQQFS0ZSucuc_odQN1KudHWJbUe-Pn"
         },
         {
             id: 6,
             name: "Nagarkot Himalayan Viewpoint",
             tagline: "Scenic Sunrise Point over the Himalayan Range",
             description: "Located 32 km east of Kathmandu, famous for stunning panoramic sunrise views over Mt. Everest and Himalayan peaks.",
-            image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
+            image: "https://lh3.googleusercontent.com/d/1MgNczbj5uoSIBGLGcYWM9mjVgRMUOwJ5"
         }
     ]
 };
