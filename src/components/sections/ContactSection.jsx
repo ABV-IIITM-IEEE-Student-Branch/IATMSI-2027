@@ -30,8 +30,7 @@ export default function ContactSection() {
                 
                 {/* Contact Info & Social Header Box */}
                 <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-6 rounded-2xl border border-[#C59B27]/40 space-y-5">
-                    <h3 className="text-lg md:text-xl font-black text-[#4A121A] font-heading uppercase flex items-center gap-3 border-b border-[#C59B27]/30 pb-3">
-                        <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                    <h3 className="text-lg md:text-xl font-black text-[#4A121A] font-heading uppercase border-b border-[#C59B27]/30 pb-3">
                         {queryHeader}
                     </h3>
 
@@ -130,8 +129,7 @@ export default function ContactSection() {
                     
                     {/* Left Column: Form */}
                     <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-6 rounded-2xl border border-[#C59B27]/40 space-y-4">
-                        <h4 className="text-base font-black text-[#4A121A] uppercase tracking-wide border-b border-[#C59B27]/30 pb-3 flex items-center gap-2">
-                            <span className="w-2.5 h-2.5 rounded-full bg-[#722332]" />
+                        <h4 className="text-base font-black text-[#4A121A] uppercase tracking-wide border-b border-[#C59B27]/30 pb-3">
                             {contactLabels.sendUsAMessage}
                         </h4>
 
@@ -143,57 +141,70 @@ export default function ContactSection() {
                             )}
 
                             <div className="space-y-1">
-                                <label className="text-xs font-bold text-[#4A121A] block">{contactLabels.yourName}</label>
+                                <label className="text-xs font-black uppercase tracking-wider text-[#722332]">
+                                    {contactLabels.yourName} <span className="text-red-600">*</span>
+                                </label>
                                 <input
                                     type="text"
+                                    name="name"
                                     required
                                     value={formData.name}
-                                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                    className="w-full bg-white text-neutral-800 p-3 rounded-xl border border-[#C59B27]/40 focus:border-[#722332] focus:ring-2 focus:ring-[#722332]/20 focus:outline-none text-xs md:text-sm font-medium transition-all shadow-2xs"
+                                    onChange={handleChange}
+                                    className="w-full bg-white border border-[#C59B27]/40 rounded-xl p-3 text-xs md:text-sm focus:outline-hidden focus:border-[#722332]"
                                     placeholder="Enter your full name"
                                 />
                             </div>
 
                             <div className="space-y-1">
-                                <label className="text-xs font-bold text-[#4A121A] block">{contactLabels.yourEmail}</label>
+                                <label className="text-xs font-black uppercase tracking-wider text-[#722332]">
+                                    {contactLabels.emailAddress} <span className="text-red-600">*</span>
+                                </label>
                                 <input
                                     type="email"
+                                    name="email"
                                     required
                                     value={formData.email}
-                                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                    className="w-full bg-white text-neutral-800 p-3 rounded-xl border border-[#C59B27]/40 focus:border-[#722332] focus:ring-2 focus:ring-[#722332]/20 focus:outline-none text-xs md:text-sm font-medium transition-all shadow-2xs"
-                                    placeholder="Enter your email address"
+                                    onChange={handleChange}
+                                    className="w-full bg-white border border-[#C59B27]/40 rounded-xl p-3 text-xs md:text-sm focus:outline-hidden focus:border-[#722332]"
+                                    placeholder="name@example.com"
                                 />
                             </div>
 
                             <div className="space-y-1">
-                                <label className="text-xs font-bold text-[#4A121A] block">{contactLabels.subject}</label>
+                                <label className="text-xs font-black uppercase tracking-wider text-[#722332]">
+                                    {contactLabels.subject} <span className="text-red-600">*</span>
+                                </label>
                                 <input
                                     type="text"
+                                    name="subject"
                                     required
                                     value={formData.subject}
-                                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                                    className="w-full bg-white text-neutral-800 p-3 rounded-xl border border-[#C59B27]/40 focus:border-[#722332] focus:ring-2 focus:ring-[#722332]/20 focus:outline-none text-xs md:text-sm font-medium transition-all shadow-2xs"
-                                    placeholder="Enter message subject"
+                                    onChange={handleChange}
+                                    className="w-full bg-white border border-[#C59B27]/40 rounded-xl p-3 text-xs md:text-sm focus:outline-hidden focus:border-[#722332]"
+                                    placeholder="Conference query, submission issue..."
                                 />
                             </div>
 
                             <div className="space-y-1">
-                                <label className="text-xs font-bold text-[#4A121A] block">{contactLabels.yourMessageOptional}</label>
+                                <label className="text-xs font-black uppercase tracking-wider text-[#722332]">
+                                    {contactLabels.message} <span className="text-red-600">*</span>
+                                </label>
                                 <textarea
-                                    rows={4}
+                                    name="message"
+                                    rows="4"
+                                    required
                                     value={formData.message}
-                                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                    className="w-full bg-white text-neutral-800 p-3 rounded-xl border border-[#C59B27]/40 focus:border-[#722332] focus:ring-2 focus:ring-[#722332]/20 focus:outline-none text-xs md:text-sm font-medium transition-all resize-y shadow-2xs"
+                                    onChange={handleChange}
+                                    className="w-full bg-white border border-[#C59B27]/40 rounded-xl p-3 text-xs md:text-sm focus:outline-hidden focus:border-[#722332]"
                                     placeholder="Type your message here..."
                                 />
                             </div>
 
                             <button
                                 type="submit"
-                                className="bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] px-6 py-3 rounded-xl text-xs md:text-sm font-black uppercase tracking-wider border border-[#C59B27] shadow-sm transition-all cursor-pointer"
+                                className="w-full py-3 bg-[#722332] hover:bg-[#5B1824] !text-[#FAF5EB] font-black uppercase tracking-wider text-xs md:text-sm rounded-xl border border-[#C59B27] shadow-md transition-all cursor-pointer"
                             >
-                                {contactLabels.submitMessage}
+                                {contactLabels.sendMessage}
                             </button>
                         </form>
                     </div>
@@ -201,8 +212,7 @@ export default function ContactSection() {
                     {/* Right Column: Venue Address & Map */}
                     <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-6 rounded-2xl border border-[#C59B27]/40 space-y-4 flex flex-col justify-between">
                         <div>
-                            <h4 className="text-base md:text-lg font-black text-[#4A121A] uppercase tracking-wide border-b border-[#C59B27]/30 pb-3 flex items-center gap-2">
-                                <span className="w-2.5 h-2.5 rounded-full bg-[#722332]" />
+                            <h4 className="text-base md:text-lg font-black text-[#4A121A] uppercase tracking-wide border-b border-[#C59B27]/30 pb-3">
                                 {venueSection.title}
                             </h4>
                             <p className="text-xs md:text-sm font-black text-[#722332] mt-3">

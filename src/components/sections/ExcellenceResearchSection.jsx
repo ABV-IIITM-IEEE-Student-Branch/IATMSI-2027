@@ -93,8 +93,7 @@ export default function ExcellenceResearchSection() {
 
             {/* 2. Eligibility Criteria (Age 40-65) */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
-                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4">
                     {excellenceResearchLabels.eligibilityCriteria}
                 </h3>
 
@@ -112,8 +111,7 @@ export default function ExcellenceResearchSection() {
 
             {/* 3. Submission Requirements */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
-                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4">
                     {excellenceResearchLabels.submissionRequirements}
                 </h3>
 
@@ -133,8 +131,7 @@ export default function ExcellenceResearchSection() {
 
             {/* 4. Evaluation Criteria */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
-                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4">
                     {excellenceResearchLabels.evaluationCriteria}
                 </h3>
 
@@ -152,8 +149,7 @@ export default function ExcellenceResearchSection() {
 
             {/* 5. Nomination Fees, Bank Details & Form CTA */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
-                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4">
                     {excellenceResearchLabels.nominationChargesApplicationForm}
                 </h3>
 

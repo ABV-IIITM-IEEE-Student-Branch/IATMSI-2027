@@ -21,8 +21,7 @@ export default function OralGuidelinesSection() {
             <div className="bg-white rounded-2xl p-4 md:p-5 border-2 border-[#C59B27]/40 shadow-sm mb-8 space-y-4">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-[#C59B27]/30 pb-3">
                     <div>
-                        <h3 className="text-base md:text-lg font-black text-[#4A121A] font-heading tracking-wide uppercase flex items-center gap-2.5">
-                            <span className="w-2.5 h-2.5 rounded-full bg-[#722332]" />
+                        <h3 className="text-base md:text-lg font-black text-[#4A121A] font-heading tracking-wide uppercase">
                             {oralGuidelinesLabels.officialPresentationTemplate}
                         </h3>
                         <p className="text-xs text-neutral-600 font-semibold mt-0.5">
@@ -89,8 +88,7 @@ export default function OralGuidelinesSection() {
 
             {/* Live Presentation Mode & IEEE Xplore Requirement */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-4">
-                <h3 className="text-lg md:text-xl font-black text-[#4A121A] uppercase tracking-wider flex items-center gap-3 border-b border-[#C59B27]/30 pb-3">
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                <h3 className="text-lg md:text-xl font-black text-[#4A121A] uppercase tracking-wider border-b border-[#C59B27]/30 pb-3">
                     {oralGuidelinesLabels.livePresentationIeeeXplorePolicy}
                 </h3>
                 <p className="text-xs md:text-sm text-neutral-700 font-medium leading-relaxed">

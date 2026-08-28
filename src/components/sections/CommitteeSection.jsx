@@ -153,8 +153,7 @@ export default function CommitteeSection() {
                         className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm"
                     >
                         <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b border-[#C59B27]/30">
-                            <h3 className="text-lg md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase flex items-center gap-2.5">
-                                <span className="w-3 h-3 rounded-full bg-[#722332]" />
+                            <h3 className="text-lg md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase">
                                 {group.title}
                             </h3>
                             <span className="text-xs font-black text-[#722332] bg-[#722332]/10 px-3 py-1 rounded-full border border-[#C59B27]/30 flex-shrink-0">

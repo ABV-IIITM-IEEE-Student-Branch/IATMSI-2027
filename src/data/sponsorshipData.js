@@ -22,8 +22,7 @@ export const sponsorshipData = {
     queriesIntro: "Any queries or discussions related to sponsorship or corporate partnership can be addressed to our dedicated sponsorship committee:",
 
     contactEmails: [
-        "iatmsi@iiitm.ac.in",
-        "iatmsi_sponsorship@iiitm.ac.in"
+        "iatmsi@iiitm.ac.in"
     ],
 
     committee: [

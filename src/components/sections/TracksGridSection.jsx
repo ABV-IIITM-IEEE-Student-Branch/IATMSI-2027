@@ -48,8 +48,7 @@ export default function TracksGridSection() {
             {/* 6 Technical Tracks Grid */}
             <div className="space-y-8">
                 <div className="border-b border-[#C59B27]/30 pb-3">
-                    <h3 className="text-xl md:text-2xl font-black text-[#4A121A] uppercase tracking-wide flex items-center gap-3">
-                        <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                    <h3 className="text-xl md:text-2xl font-black text-[#4A121A] uppercase tracking-wide">
                         {tracksGridLabels.technicalTracksSubtopics}
                     </h3>
                 </div>

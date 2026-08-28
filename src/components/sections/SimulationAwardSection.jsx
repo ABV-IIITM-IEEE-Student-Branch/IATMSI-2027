@@ -70,8 +70,7 @@ export default function SimulationAwardSection() {
 
             {/* 2. Why Participate? (8 Benefits) */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
-                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4">
                     {simulationAwardLabels.whyParticipate}
                 </h3>
 
@@ -89,8 +88,7 @@ export default function SimulationAwardSection() {
 
             {/* 3. Who Can Participate (Eligibility Rules) */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
-                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4">
                     {simulationAwardLabels.whoCanParticipateEligibilityRules}
                 </h3>
 
@@ -108,8 +106,7 @@ export default function SimulationAwardSection() {
 
             {/* 4. Submission & Registration Guidelines */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
-                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4">
                     {simulationAwardLabels.submissionGuidelinesRequiredContents}
                 </h3>
 
@@ -142,8 +139,7 @@ export default function SimulationAwardSection() {
 
             {/* 5. Zero Nomination Fee & Submission Form CTA */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
-                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4">
                     {simulationAwardLabels.nominationChargesRegistrationLink}
                 </h3>
 

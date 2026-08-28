@@ -42,8 +42,7 @@ export default function CameraReadySection() {
 
             {/* 1. Important Dates Simple Table */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 overflow-hidden">
-                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase mb-6 flex items-center gap-3 border-b border-[#C59B27]/30 pb-4">
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase mb-6 border-b border-[#C59B27]/30 pb-4">
                     {cameraReadyLabels.importantDates}
                 </h3>
 
@@ -77,54 +76,58 @@ export default function CameraReadySection() {
 
             {/* 2. How to Submit the camera-ready paper? */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
-                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4">
                     {cameraReadyLabels.howToSubmitTheCameraReady}
                 </h3>
 
-                <div className="space-y-4 text-sm md:text-base text-neutral-700 font-medium leading-relaxed">
-                    <p>{howToSubmitText[0]}</p>
-                    <p>{howToSubmitText[1]}</p>
-                    
-                    {/* Google Form Link Card */}
-                    <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-4 md:p-5 rounded-xl border border-[#C59B27]/40">
-                        <p className="mb-3">{howToSubmitText[2]}</p>
-                        <a
-                            href={registrationFormUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] px-4 py-2 rounded-xl text-xs md:text-sm font-black uppercase tracking-wider border border-[#C59B27] transition-all shadow-sm"
-                        >
-                            <span className="!text-[#FAF5EB]">{cameraReadyLabels.registrationDetailsGoogleForm}</span>
-                            <svg className="w-4 h-4 !text-[#FAF5EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
-                        </a>
-                    </div>
-
-                    {/* Plagiarism Warning Box */}
-                    <div className="bg-amber-50 p-4 md:p-5 rounded-xl border-l-4 border-amber-600 border-y border-r border-amber-200 text-amber-950">
-                        <p className="font-semibold">{howToSubmitText[3]}</p>
-                    </div>
-
-                    {/* IEEE Template Link */}
-                    <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-4 md:p-5 rounded-xl border border-[#C59B27]/40">
-                        <p className="mb-3">{howToSubmitText[4]}</p>
-                        <a
-                            href={siteConfig.externalLinks.paperTemplate.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 bg-white !text-[#722332] hover:bg-[#FAF5EB] px-4 py-2 rounded-xl text-xs md:text-sm font-black uppercase tracking-wider border-2 border-[#C59B27] transition-all"
-                        >
-                            <span className="!text-[#722332]">{cameraReadyLabels.ieeeConferenceTemplates}</span>
-                            <svg className="w-4 h-4 !text-[#722332]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                        </a>
-                    </div>
-
-                    <p>{howToSubmitText[5]}</p>
-                </div>
+                <ul className="space-y-4 text-sm md:text-base text-neutral-800 font-medium leading-relaxed list-disc list-outside ml-5">
+                    <li className="pl-1">
+                        <p>{howToSubmitText[0]}</p>
+                    </li>
+                    <li className="pl-1">
+                        <p>{howToSubmitText[1]}</p>
+                    </li>
+                    <li className="pl-1">
+                        <div className="space-y-3">
+                            <p>{howToSubmitText[2]}</p>
+                            <a
+                                href={registrationFormUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] px-4 py-2 rounded-xl text-xs md:text-sm font-black uppercase tracking-wider border border-[#C59B27] transition-all shadow-sm"
+                            >
+                                <span className="!text-[#FAF5EB]">{cameraReadyLabels.registrationDetailsGoogleForm}</span>
+                                <svg className="w-4 h-4 !text-[#FAF5EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                    </li>
+                    <li className="pl-1">
+                        <div className="bg-amber-50 p-4 rounded-xl border-l-4 border-amber-600 border-y border-r border-amber-200 text-amber-950 my-2">
+                            <p className="font-semibold">{howToSubmitText[3]}</p>
+                        </div>
+                    </li>
+                    <li className="pl-1">
+                        <div className="space-y-3">
+                            <p>{howToSubmitText[4]}</p>
+                            <a
+                                href={siteConfig.externalLinks.paperTemplate.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 bg-white !text-[#722332] hover:bg-[#FAF5EB] px-4 py-2 rounded-xl text-xs md:text-sm font-black uppercase tracking-wider border-2 border-[#C59B27] transition-all"
+                            >
+                                <span className="!text-[#722332]">{cameraReadyLabels.ieeeConferenceTemplates}</span>
+                                <svg className="w-4 h-4 !text-[#722332]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </li>
+                    <li className="pl-1">
+                        <p>{howToSubmitText[5]}</p>
+                    </li>
+                </ul>
 
                 {/* Sample Image 1 */}
                 <SampleImageCard title="Sample Image 1" imageUrl={sampleImages.sample1} />
@@ -132,8 +135,7 @@ export default function CameraReadySection() {
 
             {/* 3. Instructions for Authors to Create Final PDF for IATMSI-2027 Submission */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
-                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4">
                     {copyrightSection.heading}
                 </h3>
 
@@ -141,11 +143,11 @@ export default function CameraReadySection() {
                     {copyrightSection.subheading}
                 </h4>
 
-                <div className="space-y-3 text-sm md:text-base text-neutral-700 font-medium leading-relaxed">
+                <ul className="space-y-3 text-sm md:text-base text-neutral-800 font-medium leading-relaxed list-disc list-outside ml-5">
                     {copyrightSection.paragraphs.map((p, idx) => (
-                        <p key={idx}>{p}</p>
+                        <li key={idx} className="pl-1">{p}</li>
                     ))}
-                </div>
+                </ul>
 
                 {/* Copyright Clearance Codes List */}
                 <div className="space-y-4 pt-2">
@@ -172,12 +174,11 @@ export default function CameraReadySection() {
 
             {/* 4. IEEE PDF eXpress Detailed Steps */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-6">
-                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4">
                     {cameraReadyLabels.ieeePdfExpressInstructions}
                 </h3>
 
-                <p className="text-sm md:text-base text-neutral-700 font-medium leading-relaxed">
+                <p className="text-sm md:text-base text-neutral-800 font-medium leading-relaxed">
                     {pdfExpressSection.intro}
                 </p>
 

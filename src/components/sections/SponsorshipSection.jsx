@@ -69,8 +69,7 @@ export default function SponsorshipSection() {
 
             {/* 2. Sponsorship Queries Contact Box */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
-                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4">
                     {sponsorshipLabels.sponsorshipPartnershipQueries}
                 </h3>
 
@@ -87,7 +86,7 @@ export default function SponsorshipSection() {
                                 className="inline-flex items-center gap-2 bg-white text-[#722332] hover:bg-[#FAF5EB] px-4 py-2.5 rounded-xl text-xs md:text-sm font-bold border border-[#C59B27]/40 shadow-2xs transition-all"
                             >
                                 <svg className="w-4 h-4 text-[#722332]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                                 <span>{email}</span>
                             </a>
@@ -98,8 +97,7 @@ export default function SponsorshipSection() {
 
             {/* 3. Committee Chairs Contact Cards */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-6">
-                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4">
                     {sponsorshipLabels.sponsorshipChairsContacts}
                 </h3>
 
