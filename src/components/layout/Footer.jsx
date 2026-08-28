@@ -1,62 +1,99 @@
+import { useState, useEffect } from 'react';
 import { conferenceInfo } from '../../data/conferenceData';
 import { contactPerson } from '../../data/committeeData';
 import { footerQuickLinks } from '../../data/navigationData';
-import { siteConfig } from '../../data/siteConfig';
+import { siteConfig, visitorCountData, footerLabels } from '../../data/siteConfig';
 import { Link } from 'react-router-dom';
-import { footerLabels } from '../../data/siteConfig';
 
 export default function Footer() {
+    const [liveCount, setLiveCount] = useState(visitorCountData.baseCount);
+
+    useEffect(() => {
+        // Track and increment visitor count per session/visit
+        try {
+            const stored = localStorage.getItem('iatmsi_visitor_count');
+            if (stored) {
+                const updated = parseInt(stored, 10) + 1;
+                localStorage.setItem('iatmsi_visitor_count', updated.toString());
+                setLiveCount(updated);
+            } else {
+                localStorage.setItem('iatmsi_visitor_count', (visitorCountData.baseCount + 1).toString());
+                setLiveCount(visitorCountData.baseCount + 1);
+            }
+        } catch {
+            setLiveCount(visitorCountData.baseCount);
+        }
+    }, []);
+
     return (
         <footer data-weavr-source="siteConfig conferenceData committeeData navigationData" className="bg-[#4A121A] text-[#FAF5EB] font-sans border-t-2 border-[#C59B27] relative z-20">
             {/* Main Footer Container */}
-            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-8 lg:py-10">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start">
+            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-10 lg:py-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 lg:gap-16 items-start">
 
-                    {/* Column 1: Conference Info & Organizer */}
+                    {/* Column 1: Visitor's Count by Country */}
                     <div className="flex flex-col space-y-4">
                         <div>
-                            <h3 className="text-2xl font-black !text-[#F0CB6F] tracking-wide uppercase">
-                                {conferenceInfo.shortTitle}
-                            </h3>
-                            <div className="h-[2px] w-12 bg-[#C59B27] mt-2 rounded-full" />
+                            <h4 className="text-sm font-extrabold uppercase tracking-widest !text-[#F0CB6F]">
+                                {visitorCountData.title}
+                            </h4>
+                            <div className="h-[2px] w-12 bg-[#C59B27] mt-1.5 rounded-full" />
                         </div>
 
-                        <p className="text-xs sm:text-sm !text-[#FAF5EB]/85 leading-relaxed font-medium">
-                            {conferenceInfo.fullTitle}
-                        </p>
-
-                        <div className="bg-[#611822]/80 rounded-xl p-4 border border-[#C59B27]/40 shadow-md space-y-1">
-                            <span className="text-[10px] font-extrabold uppercase tracking-widest !text-[#F0CB6F]">
-                                {footerLabels.organizedBy}
+                        {/* Total Counter Box */}
+                        <div className="bg-[#380D13]/90 rounded-xl p-3 border border-[#C59B27]/40 shadow-inner flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                                <span className="text-xs font-black uppercase tracking-wider !text-[#F0CB6F]">
+                                    {visitorCountData.totalLabel}
+                                </span>
+                            </div>
+                            <span className="font-mono text-sm sm:text-base font-black !text-white bg-[#26070B] px-3 py-1 rounded-lg border border-[#C59B27]/40 tracking-wider shadow-xs">
+                                {liveCount.toLocaleString()}
                             </span>
-                            <p className="text-xs font-semibold !text-[#FAF5EB] leading-snug">
-                                {conferenceInfo.organizedBy}
-                            </p>
                         </div>
 
-                        <div className="inline-flex items-center gap-2 pt-1">
-                            <span className="w-2 h-2 rounded-full bg-[#C59B27] animate-pulse" />
-                            <span className="text-xs font-bold uppercase tracking-wider !text-[#F0CB6F]">
-                                {footerLabels.dates} <span className="!text-[#FAF5EB]">{conferenceInfo.dates}</span>
-                            </span>
+                        {/* Country Flag & Counts Grid */}
+                        <div className="grid grid-cols-2 gap-2">
+                            {visitorCountData.countries.map((country) => (
+                                <div
+                                    key={country.id}
+                                    className="flex items-center justify-between bg-[#380D13]/60 hover:bg-[#380D13] px-2.5 py-1.5 rounded-lg border border-[#C59B27]/25 text-xs transition-colors"
+                                >
+                                    <div className="flex items-center gap-2 min-w-0">
+                                        <img
+                                            src={country.flagUrl}
+                                            alt={country.name}
+                                            className="w-4.5 h-3 object-cover rounded-xs border border-white/20 shadow-2xs flex-shrink-0"
+                                            loading="lazy"
+                                        />
+                                        <span className="font-semibold !text-[#FAF5EB]/90 truncate text-[11px] sm:text-xs">
+                                            {country.name}
+                                        </span>
+                                    </div>
+                                    <span className="font-mono font-bold text-[11px] !text-[#F0CB6F] ml-1 flex-shrink-0">
+                                        {country.count}
+                                    </span>
+                                </div>
+                            ))}
                         </div>
                     </div>
 
-                    {/* Column 2: Quick Links */}
-                    <div className="flex flex-col space-y-4 md:pl-6">
+                    {/* Column 2: Quick Links (Equidistant Center Column) */}
+                    <div className="flex flex-col space-y-4 md:mx-auto">
                         <div>
                             <h4 className="text-sm font-extrabold uppercase tracking-widest !text-[#F0CB6F]">
                                 {footerLabels.quickLinks}
                             </h4>
-                            <div className="h-[2px] w-10 bg-[#C59B27] mt-2 rounded-full" />
+                            <div className="h-[2px] w-10 bg-[#C59B27] mt-1.5 rounded-full" />
                         </div>
 
-                        <ul data-weavr-source="navigationData.footerQuickLinks" className="space-y-3 text-xs sm:text-sm font-medium">
+                        <ul data-weavr-source="navigationData.footerQuickLinks" className="space-y-2.5 text-xs sm:text-sm font-medium">
                             {footerQuickLinks.map((link) => (
                                 <li key={link.id}>
                                     <Link
                                         to={link.path}
-                                        className="!text-[#FAF5EB]/85 hover:!text-[#F0CB6F] transition-all duration-200 inline-flex items-center gap-2 group"
+                                        className="!text-[#FAF5EB]/85 hover:!text-[#F0CB6F] transition-all duration-200 inline-flex items-center gap-2 group py-0.5"
                                     >
                                         <span data-weavr-ignore className="text-[#C59B27] text-[10px] group-hover:translate-x-1 transition-transform">▸</span>
                                         <span className="group-hover:translate-x-0.5 transition-transform">{link.label}</span>
@@ -72,10 +109,10 @@ export default function Footer() {
                             <h4 className="text-sm font-extrabold uppercase tracking-widest !text-[#F0CB6F]">
                                 {footerLabels.contactInfo}
                             </h4>
-                            <div className="h-[2px] w-10 bg-[#C59B27] mt-2 rounded-full" />
+                            <div className="h-[2px] w-10 bg-[#C59B27] mt-1.5 rounded-full" />
                         </div>
 
-                        <div className="space-y-4 text-xs sm:text-sm !text-[#FAF5EB]/85">
+                        <div className="space-y-3.5 text-xs sm:text-sm !text-[#FAF5EB]/85">
                             {/* Venue */}
                             <div className="flex items-start gap-3">
                                 <svg className="w-4 h-4 text-[#C59B27] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -84,7 +121,7 @@ export default function Footer() {
                                 </svg>
                                 <div>
                                     <span className="text-[10px] font-bold uppercase tracking-wider !text-[#F0CB6F] block mb-0.5">{footerLabels.venue}</span>
-                                    <p className="leading-snug !text-[#FAF5EB]/90">{conferenceInfo.venue.address}</p>
+                                    <p className="leading-snug !text-[#FAF5EB]/90 font-medium">{conferenceInfo.venue.address}</p>
                                 </div>
                             </div>
 
@@ -112,7 +149,7 @@ export default function Footer() {
                                     </svg>
                                     <div>
                                         <span className="text-[10px] font-bold uppercase tracking-wider !text-[#F0CB6F] block mb-0.5">{footerLabels.phone}</span>
-                                        <p className="font-mono !text-[#FAF5EB]/90">{contactPerson.phones.join(' | ')}</p>
+                                        <p className="font-mono !text-[#FAF5EB]/90 font-medium">{contactPerson.phones.join(' | ')}</p>
                                     </div>
                                 </div>
                             )}
@@ -121,29 +158,15 @@ export default function Footer() {
 
                 </div>
 
-                {/* Acknowledgments / CMT Disclaimer */}
-                {siteConfig.acknowledgments && siteConfig.acknowledgments.length > 0 && (
-                    <div className="mt-8 pt-4 border-t border-[#C59B27]/30 text-center text-xs !text-white max-w-4xl mx-auto leading-relaxed italic">
-                        {siteConfig.acknowledgments.map((item, index) => (
-                            <p key={index}>{item}</p>
-                        ))}
-                    </div>
-                )}
-
                 {/* Bottom Separator Line */}
-                <div className="mt-6 mb-3 w-full h-[1px] bg-gradient-to-r from-transparent via-[#C59B27]/40 to-transparent" />
+                <div className="mt-8 mb-4 w-full h-[1px] bg-gradient-to-r from-transparent via-[#C59B27]/40 to-transparent" />
 
                 {/* Copyright Bar */}
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs !text-white font-medium">
                     <p>© {siteConfig.copyrightYear} {conferenceInfo.shortTitle}. <span>{siteConfig.copyrightNotice}</span></p>
-                    <a
-                        href={siteConfig.branding.instituteUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="!text-white hover:!text-[#F0CB6F] transition-colors font-semibold"
-                    >
-                        {siteConfig.branding.instituteName}
-                    </a>
+                    <span className="!text-[#F0CB6F] font-bold tracking-wide">
+                        {siteConfig.designerText || 'Designed By - Shivansh Katiyar'}
+                    </span>
                 </div>
             </div>
         </footer>

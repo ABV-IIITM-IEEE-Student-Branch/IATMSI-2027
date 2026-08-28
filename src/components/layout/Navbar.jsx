@@ -18,58 +18,71 @@ export default function Navbar() {
         setOpenDropdowns(prev => ({ ...prev, [id]: !prev[id] }));
     };
 
+    const allLogos = [
+        { id: 'conf-logo', url: siteConfig.branding.conferenceLogo, alt: 'IATMSI 2027 Logo', isHomeLink: true },
+        ...siteConfig.branding.partnerLogos.map(logo => ({ ...logo, isHomeLink: false }))
+    ];
+
     return (
         <>
             <header data-weavr-source="siteConfig navigationData.navigationTree" className="relative z-50 w-full pt-4 px-4 sm:px-6 lg:px-8 bg-transparent pointer-events-none">
-                <div className="max-w-7xl mx-auto bg-[#FCF9F2]/65 backdrop-blur-xl border border-[#C59B27]/30 shadow-xl rounded-2xl w-full pointer-events-auto transition-all duration-300">
-                    {/* Unified Row: IATMSI Logo, Partner Logos, Submit */}
-                    <div className="relative flex items-center justify-between py-1.5 px-3 lg:px-4 lg:py-1.5 gap-x-2 lg:gap-x-4">
+                <div className="max-w-7xl mx-auto bg-white border border-[#C59B27]/40 shadow-xl rounded-2xl w-full pointer-events-auto transition-all duration-300">
+                    {/* Unified Row: Equidistant Logos & Right CTA Actions */}
+                    <div className="relative flex items-center justify-between py-2 px-3 sm:px-4 lg:px-6 gap-x-3 lg:gap-x-6">
                         
-                        {/* Conference Logo (Left) */}
-                        <div className="flex-shrink-0 flex items-center">
-                            <Link to={ROUTES.HOME} className="flex items-center hover:opacity-80 transition-opacity">
-                                <img
-                                    src={siteConfig.branding.conferenceLogo}
-                                    alt="IATMSI 2027 Logo"
-                                    className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto object-contain"
-                                />
-                            </Link>
-                        </div>
-
-                        {/* Partner Logos (Center/Right) */}
-                        <div className="flex flex-1 items-center justify-end lg:justify-center gap-2 sm:gap-4 px-2 sm:px-4">
-                            {siteConfig.branding.partnerLogos.map((logo, index) => (
-                                <div key={logo.id} className="flex items-center gap-2 sm:gap-4">
-                                    <img 
-                                        src={logo.url} 
-                                        alt={logo.alt} 
-                                        className="h-6 sm:h-8 md:h-9 lg:h-10 w-auto object-contain" 
-                                    />
-                                    {index < siteConfig.branding.partnerLogos.length - 1 && (
-                                        <div className="hidden sm:block w-px h-5 sm:h-6 bg-[#C59B27]/30"></div>
+                        {/* 4 Logos evenly spread throughout the bar */}
+                        <div className="flex-1 flex items-center justify-between sm:justify-evenly gap-2 sm:gap-4 lg:gap-8 px-1 sm:px-3 lg:px-6 py-0.5">
+                            {allLogos.map((logo, index) => (
+                                <div key={logo.id} className="flex items-center justify-center flex-1 relative min-w-0">
+                                    {logo.isHomeLink ? (
+                                        <Link to={ROUTES.HOME} className="flex items-center justify-center hover:opacity-80 transition-opacity">
+                                            <img
+                                                src={logo.url}
+                                                alt={logo.alt}
+                                                className="h-8 sm:h-9 md:h-10 lg:h-12 w-auto max-w-[85px] sm:max-w-[115px] md:max-w-[135px] lg:max-w-[155px] object-contain"
+                                            />
+                                        </Link>
+                                    ) : (
+                                        <div className="flex items-center justify-center">
+                                            <img 
+                                                src={logo.url} 
+                                                alt={logo.alt} 
+                                                className="h-8 sm:h-9 md:h-10 lg:h-12 w-auto max-w-[85px] sm:max-w-[115px] md:max-w-[135px] lg:max-w-[155px] object-contain" 
+                                            />
+                                        </div>
+                                    )}
+                                    {index < allLogos.length - 1 && (
+                                        <div className="hidden sm:block absolute -right-1 sm:right-0 top-1/2 -translate-y-1/2 w-px h-5 sm:h-6 md:h-7 bg-[#C59B27]/30"></div>
                                     )}
                                 </div>
                             ))}
                         </div>
                         
-                        {/* Right Actions: Submit Button & Mobile Menu */}
-                        <div className="flex-shrink-0 flex items-center gap-3">
-                            {/* Submit Button (Desktop Only) */}
-                            <div className="hidden lg:block">
+                        {/* Right Actions: Submit Paper, Registration & Mobile Menu */}
+                        <div className="flex-shrink-0 flex items-center gap-2 sm:gap-3">
+                            {/* CTA Action Buttons (Desktop Only) */}
+                            <div className="hidden lg:flex items-center gap-3">
                                 <a
                                     href={siteConfig.externalLinks.submissionPortal.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center px-4.5 py-1.5 border border-[#C59B27]/50 rounded-md shadow-sm text-[12.5px] font-bold !text-[#FAF5EB] bg-[#4A121A] hover:bg-[#611822] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#4A121A] transition-all transform hover:scale-105"
+                                    className="inline-flex items-center justify-center px-4.5 py-2 border border-[#C59B27]/60 rounded-lg shadow-md text-[13.5px] font-extrabold tracking-wide !text-[#FAF5EB] bg-[#4A121A] hover:bg-[#611822] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#4A121A] transition-all transform hover:scale-105"
                                 >
                                     {navLabels.submitPaper}
                                 </a>
+                                <Link
+                                    to={ROUTES.REGISTRATION}
+                                    className="inline-flex items-center justify-center px-4.5 py-2 border border-[#C59B27] rounded-lg shadow-md text-[13.5px] font-extrabold tracking-wide !text-[#2F0B11] bg-[#C59B27] hover:bg-[#D4A936] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#C59B27] transition-all transform hover:scale-105"
+                                >
+                                    {navLabels.registration}
+                                </Link>
                             </div>
 
                             {/* Mobile menu button */}
                             <button
                                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                                className="lg:hidden p-1.5 text-gray-500 focus:outline-none"
+                                className="lg:hidden p-1.5 text-gray-700 hover:text-gray-900 focus:outline-none"
+                                aria-label="Toggle navigation menu"
                             >
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     {isMenuOpen ? (
@@ -149,15 +162,22 @@ export default function Navbar() {
                             ))}
                         </div>
 
-                        <div className="px-6 py-4 border-t border-white/10">
+                        <div className="px-6 py-4 border-t border-white/10 flex flex-col gap-2.5">
                             <a
                                 href={siteConfig.externalLinks.submissionPortal.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center justify-center w-full px-4 py-3 rounded-lg text-sm font-bold text-[#5B1824] bg-white hover:bg-gray-100 transition-all"
+                                className="flex items-center justify-center w-full px-4 py-2.5 rounded-lg text-sm font-bold text-white bg-[#4A121A] border border-[#C59B27]/50 hover:bg-[#611822] transition-all"
                             >
                                 {navLabels.submitPaper}
                             </a>
+                            <Link
+                                to={ROUTES.REGISTRATION}
+                                onClick={() => setIsMenuOpen(false)}
+                                className="flex items-center justify-center w-full px-4 py-2.5 rounded-lg text-sm font-bold text-[#350C13] bg-[#C59B27] hover:bg-[#D4A936] transition-all"
+                            >
+                                {navLabels.registration}
+                            </Link>
                         </div>
                     </div>
                 </>

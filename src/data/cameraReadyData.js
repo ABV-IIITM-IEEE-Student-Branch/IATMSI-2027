@@ -8,13 +8,13 @@ export const cameraReadyData = {
     conferenceIdCmt: "68868X",
 
     importantDates: [
-        { activity: "Call for Papers", date: "20th June 2026" },
-        { activity: "Submission Due Date", date: "20th December 2026" },
-        { activity: "Notification of Acceptance", date: "30th Jan. 2027" },
+        // { activity: "Call for Papers", date: "20th June 2026" },
+        // { activity: "Submission Due Date", date: "20th December 2026" },
+        // { activity: "Notification of Acceptance", date: "30th Jan. 2027" },
         { activity: "Camera-ready Paper Due", date: "20th March 2027" },
-        { activity: "Registration Open", date: "15th Oct. 2026" },
-        { activity: "Early-Bird Registration Closes", date: "15th Feb. 2027" },
-        { activity: "Last Date of Registration", date: "30th March 2027" }
+        // { activity: "Registration Open", date: "15th Oct. 2026" },
+        // { activity: "Early-Bird Registration Closes", date: "15th Feb. 2027" },
+        // { activity: "Last Date of Registration", date: "30th March 2027" }
     ],
 
     howToSubmitText: [

@@ -10,7 +10,7 @@ export default function CallForPapersSection() {
         <SectionContainer dataSource="homeData" id="call-for-papers">
             <SectionHeader title={title} centered={true} />
 
-            <div className="space-y-4 text-neutral-800 text-sm md:text-base leading-relaxed max-w-4xl mx-auto">
+            <div className="space-y-6 text-neutral-800 text-sm md:text-base leading-relaxed">
                 {/* Main Call for Papers Description */}
                 <p className="font-medium text-justify">
                     {description}

@@ -21,8 +21,7 @@ export default function PosterGuidelinesSection() {
             <div className="bg-white rounded-2xl p-4 md:p-5 border-2 border-[#C59B27]/40 shadow-sm mb-8 space-y-4">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-[#C59B27]/30 pb-3">
                     <div>
-                        <h3 className="text-base md:text-lg font-black text-[#4A121A] font-heading tracking-wide uppercase flex items-center gap-2.5">
-                            <span className="w-2.5 h-2.5 rounded-full bg-[#722332]" />
+                        <h3 className="text-base md:text-lg font-black text-[#4A121A] font-heading tracking-wide uppercase">
                             {posterGuidelinesLabels.officialPosterTemplateDimensions}
                         </h3>
                         <p className="text-xs text-neutral-600 font-semibold mt-0.5">
@@ -92,8 +91,7 @@ export default function PosterGuidelinesSection() {
 
             {/* Design & Legibility Guidelines */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-10 space-y-6">
-                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4">
                     {posterGuidelinesLabels.designLegibilitySpecifications}
                 </h3>
 
@@ -113,8 +111,7 @@ export default function PosterGuidelinesSection() {
 
             {/* Author Preparation & Networking Tips */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-6">
-                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4 flex items-center gap-3">
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#722332]" />
+                <h3 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase border-b border-[#C59B27]/30 pb-4">
                     {posterGuidelinesLabels.preparationNetworkingRecommendations}
                 </h3>
 

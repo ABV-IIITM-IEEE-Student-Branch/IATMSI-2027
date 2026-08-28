@@ -1,18 +1,47 @@
+import { Link } from 'react-router-dom';
 import { placeholderLabels } from '../../data/siteConfig';
+import { ROUTES } from '../../constants/routes';
+
 export default function PlaceholderSection({ title }) {
     return (
-        <section data-weavr-source="siteConfig" className="py-24 bg-neutral-50 min-h-[50vh] flex items-center justify-center">
-            <div className="max-w-3xl mx-auto px-4 text-center">
-                <div className="bg-white p-12 rounded-2xl shadow-xl border border-neutral-100">
-                    <svg className="w-16 h-16 mx-auto text-primary-300 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                    </svg>
-                    <h2 className="text-2xl font-bold text-slate-800 mb-4 tracking-tight">
-                        {placeholderLabels.contentComingSoon}
+        <section data-weavr-source="siteConfig" className="py-20 min-h-[45vh] flex items-center justify-center">
+            <div className="max-w-xl mx-auto px-4 text-center">
+                <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-8 md:p-10 rounded-3xl shadow-xl border-2 border-[#C59B27]/40 relative overflow-hidden">
+                    {/* Soft Decorative Glow */}
+                    <div className="w-24 h-24 bg-[#C59B27]/10 rounded-full blur-2xl absolute -top-4 -right-4 pointer-events-none" />
+                    
+                    {/* Luminous Icon Badge */}
+                    <div className="w-16 h-16 mx-auto mb-5 rounded-2xl bg-white border-2 border-[#C59B27]/40 shadow-md flex items-center justify-center text-[#722332]">
+                        <svg className="w-8 h-8 text-[#C59B27]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                    </div>
+
+                    {/* Soft Category Badge */}
+                    <span className="inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#722332] bg-white px-3.5 py-1 rounded-full border border-[#C59B27]/30 shadow-2xs mb-3">
+                        {placeholderLabels.badge}
+                    </span>
+
+                    {/* Heading */}
+                    <h2 className="text-xl md:text-2xl font-black text-[#4A121A] font-heading tracking-wide uppercase mb-2.5">
+                        {title ? `${title} — ${placeholderLabels.contentComingSoon}` : placeholderLabels.contentComingSoon}
                     </h2>
-                    <p className="text-neutral-600 leading-relaxed text-lg">
-                        The content for {title ? `the ${title} page` : 'this page'} is currently being prepared by the organizing committee. Please check back later for updates.
+
+                    {/* Short, Soft Message */}
+                    <p className="text-neutral-700 font-medium text-sm md:text-base leading-relaxed max-w-md mx-auto mb-6">
+                        {placeholderLabels.shortMessage}
                     </p>
+
+                    {/* Clean Action Button */}
+                    <Link
+                        to={ROUTES.HOME}
+                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#722332] hover:bg-[#5B1824] !text-[#FAF5EB] font-bold text-xs md:text-sm rounded-xl border border-[#C59B27] shadow-md transition-all transform hover:-translate-y-0.5 uppercase tracking-wider"
+                    >
+                        <span>{placeholderLabels.backToHome}</span>
+                        <svg className="w-4 h-4 text-[#F0CB6F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </Link>
                 </div>
             </div>
         </section>

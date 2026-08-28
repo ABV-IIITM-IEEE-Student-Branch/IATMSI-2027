@@ -5,13 +5,13 @@ export const paperSubmissionData = {
     subtitle: "Complete submission instructions, IEEE manuscript templates, Microsoft CMT portal link, and publication policies.",
 
     cmtUrl: "https://cmt3.research.microsoft.com/IATMSI2027",
-    cfpPdfUrl: "https://ieeeiatmsi.iiitm.ac.in/wp-content/uploads/2027/11/CFP-IATMSI-2026_v2.pdf",
-    ieeeTemplatesUrl: "http://www.ieee.org/conferences_events/conferences/publishing/templates.html",
+    cfpPdfUrl: "https://iatmsi.iiitm.ac.in/wp-content/uploads/2026/07/CFP-IATMSI-2027_v1.pdf",
+    ieeeTemplatesUrl: "https://www.ieee.org/conferences/publishing/templates.html",
     docLatexUrl: "https://app.doclatex.com/",
     submissionDeadline: "20th December 2026",
 
     formattingText: [
-        "Prospective authors are encouraged to submit full papers in PDF format not exceeding 6 pages in double-column includes all figures, tables, and references. The paper must follow the standard IEEE template (https://www.ieee.org/conferences_events/conferences/publishing/templates.html). Papers not compliant with the IEEE template including appropriate referencing or exceeding the page limit will be returned without review. To convert the paper in IEEE conference latex template with pdf to submit, the automated services of app.doclatex.com (https://app.doclatex.com/) can also be availed. This is also suitable for non latex users too.",
+        "Prospective authors are encouraged to submit full papers in PDF format not exceeding 6 pages in double-column includes all figures, tables, and references. The paper must follow the standard IEEE template (https://www.ieee.org/conferences/publishing/templates.html). Papers not compliant with the IEEE template including appropriate referencing or exceeding the page limit will be returned without review. To convert the paper in IEEE conference latex template with pdf to submit, the automated services of app.doclatex.com (https://app.doclatex.com/) can also be availed. This is also suitable for non latex users too.",
         "Only original papers that have not been published or submitted for publication elsewhere will be considered. The paper must clearly indicate the research area, main results, and contributions. All accepted and presented papers will undergo submission for possible inclusion into IEEE Xplore subject to meeting IEEE Xplore’s scope and quality requirements.",
         "Submission of a scientific paper is considered a commitment that, upon acceptance, authors will submit their camera-ready version for inclusion in the formal proceedings and will present the paper at the conference. Each accepted contribution must have at least one paid registration by the time the camera-ready paper is submitted for inclusion in the proceedings. IATMSI reserves the right to remove from IEEE Xplore papers and posters not presented at the symposium."
     ],

@@ -75,13 +75,13 @@ export default function HistorySection() {
                                 </p>
                             </div>
 
-                            {/* Action Buttons */}
-                            <div className="flex items-center gap-3 flex-wrap">
+                            {/* Action Buttons: Proceedings (Left) & Photo Gallery (Right) */}
+                            <div className="flex items-center gap-3 flex-shrink-0 flex-wrap sm:flex-nowrap md:self-center">
                                 <a
                                     href={ed.xploreUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#722332] hover:bg-[#5B1824] !text-[#FAF5EB] font-bold text-xs rounded-xl shadow-md border border-[#C59B27]/40 transition-all"
+                                    className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#722332] hover:bg-[#5B1824] !text-[#FAF5EB] font-bold text-xs rounded-xl shadow-md border border-[#C59B27]/40 transition-all flex-shrink-0"
                                 >
                                     <span>{historyLabels.ieeeXploreProceedings}</span>
                                     <svg className="w-3.5 h-3.5 text-[#F0CB6F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -94,7 +94,7 @@ export default function HistorySection() {
                                         href={ed.galleryUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 px-4 py-2.5 bg-white hover:bg-[#FAF5EB] !text-[#722332] font-bold text-xs rounded-xl shadow-xs border border-[#C59B27]/40 transition-all"
+                                        className="inline-flex items-center gap-2 px-4 py-2.5 bg-white hover:bg-[#FAF5EB] !text-[#722332] font-bold text-xs rounded-xl shadow-xs border border-[#C59B27]/40 transition-all flex-shrink-0"
                                     >
                                         <svg className="w-3.5 h-3.5 text-[#C59B27]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -106,13 +106,13 @@ export default function HistorySection() {
                         </div>
 
                         {/* Stat Chips Grid */}
-                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
                             {ed.stats.map((s, idx) => (
-                                <div key={idx} className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-3.5 rounded-xl border border-[#C59B27]/30 text-center">
+                                <div key={idx} className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-3.5 rounded-xl border border-[#C59B27]/30 text-center flex flex-col justify-center">
                                     <span className="text-xl md:text-2xl font-black text-[#722332] font-mono block">
                                         {s.value}
                                     </span>
-                                    <span className="text-[11px] font-black text-[#4A121A] uppercase tracking-wider block mt-0.5">
+                                    <span className="text-[11px] font-black text-[#4A121A] uppercase tracking-wider block mt-0.5 leading-tight">
                                         {s.label}
                                     </span>
                                 </div>
@@ -130,8 +130,7 @@ export default function HistorySection() {
 
                         {/* Tracks */}
                         <div className="bg-[#FAF5EB] rounded-2xl p-5 md:p-6 border border-[#C59B27]/30">
-                            <h4 className="text-xs md:text-sm font-black text-[#722332] uppercase tracking-wider mb-4 flex items-center gap-2">
-                                <span className="w-2.5 h-2.5 rounded-full bg-[#C59B27]" />
+                            <h4 className="text-xs md:text-sm font-black text-[#722332] uppercase tracking-wider mb-4">
                                 Conference Tracks ({ed.year})
                             </h4>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">

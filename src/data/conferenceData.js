@@ -2,18 +2,18 @@
 
 export const conferenceInfo = {
     shortTitle: 'IATMSI-2027',
-    fullTitle: 'IEEE International Conference on Interdisciplinary Approaches in Technology and Management for Social Innovation (IATMSI-2027)',
+    fullTitle: '5th IEEE International Conference on Interdisciplinary Approaches in Technology and Management for Social Innovation (IATMSI-2027)',
     conferenceRecord: '73195',
     edition: '5th',
     mode: 'Hybrid',
     dates: 'May 20-22, 2027',
     organizedBy: 'ABV-IIITM IEEE Student Branch, Gwalior, Madhya Pradesh, India',
     venue: {
-        name: 'Atal Bihari Vajpayee – Indian Institute of Information Technology and Management (ABV-IIITM)',
-        shortName: 'ABV-IIITM, Gwalior',
-        address: 'ABV-IIITM Gwalior, Morena Rd, IIITM Campus, Gwalior, Madhya Pradesh, India- 474015',
+        name: 'Kathmandu, Nepal',
+        shortName: 'Kathmandu, Nepal',
+        address: 'Kathmandu, Nepal',
         city: 'Kathmandu, Nepal',
-        mapEmbedUrl: 'https://maps.google.com/maps?q=ABV-IIITM+Gwalior+%4026.2485,78.1746&z=15&output=embed',
+        mapEmbedUrl: 'https://maps.google.com/maps?q=Kathmandu+Nepal&z=15&output=embed',
     },
 };
 

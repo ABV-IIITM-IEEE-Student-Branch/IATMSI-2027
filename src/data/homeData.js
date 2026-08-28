@@ -2,17 +2,42 @@
 
 export const aboutConferenceData = {
     title: "About the Conference",
+    mainTheme: "Enabling the Change! Social Innovation for Sustainable Societies",
     paragraphs: [
         "The **5th IEEE International Conference on Interdisciplinary Approaches in Technology and Management for Social Innovation (IATMSI-2027)** is globally recognized conference series organized under the aegis of the IEEE community. The conference is planned to be held in **Kathmandu, Nepal**, in association with the **IEEE Madhya Pradesh Section, IEEE Nepal Section, ABV-IIITM IEEE Student Branch** and collaborating academic and industry partners. Over the years, IATMSI has emerged as a premier international **platform** for researchers, academicians, industry experts, policymakers, and students to share innovative ideas and research outcomes addressing societal challenges through technology and management.",
         "The c**onference** features a comprehensive technical program comprising keynote lectures by internationally renowned experts, invited talks, parallel technical sessions, workshops, tutorials, special sessions, industry forums, and panel discussions on emerging technologies and societal challenges. To recognize excellence and encourage innovation, IATMSI presents several prestigious awards, including the Hardnovate Contest Award, Rising Researcher Award, Excellence in Research Award, IEEE Doctoral Dissertation (Best Thesis) Award, Simulation Excellence Award, and Best Paper Awards. In addition, selected participants are supported through fellowships, student grants, and travel assistance programs, further promoting research collaboration, knowledge exchange, and professional development within the global scientific community. The conference will encompass the following broad thematic tracks:",
     ],
     thematicTracks: [
-        "Innovative Solutions for Healthcare, Biomedical Engineering and Sustainable Development",
-        "Power, Control, Energy, and Intelligent Transportation Technologies",
-        "AI, Data Science, IoT, and Computer Vision-Enabled Technologies",
-        "Green, Flexible Electronics, VLSI, Communication, and Sensor-Based Technologies",
-        "IT-enabled Management for Social Innovation",
-        "Quantum Technologies, Digital Twins, Industry 5.0 and Smart Manufacturing"
+        {
+            id: 1,
+            title: "Track 1: Technology Solutions for Healthcare, Biomedical Engineering and Sustainable Development",
+            icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+        },
+        {
+            id: 2,
+            title: "Track 2: Power, Control, Energy, and Intelligent Transportation Technologies",
+            icon: "M13 10V3L4 14h7v7l9-11h-7z"
+        },
+        {
+            id: 3,
+            title: "Track 3: AI, Data Science, IoT, and Computer Vision-Enabled Technologies",
+            icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+        },
+        {
+            id: 4,
+            title: "Track 4: Green, Flexible Electronics, VLSI, Communication, and Sensor-Based Technologies",
+            icon: "M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
+        },
+        {
+            id: 5,
+            title: "Track 5: IT-enabled Management for Social Innovation",
+            icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+        },
+        {
+            id: 6,
+            title: "Track 6: Quantum Technologies, Digital Twins, Industry 5.0 and Smart Manufacturing",
+            icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+        }
     ],
     closingParagraph: "IATMSI-2027 will be conducted in a hybrid mode, enabling both physical and virtual participation from across the globe. Continuing this legacy, **IATMSI-2027**, with the theme **“Enabling the Change! Social Innovation for Sustainable Societies”**, will be hosted in **Kathmandu, Nepal**, a city renowned for its rich cultural heritage, vibrant academic environment, and strategic location in South Asia. The conference will provide an exceptional platform for researchers, academicians, industry leaders, policymakers, and students to exchange ideas and showcase innovations that address pressing societal challenges through technology and management. Hosting IATMSI-2027 in Kathmandu will further strengthen international collaboration, foster interdisciplinary partnerships, and offer participants unique opportunities for high-impact discussions, **professional networking, knowledge sharing, and innovation-driven research activities aimed at building sustainable and inclusive societies.**",
     targetDate: "2027-05-20T09:00:00"
@@ -103,6 +128,11 @@ export const teaserVideosData = {
         },
         {
             id: 2,
+            title: "IATMSI Journey",
+            imageUrl: "https://lh3.googleusercontent.com/d/1sWTOeNuVDQxUhysQfr9DS6z9aJ5Lypj5"
+        },
+        {
+            id: 3,
             title: "IEEE IATMSI-2027 Teaser Video",
             youtubeId: "_i28dauNR1s",
             thumbnail: "https://img.youtube.com/vi/_i28dauNR1s/hqdefault.jpg",
@@ -112,49 +142,101 @@ export const teaserVideosData = {
 };
 
 export const patronChairsData = {
-    title: "Patron & General Chairs",
-    chairs: [
+    title: "Patron & Chairs",
+    patronGroupTitle: "Conference Patrons",
+    generalChairGroupTitle: "General Chairs",
+    confChairGroupTitle: "Conference Chair",
+    patrons: [
         {
             id: 1,
-            name: "Prof. S. N. Singh",
-            role: "Patron",
-            affiliation: "Director, ABV-IIITM Gwalior, India",
-            image: "https://lh3.googleusercontent.com/d/1TeNa7fHHLsz8W1lQs6ENRsUUTr4YH4tF"
-        },
-        {
-            id: 2,
             name: "Prof. G. S. Tomar",
-            role: "General Chair",
-            affiliation: "IEEE MP Section, India",
+            role: "Conference Patron",
+            designation: "Chair, IEEE MP Section",
+            affiliation: "India",
             image: "https://lh3.googleusercontent.com/d/1urA5B0z_5GTwTHl411DMGgrQ-nWUQ18p"
         },
         {
+            id: 2,
+            name: "Prof. S. N. Singh",
+            role: "Conference Patron",
+            designation: "Director",
+            affiliation: "ABV-IIITM Gwalior, India",
+            image: "https://lh3.googleusercontent.com/d/1TeNa7fHHLsz8W1lQs6ENRsUUTr4YH4tF"
+        },
+        {
             id: 3,
+            name: "Prof. Arun Timalsina",
+            role: "Conference Patron",
+            designation: "Chair, IEEE Nepal Section",
+            affiliation: "India",
+            image: null
+        }
+    ],
+    generalChairs: [
+        {
+            id: 4,
             name: "Dr. Somesh Kumar",
             role: "General Chair",
-            affiliation: "IEEE MP Section, ABV-IIITM Gwalior, India",
+            designation: "Joint Secretary, IEEE MP Section",
+            affiliation: "ABV-IIITM Gwalior, India",
             image: "https://lh3.googleusercontent.com/d/1WGYML01jz3WH4nyxBLNMf8_LPqzqdmKr"
+        },
+        {
+            id: 5,
+            name: "Prof. Vijay Devabhaktuni",
+            role: "General Chair",
+            designation: null,
+            affiliation: "Illinois State University, USA",
+            image: null
+        },
+        {
+            id: 6,
+            name: "Prof. Manisha Pattanaik",
+            role: "General Chair",
+            designation: null,
+            affiliation: "ABV-IIITM Gwalior, India",
+            image: null
+        }
+    ],
+    conferenceChairs: [
+        {
+            id: 7,
+            name: "Dr. Arun Kumar",
+            role: "Conference Chair",
+            designation: null,
+            affiliation: "ABV-IIITM Gwalior, India",
+            image: null
         }
     ]
 };
 
 export const supportersData = {
     title: "Supporters & Sponsors",
-    categories: [
+    logos: [
         {
-            id: "platinum",
-            tier: "PLATINUM SPONSOR",
-            sponsors: []
+            id: "eps",
+            name: "IEEE EPS",
+            logo: "https://lh3.googleusercontent.com/d/1tD28PH7QqEIo5cW2sZqjnsFGsDuZW1Gq"
         },
         {
-            id: "silver",
-            tier: "SILVER SPONSOR",
-            sponsors: []
+            id: "mtts",
+            name: "IEEE MTT-S",
+            logo: "https://lh3.googleusercontent.com/d/1KZ4XuLBFOkH-te2mqf48plSZ-P6Sk_iN"
         },
         {
-            id: "event",
-            tier: "EVENT SPONSOR",
-            sponsors: []
+            id: "srsa",
+            name: "SRSA Society",
+            logo: "https://lh3.googleusercontent.com/d/1OI3dL2b10-4IrA9hjsLztg17GdAWv2cx"
+        },
+        {
+            id: "scholar-colab",
+            name: "Scholar Colab",
+            logo: "https://lh3.googleusercontent.com/d/1PPWZtSgN9Fibt68Iw0kCRp502niG2AGO"
+        },
+        {
+            id: "iiitm",
+            name: "ABV-IIITM Gwalior",
+            logo: "https://lh3.googleusercontent.com/d/1YB-jkZUTemkmJyFEsOJBZG4zc9gnal-B"
         }
     ]
 };
