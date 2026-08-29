@@ -62,9 +62,25 @@ export default async function handler(req, res) {
 
   // Nothing configured yet — say so plainly instead of failing. The footer
   // treats an empty breakdown as "hide the section".
+  //
+  // `reason` distinguishes "no credentials" from "the store rejected us",
+  // which otherwise look identical from outside and make this impossible to
+  // diagnose without server logs. Variable *names* are safe to report; values
+  // never are.
   if (!config) {
     res.setHeader('Cache-Control', 'no-store');
-    return res.status(200).json({ configured: false, total: 0, countries: {} });
+    return res.status(200).json({
+      configured: false,
+      reason: 'no-credentials',
+      envSeen: [
+        'KV_REST_API_URL',
+        'KV_REST_API_TOKEN',
+        'UPSTASH_REDIS_REST_URL',
+        'UPSTASH_REDIS_REST_TOKEN',
+      ].filter((name) => Boolean(process.env[name])),
+      total: 0,
+      countries: {},
+    });
   }
 
   try {
@@ -90,8 +106,16 @@ export default async function handler(req, res) {
     return res.status(200).json({ configured: true, total, countries: counts });
   } catch (error) {
     // A counter is decoration; it must never take the footer down with it.
+    // Reported separately from missing credentials so the two can be told
+    // apart without reading server logs.
     console.error('[visitors]', error);
     res.setHeader('Cache-Control', 'no-store');
-    return res.status(200).json({ configured: false, total: 0, countries: {} });
+    return res.status(200).json({
+      configured: false,
+      reason: 'upstream-error',
+      detail: String(error.message || error).slice(0, 120),
+      total: 0,
+      countries: {},
+    });
   }
 }
