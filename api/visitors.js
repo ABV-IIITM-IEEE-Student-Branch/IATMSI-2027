@@ -99,10 +99,16 @@ export default async function handler(req, res) {
     const counts = pairsToCounts((await redis(['HGETALL', HASH_KEY], config)) || []);
     const total = Object.values(counts).reduce((sum, n) => sum + n, 0);
 
-    // Served from Vercel's edge for a minute, so Redis sees roughly one read
-    // per minute however busy the site is. A counter being 60s stale is fine,
-    // and it keeps the whole thing inside the free tier.
-    res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300');
+    // Never cached at the edge. A cached response is served without running
+    // this function, so every visitor it covered would go uncounted — the
+    // caching that was here to save Redis commands was quietly dropping the
+    // visitors it was meant to be counting.
+    //
+    // The cost is one read per page view. At roughly two commands per visit
+    // that is ~250,000 page views inside Upstash's monthly free allowance,
+    // far more than this site will see. If it ever became a problem the
+    // answer is to split counting from reading, not to cache the counter.
+    res.setHeader('Cache-Control', 'no-store');
     return res.status(200).json({ configured: true, total, countries: counts });
   } catch (error) {
     // A counter is decoration; it must never take the footer down with it.
