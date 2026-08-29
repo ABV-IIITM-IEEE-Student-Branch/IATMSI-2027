@@ -343,6 +343,17 @@ export const pageRegistry = [
         ]
     },
 
+    // --- VISITOR STATISTICS ---
+    {
+        id: 'visitors',
+        title: 'VISITOR STATISTICS',
+        path: '/visitors',
+        sections: [
+            { sectionId: 'hero', props: { title: "Visitors", subtitle: `Live counts of visits to this site, by country.` } },
+            { sectionId: 'visitorStatsSection', props: {} }
+        ]
+    },
+
     // --- HELP ---
     {
         id: 'contact',

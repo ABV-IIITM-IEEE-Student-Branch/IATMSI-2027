@@ -70,6 +70,17 @@ export const visitorCountData = {
   title: "Visitor's Count",
   totalLabel: "Total Visitors",
   emptyLabel: "Counting starts with your visit",
+  // How many countries the footer lists before sending people to the full
+  // page. Eight fills the two-column grid without lengthening the footer.
+  footerLimit: 8,
+  seeMoreLabel: "See all countries ({count} more)",
+  // Full page wording.
+  pageTitle: "Where Our Visitors Come From",
+  pageSubtitle: "Live counts of visits to this site, by country.",
+  countriesLabel: "Countries",
+  rankLabel: "#",
+  // Names are taken from the browser's own region list; entries here only
+  // override that where the official name reads awkwardly.
   countries: [
     { id: 'in', code: 'in', name: 'India' },
     { id: 'np', code: 'np', name: 'Nepal' },

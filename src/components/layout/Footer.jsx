@@ -1,45 +1,18 @@
-import { useState, useEffect } from 'react';
 import { conferenceInfo } from '../../data/conferenceData';
 import { contactPerson } from '../../data/committeeData';
 import { footerQuickLinks } from '../../data/navigationData';
 import { siteConfig, visitorCountData, footerLabels } from '../../data/siteConfig';
+import { useVisitorCounts } from '../../hooks/useVisitorCounts';
+import { ROUTES } from '../../constants/routes';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
-    // Live figures from /api/visitors. Null until the first response, so the
-    // section can stay hidden rather than flashing a zero on every page load.
-    const [visitors, setVisitors] = useState(null);
-
-    useEffect(() => {
-        let cancelled = false;
-        fetch('/api/visitors')
-            .then((response) => (response.ok ? response.json() : null))
-            .then((data) => {
-                if (!cancelled && data) setVisitors(data);
-            })
-            .catch(() => {
-                // A counter is decoration; losing it must not disturb the footer.
-            });
-        return () => {
-            cancelled = true;
-        };
-    }, []);
-
-    // Only countries someone has actually visited from, largest first. Names
-    // and flags come from data where known, with a sensible fallback so a
-    // country nobody listed still appears correctly.
-    const namesByCode = Object.fromEntries(
-        visitorCountData.countries.map((c) => [c.code, c.name]),
-    );
-    const seenCountries = Object.entries(visitors?.countries || {})
-        .sort((a, b) => b[1] - a[1])
-        .map(([code, count]) => ({
-            id: code,
-            code,
-            name: namesByCode[code] || code.toUpperCase(),
-            flagUrl: `https://flagcdn.com/w40/${code}.png`,
-            count: count.toLocaleString(),
-        }));
+    // Live figures, shared with the full statistics page.
+    const visitors = useVisitorCounts();
+    // The footer shows a summary; the rest live on their own page, or a busy
+    // site would grow an unbounded list of countries down here.
+    const seenCountries = visitors.countries.slice(0, visitorCountData.footerLimit);
+    const remaining = visitors.countries.length - seenCountries.length;
 
     return (
         <footer data-weavr-source="siteConfig conferenceData committeeData navigationData" className="bg-[#4A121A] text-[#FAF5EB] font-sans border-t-2 border-[#C59B27] relative z-20">
@@ -65,13 +38,13 @@ export default function Footer() {
                                 </span>
                             </div>
                             <span className="font-mono text-sm sm:text-base font-black !text-white bg-[#26070B] px-3 py-1 rounded-lg border border-[#C59B27]/40 tracking-wider shadow-xs">
-                                {(visitors?.total || 0).toLocaleString()}
+                                {visitors.totalLabel}
                             </span>
                         </div>
 
                         {/* Before the first visits land there is nothing to list,
                             so say so rather than leaving an empty gap. */}
-                        {visitors && seenCountries.length === 0 && (
+                        {visitors.loaded && seenCountries.length === 0 && (
                             <p className="text-[11px] !text-[#FAF5EB]/60 italic">
                                 {visitorCountData.emptyLabel}
                             </p>
@@ -96,11 +69,21 @@ export default function Footer() {
                                         </span>
                                     </div>
                                     <span className="font-mono font-bold text-[11px] !text-[#F0CB6F] ml-1 flex-shrink-0">
-                                        {country.count}
+                                        {country.countLabel}
                                     </span>
                                 </div>
                             ))}
                         </div>
+
+                        {remaining > 0 && (
+                            <Link
+                                to={ROUTES.VISITORS}
+                                className="!text-[#F0CB6F] hover:!text-[#FAF5EB] text-[11px] font-bold inline-flex items-center gap-1.5 transition-colors group"
+                            >
+                                {visitorCountData.seeMoreLabel.replace('{count}', remaining)}
+                                <span data-weavr-ignore className="group-hover:translate-x-0.5 transition-transform">→</span>
+                            </Link>
+                        )}
                     </div>
 
                     {/* Column 2: Quick Links (Equidistant Center Column) */}

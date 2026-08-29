@@ -4,6 +4,7 @@ export const ROUTES = {
     ABOUT: '/about',
     HISTORY: '/about/history',
     COMMITTEE: '/committee',
+    VISITORS: '/visitors',
     TRACK_CHAIRS: '/about/track-chairs',
     
     // For Authors
