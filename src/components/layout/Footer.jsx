@@ -6,24 +6,40 @@ import { siteConfig, visitorCountData, footerLabels } from '../../data/siteConfi
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
-    const [liveCount, setLiveCount] = useState(visitorCountData.baseCount);
+    // Live figures from /api/visitors. Null until the first response, so the
+    // section can stay hidden rather than flashing a zero on every page load.
+    const [visitors, setVisitors] = useState(null);
 
     useEffect(() => {
-        // Track and increment visitor count per session/visit
-        try {
-            const stored = localStorage.getItem('iatmsi_visitor_count');
-            if (stored) {
-                const updated = parseInt(stored, 10) + 1;
-                localStorage.setItem('iatmsi_visitor_count', updated.toString());
-                setLiveCount(updated);
-            } else {
-                localStorage.setItem('iatmsi_visitor_count', (visitorCountData.baseCount + 1).toString());
-                setLiveCount(visitorCountData.baseCount + 1);
-            }
-        } catch {
-            setLiveCount(visitorCountData.baseCount);
-        }
+        let cancelled = false;
+        fetch('/api/visitors')
+            .then((response) => (response.ok ? response.json() : null))
+            .then((data) => {
+                if (!cancelled && data) setVisitors(data);
+            })
+            .catch(() => {
+                // A counter is decoration; losing it must not disturb the footer.
+            });
+        return () => {
+            cancelled = true;
+        };
     }, []);
+
+    // Only countries someone has actually visited from, largest first. Names
+    // and flags come from data where known, with a sensible fallback so a
+    // country nobody listed still appears correctly.
+    const namesByCode = Object.fromEntries(
+        visitorCountData.countries.map((c) => [c.code, c.name]),
+    );
+    const seenCountries = Object.entries(visitors?.countries || {})
+        .sort((a, b) => b[1] - a[1])
+        .map(([code, count]) => ({
+            id: code,
+            code,
+            name: namesByCode[code] || code.toUpperCase(),
+            flagUrl: `https://flagcdn.com/w40/${code}.png`,
+            count: count.toLocaleString(),
+        }));
 
     return (
         <footer data-weavr-source="siteConfig conferenceData committeeData navigationData" className="bg-[#4A121A] text-[#FAF5EB] font-sans border-t-2 border-[#C59B27] relative z-20">
@@ -49,13 +65,21 @@ export default function Footer() {
                                 </span>
                             </div>
                             <span className="font-mono text-sm sm:text-base font-black !text-white bg-[#26070B] px-3 py-1 rounded-lg border border-[#C59B27]/40 tracking-wider shadow-xs">
-                                {liveCount.toLocaleString()}
+                                {(visitors?.total || 0).toLocaleString()}
                             </span>
                         </div>
 
+                        {/* Before the first visits land there is nothing to list,
+                            so say so rather than leaving an empty gap. */}
+                        {visitors && seenCountries.length === 0 && (
+                            <p className="text-[11px] !text-[#FAF5EB]/60 italic">
+                                {visitorCountData.emptyLabel}
+                            </p>
+                        )}
+
                         {/* Country Flag & Counts Grid */}
                         <div className="grid grid-cols-2 gap-2">
-                            {visitorCountData.countries.map((country) => (
+                            {seenCountries.map((country) => (
                                 <div
                                     key={country.id}
                                     className="flex items-center justify-between bg-[#380D13]/60 hover:bg-[#380D13] px-2.5 py-1.5 rounded-lg border border-[#C59B27]/25 text-xs transition-colors"

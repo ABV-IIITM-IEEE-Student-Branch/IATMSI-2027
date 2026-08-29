@@ -57,20 +57,28 @@ export const siteConfig = {
   acknowledgments: [],
 };
 
-// Visitor's Count data
+// Visitor's Count
+//
+// The figures are live: /api/visitors counts real visits per country. Only the
+// wording and each country's name and flag live here, so they stay editable
+// while the numbers stay true.
+//
+// `countries` is a lookup, not a list to display — a country appears on the
+// site once someone from there actually visits. Add an entry to give a country
+// a nicer name or flag than the fallback.
 export const visitorCountData = {
   title: "Visitor's Count",
   totalLabel: "Total Visitors",
-  baseCount: 48920,
+  emptyLabel: "Counting starts with your visit",
   countries: [
-    { id: 'in', code: 'in', name: 'India', flagUrl: 'https://flagcdn.com/w40/in.png', count: '28,450' },
-    { id: 'np', code: 'np', name: 'Nepal', flagUrl: 'https://flagcdn.com/w40/np.png', count: '8,320' },
-    { id: 'us', code: 'us', name: 'USA', flagUrl: 'https://flagcdn.com/w40/us.png', count: '4,150' },
-    { id: 'de', code: 'de', name: 'Germany', flagUrl: 'https://flagcdn.com/w40/de.png', count: '2,640' },
-    { id: 'gb', code: 'gb', name: 'UK', flagUrl: 'https://flagcdn.com/w40/gb.png', count: '1,980' },
-    { id: 'jp', code: 'jp', name: 'Japan', flagUrl: 'https://flagcdn.com/w40/jp.png', count: '1,420' },
-    { id: 'au', code: 'au', name: 'Australia', flagUrl: 'https://flagcdn.com/w40/au.png', count: '1,120' },
-    { id: 'ca', code: 'ca', name: 'Canada', flagUrl: 'https://flagcdn.com/w40/ca.png', count: '840' },
+    { id: 'in', code: 'in', name: 'India' },
+    { id: 'np', code: 'np', name: 'Nepal' },
+    { id: 'us', code: 'us', name: 'USA' },
+    { id: 'de', code: 'de', name: 'Germany' },
+    { id: 'gb', code: 'gb', name: 'UK' },
+    { id: 'jp', code: 'jp', name: 'Japan' },
+    { id: 'au', code: 'au', name: 'Australia' },
+    { id: 'ca', code: 'ca', name: 'Canada' },
   ],
 };
 
