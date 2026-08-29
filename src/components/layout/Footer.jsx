@@ -164,9 +164,17 @@ export default function Footer() {
                 {/* Copyright Bar */}
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs !text-white font-medium">
                     <p>© {siteConfig.copyrightYear} {conferenceInfo.shortTitle}. <span>{siteConfig.copyrightNotice}</span></p>
-                    <span className="!text-[#F0CB6F] font-bold tracking-wide">
-                        {siteConfig.designerText || 'Designed By - Shivansh Katiyar'}
-                    </span>
+                    <a
+                        href={siteConfig.designerUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        /* Underline forced: a global rule strips it from every
+                           anchor, which would leave this looking like the plain
+                           text it used to be. */
+                        className="!text-[#F0CB6F] hover:!text-[#FAF5EB] font-bold tracking-wide !underline underline-offset-4 decoration-[#F0CB6F]/40 hover:decoration-[#FAF5EB] transition-colors"
+                    >
+                        {siteConfig.designerText}
+                    </a>
                 </div>
             </div>
         </footer>

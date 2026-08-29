@@ -51,6 +51,7 @@ export const siteConfig = {
 
   // Designer Attribution
   designerText: 'Designed By - Shivansh Katiyar',
+  designerUrl: 'https://github.com/SK8-infi',
 
   // Footer acknowledgments (e.g., CMT disclaimer)
   acknowledgments: [],
