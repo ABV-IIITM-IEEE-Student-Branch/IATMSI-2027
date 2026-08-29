@@ -15,8 +15,15 @@
 
 const HASH_KEY = 'visitors:countries';
 const SEEN_COOKIE = 'iatmsi_counted';
-/** How long before the same browser counts again. */
-const COOKIE_MAX_AGE = 60 * 60 * 24;
+/**
+ * How long before the same browser counts again.
+ *
+ * An hour: refreshing or browsing around in one sitting counts once, while
+ * someone returning later in the day counts again. The window runs from the
+ * moment of counting rather than the last visit, so a continuous reader
+ * doesn't hold it open indefinitely and end up counting less than a casual one.
+ */
+const COOKIE_MAX_AGE = 60 * 60;
 
 /** Vercel injects one of these pairs depending on how the store was added. */
 function credentials() {
