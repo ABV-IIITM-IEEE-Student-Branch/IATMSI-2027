@@ -3,17 +3,17 @@
 export const conferencePatrons = [
     { name: 'Prof. G. S. Tomar', role: 'Chair, IEEE MP Section', affiliation: 'India' },
     { name: 'Prof. S. N. Singh', role: 'Director', affiliation: 'ABV-IIITM Gwalior, India' },
-    { name: 'Prof. Arun Timalsina', role: 'Chair, IEEE Nepal Section', affiliation: 'Nepal' },
+    { name: 'Prof. Arun Timalsina', role: 'Chair, IEEE Nepal Section', affiliation: 'Nepal', image: 'https://lh3.googleusercontent.com/d/1hHjFZBGL65H0aAD_ISh9wURruYgDKmqO' },
 ];
 
 export const generalChairs = [
     { name: 'Dr. Somesh Kumar', role: 'Joint Secretary, IEEE MP Section', affiliation: 'ABV-IIITM Gwalior, India' },
-    { name: 'Prof. Vijay Devabhaktuni', role: 'General Chair', affiliation: 'Illinois State University, USA' },
-    { name: 'Prof. Manisha Pattanaik', role: 'General Chair', affiliation: 'ABV-IIITM Gwalior, India' },
+    { name: 'Prof. Vijay Devabhaktuni', role: 'General Chair', affiliation: 'Illinois State University, USA', image: 'https://lh3.googleusercontent.com/d/1uSalZqOy3XNItOnaTtq2Y2MUklh1B7Bp' },
+    { name: 'Prof. Manisha Pattanaik', role: 'General Chair', affiliation: 'ABV-IIITM Gwalior, India', image: 'https://lh3.googleusercontent.com/d/1P8mBQyjqve5rz830ofGb8fn7mNMP5Kbf' },
 ];
 
 export const conferenceChairs = [
-    { name: 'Dr. Arun Kumar', role: 'Conference Chair', affiliation: 'ABV-IIITM Gwalior, India' },
+    { name: 'Dr. Arun Kumar', role: 'Conference Chair', affiliation: 'ABV-IIITM Gwalior, India', image: 'https://lh3.googleusercontent.com/d/1aOwDjaH_p0XsZMxgFzVLM6yCti2B33-N' },
 ];
 
 export const organizingCoreCommittee = [

@@ -47,7 +47,19 @@ const committeeGroups = committeeGroupManifest.map((group) => ({
 function MemberTextCard({ member }) {
     return (
         <div data-weavr-source="committeeData" className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] p-4 rounded-xl border-l-4 border-[#C59B27] border-y border-r border-[#C59B27]/30 shadow-xs hover:shadow-md hover:border-[#C59B27] transition-all flex flex-col justify-between group">
-            <div>
+            <div className={member.image ? 'flex items-start gap-3' : undefined}>
+                {/* Only members with a photo get one. Showing a placeholder for
+                    everyone else would read as missing content rather than a
+                    deliberate choice, since most entries have none. */}
+                {member.image && (
+                    <img
+                        src={member.image}
+                        alt={member.name}
+                        loading="lazy"
+                        className="w-14 h-14 rounded-full object-cover border-2 border-[#C59B27]/50 shadow-sm flex-shrink-0"
+                    />
+                )}
+                <div className="min-w-0">
                 <h4 className="text-sm md:text-base font-black text-[#4A121A] leading-snug group-hover:text-[#722332] transition-colors">
                     {member.name}
                 </h4>
@@ -56,6 +68,7 @@ function MemberTextCard({ member }) {
                         {member.role}
                     </span>
                 )}
+                </div>
             </div>
             <p className="text-xs text-neutral-700 font-semibold leading-relaxed mt-1">
                 {member.affiliation}

@@ -169,7 +169,7 @@ export const patronChairsData = {
             role: "Conference Patron",
             designation: "Chair, IEEE Nepal Section",
             affiliation: "India",
-            image: null
+            image: "https://lh3.googleusercontent.com/d/1hHjFZBGL65H0aAD_ISh9wURruYgDKmqO"
         }
     ],
     generalChairs: [
@@ -187,7 +187,7 @@ export const patronChairsData = {
             role: "General Chair",
             designation: null,
             affiliation: "Illinois State University, USA",
-            image: null
+            image: "https://lh3.googleusercontent.com/d/1uSalZqOy3XNItOnaTtq2Y2MUklh1B7Bp"
         },
         {
             id: 6,
@@ -195,7 +195,7 @@ export const patronChairsData = {
             role: "General Chair",
             designation: null,
             affiliation: "ABV-IIITM Gwalior, India",
-            image: null
+            image: "https://lh3.googleusercontent.com/d/1P8mBQyjqve5rz830ofGb8fn7mNMP5Kbf"
         }
     ],
     conferenceChairs: [
@@ -205,7 +205,7 @@ export const patronChairsData = {
             role: "Conference Chair",
             designation: null,
             affiliation: "ABV-IIITM Gwalior, India",
-            image: null
+            image: "https://lh3.googleusercontent.com/d/1aOwDjaH_p0XsZMxgFzVLM6yCti2B33-N"
         }
     ]
 };
