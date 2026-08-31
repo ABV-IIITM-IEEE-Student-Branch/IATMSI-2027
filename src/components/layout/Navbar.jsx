@@ -28,7 +28,7 @@ export default function Navbar() {
             <header data-weavr-source="siteConfig navigationData.navigationTree" className="relative z-50 w-full pt-4 px-4 sm:px-6 lg:px-8 bg-transparent pointer-events-none">
                 <div className="max-w-7xl mx-auto bg-white border border-[#C59B27]/40 shadow-xl rounded-2xl w-full pointer-events-auto transition-all duration-300">
                     {/* Unified Row: Equidistant Logos & Right CTA Actions */}
-                    <div className="relative flex items-center justify-between py-2 px-3 sm:px-4 lg:px-6 gap-x-3 lg:gap-x-6">
+                    <div className="relative flex items-center justify-between py-2 pl-3 pr-12 sm:px-4 lg:px-6 gap-x-3 lg:gap-x-6">
                         
                         {/* 4 Logos evenly spread throughout the bar */}
                         <div className="flex-1 min-w-0 flex flex-wrap items-center justify-center lg:flex-nowrap lg:justify-evenly gap-x-3 gap-y-1 sm:gap-4 lg:gap-8 px-1 sm:px-3 lg:px-6 py-0.5">
@@ -39,7 +39,7 @@ export default function Navbar() {
                                             <img
                                                 src={logo.url}
                                                 alt={logo.alt}
-                                                className="h-7 sm:h-9 md:h-10 lg:h-12 w-auto max-w-[78px] sm:max-w-[115px] md:max-w-[135px] lg:max-w-[155px] object-contain"
+                                                className="h-7 sm:h-9 md:h-10 lg:h-12 w-auto max-w-[84px] sm:max-w-[115px] md:max-w-[135px] lg:max-w-[155px] object-contain"
                                             />
                                         </Link>
                                     ) : (
@@ -47,7 +47,7 @@ export default function Navbar() {
                                             <img 
                                                 src={logo.url} 
                                                 alt={logo.alt} 
-                                                className="h-7 sm:h-9 md:h-10 lg:h-12 w-auto max-w-[78px] sm:max-w-[115px] md:max-w-[135px] lg:max-w-[155px] object-contain" 
+                                                className="h-7 sm:h-9 md:h-10 lg:h-12 w-auto max-w-[84px] sm:max-w-[115px] md:max-w-[135px] lg:max-w-[155px] object-contain" 
                                             />
                                         </div>
                                     )}
@@ -78,25 +78,33 @@ export default function Navbar() {
                                 </Link>
                             </div>
 
-                            {/* Mobile menu button */}
-                            <button
-                                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                                className="lg:hidden p-1.5 text-gray-700 hover:text-gray-900 focus:outline-none"
-                                aria-label="Toggle navigation menu"
-                            >
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    {isMenuOpen ? (
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                    ) : (
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                                    )}
-                                </svg>
-                            </button>
                         </div>
 
                     </div>
                 </div>
             </header>
+
+            {/*
+                Menu as its own button on small screens, so the bar above holds
+                nothing but logos and they get the full width. Fixed rather than
+                in the flow: it stays reachable once the header scrolls away,
+                which on a long page is most of the time.
+
+                Hidden while the drawer is open — the drawer carries its own
+                close button, and this would otherwise sit on top of it as a
+                second cross.
+            */}
+            {!isMenuOpen && (
+                <button
+                    onClick={() => setIsMenuOpen(true)}
+                    aria-label="Open navigation menu"
+                    className="lg:hidden fixed top-3 right-3 z-[80] w-11 h-11 rounded-full bg-white border border-[#C59B27]/50 shadow-lg flex items-center justify-center text-[#4A121A] active:scale-95 transition-transform"
+                >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            )}
 
             {/* Mobile Navigation Drawer */}
             {isMenuOpen && (
