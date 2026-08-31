@@ -18,12 +18,12 @@ const SEEN_COOKIE = 'iatmsi_counted';
 /**
  * How long before the same browser counts again.
  *
- * An hour: refreshing or browsing around in one sitting counts once, while
- * someone returning later in the day counts again. The window runs from the
- * moment of counting rather than the last visit, so a continuous reader
- * doesn't hold it open indefinitely and end up counting less than a casual one.
+ * Ten minutes: refreshing or clicking between pages in one sitting counts
+ * once, while coming back later the same day counts again. The window runs
+ * from the moment of counting rather than the last visit, so a continuous
+ * reader doesn't hold it open indefinitely and count less than a casual one.
  */
-const COOKIE_MAX_AGE = 60 * 60;
+const COOKIE_MAX_AGE = 60 * 10;
 
 /** Vercel injects one of these pairs depending on how the store was added. */
 function credentials() {
@@ -93,8 +93,8 @@ export default async function handler(req, res) {
   try {
     const country = (req.headers['x-vercel-ip-country'] || '').toLowerCase();
 
-    // Count a browser once a day at most, so refreshing doesn't inflate it.
-    // The cookie is HttpOnly: the page can't clear it to be counted again.
+    // Count a browser once per window, so refreshing doesn't inflate it. The
+    // cookie is HttpOnly: the page can't clear it to be counted again.
     if (country && /^[a-z]{2}$/.test(country) && !alreadyCounted(req)) {
       await redis(['HINCRBY', HASH_KEY, country, 1], config);
       res.setHeader(

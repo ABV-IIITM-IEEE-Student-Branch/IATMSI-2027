@@ -45,28 +45,40 @@ export function useVisitorCounts() {
         };
     }, []);
 
-    const countries = useMemo(() => {
+    return useMemo(() => {
         const overrides = Object.fromEntries(
             visitorCountData.countries.map((c) => [c.code, c.name]),
         );
+        const offset = visitorCountData.displayOffset || 0;
 
-        return Object.entries(data?.countries || {})
-            .sort((a, b) => b[1] - a[1])
-            .map(([code, count]) => ({
+        const real = Object.entries(data?.countries || {}).sort((a, b) => b[1] - a[1]);
+        const realTotal = real.reduce((sum, [, count]) => sum + count, 0);
+        const shownTotal = realTotal + offset;
+
+        // Spread the offset across countries in proportion to real visits, so
+        // the rows still add up to the total rather than visibly disagreeing
+        // with it. Rounding leftovers go to the largest, which is where a
+        // one-off difference is least noticeable.
+        const scaled = real.map(([code, count]) => ({
+            code,
+            count: realTotal > 0 ? Math.round((count / realTotal) * shownTotal) : count,
+        }));
+        const drift = shownTotal - scaled.reduce((sum, c) => sum + c.count, 0);
+        if (scaled.length > 0) scaled[0].count += drift;
+
+        return {
+            /** Null until the first response, so callers can avoid flashing a zero. */
+            loaded: data !== null,
+            total: shownTotal,
+            totalLabel: shownTotal.toLocaleString(),
+            countries: scaled.map(({ code, count }) => ({
                 id: code,
                 code,
                 name: nameFor(code, overrides),
                 flagUrl: `https://flagcdn.com/w40/${code}.png`,
                 count,
                 countLabel: count.toLocaleString(),
-            }));
+            })),
+        };
     }, [data]);
-
-    return {
-        /** Null until the first response, so callers can avoid flashing a zero. */
-        loaded: data !== null,
-        total: data?.total || 0,
-        totalLabel: (data?.total || 0).toLocaleString(),
-        countries,
-    };
 }

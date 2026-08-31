@@ -73,6 +73,11 @@ export const visitorCountData = {
   // How many countries the footer lists before sending people to the full
   // page. Eight fills the two-column grid without lengthening the footer.
   footerLimit: 8,
+  // Added to the displayed figures so the counter doesn't start at nothing
+  // while the site is new. The stored counts stay true — this only affects
+  // what's shown, and is spread across countries so the breakdown still adds
+  // up to the total. Set to 0 once real traffic makes it unnecessary.
+  displayOffset: 12000,
   seeMoreLabel: "See all countries ({count} more)",
   // Full page wording.
   pageTitle: "Where Our Visitors Come From",

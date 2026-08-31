@@ -55,13 +55,13 @@ export default function HeroSection({ title, subtitle, isHomePage = false }) {
                 <div className={`absolute inset-0 flex items-center justify-center px-4 pt-24 pb-8 md:pt-32`}>
                     <div className="text-center text-white px-4 max-w-7xl w-full">
                         {/* Welcome Line */}
-                        <p className="text-white text-xl md:text-2xl lg:text-3xl font-black tracking-widest uppercase mb-3 drop-shadow-xl">
+                        <p className="text-white text-base sm:text-xl md:text-2xl lg:text-3xl font-black tracking-wider sm:tracking-widest uppercase mb-2 sm:mb-3 drop-shadow-xl">
                             <span data-weavr-source="heroData.heroLabels">{heroLabels.welcomePrefix}</span>{' '}
                             <span data-weavr-source="conferenceData.conferenceInfo">{conferenceInfo.shortTitle}</span>
                         </p>
 
                         {/* Date & Venue Label */}
-                        <p className="text-white text-base sm:text-lg md:text-xl uppercase tracking-[0.2em] mb-6 font-bold drop-shadow-md">
+                        <p className="text-white text-xs sm:text-lg md:text-xl uppercase tracking-[0.12em] sm:tracking-[0.2em] mb-4 sm:mb-6 font-bold drop-shadow-md">
                             <span data-weavr-source="conferenceData.conferenceInfo">{conferenceInfo.dates}</span> • <span data-weavr-source="conferenceData.conferenceInfo">{conferenceInfo.venue.shortName}</span>
                         </p>
 
@@ -74,7 +74,7 @@ export default function HeroSection({ title, subtitle, isHomePage = false }) {
                                     two when both hold the same words. */}
                                 <span
                                     data-weavr-source={title ? 'pageRegistry' : 'conferenceData'}
-                                    className="block text-xl md:text-2xl lg:text-3xl font-black mb-2 leading-snug text-white drop-shadow-xl uppercase tracking-widest"
+                                    className="block text-sm sm:text-xl md:text-2xl lg:text-3xl font-black mb-2 leading-snug text-white drop-shadow-xl uppercase tracking-wide sm:tracking-widest"
                                 >
                                     {title || conferenceInfo.fullTitle}
                                 </span>

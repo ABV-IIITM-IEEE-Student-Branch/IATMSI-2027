@@ -31,15 +31,15 @@ export default function Navbar() {
                     <div className="relative flex items-center justify-between py-2 px-3 sm:px-4 lg:px-6 gap-x-3 lg:gap-x-6">
                         
                         {/* 4 Logos evenly spread throughout the bar */}
-                        <div className="flex-1 flex items-center justify-between sm:justify-evenly gap-2 sm:gap-4 lg:gap-8 px-1 sm:px-3 lg:px-6 py-0.5">
+                        <div className="flex-1 min-w-0 flex flex-wrap items-center justify-center lg:flex-nowrap lg:justify-evenly gap-x-3 gap-y-1 sm:gap-4 lg:gap-8 px-1 sm:px-3 lg:px-6 py-0.5">
                             {allLogos.map((logo, index) => (
-                                <div key={logo.id} className="flex items-center justify-center flex-1 relative min-w-0">
+                                <div key={logo.id} className="flex items-center justify-center lg:flex-1 relative min-w-0">
                                     {logo.isHomeLink ? (
                                         <Link to={ROUTES.HOME} className="flex items-center justify-center hover:opacity-80 transition-opacity">
                                             <img
                                                 src={logo.url}
                                                 alt={logo.alt}
-                                                className="h-8 sm:h-9 md:h-10 lg:h-12 w-auto max-w-[85px] sm:max-w-[115px] md:max-w-[135px] lg:max-w-[155px] object-contain"
+                                                className="h-7 sm:h-9 md:h-10 lg:h-12 w-auto max-w-[78px] sm:max-w-[115px] md:max-w-[135px] lg:max-w-[155px] object-contain"
                                             />
                                         </Link>
                                     ) : (
@@ -47,12 +47,12 @@ export default function Navbar() {
                                             <img 
                                                 src={logo.url} 
                                                 alt={logo.alt} 
-                                                className="h-8 sm:h-9 md:h-10 lg:h-12 w-auto max-w-[85px] sm:max-w-[115px] md:max-w-[135px] lg:max-w-[155px] object-contain" 
+                                                className="h-7 sm:h-9 md:h-10 lg:h-12 w-auto max-w-[78px] sm:max-w-[115px] md:max-w-[135px] lg:max-w-[155px] object-contain" 
                                             />
                                         </div>
                                     )}
                                     {index < allLogos.length - 1 && (
-                                        <div className="hidden sm:block absolute -right-1 sm:right-0 top-1/2 -translate-y-1/2 w-px h-5 sm:h-6 md:h-7 bg-[#C59B27]/30"></div>
+                                        <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-5 sm:h-6 md:h-7 bg-[#C59B27]/30"></div>
                                     )}
                                 </div>
                             ))}
