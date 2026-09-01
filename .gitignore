@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Secrets. `*.local` above catches .env.local but not the rest, and this repo
+# now holds payment gateway and database credentials in environment files.
+.env
+.env.*
+!.env.example

@@ -1,0 +1,10 @@
+# Vercel turns every file under `api/` into a serverless function. The handler
+# tests live there because that is what they test, so they are excluded here —
+# otherwise they would deploy as /api/create-order.test and /api/webhook.test.
+#
+# Files under `api/_lib/` are already excluded by their underscore prefix.
+api/**/*.test.js
+
+# Not part of the site.
+supabase/
+.claude/

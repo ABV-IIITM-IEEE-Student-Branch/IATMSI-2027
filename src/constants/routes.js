@@ -21,6 +21,8 @@ export const ROUTES = {
     PAPER_SUBMISSION: '/call-for-papers/paper-submission',
     SPONSORSHIP: '/sponsorship',
     REGISTRATION: '/registration',
+    // Where Cashfree returns the payer after checkout, with ?order_id=…
+    PAYMENT_STATUS: '/registration/payment',
     IMPORTANT_DATES: '/important-dates',
     CALL_FOR_REVIEWERS: '/call-for-reviewers',
     WORKSHOPS: '/workshops',
