@@ -87,6 +87,36 @@ Add every variable from [`.env.example`](../.env.example) under
 Set `SITE_URL` to the live address. The return and webhook URLs are built from
 it rather than from the request's `Host` header, which a caller controls.
 
+**Set `CRON_SECRET`** to a long random value (`openssl rand -hex 32`). Vercel
+Cron uses it to call `/api/reconcile-payments` every 15 minutes, which catches
+payments whose webhook never arrived. Without it that endpoint refuses every
+caller — including the cron — and the safety net is simply off.
+
+---
+
+## Checking for rate-shopping
+
+`region` decides the price and is self-declared, and the India/Nepal rate is
+roughly half the international one. Nothing blocks a mismatch — a genuine
+Indian delegate may well register while travelling — but the country the
+request actually came from is recorded, so the organisers can look:
+
+```sql
+select order_id, full_name, email, affiliation,
+       region, payer_country, amount, currency, paid_at
+from registrations
+where status = 'PAID'
+  and region = 'indian_nepali'
+  and payer_country is not null
+  and payer_country not in ('IN', 'NP')
+order by paid_at desc;
+```
+
+Treat the results as a prompt to ask, not as proof. The same applies to the
+IEEE member rate and the student rate: both are cheaper, both are claimed
+rather than verified, and both are meant to be checked against the documents
+registrants upload.
+
 ---
 
 ## How a registration flows
@@ -108,12 +138,18 @@ Browser                  /api/create-order            Cashfree             /api/
    └─ /api/payment-status ──────────────────────────────▶ asks Cashfree directly
 ```
 
-Two things confirm a payment, and the payer's browser is neither of them:
+Three things can confirm a payment, and the payer's browser is none of them:
 
 - the **webhook**, whose signature is verified over the raw bytes before the
-  body is parsed; and
-- **`/api/payment-status`**, which asks Cashfree server-to-server when a
-  webhook was delayed or lost.
+  body is parsed;
+- **`/api/payment-status`**, which asks Cashfree server-to-server when the
+  payer reloads the receipt link and the webhook has not arrived; and
+- **`/api/reconcile-payments`**, a cron sweep every 15 minutes, for the case
+  where every delivery failed *and* the payer never came back — otherwise
+  their money is taken and nobody ever looks at the row again.
+
+All three apply the same rule, from the same function: confirm only what
+Cashfree confirms, and only for the amount we set.
 
 The order id is 24 random hex characters, because the receipt page is reachable
 by whoever holds it. A sequential id would let anyone read other registrants'

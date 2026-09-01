@@ -11,7 +11,14 @@ import { createOrder, cashfreeCredentials, isProduction } from './_lib/cashfree.
 import { calculateFee } from './_lib/fees.js';
 import { insertRegistration, supabaseCredentials } from './_lib/db.js';
 import { generateOrderId, parseRegistration } from './_lib/registrationInput.js';
+import { checkRateLimit } from './_lib/rateLimit.js';
 import { siteOrigin } from './_lib/origin.js';
+
+/** Vercel puts the caller's country on every request; no IP lookup needed. */
+function countryOf(req) {
+  const code = String(req.headers['x-vercel-ip-country'] || '').toUpperCase();
+  return /^[A-Z]{2}$/.test(code) ? code : null;
+}
 
 export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
@@ -40,6 +47,15 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: parsed.error });
   }
 
+  // After validation, so a malformed request doesn't spend anyone's budget,
+  // and before anything is written or any order is opened.
+  const { allowed } = await checkRateLimit(req, 'create-order');
+  if (!allowed) {
+    return res.status(429).json({
+      error: 'Too many registration attempts from this connection. Please wait a few minutes and try again.',
+    });
+  }
+
   const registration = parsed.value;
 
   let fee;
@@ -63,6 +79,12 @@ export default async function handler(req, res) {
       currency: fee.currency,
       amount: fee.amount,
       status: 'PENDING',
+      // Recorded, not enforced. `region` is self-declared and sets the price,
+      // and the domestic rate is around half the international one — so the
+      // organisers get to see where the request actually came from. A delegate
+      // registering while abroad is perfectly normal, which is exactly why this
+      // is evidence for a human rather than a rule.
+      payer_country: countryOf(req),
     });
   } catch (error) {
     console.error('[create-order] could not record registration', error);

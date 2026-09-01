@@ -14,16 +14,14 @@
  * money has left is the worst outcome available here.
  */
 
-import { fetchOrder, fetchPayments, cashfreeCredentials } from './_lib/cashfree.js';
-import {
-  findRegistration,
-  recordPaymentAttempt,
-  supabaseCredentials,
-  updateRegistration,
-} from './_lib/db.js';
+import { cashfreeCredentials } from './_lib/cashfree.js';
+import { findRegistration, supabaseCredentials } from './_lib/db.js';
 import { toReceipt } from './_lib/receipt.js';
-import { sendReceiptOnce } from './_lib/receiptDelivery.js';
+import { reconcileRegistration } from './_lib/reconcile.js';
 import { siteOrigin } from './_lib/origin.js';
+
+// Every id this endpoint can legitimately be asked about is one we generated.
+const ORDER_ID = /^IATMSI27-[0-9a-f]{24}$/;
 
 export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
@@ -34,8 +32,12 @@ export default async function handler(req, res) {
   }
 
   const orderId = String(req.query.order_id || '').trim();
-  if (!orderId || orderId.length > 80) {
-    return res.status(400).json({ error: 'Missing order id.' });
+
+  // Checked against the shape we issue rather than just a length. Anything
+  // else cannot match a row, so it is turned away before it reaches the
+  // database instead of after.
+  if (!ORDER_ID.test(orderId)) {
+    return res.status(400).json({ error: 'Missing or malformed order id.' });
   }
 
   if (!supabaseCredentials()) {
@@ -51,7 +53,7 @@ export default async function handler(req, res) {
     }
 
     if (registration.status === 'PENDING' && cashfreeCredentials()) {
-      registration = await reconcile(registration, siteOrigin(req));
+      registration = await reconcileRegistration(registration, siteOrigin(req));
     }
 
     return res.status(200).json({ receipt: toReceipt(registration) });
@@ -59,60 +61,4 @@ export default async function handler(req, res) {
     console.error('[payment-status]', error);
     return res.status(500).json({ error: 'Could not check the payment status.' });
   }
-}
-
-/**
- * Brings a pending registration up to date with what Cashfree actually says.
- *
- * Only ever promotes a registration on Cashfree's own answer, fetched
- * server-to-server with our API keys — the same standard as the webhook, since
- * this can confirm a registration on its own when a webhook was missed.
- */
-async function reconcile(registration, origin) {
-  const order = await fetchOrder(registration.order_id);
-
-  if (order.orderStatus !== 'PAID') {
-    // ACTIVE means checkout was never completed; EXPIRED and TERMINATED are
-    // dead ends. None of them are a payment, so leave the row alone — the
-    // payer can start again with a new order.
-    return registration;
-  }
-
-  const payments = await fetchPayments(registration.order_id);
-  const success = payments.find((p) => p.payment_status === 'SUCCESS');
-  if (!success) return registration;
-
-  const paidAmount = Number(success.payment_amount);
-  if (
-    !Number.isFinite(paidAmount) ||
-    Math.abs(paidAmount - Number(registration.amount)) > 0.01 ||
-    success.payment_currency !== registration.currency
-  ) {
-    // Same rule as the webhook: never confirm a registration for an amount
-    // that isn't the one we set. Held for a human instead.
-    console.error(
-      `[payment-status] amount mismatch on ${registration.order_id}: paid ${success.payment_amount} ${success.payment_currency}, expected ${registration.amount} ${registration.currency}`,
-    );
-    return registration;
-  }
-
-  await recordPaymentAttempt({
-    order_id: registration.order_id,
-    cf_payment_id: success.cf_payment_id ? String(success.cf_payment_id) : null,
-    payment_status: success.payment_status,
-    payment_amount: success.payment_amount ?? null,
-    payment_currency: success.payment_currency || null,
-    payment_method: typeof success.payment_group === 'string' ? success.payment_group : null,
-    raw_event: { source: 'payment-status-reconcile', payment: success },
-  });
-
-  const updated = await updateRegistration(registration.order_id, {
-    status: 'PAID',
-    cf_payment_id: success.cf_payment_id ? String(success.cf_payment_id) : null,
-    paid_at: success.payment_time || new Date().toISOString(),
-  });
-
-  const confirmed = updated || { ...registration, status: 'PAID', cf_payment_id: success.cf_payment_id };
-  await sendReceiptOnce(confirmed, origin);
-  return confirmed;
 }

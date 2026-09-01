@@ -4,6 +4,27 @@ import { isMailerConfigured, sendMail } from './mailer.js';
 
 export const CONFERENCE_NAME = 'IEEE IATMSI-2027';
 
+/**
+ * A backstop above the SMTP timeouts in `mailer.js`.
+ *
+ * Those cover a mail server that is slow or unreachable. This covers the case
+ * they cannot: a send that hangs somewhere else entirely and would otherwise
+ * run out the whole function. Either way the claim below gets released, which
+ * is the part that matters — a claim left set with no email sent means the
+ * registrant never gets a receipt and no retry will ever produce one.
+ */
+const SEND_DEADLINE_MS = 12000;
+
+function withDeadline(promise, ms) {
+  let timer;
+  return Promise.race([
+    promise,
+    new Promise((_, reject) => {
+      timer = setTimeout(() => reject(new Error(`Receipt send exceeded ${ms}ms`)), ms);
+    }),
+  ]).finally(() => clearTimeout(timer));
+}
+
 export function receiptUrlFor(origin, orderId) {
   return `${origin}/registration/payment?order_id=${encodeURIComponent(orderId)}`;
 }
@@ -34,7 +55,7 @@ export async function sendReceiptOnce(registration, origin) {
       conferenceName: CONFERENCE_NAME,
       receiptUrl: receiptUrlFor(origin, registration.order_id),
     });
-    await sendMail({ to: receipt.email, ...mail });
+    await withDeadline(sendMail({ to: receipt.email, ...mail }), SEND_DEADLINE_MS);
     return true;
   } catch (error) {
     console.error(`[receipt] email failed for ${registration.order_id}`, error);

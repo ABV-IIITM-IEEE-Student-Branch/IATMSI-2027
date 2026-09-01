@@ -23,6 +23,11 @@ vi.mock('./_lib/db.js', async (importOriginal) => ({
   insertRegistration: (...args) => insertRegistration(...args),
 }));
 
+const checkRateLimit = vi.fn();
+vi.mock('./_lib/rateLimit.js', () => ({
+  checkRateLimit: (...args) => checkRateLimit(...args),
+}));
+
 const { default: handler } = await import('./create-order.js');
 const { getPeriod } = await import('./_lib/fees.js');
 
@@ -35,7 +40,7 @@ const VALID = {
   membership: 'non_ieee',
 };
 
-function call(body, method = 'POST') {
+function call(body, method = 'POST', headers = {}) {
   const res = {
     statusCode: 0,
     payload: undefined,
@@ -44,12 +49,16 @@ function call(body, method = 'POST') {
     status(code) { this.statusCode = code; return this; },
     json(payload) { this.payload = payload; return this; },
   };
-  return handler({ method, body, headers: { host: 'localhost:5173' } }, res).then(() => res);
+  return handler(
+    { method, body, headers: { host: 'localhost:5173', ...headers } },
+    res,
+  ).then(() => res);
 }
 
 beforeEach(() => {
   createOrder.mockReset().mockResolvedValue({ orderId: 'x', paymentSessionId: 'session_abc' });
   insertRegistration.mockReset().mockResolvedValue({});
+  checkRateLimit.mockReset().mockResolvedValue({ allowed: true, remaining: 7 });
 
   process.env.CASHFREE_CLIENT_ID = 'test_id';
   process.env.CASHFREE_CLIENT_SECRET = 'test_secret';
@@ -204,6 +213,56 @@ describe('refusing bad requests', () => {
 
     expect(res.statusCode).toBe(502);
     expect(JSON.stringify(res.payload)).not.toContain('cf_test_9f3a');
+  });
+});
+
+describe('rate limiting', () => {
+  it('turns away a caller over the limit without opening an order', async () => {
+    checkRateLimit.mockResolvedValue({ allowed: false, remaining: 0 });
+
+    const res = await call(VALID);
+
+    expect(res.statusCode).toBe(429);
+    expect(createOrder).not.toHaveBeenCalled();
+    expect(insertRegistration).not.toHaveBeenCalled();
+  });
+
+  it('does not spend the caller\'s allowance on a request it rejects anyway', async () => {
+    // Otherwise a typo in an email address would eat into the same budget as
+    // a real attempt, and a fumbling registrant could lock themselves out.
+    await call({ ...VALID, email: 'not-an-address' });
+    expect(checkRateLimit).not.toHaveBeenCalled();
+  });
+});
+
+describe('recording where the request came from', () => {
+  it('stores the country the platform reports', async () => {
+    // `region` sets the price and is self-declared, so the organisers get to
+    // see when someone paid the domestic rate from elsewhere.
+    await call(VALID, 'POST', { 'x-vercel-ip-country': 'us' });
+    expect(insertRegistration.mock.calls[0][0].payer_country).toBe('US');
+  });
+
+  it('stores nothing rather than a guess when the header is absent or junk', async () => {
+    await call(VALID);
+    expect(insertRegistration.mock.calls[0][0].payer_country).toBeNull();
+
+    insertRegistration.mockClear();
+    await call(VALID, 'POST', { 'x-vercel-ip-country': 'XXXXX' });
+    expect(insertRegistration.mock.calls[0][0].payer_country).toBeNull();
+  });
+
+  it('does not let the reported country change the price', async () => {
+    // It is evidence for a human, not an input to the fee table.
+    await call(VALID, 'POST', { 'x-vercel-ip-country': 'US' });
+    const fromUs = createOrder.mock.calls[0][0];
+
+    createOrder.mockClear();
+    await call(VALID, 'POST', { 'x-vercel-ip-country': 'IN' });
+    const fromIn = createOrder.mock.calls[0][0];
+
+    expect(fromUs.amount).toBe(fromIn.amount);
+    expect(fromUs.currency).toBe(fromIn.currency);
   });
 });
 

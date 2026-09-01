@@ -83,13 +83,38 @@ export async function updateRegistration(orderId, patch) {
  * that arrives five times leaves one row.
  */
 export async function recordPaymentAttempt(attempt) {
+  // Postgres treats NULLs as distinct, so a unique index on `cf_payment_id`
+  // does not constrain rows that have none and the upsert would insert a fresh
+  // one on every redelivery. Events without a payment id are not payments —
+  // they carry nothing worth deduplicating on — so they are appended plainly
+  // rather than pretending the conflict target applies.
+  const deduplicable = Boolean(attempt.cf_payment_id);
+
   const rows = await pg('payment_attempts', {
     method: 'POST',
-    query: '?on_conflict=cf_payment_id',
+    query: deduplicable ? '?on_conflict=cf_payment_id' : '',
     body: attempt,
-    prefer: 'resolution=merge-duplicates,return=representation',
+    prefer: deduplicable
+      ? 'resolution=merge-duplicates,return=representation'
+      : 'return=representation',
   });
   return rows?.[0] || null;
+}
+
+/**
+ * Registrations that were started but never confirmed.
+ *
+ * `startedBefore` skips checkouts that may still be in progress; without it the
+ * sweep would query Cashfree about orders the payer is looking at right now.
+ */
+export async function findPendingRegistrations({ startedBefore, limit = 50 }) {
+  return (
+    (await pg('registrations', {
+      query:
+        `?status=eq.PENDING&created_at=lt.${encodeURIComponent(startedBefore)}` +
+        `&select=*&order=created_at.asc&limit=${Number(limit)}`,
+    })) || []
+  );
 }
 
 /**

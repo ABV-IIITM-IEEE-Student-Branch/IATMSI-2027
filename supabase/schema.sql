@@ -20,6 +20,15 @@ create table if not exists public.registrations (
     affiliation       text,
     country           text,
 
+    -- Where the request actually came from, as Vercel reported it.
+    --
+    -- `region` below decides the price and is self-declared, and the India/Nepal
+    -- rate is roughly half the international one. Nothing here blocks a
+    -- mismatch — a genuine Indian delegate may well register while travelling —
+    -- but recording it lets the organisers see, for example, someone in the US
+    -- who paid the domestic rate. See docs/payments-setup.md for the query.
+    payer_country     text,
+
     -- The selections that decide the price. Constrained here as well as in
     -- the API so a bad value cannot be stored even by a future code path.
     category          text not null check (category in (
@@ -79,3 +88,7 @@ create index if not exists payment_attempts_order_idx on public.payment_attempts
 -- here would open that up, so don't, unless you mean to.
 alter table public.registrations   enable row level security;
 alter table public.payment_attempts enable row level security;
+
+-- Migrations for tables created by an earlier version of this file. Each is a
+-- no-op on a fresh database, so the whole script stays safe to re-run.
+alter table public.registrations add column if not exists payer_country text;

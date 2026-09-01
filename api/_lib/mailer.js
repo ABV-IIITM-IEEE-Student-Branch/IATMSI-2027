@@ -23,6 +23,24 @@ export function isMailerConfigured() {
   return Boolean(mailerCredentials());
 }
 
+/**
+ * Timeouts, set explicitly because the defaults are unusable here.
+ *
+ * Nodemailer waits 2 minutes to connect and 10 minutes on the socket. A
+ * serverless function is killed after 10-60 seconds, so with the defaults an
+ * unresponsive mail server gets the *function* torn down before nodemailer
+ * ever reports an error — which means the caller's `catch` never runs and
+ * whatever it was going to undo stays undone.
+ *
+ * These are well inside the function's budget, so a dead SMTP server fails
+ * fast and as an ordinary error.
+ */
+const SMTP_TIMEOUTS = {
+  connectionTimeout: 5000,
+  greetingTimeout: 5000,
+  socketTimeout: 8000,
+};
+
 export async function sendMail({ to, subject, text, html }) {
   const credentials = mailerCredentials();
   if (!credentials) throw new Error('Mail is not configured.');
@@ -34,6 +52,7 @@ export async function sendMail({ to, subject, text, html }) {
     // 465 is implicit TLS; 587 starts plaintext and upgrades via STARTTLS.
     secure: port === 465,
     auth: credentials,
+    ...SMTP_TIMEOUTS,
   });
 
   return transport.sendMail({

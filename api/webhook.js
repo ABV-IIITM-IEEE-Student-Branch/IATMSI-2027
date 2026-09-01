@@ -14,6 +14,7 @@ import {
   updateRegistration,
 } from './_lib/db.js';
 import { sendReceiptOnce } from './_lib/receiptDelivery.js';
+import { amountMatches, safeTimestamp } from './_lib/reconcile.js';
 import { siteOrigin } from './_lib/origin.js';
 
 // Vercel parses JSON bodies by default, which reorders keys and drops
@@ -97,33 +98,33 @@ export default async function handler(req, res) {
     // Defence in depth. The amount was set by us when the order was created,
     // so this should never differ — but confirming a registration for less
     // than it costs is exactly the failure worth an extra comparison.
-    const paidAmount = Number(payment.payment_amount);
-    const expected = Number(registration.amount);
-    if (
-      !Number.isFinite(paidAmount) ||
-      Math.abs(paidAmount - expected) > 0.01 ||
-      payment.payment_currency !== registration.currency
-    ) {
+    //
+    // Shared with the reconciliation paths, so all three ways a registration
+    // can be confirmed apply the same rule.
+    if (!amountMatches(payment, registration)) {
       console.error(
-        `[webhook] amount mismatch on ${orderId}: paid ${payment.payment_amount} ${payment.payment_currency}, expected ${expected} ${registration.currency}`,
+        `[webhook] amount mismatch on ${orderId}: paid ${payment.payment_amount} ${payment.payment_currency}, expected ${registration.amount} ${registration.currency}`,
       );
       // Left unconfirmed on purpose, for a human to look at. Retrying would
       // not change the numbers, so the delivery is acknowledged.
       return res.status(200).json({ received: true, note: 'Amount mismatch; held for review.' });
     }
 
+    let confirmed = registration;
     if (registration.status !== 'PAID') {
-      await updateRegistration(orderId, {
+      confirmed = (await updateRegistration(orderId, {
         status: 'PAID',
         cf_payment_id: payment.cf_payment_id ? String(payment.cf_payment_id) : null,
-        paid_at: payment.payment_time || new Date().toISOString(),
-      });
+        // Never written straight from the gateway: a value Postgres rejects
+        // would fail this update, return 500, and be redelivered into the
+        // same failure forever.
+        paid_at: safeTimestamp(payment.payment_time),
+      })) || registration;
     }
 
-    await sendReceiptOnce(
-      { ...registration, status: 'PAID', cf_payment_id: payment.cf_payment_id },
-      siteOrigin(req),
-    );
+    // The row as it now stands, so the receipt states what was actually
+    // recorded rather than the pre-update copy read at the top.
+    await sendReceiptOnce(confirmed, siteOrigin(req));
 
     return res.status(200).json({ received: true });
   } catch (error) {
