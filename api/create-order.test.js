@@ -18,9 +18,12 @@ vi.mock('./_lib/cashfree.js', async (importOriginal) => ({
   createOrder: (...args) => createOrder(...args),
 }));
 
+const updateRegistration = vi.fn();
+
 vi.mock('./_lib/db.js', async (importOriginal) => ({
   ...(await importOriginal()),
   insertRegistration: (...args) => insertRegistration(...args),
+  updateRegistration: (...args) => updateRegistration(...args),
 }));
 
 const checkRateLimit = vi.fn();
@@ -58,6 +61,7 @@ function call(body, method = 'POST', headers = {}) {
 beforeEach(() => {
   createOrder.mockReset().mockResolvedValue({ orderId: 'x', paymentSessionId: 'session_abc' });
   insertRegistration.mockReset().mockResolvedValue({});
+  updateRegistration.mockReset().mockResolvedValue({});
   checkRateLimit.mockReset().mockResolvedValue({ allowed: true, remaining: 7 });
 
   process.env.CASHFREE_CLIENT_ID = 'test_id';
@@ -213,6 +217,30 @@ describe('refusing bad requests', () => {
 
     expect(res.statusCode).toBe(502);
     expect(JSON.stringify(res.payload)).not.toContain('cf_test_9f3a');
+  });
+
+  it('marks the row failed when no order was opened for it', async () => {
+    // Left PENDING it would have no matching order at the gateway, and the
+    // reconciliation sweep would ask about a missing order on every run for a
+    // week, logging an error each time.
+    createOrder.mockRejectedValue(new Error('gateway down'));
+
+    const res = await call(VALID);
+
+    expect(updateRegistration).toHaveBeenCalledWith(res.payload?.orderId ?? expect.any(String), {
+      status: 'FAILED',
+    });
+    expect(updateRegistration.mock.calls[0][0]).toMatch(/^IATMSI27-[0-9a-f]{24}$/);
+  });
+
+  it('still answers the payer if marking the row fails too', async () => {
+    // Two failures in a row must still produce a response rather than a
+    // hanging request.
+    createOrder.mockRejectedValue(new Error('gateway down'));
+    updateRegistration.mockRejectedValue(new Error('database down'));
+
+    const res = await call(VALID);
+    expect(res.statusCode).toBe(502);
   });
 });
 

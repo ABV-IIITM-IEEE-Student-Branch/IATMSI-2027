@@ -88,9 +88,29 @@ Set `SITE_URL` to the live address. The return and webhook URLs are built from
 it rather than from the request's `Host` header, which a caller controls.
 
 **Set `CRON_SECRET`** to a long random value (`openssl rand -hex 32`). Vercel
-Cron uses it to call `/api/reconcile-payments` every 15 minutes, which catches
-payments whose webhook never arrived. Without it that endpoint refuses every
-caller — including the cron — and the safety net is simply off.
+Cron uses it to call `/api/reconcile-payments`, which catches payments whose
+webhook never arrived. Without it that endpoint refuses every caller —
+including the cron — and the safety net is simply off.
+
+### Cron frequency
+
+`vercel.json` schedules the sweep once a day (`0 2 * * *`), because **Vercel's
+Hobby plan only permits daily cron jobs** and a more frequent schedule is
+rejected at deploy time. Check the limit for your plan; on Pro, change it to
+
+```json
+"schedule": "*/15 * * * *"
+```
+
+which is what you want during the weeks registration is open. A day is a long
+time to leave a paid registration unconfirmed, and this is the last line of
+defence rather than the first — the webhook and the status page both run first.
+
+You can also run it by hand at any time:
+
+```bash
+curl -H "Authorization: Bearer $CRON_SECRET" https://YOUR-DOMAIN/api/reconcile-payments
+```
 
 ---
 

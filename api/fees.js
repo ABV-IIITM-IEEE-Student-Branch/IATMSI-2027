@@ -20,6 +20,7 @@ import {
   REGIONS,
   getPeriod,
 } from './_lib/fees.js';
+import { cashfreeCredentials, isProduction } from './_lib/cashfree.js';
 
 export default function handler(req, res) {
   if (req.method !== 'GET') {
@@ -41,5 +42,16 @@ export default function handler(req, res) {
     table: FEE_TABLE,
     currentPeriod: getPeriod(),
     earlyBirdCutoff: EARLY_BIRD_CUTOFF,
+
+    // Reported so the page can say so out loud.
+    //
+    // Left on sandbox in production, everything looks like it works: checkout
+    // completes, the webhook is signed with the sandbox secret and verifies,
+    // and registrations are confirmed — while no money moves at all. Nothing
+    // in the flow would reveal that, so it is stated on the page instead.
+    // Which mode the gateway is in is not a secret; the keys are, and they
+    // stay on the server.
+    mode: isProduction() ? 'production' : 'sandbox',
+    paymentsConfigured: Boolean(cashfreeCredentials()),
   });
 }

@@ -45,30 +45,47 @@ export function clientKey(req) {
 /**
  * @returns {Promise<{allowed: boolean, remaining: number}>}
  */
+/**
+ * The key for the window the given moment falls in.
+ *
+ * The window number is part of the key rather than being kept as a TTL on a
+ * shared one. That matters: if the EXPIRE below ever failed, a single shared
+ * key would keep its count forever and lock the caller out permanently, while
+ * a per-window key is simply abandoned when the window rolls over. The worst a
+ * failed EXPIRE can do here is leave a dead key behind.
+ */
+export function windowKey(bucket, client, now = Date.now()) {
+  return `ratelimit:${bucket}:${client}:${Math.floor(now / (WINDOW_SECONDS * 1000))}`;
+}
+
 export async function checkRateLimit(req, bucket) {
   const config = credentials();
   if (!config) return { allowed: true, remaining: MAX_IN_WINDOW };
 
-  const key = `ratelimit:${bucket}:${clientKey(req)}`;
+  const key = windowKey(bucket, clientKey(req));
 
   try {
-    const response = await fetch(config.url, {
+    // Upstash takes a single command at the base URL and a pipeline only at
+    // `/pipeline`. Posting a pipeline to the base URL is read as one command
+    // whose name is an array, which errors — and since this fails open, that
+    // error would silently mean no rate limiting at all rather than a visible
+    // fault.
+    const response = await fetch(`${config.url.replace(/\/+$/, '')}/pipeline`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${config.token}`,
         'Content-Type': 'application/json',
       },
-      // Pipelined so the window is established in the same round trip as the
-      // increment; two separate calls could increment a key that never
-      // expires if the second one failed.
+      // One round trip, so the window is established as the count is taken.
       body: JSON.stringify([
         ['INCR', key],
-        ['EXPIRE', key, String(WINDOW_SECONDS), 'NX'],
+        ['EXPIRE', key, String(WINDOW_SECONDS)],
       ]),
     });
 
     if (!response.ok) return { allowed: true, remaining: MAX_IN_WINDOW };
 
+    // A pipeline replies with one { result } or { error } per command.
     const results = await response.json();
     const count = Number(results?.[0]?.result);
     if (!Number.isFinite(count)) return { allowed: true, remaining: MAX_IN_WINDOW };

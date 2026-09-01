@@ -16,20 +16,38 @@ import { useFees, formatFee } from '../../hooks/useFees';
 
 const CASHFREE_SDK = 'https://sdk.cashfree.com/js/v3/cashfree.js';
 
-/** Loads Cashfree's SDK on demand, once. */
+/**
+ * Loads Cashfree's SDK on demand, once.
+ *
+ * A tag left behind by a load that already failed is discarded rather than
+ * waited on: its `load` event has been and gone, so attaching to it would hang
+ * the button on "Opening secure checkout…" with nothing ever resolving it.
+ */
+let cashfreePromise = null;
+
 function loadCashfree() {
     if (window.Cashfree) return Promise.resolve(window.Cashfree);
+    if (cashfreePromise) return cashfreePromise;
 
-    return new Promise((resolve, reject) => {
-        const existing = document.querySelector(`script[src="${CASHFREE_SDK}"]`);
-        const script = existing || document.createElement('script');
-        script.addEventListener('load', () => resolve(window.Cashfree));
-        script.addEventListener('error', () => reject(new Error('Could not load the payment gateway.')));
-        if (!existing) {
-            script.src = CASHFREE_SDK;
-            document.body.appendChild(script);
-        }
+    cashfreePromise = new Promise((resolve, reject) => {
+        document.querySelectorAll(`script[src="${CASHFREE_SDK}"]`).forEach((tag) => tag.remove());
+
+        const script = document.createElement('script');
+        script.src = CASHFREE_SDK;
+        script.addEventListener('load', () => {
+            if (window.Cashfree) resolve(window.Cashfree);
+            else reject(new Error('Payment gateway loaded but did not initialise.'));
+        });
+        script.addEventListener('error', () => {
+            // Cleared so a retry starts a fresh load rather than returning
+            // this same rejected promise forever.
+            cashfreePromise = null;
+            reject(new Error('Could not load the payment gateway.'));
+        });
+        document.body.appendChild(script);
     });
+
+    return cashfreePromise;
 }
 
 const EMPTY = {
@@ -64,7 +82,7 @@ const INPUT_CLASS =
 
 export default function RegistrationFormSection() {
     const d = registrationFormData;
-    const { fees, loaded } = useFees();
+    const { fees, loaded, failed } = useFees();
 
     const [form, setForm] = useState(EMPTY);
     const [error, setError] = useState('');
@@ -120,10 +138,17 @@ export default function RegistrationFormSection() {
 
             // Replaces this page. Cashfree returns the payer to
             // /registration/payment?order_id=… once they are done.
-            await cashfree.checkout({
+            const checkout = await cashfree.checkout({
                 paymentSessionId: result.paymentSessionId,
                 redirectTarget: '_self',
             });
+
+            // It reports some failures by resolving with an error rather than
+            // throwing. Without this the page would sit on "Opening secure
+            // checkout…" indefinitely, having never navigated anywhere.
+            if (checkout?.error) {
+                throw new Error(checkout.error.message || 'Checkout could not be opened.');
+            }
         } catch (submitError) {
             console.error('[registration]', submitError);
             setError(d.genericError);
@@ -134,6 +159,25 @@ export default function RegistrationFormSection() {
     return (
         <SectionContainer dataSource="paymentData" id="registration-form-section">
             <SectionHeader title={d.title} subtitle={d.subtitle} centered={true} />
+
+            {/*
+                Said out loud, because nothing else would show it. On sandbox
+                keys everything behaves exactly as if it worked — checkout
+                completes and the registration is confirmed — while no money
+                moves. Left unnoticed in production that is a page quietly
+                handing out free registrations.
+            */}
+            {loaded && fees.mode === 'sandbox' && (
+                <p className="mb-6 text-center text-xs md:text-sm font-black uppercase tracking-wider text-[#8A4B1C] bg-[#FDF3E7] border-2 border-[#8A4B1C]/40 rounded-xl px-4 py-3">
+                    {d.sandboxNotice}
+                </p>
+            )}
+
+            {loaded && !fees.paymentsConfigured && (
+                <p className="mb-6 text-center text-xs md:text-sm font-bold text-[#722332] bg-[#FAF5EB] border-2 border-[#C59B27]/50 rounded-xl px-4 py-3">
+                    {d.unavailableNotice}
+                </p>
+            )}
 
             {/* Fee table, straight from the server */}
             <div className="bg-white rounded-2xl p-5 md:p-8 border-2 border-[#C59B27]/40 shadow-sm mb-8 space-y-5">
@@ -207,8 +251,35 @@ export default function RegistrationFormSection() {
                             </tbody>
                         </table>
                     </div>
+                ) : failed ? (
+                    /*
+                        Fees come from the server, so if that request fails
+                        there is no price to show and the button below stays
+                        disabled. Saying so beats an animation that never
+                        finishes — the page would otherwise look like it was
+                        still loading, forever.
+                    */
+                    <p role="alert" className="text-xs font-bold text-[#8A1C1C] bg-[#FDF0F0] border border-[#8A1C1C]/30 rounded-xl px-4 py-3">
+                        {d.genericError}
+                    </p>
                 ) : (
                     <div className="h-24 rounded-xl bg-[#FAF5EB]/70 animate-pulse" />
+                )}
+
+                {/*
+                    While early-bird pricing is live, say when it ends. It is
+                    the one thing on this table a registrant might act on today
+                    rather than next month.
+                */}
+                {loaded && isEarly && (
+                    <p className="text-[11.5px] font-bold text-[#2F5A2A]">
+                        {d.earlyBirdUntilLabel}{' '}
+                        {new Date(fees.earlyBirdCutoff).toLocaleDateString(undefined, {
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric',
+                        })}
+                    </p>
                 )}
 
                 <p className="text-[11.5px] text-neutral-600 leading-relaxed">{d.feeTableNote}</p>

@@ -101,6 +101,11 @@ export const paymentStatusData = {
     notFoundTitle: "Registration Not Found",
     notFoundText: "We couldn't find a registration for this link. Please check the link in your email, or start again from the registration page.",
 
+    // Shown when we could not reach our own records — deliberately worded so
+    // that someone who has just paid is not told their registration is missing.
+    errorTitle: "Could Not Check Your Payment",
+    errorText: "We couldn't reach our records just now. If you have completed a payment it is safe — please reload this page in a few minutes, or contact the organisers with your Order ID.",
+
     receiptTitle: "Registration Receipt",
     receiptSubtitle: "IEEE IATMSI-2027",
 

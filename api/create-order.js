@@ -9,7 +9,7 @@
 
 import { createOrder, cashfreeCredentials, isProduction } from './_lib/cashfree.js';
 import { calculateFee } from './_lib/fees.js';
-import { insertRegistration, supabaseCredentials } from './_lib/db.js';
+import { insertRegistration, supabaseCredentials, updateRegistration } from './_lib/db.js';
 import { generateOrderId, parseRegistration } from './_lib/registrationInput.js';
 import { checkRateLimit } from './_lib/rateLimit.js';
 import { siteOrigin } from './_lib/origin.js';
@@ -113,10 +113,16 @@ export default async function handler(req, res) {
       mode: isProduction() ? 'production' : 'sandbox',
     });
   } catch (error) {
-    // The registration row stays behind as PENDING. That is intentional: it
-    // records that someone tried, which is what makes an abandoned attempt
-    // distinguishable from one that never happened.
     console.error('[create-order] Cashfree order failed', error);
+
+    // The row is kept — it records that someone tried — but marked FAILED
+    // rather than left PENDING. No order exists at the gateway for it, so the
+    // reconciliation sweep would otherwise ask about a missing order on every
+    // run for a week and log an error each time.
+    await updateRegistration(orderId, { status: 'FAILED' }).catch((markError) => {
+      console.error(`[create-order] could not mark ${orderId} failed`, markError);
+    });
+
     return res.status(502).json({ error: 'The payment gateway could not be reached. Please try again in a moment.' });
   }
 }

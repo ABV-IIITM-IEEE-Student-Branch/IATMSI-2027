@@ -56,7 +56,10 @@ function useReceipt(orderId) {
                 if (attempt < RETRY_DELAYS.length) {
                     timer = setTimeout(() => check(attempt + 1), RETRY_DELAYS[attempt]);
                 } else {
-                    setState({ status: 'not-found', receipt: null });
+                    // Not "not found". We failed to ask — which is a different
+                    // thing, and telling someone who has just paid that their
+                    // registration does not exist is the wrong way to say it.
+                    setState({ status: 'error', receipt: null });
                 }
             }
         }
@@ -93,8 +96,9 @@ export default function PaymentStatusSection() {
         pending: [d.pendingTitle, d.pendingText],
         failed: [d.failedTitle, d.failedText],
         'not-found': [d.notFoundTitle, d.notFoundText],
+        error: [d.errorTitle, d.errorText],
     };
-    const [heading, blurb] = headings[status] || headings['not-found'];
+    const [heading, blurb] = headings[status] || headings.error;
 
     return (
         <SectionContainer dataSource="paymentData" id="payment-status-section">
@@ -182,7 +186,7 @@ export default function PaymentStatusSection() {
                     </>
                 )}
 
-                {(status === 'failed' || status === 'pending' || status === 'not-found') && (
+                {(status === 'failed' || status === 'pending' || status === 'not-found' || status === 'error') && (
                     <div className="text-center print:hidden">
                         <Link
                             to={ROUTES.REGISTRATION}

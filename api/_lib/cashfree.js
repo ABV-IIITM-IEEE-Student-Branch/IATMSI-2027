@@ -35,14 +35,29 @@ function headers({ clientId, clientSecret }) {
 }
 
 /**
- * Cashfree rejects customer ids and phone numbers that don't match its
- * expectations, and the errors are opaque, so normalise before sending.
+ * Cashfree rejects phone numbers that don't match its expectations, and the
+ * errors are opaque, so normalise before sending.
+ *
+ * Only Indian numbers are reduced to the bare ten digits it wants. Everything
+ * else is passed through whole: taking the last ten digits of an international
+ * number silently discards its country code, and +44 20 7946 0958 would reach
+ * the gateway as 2079460958 — a different number, which is how a registrant
+ * stops receiving payment messages for reasons nobody can trace.
  */
-function normalisePhone(phone) {
-  const digits = String(phone || '').replace(/[^\d]/g, '');
-  // It wants a plain national number; strip an Indian country code if present.
-  if (digits.length === 12 && digits.startsWith('91')) return digits.slice(2);
-  return digits.slice(-10) || '9999999999';
+export function normalisePhone(phone) {
+  const raw = String(phone || '').trim();
+  const digits = raw.replace(/[^\d]/g, '');
+  if (!digits) return null;
+
+  const indian =
+    (digits.length === 10 && !raw.startsWith('+')) ||
+    (digits.length === 12 && digits.startsWith('91')) ||
+    (digits.length === 11 && digits.startsWith('0'));
+
+  if (indian) return digits.slice(-10);
+
+  // Kept in international form so the country code survives.
+  return `+${digits}`;
 }
 
 export async function createOrder({
@@ -61,6 +76,14 @@ export async function createOrder({
     throw new Error('Cashfree credentials are not configured.');
   }
 
+  // Unreachable from `create-order`, which requires 8-15 digits — but a
+  // placeholder number here would send someone else's phone the payment
+  // messages for this order, so it fails rather than substituting one.
+  const customerPhone = normalisePhone(phone);
+  if (!customerPhone) {
+    throw new Error('A usable phone number is required to open an order.');
+  }
+
   const response = await fetch(`${apiBase()}/orders`, {
     method: 'POST',
     headers: headers(credentials),
@@ -72,7 +95,7 @@ export async function createOrder({
         customer_id: customerId,
         customer_name: name,
         customer_email: email,
-        customer_phone: normalisePhone(phone),
+        customer_phone: customerPhone,
       },
       order_meta: {
         return_url: returnUrl,
