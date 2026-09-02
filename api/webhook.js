@@ -65,6 +65,18 @@ export default async function handler(req, res) {
     return res.status(200).json({ received: true, note: 'No order id in payload.' });
   }
 
+  // Only payment events are understood here. Refunds, settlements and disputes
+  // carry a different shape — no `data.payment` — and would otherwise be
+  // recorded as a payment attempt with no id and no status, and then counted
+  // as "not a success" and used to mark a pending registration failed.
+  //
+  // Nothing subscribes to those today. This exists because subscriptions are
+  // changed in a dashboard, by someone who will not be reading this file.
+  if (!payment.payment_status) {
+    console.warn(`[webhook] ignoring a non-payment event for ${orderId}: ${event?.type || 'unknown type'}`);
+    return res.status(200).json({ received: true, note: 'Not a payment event.' });
+  }
+
   try {
     const registration = await findRegistration(orderId);
     if (!registration) {

@@ -276,4 +276,31 @@ describe('payloads that are not a payment', () => {
     const res = await deliver('not json at all');
     expect(res.statusCode).toBe(400);
   });
+
+  it('ignores an event that is not about a payment', async () => {
+    // A refund, settlement or dispute carries no data.payment. Left to fall
+    // through it would be stored as a payment attempt with no id and no
+    // status, then read as "not a success" — and would mark a pending
+    // registration FAILED on the strength of an unrelated event.
+    const res = await deliver({
+      type: 'REFUND_STATUS_WEBHOOK',
+      data: { order: { order_id: REGISTRATION.order_id }, refund: { refund_status: 'SUCCESS' } },
+    });
+
+    expect(res.statusCode).toBe(200);
+    expect(recordPaymentAttempt).not.toHaveBeenCalled();
+    expect(updateRegistration).not.toHaveBeenCalled();
+    expect(sendMail).not.toHaveBeenCalled();
+  });
+
+  it('does not let an unrelated event fail a pending registration', async () => {
+    findRegistration.mockResolvedValue({ ...REGISTRATION, status: 'PENDING' });
+
+    await deliver({
+      type: 'SETTLEMENT_WEBHOOK',
+      data: { order: { order_id: REGISTRATION.order_id }, settlement: { amount: 7500 } },
+    });
+
+    expect(updateRegistration).not.toHaveBeenCalled();
+  });
 });
