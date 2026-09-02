@@ -28,6 +28,21 @@ const GIVE_UP_DAYS = 7;
 /** Kept small so one run stays well inside the function's time budget. */
 const BATCH = 25;
 
+/**
+ * When to stop and leave the rest for the next run.
+ *
+ * Each row can cost two gateway calls, a few database round trips and a
+ * receipt email — and the email alone is allowed twelve seconds. A backlog
+ * (the webhook endpoint was down for a day, say) would otherwise run past the
+ * function's 60s ceiling and be killed mid-batch.
+ *
+ * Stopping early is safe because every row is confirmed independently and the
+ * work already done is committed; the next run simply picks up where this one
+ * left off. Being killed is not obviously worse, but it is silent, and it
+ * makes the run's own report a lie.
+ */
+const TIME_BUDGET_MS = 45_000;
+
 function authorised(req) {
   const secret = process.env.CRON_SECRET;
   // Fail closed. Without a secret this endpoint would let anyone make the
@@ -64,8 +79,16 @@ export default async function handler(req, res) {
     let confirmed = 0;
     let stillUnconfirmed = 0;
     let failed = 0;
+    let checked = 0;
+    let ranOutOfTime = false;
 
     for (const registration of candidates) {
+      if (Date.now() - now > TIME_BUDGET_MS) {
+        ranOutOfTime = true;
+        break;
+      }
+      checked += 1;
+
       try {
         const result = await reconcileRegistration(registration, siteOrigin(req));
         if (result.status === 'PAID') confirmed += 1;
@@ -81,14 +104,18 @@ export default async function handler(req, res) {
     // human will see, and a run that starts confirming payments is exactly
     // the thing worth noticing in the logs.
     console.log(
-      `[reconcile-payments] checked ${candidates.length}: ${confirmed} confirmed, ${stillUnconfirmed} still unconfirmed, ${failed} errored`,
+      `[reconcile-payments] checked ${checked} of ${candidates.length}: ${confirmed} confirmed, ` +
+        `${stillUnconfirmed} still unconfirmed, ${failed} errored` +
+        (ranOutOfTime ? ' — stopped on time budget, remainder next run' : ''),
     );
 
     return res.status(200).json({
-      checked: candidates.length,
+      checked,
+      found: candidates.length,
       confirmed,
       stillUnconfirmed,
       failed,
+      ranOutOfTime,
     });
   } catch (error) {
     console.error('[reconcile-payments]', error);

@@ -139,6 +139,13 @@ export async function fetchOrder(orderId) {
   );
 
   const body = await response.json().catch(() => ({}));
+
+  // Cashfree has never heard of it. That is an answer, not a failure: an order
+  // whose creation did not complete leaves a row behind here with nothing at
+  // the gateway to match it. Throwing would make the reconciliation sweep
+  // treat a settled question as a transient error and re-ask it daily.
+  if (response.status === 404) return null;
+
   if (!response.ok) {
     throw new Error(
       `Could not read order ${orderId} (${response.status}): ${body?.message || 'unknown error'}`,

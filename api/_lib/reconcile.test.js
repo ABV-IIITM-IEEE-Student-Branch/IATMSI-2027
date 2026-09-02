@@ -115,6 +115,23 @@ describe('confirming a pending registration', () => {
     expect(sendReceiptOnce).toHaveBeenCalled();
   });
 
+  it('treats an order the gateway has never heard of as settled, not an error', async () => {
+    // Order creation can fail after the row is written, leaving nothing at the
+    // gateway to match it. Throwing would make the daily sweep re-ask a
+    // question that already has a final answer, and log an error each time —
+    // which is exactly what marking those rows FAILED was meant to avoid,
+    // before FAILED rows started being swept too.
+    fetchOrder.mockReset().mockResolvedValue(null);
+    fetchPayments.mockReset();
+    updateRegistration.mockReset();
+
+    const result = await reconcileRegistration(REGISTRATION, 'https://x.org');
+
+    expect(result.status).toBe('PENDING');
+    expect(fetchPayments).not.toHaveBeenCalled();
+    expect(updateRegistration).not.toHaveBeenCalled();
+  });
+
   it('leaves it alone while checkout is still open', async () => {
     setup({ orderStatus: 'ACTIVE' });
     const result = await reconcileRegistration(REGISTRATION, 'https://x.org');

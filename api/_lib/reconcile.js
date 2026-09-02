@@ -19,6 +19,11 @@ import { sendReceiptOnce } from './receiptDelivery.js';
 export async function reconcileRegistration(registration, origin) {
   const order = await fetchOrder(registration.order_id);
 
+  // No such order at the gateway. This happens when order creation itself
+  // failed after the row was written: there is nothing to reconcile and never
+  // will be, so it is left alone rather than reported as an error every run.
+  if (!order) return registration;
+
   if (order.orderStatus !== 'PAID') {
     // ACTIVE means checkout was never completed; EXPIRED and TERMINATED are
     // dead ends. None of them are a payment, so leave the row alone — the

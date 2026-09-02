@@ -1,5 +1,5 @@
-import { afterEach, describe, expect, it } from 'vitest';
-import { apiBase, cashfreeCredentials, isProduction, normalisePhone } from './cashfree.js';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { apiBase, cashfreeCredentials, fetchOrder, isProduction, normalisePhone } from './cashfree.js';
 
 /**
  * Gateway plumbing.
@@ -12,6 +12,52 @@ afterEach(() => {
   delete process.env.CASHFREE_MODE;
   delete process.env.CASHFREE_CLIENT_ID;
   delete process.env.CASHFREE_CLIENT_SECRET;
+  vi.restoreAllMocks();
+});
+
+function withCredentials() {
+  process.env.CASHFREE_CLIENT_ID = 'id';
+  process.env.CASHFREE_CLIENT_SECRET = 'secret';
+}
+
+function mockGateway(status, body) {
+  global.fetch = vi.fn(async () => ({ ok: status < 400, status, json: async () => body }));
+}
+
+describe('reading an order', () => {
+  it('returns null when the gateway has never heard of it', async () => {
+    // Not an error. Order creation can fail after the row is written, leaving
+    // nothing at the gateway to match it — a settled question. Throwing would
+    // make the daily sweep re-ask it forever and log an error each time.
+    withCredentials();
+    mockGateway(404, { message: 'order does not exist' });
+
+    await expect(fetchOrder('IATMSI27-missing')).resolves.toBeNull();
+  });
+
+  it('still throws on a real failure', async () => {
+    // A 500 or an auth failure IS transient or misconfigured, and must not be
+    // mistaken for "no such order" — that would silently abandon a real
+    // payment.
+    withCredentials();
+    mockGateway(500, { message: 'internal error' });
+    await expect(fetchOrder('IATMSI27-x')).rejects.toThrow();
+
+    mockGateway(401, { message: 'authentication failed' });
+    await expect(fetchOrder('IATMSI27-x')).rejects.toThrow();
+  });
+
+  it('returns the order when it exists', async () => {
+    withCredentials();
+    mockGateway(200, {
+      order_id: 'IATMSI27-x', order_status: 'PAID',
+      order_amount: 7500, order_currency: 'INR',
+    });
+
+    await expect(fetchOrder('IATMSI27-x')).resolves.toMatchObject({
+      orderStatus: 'PAID', orderAmount: 7500, orderCurrency: 'INR',
+    });
+  });
 });
 
 describe('choosing the environment', () => {

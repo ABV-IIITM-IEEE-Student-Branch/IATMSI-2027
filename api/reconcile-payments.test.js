@@ -164,6 +164,34 @@ describe('sweeping', () => {
     expect(findUnconfirmedRegistrations.mock.calls[0][0].limit).toBeLessThanOrEqual(50);
   });
 
+  it('stops on a time budget rather than being killed mid-batch', async () => {
+    // A backlog of rows each sending a receipt would run past the function's
+    // ceiling. Stopping is safe because confirmations are independent and
+    // already committed; being killed is not worse, but it is silent and it
+    // makes the run's own report untrue.
+    findUnconfirmedRegistrations.mockResolvedValue(
+      Array.from({ length: 20 }, () => pending()),
+    );
+
+    let elapsed = 0;
+    const realNow = Date.now;
+    vi.spyOn(Date, 'now').mockImplementation(() => realNow() + (elapsed += 5000));
+
+    const res = await call();
+    Date.now.mockRestore();
+
+    expect(res.statusCode).toBe(200);
+    expect(res.payload.ranOutOfTime).toBe(true);
+    expect(res.payload.checked).toBeLessThan(20);
+    expect(res.payload.found).toBe(20);
+  });
+
+  it('reports the whole batch as checked when there is time', async () => {
+    findUnconfirmedRegistrations.mockResolvedValue([pending(), pending()]);
+    const res = await call();
+    expect(res.payload).toMatchObject({ checked: 2, found: 2, ranOutOfTime: false });
+  });
+
   it('reports a failure to read the database rather than claiming success', async () => {
     findUnconfirmedRegistrations.mockRejectedValue(new Error('connection reset'));
     const res = await call();
