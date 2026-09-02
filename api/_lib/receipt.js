@@ -54,6 +54,12 @@ export function toReceipt(row) {
     paymentId: row.cf_payment_id,
     paidAt: row.paid_at,
     createdAt: row.created_at,
+
+    // Whether a receipt email actually went out, so the page can avoid
+    // promising one that did not. `receipt_sent_at` is claimed just before the
+    // send and released again if it fails, so a value here means an email was
+    // sent rather than merely attempted.
+    receiptEmailed: Boolean(row.receipt_sent_at),
   };
 }
 

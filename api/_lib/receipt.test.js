@@ -41,8 +41,16 @@ describe('what a receipt exposes', () => {
       'affiliation', 'amount', 'amountLabel', 'category', 'categoryLabel', 'country',
       'createdAt', 'currency', 'email', 'fullName', 'ieeeNumber', 'membershipLabel',
       'orderId', 'paidAt', 'paperId', 'paperTitle', 'paymentId', 'periodLabel',
-      'regionLabel', 'status',
+      'receiptEmailed', 'regionLabel', 'status',
     ]);
+  });
+
+  it('reports whether a receipt email actually went out', () => {
+    // The page promised "a copy has been emailed to you" unconditionally, and
+    // said it after a payment where mail was not configured and nothing was
+    // sent. The payer then waits for an email that will never arrive.
+    expect(toReceipt({ ...ROW, receipt_sent_at: null }).receiptEmailed).toBe(false);
+    expect(toReceipt({ ...ROW, receipt_sent_at: '2026-11-02T10:16:00Z' }).receiptEmailed).toBe(true);
   });
 
   it('does not carry the country recorded for the organisers', () => {

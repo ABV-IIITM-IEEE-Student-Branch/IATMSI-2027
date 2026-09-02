@@ -90,7 +90,12 @@ export const paymentStatusData = {
     checkingText: "This only takes a moment. Please don't close this page.",
 
     successTitle: "Registration Confirmed",
+    // Two versions, because the page must not promise an email that was never
+    // sent. Receipts are skipped entirely when mail is unconfigured, and can
+    // fail on their own; telling someone to watch their inbox in either case
+    // just sends them looking for something that will not arrive.
     successText: "Your payment has been received. A copy of this receipt has been emailed to you.",
+    successTextNoEmail: "Your payment has been received. Please download or print this receipt for your records — it has not been emailed.",
 
     pendingTitle: "Payment Not Completed",
     pendingText: "We haven't received a payment for this registration. If money has left your account, it will be reversed automatically — please contact the organisers with your Order ID.",

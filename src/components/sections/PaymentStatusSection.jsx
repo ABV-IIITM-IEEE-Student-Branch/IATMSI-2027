@@ -92,7 +92,11 @@ export default function PaymentStatusSection() {
 
     const headings = {
         checking: [d.checkingTitle, d.checkingText],
-        paid: [d.successTitle, d.successText],
+        paid: [
+            d.successTitle,
+            // Only claim an email was sent if one was.
+            receipt?.receiptEmailed ? d.successText : d.successTextNoEmail,
+        ],
         pending: [d.pendingTitle, d.pendingText],
         failed: [d.failedTitle, d.failedText],
         'not-found': [d.notFoundTitle, d.notFoundText],
