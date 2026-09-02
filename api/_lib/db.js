@@ -102,16 +102,32 @@ export async function recordPaymentAttempt(attempt) {
 }
 
 /**
- * Registrations that were started but never confirmed.
+ * Registrations that were started but are not confirmed paid.
+ *
+ * Two bounds, and both are load-bearing:
  *
  * `startedBefore` skips checkouts that may still be in progress; without it the
  * sweep would query Cashfree about orders the payer is looking at right now.
+ *
+ * `startedAfter` drops orders so old that nothing will change. That filtering
+ * has to happen *here* rather than in the caller's loop: rows are ordered
+ * oldest-first under a batch limit, and every abandoned checkout leaves one
+ * behind permanently. Filtering after fetching means that once enough dead
+ * rows accumulate, every run fetches the same dead ones and never reaches a
+ * real payment — a sweep that reports success while doing nothing.
+ *
+ * FAILED is included alongside PENDING because a failed attempt is not a final
+ * answer: Cashfree lets a payer retry within the same order, so a row marked
+ * failed on the first attempt may have been paid on the second. Only PAID is
+ * terminal.
  */
-export async function findPendingRegistrations({ startedBefore, limit = 50 }) {
+export async function findUnconfirmedRegistrations({ startedBefore, startedAfter, limit = 50 }) {
   return (
     (await pg('registrations', {
       query:
-        `?status=eq.PENDING&created_at=lt.${encodeURIComponent(startedBefore)}` +
+        `?status=in.(PENDING,FAILED)` +
+        `&created_at=lt.${encodeURIComponent(startedBefore)}` +
+        `&created_at=gt.${encodeURIComponent(startedAfter)}` +
         `&select=*&order=created_at.asc&limit=${Number(limit)}`,
     })) || []
   );

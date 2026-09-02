@@ -18,6 +18,7 @@ import { cashfreeCredentials } from './_lib/cashfree.js';
 import { findRegistration, supabaseCredentials } from './_lib/db.js';
 import { toReceipt } from './_lib/receipt.js';
 import { reconcileRegistration } from './_lib/reconcile.js';
+import { checkRateLimit } from './_lib/rateLimit.js';
 import { siteOrigin } from './_lib/origin.js';
 
 // Every id this endpoint can legitimately be asked about is one we generated.
@@ -52,8 +53,21 @@ export default async function handler(req, res) {
       return res.status(404).json({ error: 'No registration found for that order.' });
     }
 
-    if (registration.status === 'PENDING' && cashfreeCredentials()) {
-      registration = await reconcileRegistration(registration, siteOrigin(req));
+    // Anything not yet PAID is worth re-checking, FAILED included. Cashfree
+    // lets a payer retry within the same order, so a row marked failed on the
+    // first attempt may have been paid on the second — and if that webhook
+    // went missing, this is where they find out. Telling someone their payment
+    // failed when the money has left their account is the worst answer here.
+    //
+    // Each re-check costs two gateway calls, and the page polls while a payment
+    // settles, so it is capped per caller. Over the cap the stored state is
+    // still returned — the payer sees where they stand, we just stop asking
+    // Cashfree again. Degrading the refresh beats refusing the page.
+    if (registration.status !== 'PAID' && cashfreeCredentials()) {
+      const { allowed } = await checkRateLimit(req, 'payment-status-reconcile');
+      if (allowed) {
+        registration = await reconcileRegistration(registration, siteOrigin(req));
+      }
     }
 
     return res.status(200).json({ receipt: toReceipt(registration) });

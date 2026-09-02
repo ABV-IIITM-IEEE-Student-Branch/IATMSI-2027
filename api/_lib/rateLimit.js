@@ -17,6 +17,18 @@
 const WINDOW_SECONDS = 60 * 10;
 const MAX_IN_WINDOW = 8;
 
+/**
+ * Per-bucket limits, where the default is the wrong shape.
+ *
+ * `payment-status` is polled several times on a single page load while a
+ * payment settles, so a limit tuned for "how many registrations should one
+ * person start" would cut off a legitimate payer mid-wait.
+ */
+const BUCKET_LIMITS = {
+  'create-order': 8,
+  'payment-status-reconcile': 30,
+};
+
 function credentials() {
   const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
   const token = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
@@ -43,9 +55,6 @@ export function clientKey(req) {
 }
 
 /**
- * @returns {Promise<{allowed: boolean, remaining: number}>}
- */
-/**
  * The key for the window the given moment falls in.
  *
  * The window number is part of the key rather than being kept as a TTL on a
@@ -58,9 +67,13 @@ export function windowKey(bucket, client, now = Date.now()) {
   return `ratelimit:${bucket}:${client}:${Math.floor(now / (WINDOW_SECONDS * 1000))}`;
 }
 
+/**
+ * @returns {Promise<{allowed: boolean, remaining: number}>}
+ */
 export async function checkRateLimit(req, bucket) {
+  const max = BUCKET_LIMITS[bucket] ?? MAX_IN_WINDOW;
   const config = credentials();
-  if (!config) return { allowed: true, remaining: MAX_IN_WINDOW };
+  if (!config) return { allowed: true, remaining: max };
 
   const key = windowKey(bucket, clientKey(req));
 
@@ -83,18 +96,18 @@ export async function checkRateLimit(req, bucket) {
       ]),
     });
 
-    if (!response.ok) return { allowed: true, remaining: MAX_IN_WINDOW };
+    if (!response.ok) return { allowed: true, remaining: max };
 
     // A pipeline replies with one { result } or { error } per command.
     const results = await response.json();
     const count = Number(results?.[0]?.result);
-    if (!Number.isFinite(count)) return { allowed: true, remaining: MAX_IN_WINDOW };
+    if (!Number.isFinite(count)) return { allowed: true, remaining: max };
 
-    return { allowed: count <= MAX_IN_WINDOW, remaining: Math.max(0, MAX_IN_WINDOW - count) };
+    return { allowed: count <= max, remaining: Math.max(0, max - count) };
   } catch (error) {
     console.error('[rate-limit] failing open', error);
-    return { allowed: true, remaining: MAX_IN_WINDOW };
+    return { allowed: true, remaining: max };
   }
 }
 
-export const RATE_LIMIT = { WINDOW_SECONDS, MAX_IN_WINDOW };
+export const RATE_LIMIT = { WINDOW_SECONDS, MAX_IN_WINDOW, BUCKET_LIMITS };

@@ -8,11 +8,11 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
  * that one bad row cannot take out the batch.
  */
 
-const findPendingRegistrations = vi.fn();
+const findUnconfirmedRegistrations = vi.fn();
 const reconcileRegistration = vi.fn();
 
 vi.mock('./_lib/db.js', () => ({
-  findPendingRegistrations: (...a) => findPendingRegistrations(...a),
+  findUnconfirmedRegistrations: (...a) => findUnconfirmedRegistrations(...a),
   supabaseCredentials: () => ({ url: 'https://p.supabase.co', key: 'k' }),
 }));
 
@@ -57,7 +57,7 @@ function call({ authorization = `Bearer ${SECRET}` } = {}) {
 }
 
 beforeEach(() => {
-  findPendingRegistrations.mockReset().mockResolvedValue([]);
+  findUnconfirmedRegistrations.mockReset().mockResolvedValue([]);
   reconcileRegistration.mockReset().mockImplementation(async (r) => ({ ...r, status: 'PAID' }));
   process.env.CRON_SECRET = SECRET;
   process.env.SITE_URL = 'https://iatmsi.example.org';
@@ -81,7 +81,7 @@ describe('who may run it', () => {
   ])('refuses %s', async (_label, authorization) => {
     const res = await call({ authorization });
     expect(res.statusCode).toBe(401);
-    expect(findPendingRegistrations).not.toHaveBeenCalled();
+    expect(findUnconfirmedRegistrations).not.toHaveBeenCalled();
   });
 
   it('refuses everyone when no secret is configured', async () => {
@@ -96,7 +96,7 @@ describe('who may run it', () => {
 describe('sweeping', () => {
   it('only looks at orders old enough to have settled', async () => {
     await call();
-    const { startedBefore } = findPendingRegistrations.mock.calls[0][0];
+    const { startedBefore } = findUnconfirmedRegistrations.mock.calls[0][0];
     const age = Date.now() - new Date(startedBefore).getTime();
 
     // Roughly fifteen minutes back, so a checkout the payer is in the middle
@@ -106,7 +106,7 @@ describe('sweeping', () => {
   });
 
   it('counts what it confirmed', async () => {
-    findPendingRegistrations.mockResolvedValue([pending(), pending(), pending()]);
+    findUnconfirmedRegistrations.mockResolvedValue([pending(), pending(), pending()]);
     reconcileRegistration
       .mockResolvedValueOnce({ status: 'PAID' })
       .mockResolvedValueOnce({ status: 'PENDING' })
@@ -114,12 +114,12 @@ describe('sweeping', () => {
 
     const res = await call();
 
-    expect(res.payload).toMatchObject({ checked: 3, confirmed: 2, stillPending: 1 });
+    expect(res.payload).toMatchObject({ checked: 3, confirmed: 2, stillUnconfirmed: 1 });
   });
 
   it('keeps going when one order cannot be reached', async () => {
     // A single unreachable order must not strand the rest of the batch.
-    findPendingRegistrations.mockResolvedValue([pending(), pending(), pending()]);
+    findUnconfirmedRegistrations.mockResolvedValue([pending(), pending(), pending()]);
     reconcileRegistration
       .mockRejectedValueOnce(new Error('gateway timeout'))
       .mockResolvedValue({ status: 'PAID' });
@@ -130,23 +130,42 @@ describe('sweeping', () => {
     expect(res.payload).toMatchObject({ checked: 3, confirmed: 2, failed: 1 });
   });
 
-  it('stops chasing orders long past every retry window', async () => {
-    const old = pending({ created_at: new Date(Date.now() - 30 * 24 * 60 * 60_000).toISOString() });
-    findPendingRegistrations.mockResolvedValue([old, pending()]);
+  it('excludes orders past every retry window in the QUERY, not afterwards', async () => {
+    // The bug this exists to catch. Abandoned checkouts stay unconfirmed
+    // forever, and rows come back oldest-first under a batch limit. Filtering
+    // them out after fetching means that once enough accumulate, every run
+    // fetches the same dead rows and never reaches a real payment — while
+    // still logging a successful sweep.
+    await call();
+
+    const { startedAfter } = findUnconfirmedRegistrations.mock.calls[0][0];
+    expect(startedAfter).toBeDefined();
+
+    const age = Date.now() - new Date(startedAfter).getTime();
+    const sevenDays = 7 * 24 * 60 * 60_000;
+    expect(age).toBeGreaterThan(sevenDays - 60_000);
+    expect(age).toBeLessThan(sevenDays + 60_000);
+  });
+
+  it('does not do its own age filtering, which would reintroduce the starvation', async () => {
+    // Whatever the query returns is acted on. If this ever skips rows again,
+    // the batch limit becomes a trap.
+    const ancient = pending({ created_at: new Date(Date.now() - 30 * 24 * 60 * 60_000).toISOString() });
+    findUnconfirmedRegistrations.mockResolvedValue([ancient, pending()]);
 
     const res = await call();
 
-    expect(res.payload).toMatchObject({ abandoned: 1, confirmed: 1 });
-    expect(reconcileRegistration).toHaveBeenCalledTimes(1);
+    expect(reconcileRegistration).toHaveBeenCalledTimes(2);
+    expect(res.payload.checked).toBe(2);
   });
 
   it('asks for a bounded batch so one run cannot overrun its budget', async () => {
     await call();
-    expect(findPendingRegistrations.mock.calls[0][0].limit).toBeLessThanOrEqual(50);
+    expect(findUnconfirmedRegistrations.mock.calls[0][0].limit).toBeLessThanOrEqual(50);
   });
 
   it('reports a failure to read the database rather than claiming success', async () => {
-    findPendingRegistrations.mockRejectedValue(new Error('connection reset'));
+    findUnconfirmedRegistrations.mockRejectedValue(new Error('connection reset'));
     const res = await call();
     expect(res.statusCode).toBe(500);
   });

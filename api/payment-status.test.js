@@ -25,6 +25,11 @@ vi.mock('./_lib/reconcile.js', () => ({
   reconcileRegistration: (...a) => reconcileRegistration(...a),
 }));
 
+const checkRateLimit = vi.fn();
+vi.mock('./_lib/rateLimit.js', () => ({
+  checkRateLimit: (...a) => checkRateLimit(...a),
+}));
+
 const { default: handler } = await import('./payment-status.js');
 
 const ORDER_ID = 'IATMSI27-aabbccddeeff001122334455';
@@ -60,6 +65,7 @@ function call(orderId, method = 'GET') {
 beforeEach(() => {
   findRegistration.mockReset().mockResolvedValue({ ...ROW });
   reconcileRegistration.mockReset().mockImplementation(async (r) => r);
+  checkRateLimit.mockReset().mockResolvedValue({ allowed: true, remaining: 29 });
   process.env.SITE_URL = 'https://iatmsi.example.org';
 });
 
@@ -133,6 +139,41 @@ describe('catching up when a webhook was missed', () => {
   it('does not re-check an order already settled', async () => {
     await call(ORDER_ID);
     expect(reconcileRegistration).not.toHaveBeenCalled();
+  });
+
+  it('re-checks a FAILED registration too', async () => {
+    // A failed attempt is not a final answer. Cashfree lets a payer retry
+    // within the same order, so a row marked failed on attempt one may have
+    // been paid on attempt two — and if that webhook was lost, this is the
+    // only place they find out. Telling someone their payment failed while
+    // the money has left their account is the worst answer available.
+    findRegistration.mockResolvedValue({ ...ROW, status: 'FAILED' });
+    reconcileRegistration.mockResolvedValue({ ...ROW, status: 'PAID' });
+
+    const res = await call(ORDER_ID);
+
+    expect(reconcileRegistration).toHaveBeenCalled();
+    expect(res.payload.receipt.status).toBe('PAID');
+  });
+
+  it('stops asking the gateway when a caller polls too hard', async () => {
+    // Each re-check is two gateway calls and the page polls while a payment
+    // settles, so an order id becomes a lever for burning API quota.
+    findRegistration.mockResolvedValue({ ...ROW, status: 'PENDING' });
+    checkRateLimit.mockResolvedValue({ allowed: false, remaining: 0 });
+
+    const res = await call(ORDER_ID);
+
+    expect(reconcileRegistration).not.toHaveBeenCalled();
+    // Still answered, with what we know. Refusing the page outright would
+    // leave a payer who has just paid staring at an error.
+    expect(res.statusCode).toBe(200);
+    expect(res.payload.receipt.status).toBe('PENDING');
+  });
+
+  it('never spends the allowance on an order already paid', async () => {
+    await call(ORDER_ID);
+    expect(checkRateLimit).not.toHaveBeenCalled();
   });
 
   it('reports an error rather than a false "not paid"', async () => {

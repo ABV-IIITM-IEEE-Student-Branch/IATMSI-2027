@@ -15,7 +15,7 @@
  */
 
 import { cashfreeCredentials } from './_lib/cashfree.js';
-import { findPendingRegistrations, supabaseCredentials } from './_lib/db.js';
+import { findUnconfirmedRegistrations, supabaseCredentials } from './_lib/db.js';
 import { reconcileRegistration } from './_lib/reconcile.js';
 import { siteOrigin } from './_lib/origin.js';
 
@@ -49,28 +49,27 @@ export default async function handler(req, res) {
 
   const now = Date.now();
   const startedBefore = new Date(now - SETTLE_MINUTES * 60_000).toISOString();
-  const giveUpBefore = now - GIVE_UP_DAYS * 24 * 60 * 60_000;
+  const startedAfter = new Date(now - GIVE_UP_DAYS * 24 * 60 * 60_000).toISOString();
 
   try {
-    const pending = await findPendingRegistrations({ startedBefore, limit: BATCH });
+    // Both bounds go to the query. Skipping old rows here instead would let
+    // abandoned checkouts — which stay unconfirmed forever — fill the batch
+    // and crowd out the payments this exists to catch.
+    const candidates = await findUnconfirmedRegistrations({
+      startedBefore,
+      startedAfter,
+      limit: BATCH,
+    });
 
     let confirmed = 0;
-    let stillPending = 0;
-    let abandoned = 0;
+    let stillUnconfirmed = 0;
     let failed = 0;
 
-    for (const registration of pending) {
-      if (new Date(registration.created_at).getTime() < giveUpBefore) {
-        // Long past settling. Left alone rather than queried forever; these
-        // are almost all checkouts that were simply never completed.
-        abandoned += 1;
-        continue;
-      }
-
+    for (const registration of candidates) {
       try {
         const result = await reconcileRegistration(registration, siteOrigin(req));
         if (result.status === 'PAID') confirmed += 1;
-        else stillPending += 1;
+        else stillUnconfirmed += 1;
       } catch (error) {
         // One unreachable order must not stop the rest of the batch.
         console.error(`[reconcile-payments] ${registration.order_id} failed`, error);
@@ -82,14 +81,13 @@ export default async function handler(req, res) {
     // human will see, and a run that starts confirming payments is exactly
     // the thing worth noticing in the logs.
     console.log(
-      `[reconcile-payments] checked ${pending.length}: ${confirmed} confirmed, ${stillPending} still pending, ${abandoned} abandoned, ${failed} errored`,
+      `[reconcile-payments] checked ${candidates.length}: ${confirmed} confirmed, ${stillUnconfirmed} still unconfirmed, ${failed} errored`,
     );
 
     return res.status(200).json({
-      checked: pending.length,
+      checked: candidates.length,
       confirmed,
-      stillPending,
-      abandoned,
+      stillUnconfirmed,
       failed,
     });
   } catch (error) {
