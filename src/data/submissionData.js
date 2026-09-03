@@ -5,7 +5,9 @@ export const paperSubmissionData = {
     subtitle: "Complete submission instructions, IEEE manuscript templates, Microsoft CMT portal link, and publication policies.",
 
     cmtUrl: "https://cmt3.research.microsoft.com/IATMSI2027",
-    cfpPdfUrl: "https://iatmsi.iiitm.ac.in/wp-content/uploads/2026/07/CFP-IATMSI-2027_v1.pdf",
+    // Same file as the Call for Papers page links to. See tracksData.js for why
+    // it is on Drive rather than /wp-content.
+    cfpPdfUrl: "https://drive.google.com/uc?export=download&id=1OLmtqkqmlOjP97Px7jU5EDMb-Zvha2iM",
     ieeeTemplatesUrl: "https://www.ieee.org/conferences/publishing/templates.html",
     docLatexUrl: "https://app.doclatex.com/",
     submissionDeadline: "20th December 2026",

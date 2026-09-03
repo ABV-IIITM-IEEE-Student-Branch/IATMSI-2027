@@ -3,7 +3,12 @@
 export const cfpData = {
     title: "Call for Papers",
     subtitle: "Submit your original research across our 6 thematic technical tracks for IATMSI-2027.",
-    downloadCfpUrl: "https://iatmsi.iiitm.ac.in/wp-content/uploads/2026/07/CFP-IATMSI-2027_v1.pdf",
+    // Served from Drive rather than /wp-content on our own domain: once this
+    // site replaces WordPress at iatmsi.iiitm.ac.in, every /wp-content path is
+    // caught by the SPA rewrite and returns the app's HTML instead of the file.
+    // The `uc?export=download` form downloads the PDF straight away rather than
+    // opening Drive's viewer, which is what the button here promises.
+    downloadCfpUrl: "https://drive.google.com/uc?export=download&id=1OLmtqkqmlOjP97Px7jU5EDMb-Zvha2iM",
     theme: "Enabling the Change! Social Innovation for Sustainable Societies",
     introText: "IATMSI-2027 will serve as a dynamic platform, facilitating the convergence of researchers, academics, and industry practitioners. This event aims to foster the exchange of ideas and the sharing of recent research breakthroughs across a multitude of domains, including healthcare, agriculture, intelligent transportation, VLSI, and renewable electronics, along with their real-world applications. Under the theme “Enabling the Change! Social Innovation for Sustainable Societies,” this flagship conference is poised to deliver a comprehensive exploration of technology and management, emphasizing interdisciplinarity and quality. All accepted and presented papers will undergo submission for possible inclusion into IEEE Xplore subject to meeting IEEE Xplore’s scope and quality requirements. The conference’s scope is intentionally broad, encompassing an array of topics, which include but are not limited to:",
     xploreNote: "All accepted and presented papers will undergo submission for possible inclusion into IEEE Xplore subject to meeting IEEE Xplore’s scope and quality requirements."

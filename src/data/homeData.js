@@ -57,7 +57,11 @@ export const callForPapersData = {
     cmtDisclaimer: "The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.",
     submitRoute: "/call-for-papers/paper-submission",
     registrationRoute: "/registration",
-    detailsRoute: "/call-for-papers/tracks"
+    detailsRoute: "/call-for-papers/tracks",
+    // The same PDF the Call for Papers and Paper Submission pages offer. It is
+    // repeated here because the home page is where most people go looking for
+    // it first, and it was the one place that did not link it.
+    cfpPdfUrl: "https://drive.google.com/uc?export=download&id=1OLmtqkqmlOjP97Px7jU5EDMb-Zvha2iM"
 };
 
 export const themesData = {
@@ -254,6 +258,7 @@ export const aboutConfLabels = {
 // UI labels for this section — kept in data so every visible word is editable.
 export const callForPapersLabels = {
     forDetailsClickHere: "For Details Click Here",
+    downloadCfp: "Download CFP",
     submitNow: "Submit Now",
     registration: "Registration",
 };
