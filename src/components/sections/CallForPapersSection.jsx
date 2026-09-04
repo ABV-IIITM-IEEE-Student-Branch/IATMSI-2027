@@ -4,7 +4,7 @@ import { callForPapersData } from '../../data/homeData';
 import { callForPapersLabels } from '../../data/homeData';
 
 export default function CallForPapersSection() {
-    const { title, description, cmtDisclaimer, submitRoute, registrationRoute, detailsRoute, cfpPdfUrl } = callForPapersData;
+    const { title, description, cmtDisclaimer, submitRoute, registrationRoute, detailsRoute } = callForPapersData;
 
     return (
         <SectionContainer dataSource="homeData" id="call-for-papers">
@@ -32,23 +32,6 @@ export default function CallForPapersSection() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
                     </Link>
-
-                    {/*
-                        An external file, so a plain anchor rather than a Link.
-                        Outlined rather than filled so it reads as secondary to
-                        the two actions either side of it.
-                    */}
-                    <a
-                        href={cfpPdfUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-white hover:bg-[#FAF5EB] !text-[#722332] font-extrabold text-xs md:text-sm rounded-lg md:rounded-xl border-2 border-[#C59B27] shadow-md transition-all transform hover:-translate-y-0.5 uppercase tracking-wider text-center"
-                    >
-                        <span>{callForPapersLabels.downloadCfp}</span>
-                        <svg className="w-4 h-4 !text-[#722332]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16" />
-                        </svg>
-                    </a>
 
                     <Link
                         to={submitRoute}
