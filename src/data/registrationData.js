@@ -6,7 +6,9 @@ export const registrationPageData = {
 
     overview: "IATMSI-2027 registration can be done online, and payment in Indian Rupees (₹) or Nepali Rupees (NPR) & US Dollars ($) is only accepted.",
 
-    feeTableStatus: "Will update Soon",
+    // Was "Will update Soon". The live fee table now sits above this section,
+    // so leaving that there contradicted it on the same page.
+    feeTableStatus: "See the fee table above",
 
     guidelines: [
         "Please note that the fees shown above are inclusive of all taxes and levies. Any gateway charges along with applicable taxes or levies, if any, will have to be borne by the registrant.",

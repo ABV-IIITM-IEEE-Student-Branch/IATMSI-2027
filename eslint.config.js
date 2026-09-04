@@ -26,4 +26,19 @@ export default defineConfig([
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
+  {
+    // The serverless functions run on Node, not in the browser: `process`,
+    // `Buffer` and the rest are globals there. Without this they lint as
+    // undefined and the real problems are lost in the noise.
+    files: ['api/**/*.js'],
+    languageOptions: {
+      globals: globals.node,
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+    },
+    rules: {
+      // These are endpoints, not components; the React rules don't apply.
+      'react-refresh/only-export-components': 'off',
+    },
+  },
 ])

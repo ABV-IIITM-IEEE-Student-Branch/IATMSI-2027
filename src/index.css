@@ -292,3 +292,43 @@ tbody tr:hover {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #722332;
 }
+
+/*
+  Printing the registration receipt.
+
+  "Download Receipt" is the browser's own print-to-PDF, so what prints has to
+  be the receipt and nothing else — not the navigation, the updates ticker or
+  the footer. Everything is hidden and only the receipt is put back, which is
+  more reliable than trying to name every piece of site chrome.
+
+  Visibility rather than display: hiding an ancestor with `display: none` would
+  take the receipt down with it.
+*/
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #payment-status-section,
+  #payment-status-section * {
+    visibility: visible;
+  }
+
+  #payment-status-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+  }
+
+  /* The section's frame, lattice texture and ornaments are decoration for the
+     screen; on paper they only eat ink and margin. */
+  #payment-status-section [class*="rounded-"] {
+    box-shadow: none !important;
+  }
+
+  #payment-status-section .absolute.inset-0 {
+    display: none !important;
+  }
+}

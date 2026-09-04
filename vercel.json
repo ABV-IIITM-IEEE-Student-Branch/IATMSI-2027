@@ -4,5 +4,16 @@
             "source": "/((?!api/).*)",
             "destination": "/index.html"
         }
+    ],
+    "functions": {
+        "api/webhook.js": { "maxDuration": 30 },
+        "api/payment-status.js": { "maxDuration": 30 },
+        "api/reconcile-payments.js": { "maxDuration": 60 }
+    },
+    "crons": [
+        {
+            "path": "/api/reconcile-payments",
+            "schedule": "0 2 * * *"
+        }
     ]
 }
