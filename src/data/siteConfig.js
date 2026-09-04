@@ -30,6 +30,20 @@ export const siteConfig = {
   },
 
   // External service links
+  /**
+   * Pages that work but are not being advertised yet.
+   *
+   * Registration is finished and tested, but the payment gateway is still in
+   * test mode — so it must not be findable by browsing, while remaining
+   * reachable by URL for whoever is testing it. Unlisted, not blocked.
+   *
+   * TO OPEN REGISTRATION: empty this array. That is the whole change — every
+   * link to it (top navigation, mobile menu, footer, the header Registration
+   * button, the one on the home page) is driven from here. Do it at the same
+   * time as setting CASHFREE_MODE=production, not before.
+   */
+  unlistedPaths: ['/registration'],
+
   externalLinks: {
     submissionPortal: {
       name: 'Microsoft CMT',

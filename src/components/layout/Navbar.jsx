@@ -10,6 +10,11 @@ export default function Navbar() {
     const navigate = useNavigate();
     const location = useLocation();
 
+    // Registration is unlisted while the payment gateway is in test mode. The
+    // route still works; it just is not offered anywhere. Driven from
+    // siteConfig.unlistedPaths so opening it is one edit.
+    const registrationListed = !(siteConfig.unlistedPaths || []).includes(ROUTES.REGISTRATION);
+
     const isDropdownActive = (item) => {
         return item.items?.some(subItem => location.pathname === subItem.path);
     };
@@ -70,12 +75,14 @@ export default function Navbar() {
                                 >
                                     {navLabels.submitPaper}
                                 </a>
-                                <Link
-                                    to={ROUTES.REGISTRATION}
-                                    className="inline-flex items-center justify-center px-4.5 py-2 border border-[#C59B27] rounded-lg shadow-md text-[13.5px] font-extrabold tracking-wide !text-[#2F0B11] bg-[#C59B27] hover:bg-[#D4A936] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#C59B27] transition-all transform hover:scale-105"
-                                >
-                                    {navLabels.registration}
-                                </Link>
+                                {registrationListed && (
+                                    <Link
+                                        to={ROUTES.REGISTRATION}
+                                        className="inline-flex items-center justify-center px-4.5 py-2 border border-[#C59B27] rounded-lg shadow-md text-[13.5px] font-extrabold tracking-wide !text-[#2F0B11] bg-[#C59B27] hover:bg-[#D4A936] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#C59B27] transition-all transform hover:scale-105"
+                                    >
+                                        {navLabels.registration}
+                                    </Link>
+                                )}
                             </div>
 
                         </div>
@@ -179,13 +186,15 @@ export default function Navbar() {
                             >
                                 {navLabels.submitPaper}
                             </a>
-                            <Link
-                                to={ROUTES.REGISTRATION}
-                                onClick={() => setIsMenuOpen(false)}
-                                className="flex items-center justify-center w-full px-4 py-2.5 rounded-lg text-sm font-bold text-[#350C13] bg-[#C59B27] hover:bg-[#D4A936] transition-all"
-                            >
-                                {navLabels.registration}
-                            </Link>
+                            {registrationListed && (
+                                <Link
+                                    to={ROUTES.REGISTRATION}
+                                    onClick={() => setIsMenuOpen(false)}
+                                    className="flex items-center justify-center w-full px-4 py-2.5 rounded-lg text-sm font-bold text-[#350C13] bg-[#C59B27] hover:bg-[#D4A936] transition-all"
+                                >
+                                    {navLabels.registration}
+                                </Link>
+                            )}
                         </div>
                     </div>
                 </>

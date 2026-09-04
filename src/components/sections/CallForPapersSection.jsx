@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { callForPapersData } from '../../data/homeData';
 import { callForPapersLabels } from '../../data/homeData';
+import { siteConfig } from '../../data/siteConfig';
 
 export default function CallForPapersSection() {
     const { title, description, cmtDisclaimer, submitRoute, registrationRoute, detailsRoute } = callForPapersData;
@@ -40,12 +41,15 @@ export default function CallForPapersSection() {
                         {callForPapersLabels.submitNow}
                     </Link>
 
-                    <Link
-                        to={registrationRoute}
-                        className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-2.5 bg-[#F0CB6F] hover:bg-[#E5C158] !text-[#4A121A] font-extrabold text-xs md:text-sm rounded-lg md:rounded-xl border border-[#C59B27] shadow-md transition-all transform hover:-translate-y-0.5 uppercase tracking-wider text-center"
-                    >
-                        {callForPapersLabels.registration}
-                    </Link>
+                    {/* Unlisted while the gateway is in test mode — see siteConfig.unlistedPaths. */}
+                    {!(siteConfig.unlistedPaths || []).includes(registrationRoute) && (
+                        <Link
+                            to={registrationRoute}
+                            className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-2.5 bg-[#F0CB6F] hover:bg-[#E5C158] !text-[#4A121A] font-extrabold text-xs md:text-sm rounded-lg md:rounded-xl border border-[#C59B27] shadow-md transition-all transform hover:-translate-y-0.5 uppercase tracking-wider text-center"
+                        >
+                            {callForPapersLabels.registration}
+                        </Link>
+                    )}
                 </div>
             </div>
         </SectionContainer>

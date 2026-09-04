@@ -1,13 +1,34 @@
 // Navigation data - IATMSI-2027
 
-export const footerQuickLinks = [
+import { siteConfig } from './siteConfig';
+
+/**
+ * Pages that exist and work but are not being advertised yet.
+ *
+ * Unlisted, not blocked: the route still resolves, so anyone with the link can
+ * reach it to test. It simply cannot be found by browsing the site.
+ *
+ * Driven by one flag in siteConfig so that opening registration is a single
+ * edit rather than a hunt through the navigation, the footer and the header
+ * buttons. See `unlistedPaths` there.
+ */
+function listed(items) {
+    const hidden = siteConfig.unlistedPaths || [];
+    return items
+        .filter((item) => !hidden.includes(item.path))
+        .map((item) =>
+            item.items ? { ...item, items: item.items.filter((sub) => !hidden.includes(sub.path)) } : item,
+        );
+}
+
+export const footerQuickLinks = listed([
   { id: 'home', label: 'Home', path: '/' },
   { id: 'important-dates', label: 'Important Dates', path: '/important-dates' },
   { id: 'paper-submission', label: 'Submit a Paper', path: '/call-for-papers/paper-submission' },
   { id: 'registration', label: 'Registration', path: '/registration' },
-];
+]);
 
-export const navigationTree = [
+export const navigationTree = listed([
   { id: 'home', label: 'Home', type: 'link', path: '/' },
   {
     id: 'about',
@@ -65,4 +86,4 @@ export const navigationTree = [
       { id: 'faqs', label: 'FAQs', path: '/help/faqs' },
     ]
   }
-];
+]);
