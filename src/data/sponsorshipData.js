@@ -6,16 +6,19 @@ export const sponsorshipData = {
 
     introText: "IEEE IATMSI 2027 offers exceptional sponsorship and partnership opportunities for corporate organizations, academic institutions, and industry leaders to gain global visibility, network with key decision makers, and support social innovation and technology research.",
 
+    // Both on Drive rather than /wp-content, and both using the
+    // `uc?export=download` form so they download rather than open in a viewer.
+    // Same reasoning as the templates in oral/posterGuidelinesData.js.
     documents: [
         {
             title: "IATMSI-2027 Sponsorship Flyer",
             description: "Quick overview of sponsorship opportunities, branding packages, and exhibitor benefits.",
-            url: "https://ieeeiatmsi.iiitm.ac.in/wp-content/uploads/2025/11/IATMSI-2026-Sponsorship-Flyer_compressed-1.pdf"
+            url: "https://drive.google.com/uc?export=download&id=1VVYqANVdWpkCtTzT1mSlSGuUknGe_P6K"
         },
         {
             title: "IATMSI-2027 Sponsorship Brochure",
             description: "Comprehensive breakdown of sponsorship tiers, booth inclusions, and advertisement packages.",
-            url: "https://ieeeiatmsi.iiitm.ac.in/wp-content/uploads/2025/11/Spons-Brochure_IATMSI-2026.pdf"
+            url: "https://drive.google.com/uc?export=download&id=1VxfHpaF0MbHBCVHeipmBcIoS6XLB3qdf"
         }
     ],
 

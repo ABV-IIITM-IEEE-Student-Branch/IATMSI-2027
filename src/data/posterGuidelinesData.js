@@ -4,7 +4,10 @@ export const posterGuidelinesData = {
     title: "Poster Presenter’s Guidelines",
     subtitle: "Complete poster dimensions, template download link, presentation defense requirements, and formatting guidelines for IATMSI-2027.",
 
-    downloadTemplateUrl: "https://iatmsi.iiitm.ac.in/wp-content/uploads/2026/06/IATMSI-2027-Poster-Template.pptx",
+    // Drive rather than /wp-content, and the `uc?export=download` form so it
+    // downloads the original .pptx instead of opening in Slides. Same reasoning
+    // as the presentation template in oralGuidelinesData.js.
+    downloadTemplateUrl: "https://drive.google.com/uc?export=download&id=1oU8wRVrkDtvtKkxSqrtTJ1mMgvcMt7-J",
 
     dimensions: {
         width: "44 inches",
