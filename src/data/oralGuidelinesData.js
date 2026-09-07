@@ -4,7 +4,17 @@ export const oralGuidelinesData = {
     title: "Oral Presenter’s Guidelines",
     subtitle: "Complete presentation structure, time management, template download, and session guidelines for oral presenters at IATMSI-2027.",
 
-    downloadTemplateUrl: "https://iatmsi.iiitm.ac.in/wp-content/uploads/2026/06/IATMSI-2027-Presentation-Format.pptx",
+    // Downloads the .pptx rather than opening it in Google Slides.
+    //
+    // The `uc?export=download` form serves the file exactly as it was uploaded.
+    // The alternative, docs.google.com/.../export/pptx, re-exports through
+    // Slides — which can shift fonts and layout, and this is a template authors
+    // are meant to build on, so the original bytes are the point.
+    //
+    // Also moved off /wp-content: that path is on the domain this site is
+    // taking over, where the SPA rewrite would return the app's HTML instead
+    // of a file.
+    downloadTemplateUrl: "https://drive.google.com/uc?export=download&id=18Kzjpg_DIcoC2T5Vli4MyFE6CBDfgR0S",
 
     timeAllotment: {
         totalTime: "15 Minutes",
