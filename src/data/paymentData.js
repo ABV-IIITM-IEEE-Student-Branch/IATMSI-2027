@@ -18,13 +18,24 @@ export const registrationFormData = {
     regularBadge: "Regular pricing is active",
     earlyBirdUntilLabel: "Early bird rates apply until",
 
+    // Column headings, worded as the conference's published fee table has them.
+    // The dates in the two period headings are NOT here — they are taken from
+    // the server's early-bird cutoff, so a caption cannot disagree with the
+    // date people are actually charged by.
     columnCategory: "Category",
-    columnEarly: "Early Bird",
-    columnRegular: "Regular",
-    columnIndian: "India / Nepal (INR)",
-    columnInternational: "International (USD)",
-    memberShort: "IEEE",
-    nonMemberShort: "Non-IEEE",
+    columnEarly: "Early Bird Registration",
+    columnRegular: "Regular Registration",
+    untilLabel: "Until",
+    afterLabel: "After",
+    columnIndian: "Indian/Nepali Delegates",
+    columnInternational: "International Delegates",
+    memberShort: "IEEE Member",
+    nonMemberShort: "Non-IEEE Member",
+
+    // Footnote under the table, and the categories that carry the marker.
+    feeFootnoteMarker: "#",
+    feeFootnote: "A certificate will be issued to all the registered attendees.",
+    feeFootnoteCategories: ["coauthor_without_kit", "coauthor_with_kit"],
 
     formTitle: "Registration Details",
     formNote: "Please use the name and email you want printed on your certificate and receipt.",

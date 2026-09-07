@@ -332,3 +332,92 @@ tbody tr:hover {
     display: none !important;
   }
 }
+
+
+/*
+  Registration fee table.
+
+  Written as plain CSS rather than utility classes because the global `th`/`td`
+  rules above are unlayered, and unlayered CSS beats anything in a @layer —
+  which is where Tailwind puts its utilities. So `bg-[...]`, `p-2` and
+  `text-center` silently lost to them, and the period headings ended up cream
+  text on a cream background: present in the DOM, invisible on screen.
+
+  Keeping it here, at the same cascade level and higher specificity, wins
+  cleanly and leaves the site's other tables alone.
+*/
+.fee-table {
+  width: 100%;
+  min-width: 820px;
+  border-collapse: collapse;
+  border: 1px solid rgba(74, 18, 26, 0.7);
+}
+
+.fee-table th,
+.fee-table td {
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid rgba(74, 18, 26, 0.7);
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+/* Period headings — the widest span, so the strongest colour. */
+.fee-table th.fee-period {
+  background-color: #722332;
+  color: #FAF5EB;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.7rem;
+}
+
+/* Delegate type, then membership: two steps down in emphasis. */
+.fee-table th.fee-region {
+  background-color: #F0DFB4;
+  color: #4A121A;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+}
+
+.fee-table th.fee-member {
+  background-color: #FAF5EB;
+  color: #4A121A;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+}
+
+.fee-table th.fee-category {
+  background-color: #ffffff;
+  color: #4A121A;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.7rem;
+}
+
+/* Category names read as a list, so they stay left-aligned. */
+.fee-table td.fee-category-cell {
+  text-align: left;
+  font-weight: 700;
+  color: #4A121A;
+  background-color: #ffffff;
+}
+
+.fee-table td.fee-amount {
+  font-weight: 700;
+  color: #2F0B11;
+  white-space: nowrap;
+  background-color: #ffffff;
+}
+
+.fee-table tbody tr:nth-child(even) td {
+  background-color: #FFFCF5;
+}
+
+/* The global `tbody tr:hover` tint would fight the banding above. */
+.fee-table tbody tr:hover td {
+  background-color: #FAF5EB;
+}

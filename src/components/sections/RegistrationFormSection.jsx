@@ -50,6 +50,37 @@ function loadCashfree() {
     return cashfreePromise;
 }
 
+// Column order in the published table: period, then delegate type, then
+// membership. Named rather than inlined so the three header rows and the body
+// cannot drift out of step with each other.
+const PERIOD_ORDER = ['early', 'regular'];
+const REGION_ORDER = ['indian_nepali', 'international'];
+const MEMBERSHIP_ORDER = ['ieee', 'non_ieee'];
+
+/**
+ * Amounts as the conference publishes them: symbol after the number, no
+ * thousands separator. Deliberately different from `formatFee`, which is used
+ * where a single amount has to be read at a glance rather than compared down
+ * a column.
+ */
+function formatPublishedFee(amount, currency) {
+    if (typeof amount !== 'number') return '—';
+    return `${amount}${currency === 'INR' ? '₹' : '$'}`;
+}
+
+/** "15th Feb. 2027" */
+function formatCutoff(iso) {
+    const date = new Date(iso);
+    if (Number.isNaN(date.getTime())) return '';
+    const day = date.getDate();
+    const ordinal =
+        day % 10 === 1 && day !== 11 ? 'st'
+        : day % 10 === 2 && day !== 12 ? 'nd'
+        : day % 10 === 3 && day !== 13 ? 'rd'
+        : 'th';
+    return `${day}${ordinal} ${date.toLocaleDateString('en-GB', { month: 'short' })}. ${date.getFullYear()}`;
+}
+
 const EMPTY = {
     fullName: '',
     email: '',
@@ -108,6 +139,18 @@ export default function RegistrationFormSection() {
     }, [fees, form]);
 
     const isEarly = fees?.currentPeriod === 'early';
+
+    /*
+        The date in each period heading comes from the server's cutoff, not
+        from editable text. Two copies could disagree, and the one people would
+        act on is the one that is only a caption.
+    */
+    const periodHeading = (period) => {
+        const cutoff = formatCutoff(fees?.earlyBirdCutoff);
+        return period === 'early'
+            ? `${d.columnEarly} (${d.untilLabel} ${cutoff})`
+            : `${d.columnRegular} (${d.afterLabel} ${cutoff})`;
+    };
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -197,60 +240,84 @@ export default function RegistrationFormSection() {
                 </div>
 
                 {loaded ? (
+                    <>
                     <div className="overflow-x-auto -mx-1 px-1">
-                        <table className="w-full min-w-[640px] border-collapse text-left">
+                        {/*
+                            Laid out like the conference's published fee table:
+                            one column per membership within each delegate type,
+                            within each period. Eight amount columns, so it
+                            scrolls sideways on a phone rather than wrapping
+                            into something unreadable.
+                        */}
+                        <table className="fee-table">
                             <thead>
                                 <tr>
-                                    <th rowSpan={2} className="align-bottom p-2.5 text-[11px] font-black uppercase tracking-wider text-[#722332] border-b-2 border-[#C59B27]/50">
+                                    <th rowSpan={3} className="fee-category align-middle w-[22%]">
                                         {d.columnCategory}
                                     </th>
-                                    <th colSpan={2} className="p-2.5 text-center text-[11px] font-black uppercase tracking-wider text-[#722332] border-b border-[#C59B27]/30">
-                                        {d.columnEarly}
-                                    </th>
-                                    <th colSpan={2} className="p-2.5 text-center text-[11px] font-black uppercase tracking-wider text-[#722332] border-b border-[#C59B27]/30">
-                                        {d.columnRegular}
-                                    </th>
+                                    {PERIOD_ORDER.map((period) => (
+                                        <th key={period} colSpan={4} className="fee-period">
+                                            {periodHeading(period)}
+                                        </th>
+                                    ))}
                                 </tr>
                                 <tr>
-                                    {['early', 'regular'].map((period) => (
-                                        [
-                                            <th key={`${period}-in`} className="p-2.5 text-[10.5px] font-bold uppercase tracking-wide text-neutral-600 border-b-2 border-[#C59B27]/50">
-                                                {d.columnIndian}
-                                            </th>,
-                                            <th key={`${period}-intl`} className="p-2.5 text-[10.5px] font-bold uppercase tracking-wide text-neutral-600 border-b-2 border-[#C59B27]/50">
-                                                {d.columnInternational}
-                                            </th>,
-                                        ]
-                                    ))}
+                                    {PERIOD_ORDER.map((period) =>
+                                        REGION_ORDER.map((region) => (
+                                            <th key={`${period}-${region}`} colSpan={2} className="fee-region">
+                                                {region === 'indian_nepali' ? d.columnIndian : d.columnInternational}
+                                            </th>
+                                        )),
+                                    )}
+                                </tr>
+                                <tr>
+                                    {PERIOD_ORDER.map((period) =>
+                                        REGION_ORDER.map((region) =>
+                                            MEMBERSHIP_ORDER.map((membership) => (
+                                                <th key={`${period}-${region}-${membership}`} className="fee-member">
+                                                    {membership === 'ieee' ? d.memberShort : d.nonMemberShort}
+                                                </th>
+                                            )),
+                                        ),
+                                    )}
                                 </tr>
                             </thead>
                             <tbody>
                                 {fees.categories.map((category) => (
-                                    <tr key={category} className="odd:bg-[#FFFDF9] even:bg-[#FAF5EB]/60">
-                                        <td className="p-2.5 text-xs font-bold text-[#4A121A] border-b border-[#C59B27]/20 leading-snug">
+                                    <tr key={category}>
+                                        <td className="fee-category-cell">
                                             {fees.categoryLabels[category]}
+                                            {(d.feeFootnoteCategories || []).includes(category) && (
+                                                <sup className="font-black text-[#722332]">{d.feeFootnoteMarker}</sup>
+                                            )}
                                         </td>
-                                        {['early', 'regular'].map((period) => (
-                                            ['indian_nepali', 'international'].map((region) => {
-                                                const cell = fees.table[category][period][region];
-                                                const currency = region === 'international' ? 'USD' : 'INR';
-                                                return (
-                                                    <td key={`${period}-${region}`} className="p-2.5 text-xs border-b border-[#C59B27]/20 whitespace-nowrap">
-                                                        <span className="block font-black text-[#722332]">
-                                                            {d.memberShort} {formatFee(cell.ieee, currency)}
-                                                        </span>
-                                                        <span className="block text-neutral-600 font-medium">
-                                                            {d.nonMemberShort} {formatFee(cell.non_ieee, currency)}
-                                                        </span>
+                                        {PERIOD_ORDER.map((period) =>
+                                            REGION_ORDER.map((region) =>
+                                                MEMBERSHIP_ORDER.map((membership) => (
+                                                    <td
+                                                        key={`${period}-${region}-${membership}`}
+                                                        className="fee-amount"
+                                                    >
+                                                        {formatPublishedFee(
+                                                            fees.table[category][period][region][membership],
+                                                            region === 'international' ? 'USD' : 'INR',
+                                                        )}
                                                     </td>
-                                                );
-                                            })
-                                        ))}
+                                                )),
+                                            ),
+                                        )}
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
                     </div>
+
+                    {d.feeFootnote && (
+                        <p className="text-[11.5px] font-bold text-[#8A1C1C]">
+                            {d.feeFootnoteMarker} {d.feeFootnote}
+                        </p>
+                    )}
+                    </>
                 ) : failed ? (
                     /*
                         Fees come from the server, so if that request fails
