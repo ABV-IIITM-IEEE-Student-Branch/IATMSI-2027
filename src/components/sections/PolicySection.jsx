@@ -1,9 +1,10 @@
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
-import { termsData, refundsData } from '../../data/policyData';
+import { termsData, refundsData, privacyData } from '../../data/policyData';
 
 const POLICIES = {
     terms: termsData,
     refunds: refundsData,
+    privacy: privacyData,
 };
 
 /**

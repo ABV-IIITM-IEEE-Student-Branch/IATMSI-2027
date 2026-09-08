@@ -43,6 +43,7 @@ export const ROUTES = {
     // Policy pages. Required by the payment gateway before a merchant account
     // is approved, and linked from the footer where its reviewers look.
     TERMS: '/terms',
+    PRIVACY: '/privacy',
     REFUNDS: '/refunds',
     FAQS: '/help/faqs',
 };

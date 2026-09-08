@@ -381,6 +381,14 @@ export const pageRegistry = [
         ]
     },
     {
+        id: 'privacy',
+        title: 'PRIVACY POLICY',
+        path: '/privacy',
+        sections: [
+            { sectionId: 'policySection', props: { policy: 'privacy' } }
+        ]
+    },
+    {
         id: 'refunds',
         title: 'REFUNDS AND CANCELLATIONS',
         path: '/refunds',

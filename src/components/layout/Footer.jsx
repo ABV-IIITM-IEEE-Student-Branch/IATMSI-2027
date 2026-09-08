@@ -173,23 +173,27 @@ export default function Footer() {
                     <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
                         <span>© {siteConfig.copyrightYear} {conferenceInfo.shortTitle}. <span>{siteConfig.copyrightNotice}</span></span>
                         {/*
-                            The payment gateway requires all three to be
+                            The payment gateway requires all four to be
                             reachable from every page before it will approve a
                             merchant account, and the footer is where its
                             reviewers look for them. Contact is also in the Help
                             menu, but that is a dropdown two levels in — this is
                             the copy that is always visible.
                         */}
-                        <span data-weavr-ignore className="text-[#C59B27]">·</span>
-                        <Link to={ROUTES.TERMS} className="!text-[#FAF5EB]/85 hover:!text-[#F0CB6F] transition-colors">
+                        <span data-weavr-ignore className="text-neutral-600">·</span>
+                        <Link to={ROUTES.PRIVACY} className="!text-[#525252] !font-medium hover:!text-[#F0CB6F] transition-colors">
+                            {footerLabels.privacy}
+                        </Link>
+                        <span data-weavr-ignore className="text-neutral-600">·</span>
+                        <Link to={ROUTES.TERMS} className="!text-[#525252] !font-medium hover:!text-[#F0CB6F] transition-colors">
                             {footerLabels.terms}
                         </Link>
-                        <span data-weavr-ignore className="text-[#C59B27]">·</span>
-                        <Link to={ROUTES.REFUNDS} className="!text-[#FAF5EB]/85 hover:!text-[#F0CB6F] transition-colors">
+                        <span data-weavr-ignore className="text-neutral-600">·</span>
+                        <Link to={ROUTES.REFUNDS} className="!text-[#525252] !font-medium hover:!text-[#F0CB6F] transition-colors">
                             {footerLabels.refunds}
                         </Link>
-                        <span data-weavr-ignore className="text-[#C59B27]">·</span>
-                        <Link to={ROUTES.CONTACT} className="!text-[#FAF5EB]/85 hover:!text-[#F0CB6F] transition-colors">
+                        <span data-weavr-ignore className="text-neutral-600">·</span>
+                        <Link to={ROUTES.CONTACT} className="!text-[#525252] !font-medium hover:!text-[#F0CB6F] transition-colors">
                             {footerLabels.contact}
                         </Link>
                     </p>
