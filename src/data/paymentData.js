@@ -68,7 +68,10 @@ export const registrationFormData = {
     // the receipt email: that depends on mail being configured, and promising
     // it here would be a promise made before the payment.
     gatewayBlurb: "Complete your registration and payment together in a single step.",
-    gatewayNote: "Your place is confirmed as soon as the payment clears — there is no separate form to fill in.",
+    // Does not mention UPI, though Cashfree offers it too: there is a separate
+    // UPI card beside this one, and naming it in both would make the choice
+    // between them harder rather than easier.
+    gatewayNote: "Works with major debit and credit cards, net banking and wallets.",
     gatewayButton: "Register & Pay Online",
 
     closeLabel: "Close",
