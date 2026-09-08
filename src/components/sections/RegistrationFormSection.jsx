@@ -1,6 +1,11 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
+import Modal from '../ui/Modal';
 import { registrationFormData } from '../../data/paymentData';
+// The UPI route ends at the registration form the bank-transfer instructions
+// further down this page already use. Imported rather than copied so there is
+// one link to change, not two that can drift apart.
+import { registrationPageData } from '../../data/registrationData';
 import { useFees, formatFee } from '../../hooks/useFees';
 
 /**
@@ -119,10 +124,30 @@ export default function RegistrationFormSection() {
     const [error, setError] = useState('');
     const [submitting, setSubmitting] = useState(false);
 
+    // Which delegate category was chosen, and whether the form dialog is up.
+    // The region is set by that choice rather than by a field in the form, so
+    // it cannot be picked one way and paid another.
+    const [region, setRegion] = useState(null);
+    const [formOpen, setFormOpen] = useState(false);
+
     const set = (name) => (event) => {
         setForm((previous) => ({ ...previous, [name]: event.target.value }));
         setError('');
     };
+
+    const openForm = (chosenRegion) => {
+        setRegion(chosenRegion);
+        setForm((previous) => ({ ...previous, region: chosenRegion }));
+        setError('');
+        setFormOpen(true);
+    };
+
+    // Not closed while a submission is in flight: the click that opened
+    // checkout is about to navigate away, and closing under it would look like
+    // the payment had been cancelled.
+    const closeForm = useCallback(() => {
+        if (!submitting) setFormOpen(false);
+    }, [submitting]);
 
     // What this registrant will pay, read from the same table the server uses.
     // Shown for confirmation only — it is never sent back.
@@ -352,13 +377,103 @@ export default function RegistrationFormSection() {
                 <p className="text-[11.5px] text-neutral-600 leading-relaxed">{d.feeTableNote}</p>
             </div>
 
-            {/* The form */}
-            <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-5 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-6">
-                <div className="border-b border-[#C59B27]/30 pb-4">
-                    <h3 className="text-lg md:text-xl font-black text-[#4A121A] uppercase tracking-wide">
-                        {d.formTitle}
-                    </h3>
-                    <p className="text-xs text-neutral-600 mt-1.5">{d.formNote}</p>
+            {/* Step 1 — delegate category. */}
+            {region === null && (
+                <div className="bg-white rounded-2xl p-5 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-5">
+                    <div className="border-b border-[#C59B27]/30 pb-4">
+                        <h3 className="text-lg md:text-xl font-black text-[#4A121A] uppercase tracking-wide">
+                            {d.chooserTitle}
+                        </h3>
+                        <p className="text-xs text-neutral-600 mt-1.5">{d.chooserNote}</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <ChoiceCard
+                            title={d.indianTitle}
+                            blurb={d.indianBlurb}
+                            action={d.indianButton}
+                            onClick={() => setRegion('indian_nepali')}
+                        />
+                        {/*
+                            International goes straight to the form: the gateway
+                            is the only route that can take a payment in dollars.
+                        */}
+                        <ChoiceCard
+                            title={d.internationalTitle}
+                            blurb={d.internationalBlurb}
+                            action={d.internationalButton}
+                            onClick={() => openForm('international')}
+                        />
+                    </div>
+                </div>
+            )}
+
+            {/* Step 2 — Indian and Nepali delegates pick how they want to pay. */}
+            {region === 'indian_nepali' && (
+                <div className="bg-white rounded-2xl p-5 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-5">
+                    <div className="border-b border-[#C59B27]/30 pb-4">
+                        <h3 className="text-lg md:text-xl font-black text-[#4A121A] uppercase tracking-wide">
+                            {d.methodTitle}
+                        </h3>
+                        <button
+                            type="button"
+                            onClick={() => setRegion(null)}
+                            className="text-[11.5px] font-bold text-[#722332] hover:text-[#4A121A] underline mt-1.5"
+                        >
+                            {d.changeRegionLabel}
+                        </button>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/*
+                            UPI settles straight into the conference account, so
+                            it never reaches the gateway — no order, no webhook,
+                            no automatic receipt. The note says so, because
+                            someone expecting an instant email would otherwise
+                            think it had failed.
+                        */}
+                        <ChoiceCard
+                            title={d.upiTitle}
+                            blurb={d.upiBlurb}
+                            note={d.upiNote}
+                            action={d.upiButton}
+                            href={registrationPageData.indianDelegatesSection.formUrl}
+                        />
+                        <ChoiceCard
+                            title={d.gatewayTitle}
+                            blurb={d.gatewayBlurb}
+                            note={d.gatewayNote}
+                            action={d.gatewayButton}
+                            emphasis
+                            onClick={() => openForm('indian_nepali')}
+                        />
+                    </div>
+                </div>
+            )}
+
+            {/* The form, in a dialog over the page. */}
+            <Modal open={formOpen} onClose={closeForm} titleId="registration-form-title">
+            <form onSubmit={handleSubmit} className="p-5 md:p-8 space-y-6 max-h-[85vh] overflow-y-auto">
+                <div className="flex items-start justify-between gap-4 border-b border-[#C59B27]/30 pb-4">
+                    <div>
+                        <h3 id="registration-form-title" className="text-lg md:text-xl font-black text-[#4A121A] uppercase tracking-wide">
+                            {d.formTitle}
+                        </h3>
+                        <p className="text-xs text-neutral-600 mt-1.5">{d.formNote}</p>
+                        <p className="text-[11px] font-black uppercase tracking-wider text-[#722332] mt-2">
+                            {region === 'international' ? d.internationalTitle : d.indianTitle}
+                        </p>
+                    </div>
+                    <button
+                        type="button"
+                        onClick={closeForm}
+                        aria-label={d.closeLabel}
+                        className="flex-shrink-0 w-9 h-9 rounded-full border border-[#C59B27]/50 bg-white text-[#722332] hover:bg-[#FAF5EB] flex items-center justify-center transition-colors"
+                    >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -378,15 +493,11 @@ export default function RegistrationFormSection() {
                         <input type="text" value={form.affiliation} onChange={set('affiliation')} placeholder={d.placeholders.affiliation} className={INPUT_CLASS} />
                     </Field>
 
-                    <Field label={d.labels.region}>
-                        <select required value={form.region} onChange={set('region')} className={INPUT_CLASS}>
-                            <option value="">{d.selectPlaceholder}</option>
-                            {Object.entries(d.regionOptions).map(([value, label]) => (
-                                <option key={value} value={value}>{label}</option>
-                            ))}
-                        </select>
-                    </Field>
-
+                    {/*
+                        No delegate-category field: it was chosen to get here,
+                        and it is what sets the currency. Asking again would let
+                        someone enter through one door and pay through another.
+                    */}
                     <Field label={d.labels.country} hint={d.optionalHint}>
                         <input type="text" value={form.country} onChange={set('country')} placeholder={d.placeholders.country} className={INPUT_CLASS} />
                     </Field>
@@ -469,6 +580,50 @@ export default function RegistrationFormSection() {
                     <p className="text-[11.5px] font-bold text-[#722332]">{d.refundNote}</p>
                 </div>
             </form>
+            </Modal>
         </SectionContainer>
+    );
+}
+
+/**
+ * One route through registration: what it is, what it means, and the button.
+ *
+ * Renders as a link when it leaves the site and a button when it opens the
+ * dialog — the two behave differently enough (new tab, right-click, copy
+ * address) that pretending otherwise would be worse than the small branch.
+ */
+function ChoiceCard({ title, blurb, note, action, onClick, href, emphasis = false }) {
+    const actionClass = emphasis
+        ? 'bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] border-[#C59B27]'
+        : 'bg-white !text-[#722332] hover:bg-[#FAF5EB] border-[#C59B27]';
+
+    return (
+        <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] rounded-2xl border-2 border-[#C59B27]/50 p-5 flex flex-col gap-3">
+            <h4 className="text-base font-black text-[#4A121A] uppercase tracking-wide">{title}</h4>
+            <p className="text-xs text-neutral-700 leading-relaxed flex-1">{blurb}</p>
+            {note && <p className="text-[11px] text-neutral-600 leading-relaxed italic">{note}</p>}
+
+            {href ? (
+                <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 shadow-sm transition-all ${actionClass}`}
+                >
+                    <span>{action}</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                </a>
+            ) : (
+                <button
+                    type="button"
+                    onClick={onClick}
+                    className={`inline-flex items-center justify-center px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 shadow-sm transition-all ${actionClass}`}
+                >
+                    {action}
+                </button>
+            )}
+        </div>
     );
 }

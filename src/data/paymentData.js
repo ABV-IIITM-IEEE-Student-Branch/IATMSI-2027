@@ -37,6 +37,38 @@ export const registrationFormData = {
     feeFootnote: "A certificate will be issued to all the registered attendees.",
     feeFootnoteCategories: ["coauthor_without_kit", "coauthor_with_kit"],
 
+    // Step 1 — who is registering. The choice sets the currency and the fee
+    // band, so it is asked as a deliberate choice rather than a dropdown
+    // buried in the form.
+    chooserTitle: "Choose How You Are Registering",
+    chooserNote: "Your delegate category decides the currency and the fee band, so please pick the one that applies to you.",
+
+    indianTitle: "Indian & Nepali Delegates",
+    indianBlurb: "Fees are charged in Indian Rupees (₹). Pay by UPI, card, net banking or wallet.",
+    indianButton: "Register Here",
+
+    internationalTitle: "International Delegates",
+    internationalBlurb: "Fees are charged in US Dollars ($). Pay by international card.",
+    internationalButton: "Register Here",
+
+    // Step 2 — Indian and Nepali delegates only. UPI settles straight into the
+    // conference account and is confirmed by the committee; everything else
+    // goes through the gateway and confirms itself.
+    methodTitle: "Choose Your Payment Method",
+    changeRegionLabel: "← Choose a different delegate category",
+
+    upiTitle: "Pay by UPI",
+    upiBlurb: "Transfer the fee to the conference UPI account, then fill in the registration form with your transaction reference.",
+    upiNote: "Confirmed manually by the registration committee, so allow a few working days. Keep your UPI transaction reference safe.",
+    upiButton: "Pay by UPI & Fill Form",
+
+    gatewayTitle: "Card, Net Banking or Wallet",
+    gatewayBlurb: "Pay securely online and receive your receipt straight away.",
+    gatewayNote: "Confirmed automatically the moment payment succeeds.",
+    gatewayButton: "Register & Pay Online",
+
+    closeLabel: "Close",
+
     formTitle: "Registration Details",
     formNote: "Please use the name and email you want printed on your certificate and receipt.",
 
