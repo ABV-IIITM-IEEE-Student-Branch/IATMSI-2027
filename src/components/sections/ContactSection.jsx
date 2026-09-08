@@ -14,6 +14,20 @@ export default function ContactSection() {
     });
     const [submitted, setSubmitted] = useState(false);
 
+    /*
+        Every field carries a `name` matching a key in `formData`, so one
+        handler serves all four.
+
+        Its absence took the whole page down rather than just the form: the
+        inputs referenced it while rendering, so the ReferenceError was thrown
+        during render and React unmounted everything — a blank Contact Us page,
+        with the fault reported only in the browser console.
+    */
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((previous) => ({ ...previous, [name]: value }));
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setSubmitted(true);
