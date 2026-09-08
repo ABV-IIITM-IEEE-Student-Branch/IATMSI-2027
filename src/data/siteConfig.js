@@ -123,6 +123,7 @@ export const footerLabels = {
     phone: "Phone",
     terms: "Terms & Conditions",
     refunds: "Refunds & Cancellations",
+    contact: "Contact Us",
 };
 
 // UI labels for this section — kept in data so every visible word is editable.
