@@ -39,6 +39,11 @@ export const ROUTES = {
     // Others & Help
     KEYNOTE: '/keynote',
     CONTACT: '/contact',
+
+    // Policy pages. Required by the payment gateway before a merchant account
+    // is approved, and linked from the footer where its reviewers look.
+    TERMS: '/terms',
+    REFUNDS: '/refunds',
     FAQS: '/help/faqs',
 };
 

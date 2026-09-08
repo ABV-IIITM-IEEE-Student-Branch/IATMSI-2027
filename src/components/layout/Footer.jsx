@@ -170,7 +170,23 @@ export default function Footer() {
 
                 {/* Copyright Bar */}
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs !text-white font-medium">
-                    <p>© {siteConfig.copyrightYear} {conferenceInfo.shortTitle}. <span>{siteConfig.copyrightNotice}</span></p>
+                    <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+                        <span>© {siteConfig.copyrightYear} {conferenceInfo.shortTitle}. <span>{siteConfig.copyrightNotice}</span></span>
+                        {/*
+                            The payment gateway requires both of these to be
+                            reachable from every page before it will approve a
+                            merchant account, and the footer is where its
+                            reviewers look for them.
+                        */}
+                        <span data-weavr-ignore className="text-[#C59B27]">·</span>
+                        <Link to={ROUTES.TERMS} className="!text-[#FAF5EB]/85 hover:!text-[#F0CB6F] transition-colors">
+                            {footerLabels.terms}
+                        </Link>
+                        <span data-weavr-ignore className="text-[#C59B27]">·</span>
+                        <Link to={ROUTES.REFUNDS} className="!text-[#FAF5EB]/85 hover:!text-[#F0CB6F] transition-colors">
+                            {footerLabels.refunds}
+                        </Link>
+                    </p>
                     <a
                         href={siteConfig.designerUrl}
                         target="_blank"

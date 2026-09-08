@@ -121,6 +121,8 @@ export const footerLabels = {
     venue: "Venue",
     email: "Email",
     phone: "Phone",
+    terms: "Terms & Conditions",
+    refunds: "Refunds & Cancellations",
 };
 
 // UI labels for this section — kept in data so every visible word is editable.
