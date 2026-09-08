@@ -59,7 +59,7 @@ export const registrationFormData = {
 
     upiTitle: "Pay by UPI",
     upiBlurb: "Transfer the fee to the conference UPI account, then fill in the registration form with your transaction reference.",
-    upiNote: "Confirmed manually by the registration committee, so allow a few working days. Keep your UPI transaction reference safe.",
+    upiNote: "Confirmed manually by the registration committee. Keep your UPI transaction reference safe.",
     upiButton: "Pay by UPI & Fill Form",
 
     gatewayTitle: "Card, Net Banking or Wallet",
