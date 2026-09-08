@@ -63,8 +63,12 @@ export const registrationFormData = {
     upiButton: "Pay by UPI & Fill Form",
 
     gatewayTitle: "Card, Net Banking or Wallet",
-    gatewayBlurb: "Pay securely online and receive your receipt straight away.",
-    gatewayNote: "Confirmed automatically the moment payment succeeds.",
+    // Says what this route is, and what it saves you — which is the separate
+    // form and the wait that the UPI route involves. Deliberately silent about
+    // the receipt email: that depends on mail being configured, and promising
+    // it here would be a promise made before the payment.
+    gatewayBlurb: "Complete your registration and payment together in a single step.",
+    gatewayNote: "Your place is confirmed as soon as the payment clears — there is no separate form to fill in.",
     gatewayButton: "Register & Pay Online",
 
     closeLabel: "Close",
