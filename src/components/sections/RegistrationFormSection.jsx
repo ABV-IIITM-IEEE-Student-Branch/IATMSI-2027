@@ -124,9 +124,20 @@ export default function RegistrationFormSection() {
     const [error, setError] = useState('');
     const [submitting, setSubmitting] = useState(false);
 
-    // Which delegate category was chosen, and whether the form dialog is up.
-    // The region is set by that choice rather than by a field in the form, so
-    // it cannot be picked one way and paid another.
+    /*
+        Two separate things, because one value cannot answer both questions.
+
+        `step` is what the page shows behind the dialog; `region` is which fee
+        band was chosen. Driving the page from `region` alone left nothing to
+        render once an international delegate closed the dialog: the region was
+        set, so the chooser was hidden, but it was not `indian_nepali`, so the
+        method options were hidden too. Closing emptied the page.
+
+        Keeping them apart also gives closing the right destination — the
+        chooser for an international delegate, the payment methods for an
+        Indian one, which is where each of them came from.
+    */
+    const [step, setStep] = useState('choose'); // 'choose' | 'method'
     const [region, setRegion] = useState(null);
     const [formOpen, setFormOpen] = useState(false);
 
@@ -135,10 +146,14 @@ export default function RegistrationFormSection() {
         setError('');
     };
 
-    const openForm = (chosenRegion) => {
+    const chooseRegion = (chosenRegion) => {
         setRegion(chosenRegion);
         setForm((previous) => ({ ...previous, region: chosenRegion }));
         setError('');
+    };
+
+    const openForm = (chosenRegion) => {
+        chooseRegion(chosenRegion);
         setFormOpen(true);
     };
 
@@ -378,7 +393,7 @@ export default function RegistrationFormSection() {
             </div>
 
             {/* Step 1 — delegate category. */}
-            {region === null && (
+            {step === 'choose' && (
                 <div className="bg-white rounded-2xl p-5 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-5">
                     <div className="border-b border-[#C59B27]/30 pb-4">
                         <h3 className="text-lg md:text-xl font-black text-[#4A121A] uppercase tracking-wide">
@@ -392,7 +407,7 @@ export default function RegistrationFormSection() {
                             title={d.indianTitle}
                             blurb={d.indianBlurb}
                             action={d.indianButton}
-                            onClick={() => setRegion('indian_nepali')}
+                            onClick={() => { chooseRegion('indian_nepali'); setStep('method'); }}
                         />
                         {/*
                             International goes straight to the form: the gateway
@@ -409,7 +424,7 @@ export default function RegistrationFormSection() {
             )}
 
             {/* Step 2 — Indian and Nepali delegates pick how they want to pay. */}
-            {region === 'indian_nepali' && (
+            {step === 'method' && (
                 <div className="bg-white rounded-2xl p-5 md:p-8 border-2 border-[#C59B27]/40 shadow-sm space-y-5">
                     <div className="border-b border-[#C59B27]/30 pb-4">
                         <h3 className="text-lg md:text-xl font-black text-[#4A121A] uppercase tracking-wide">
@@ -417,7 +432,7 @@ export default function RegistrationFormSection() {
                         </h3>
                         <button
                             type="button"
-                            onClick={() => setRegion(null)}
+                            onClick={() => { setStep('choose'); setRegion(null); }}
                             className="text-[11.5px] font-bold text-[#722332] hover:text-[#4A121A] underline mt-1.5"
                         >
                             {d.changeRegionLabel}
@@ -445,7 +460,7 @@ export default function RegistrationFormSection() {
                             note={d.gatewayNote}
                             action={d.gatewayButton}
                             emphasis
-                            onClick={() => openForm('indian_nepali')}
+                            onClick={() => setFormOpen(true)}
                         />
                     </div>
                 </div>
