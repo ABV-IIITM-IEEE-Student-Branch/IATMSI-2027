@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 
 /**
  * A dialog over the page.
@@ -7,8 +8,15 @@ import { useEffect, useRef } from 'react';
  * response to a click, and on phones a separate window behaves unpredictably —
  * a share of visitors would click and see nothing happen at all.
  *
- * Above the site's own layers: the header sits at z-50 and the mobile drawer at
- * z-[80], so this has to clear both or the navigation shows through it.
+ * Rendered into `document.body` rather than where it is written. A z-index only
+ * ranks an element among its siblings inside the nearest stacking context, and
+ * the section this is used from sits inside `relative z-10` wrappers. Left in
+ * place, the whole dialog was ranked at z-10 against the rest of the page
+ * however high its own z-index went — so the header at z-50 painted straight
+ * over it, and the surrounding `overflow: hidden` cropped what was left.
+ *
+ * At the top of the body it competes with the header (z-50) and the mobile
+ * drawer (z-[80]) directly, which is what z-[100] below is for.
  */
 export default function Modal({ open, onClose, titleId, children, className = '' }) {
     const panelRef = useRef(null);
@@ -38,7 +46,7 @@ export default function Modal({ open, onClose, titleId, children, className = ''
 
     if (!open) return null;
 
-    return (
+    return createPortal(
         <div className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center p-3 sm:p-6 overflow-y-auto">
             <div
                 className="fixed inset-0 bg-[#2F0B11]/70 backdrop-blur-[2px]"
@@ -55,6 +63,7 @@ export default function Modal({ open, onClose, titleId, children, className = ''
             >
                 {children}
             </div>
-        </div>
+        </div>,
+        document.body,
     );
 }

@@ -113,7 +113,9 @@ export const registrationFormData = {
 
     summaryTitle: "Amount Payable",
     summaryPeriodLabel: "Rate",
-    summaryChooseFirst: "Choose a category, region and membership status to see your fee.",
+    // No longer mentions region: that is settled by the entry point before the
+    // form opens, so asking for it here would describe a field that is not there.
+    summaryChooseFirst: "Choose a category and membership status to see your fee.",
 
     payButton: "Proceed to Secure Payment",
     payingButton: "Opening secure checkout…",
