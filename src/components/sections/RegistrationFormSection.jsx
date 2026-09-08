@@ -2,10 +2,6 @@ import { useCallback, useMemo, useState } from 'react';
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import Modal from '../ui/Modal';
 import { registrationFormData } from '../../data/paymentData';
-// The UPI route ends at the registration form the bank-transfer instructions
-// further down this page already use. Imported rather than copied so there is
-// one link to change, not two that can drift apart.
-import { registrationPageData } from '../../data/registrationData';
 import { useFees, formatFee } from '../../hooks/useFees';
 
 /**
@@ -452,7 +448,7 @@ export default function RegistrationFormSection() {
                             blurb={d.upiBlurb}
                             note={d.upiNote}
                             action={d.upiButton}
-                            href={registrationPageData.indianDelegatesSection.formUrl}
+                            href={d.upiFormUrl}
                         />
                         <ChoiceCard
                             title={d.gatewayTitle}

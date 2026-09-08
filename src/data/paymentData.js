@@ -61,6 +61,10 @@ export const registrationFormData = {
     upiBlurb: "Transfer the fee to the conference UPI account, then fill in the registration form with your transaction reference.",
     upiNote: "Confirmed manually by the registration committee. Keep your UPI transaction reference safe.",
     upiButton: "Pay by UPI & Fill Form",
+    // Where the UPI route sends people. It used to be read from the
+    // bank-transfer instructions further down this page; those have been
+    // removed, so it lives here now — this is the only place that uses it.
+    upiFormUrl: "https://forms.gle/6W79XUvjbeHZxRPM6",
 
     gatewayTitle: "Card, Net Banking or Wallet",
     // Says what this route is, and what it saves you — which is the separate
