@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { registrationFormData } from '../../data/paymentData';
 import { useFees } from '../../hooks/useFees';
@@ -210,14 +211,7 @@ export default function RegistrationFormSection() {
                         actions={[{ id: 'upi', label: d.indianButton, url: d.indianFormUrl }]}
                         emphasis
                     />
-                    <RouteCard
-                        title={d.internationalTitle}
-                        blurb={d.internationalBlurb}
-                        note={(d.internationalLinks || []).length ? d.internationalNote : null}
-                        actions={d.internationalLinks || []}
-                        pendingNote={d.internationalPendingNote}
-                        warning={d.internationalLinksArePlaceholders ? d.internationalPlaceholderWarning : null}
-                    />
+                    <InternationalCard d={d} />
                 </div>
 
                 <p className="text-[11.5px] font-bold text-[#722332]">{d.refundNote}</p>
@@ -232,7 +226,73 @@ export default function RegistrationFormSection() {
  * With no actions it shows `pendingNote` instead. An empty card would read as
  * a broken page rather than as one where something has not opened yet.
  */
-function RouteCard({ title, blurb, note, actions = [], pendingNote, warning, emphasis = false }) {
+/**
+ * The international route: pick a category, then pay.
+ *
+ * A dropdown rather than one button per category. The list is the same either
+ * way, but this leaves a single button on screen that names one amount,
+ * instead of five that a payer has to choose correctly between — and the
+ * choice is the part they can get wrong.
+ *
+ * The button appears only once a category is chosen; there is nowhere for it
+ * to lead before that.
+ */
+function InternationalCard({ d }) {
+    const [categoryId, setCategoryId] = useState('');
+
+    const links = d.internationalLinks || [];
+    const chosen = links.find((link) => link.id === categoryId);
+
+    return (
+        <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] rounded-2xl border-2 border-[#C59B27]/50 p-5 flex flex-col gap-3">
+            <h4 className="text-base font-black text-[#4A121A] uppercase tracking-wide">
+                {d.internationalTitle}
+            </h4>
+            <p className="text-xs text-neutral-700 leading-relaxed">{d.internationalBlurb}</p>
+            <p className="text-[11px] text-neutral-600 leading-relaxed italic">{d.internationalNote}</p>
+
+            {links.length > 0 ? (
+                <div className="mt-auto pt-1 space-y-3">
+                    <label className="block">
+                        <span className="block text-[11px] font-black uppercase tracking-wider text-[#722332] mb-1.5">
+                            {d.internationalSelectLabel}
+                        </span>
+                        <select
+                            value={categoryId}
+                            onChange={(event) => setCategoryId(event.target.value)}
+                            className="w-full rounded-xl border border-[#C59B27]/50 bg-white px-3.5 py-2.5 text-sm text-[#2F0B11] focus:border-[#722332] focus:outline-none focus:ring-2 focus:ring-[#C59B27]/30 transition-colors"
+                        >
+                            <option value="">{d.internationalSelectPlaceholder}</option>
+                            {links.map((link) => (
+                                <option key={link.id} value={link.id}>{link.label}</option>
+                            ))}
+                        </select>
+                    </label>
+
+                    {chosen && (
+                        <a
+                            href={chosen.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex w-full items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 border-[#C59B27] bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] shadow-sm transition-all"
+                        >
+                            <span>{d.internationalPayButton}</span>
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                        </a>
+                    )}
+                </div>
+            ) : (
+                <p className="mt-auto text-[11.5px] font-bold text-[#8A4B1C] bg-[#FDF3E7] border border-[#8A4B1C]/30 rounded-xl px-4 py-3 leading-relaxed">
+                    {d.internationalPendingNote}
+                </p>
+            )}
+        </div>
+    );
+}
+
+function RouteCard({ title, blurb, note, actions = [], pendingNote, emphasis = false }) {
     const buttonClass = emphasis
         ? 'bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] border-[#C59B27]'
         : 'bg-white !text-[#722332] hover:bg-[#FAF5EB] border-[#C59B27]';
@@ -242,16 +302,6 @@ function RouteCard({ title, blurb, note, actions = [], pendingNote, warning, emp
             <h4 className="text-base font-black text-[#4A121A] uppercase tracking-wide">{title}</h4>
             <p className="text-xs text-neutral-700 leading-relaxed">{blurb}</p>
             {note && <p className="text-[11px] text-neutral-600 leading-relaxed italic">{note}</p>}
-
-            {/*
-                Buttons that look ready but go nowhere are worse than no
-                buttons, so while they are placeholders the card says so.
-            */}
-            {warning && (
-                <p className="text-[11.5px] font-black uppercase tracking-wider text-[#8A1C1C] bg-[#FDF0F0] border-2 border-[#8A1C1C]/40 rounded-xl px-4 py-2.5 leading-relaxed">
-                    {warning}
-                </p>
-            )}
 
             <div className="flex flex-col gap-2 mt-auto pt-1">
                 {actions.length > 0 ? (
