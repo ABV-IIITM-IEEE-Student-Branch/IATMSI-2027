@@ -41,7 +41,6 @@ export const sectionManifest = [
     { id: 'paperSubmissionSection', component: 'PaperSubmissionSection', requiresData: ['submissionData'] },
     { id: 'registrationSection', component: 'RegistrationSection', requiresData: ['registrationData'] },
     { id: 'registrationFormSection', component: 'RegistrationFormSection', requiresData: ['paymentData'] },
-    { id: 'paymentStatusSection', component: 'PaymentStatusSection', requiresData: ['paymentData'] },
     { id: 'tracksGridSection', component: 'TracksGridSection', requiresData: ['tracksData'] },
     { id: 'submissionCtaSection', component: 'SubmissionCtaSection', requiresData: ['siteConfig', 'tracksData'] },
 
@@ -227,18 +226,6 @@ export const pageRegistry = [
             { sectionId: 'hero', props: { title: "Registration", subtitle: `Register for IATMSI-2027 and secure your participation in this premier international conference.` } },
             { sectionId: 'registrationFormSection', props: {} },
             { sectionId: 'registrationSection', props: {} }
-        ]
-    },
-
-    // --- REGISTRATION PAYMENT RESULT ---
-    // Where Cashfree returns the payer after checkout. Not in the navigation:
-    // it is only meaningful with an order id in the query string.
-    {
-        id: 'payment-status',
-        title: 'REGISTRATION PAYMENT',
-        path: '/registration/payment',
-        sections: [
-            { sectionId: 'paymentStatusSection', props: {} }
         ]
     },
 

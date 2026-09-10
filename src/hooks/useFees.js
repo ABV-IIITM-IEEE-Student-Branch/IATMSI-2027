@@ -32,10 +32,3 @@ export function useFees() {
 
     return { fees, loaded: fees !== null, failed };
 }
-
-/** Formats an amount the same way the server does on the receipt. */
-export function formatFee(amount, currency) {
-    if (typeof amount !== 'number') return '—';
-    const value = amount.toLocaleString(currency === 'INR' ? 'en-IN' : 'en-US');
-    return currency === 'INR' ? `₹${value}` : `$${value}`;
-}

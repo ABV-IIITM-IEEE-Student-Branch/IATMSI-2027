@@ -34,7 +34,6 @@ import AboutInstitute from '../components/sections/AboutInstitute';
 import PlaceholderSection from '../components/sections/PlaceholderSection';
 import VisitorStatsSection from '../components/sections/VisitorStatsSection';
 import RegistrationFormSection from '../components/sections/RegistrationFormSection';
-import PaymentStatusSection from '../components/sections/PaymentStatusSection';
 import PolicySection from '../components/sections/PolicySection';
 
 // Home Page Specific Sections
@@ -94,7 +93,6 @@ export const sectionResolver = {
     placeholder: PlaceholderSection,
     visitorStatsSection: VisitorStatsSection,
     registrationFormSection: RegistrationFormSection,
-    paymentStatusSection: PaymentStatusSection,
     policySection: PolicySection,
 
     // Home Page Sections

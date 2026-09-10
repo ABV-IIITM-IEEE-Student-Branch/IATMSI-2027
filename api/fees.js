@@ -1,13 +1,11 @@
 /**
  * The published fee table, for display.
  *
- * The page shows prices from here rather than keeping its own copy, so the
- * amount someone reads is by construction the amount they will be charged. A
- * second table in `src/data` would be a table that can disagree with the one
- * doing the charging, and the disagreement would surface at the worst moment.
- *
- * Read-only, and it decides nothing: `create-order.js` recalculates the amount
- * from the same module rather than trusting anything that came back from here.
+ * Kept as an endpoint rather than moved into `src/data` for one reason: the
+ * forty amounts here are covered by tests that assert the table is complete,
+ * that regular never undercuts early-bird, and that a member never pays more
+ * than a non-member. Retyping them into a data file to save a request would
+ * trade that for nothing.
  */
 
 import {
@@ -20,7 +18,6 @@ import {
   REGIONS,
   getPeriod,
 } from './_lib/fees.js';
-import { cashfreeCredentials, isProduction } from './_lib/cashfree.js';
 
 export default function handler(req, res) {
   if (req.method !== 'GET') {
@@ -42,16 +39,5 @@ export default function handler(req, res) {
     table: FEE_TABLE,
     currentPeriod: getPeriod(),
     earlyBirdCutoff: EARLY_BIRD_CUTOFF,
-
-    // Reported so the page can say so out loud.
-    //
-    // Left on sandbox in production, everything looks like it works: checkout
-    // completes, the webhook is signed with the sandbox secret and verifies,
-    // and registrations are confirmed — while no money moves at all. Nothing
-    // in the flow would reveal that, so it is stated on the page instead.
-    // Which mode the gateway is in is not a secret; the keys are, and they
-    // stay on the server.
-    mode: isProduction() ? 'production' : 'sandbox',
-    paymentsConfigured: Boolean(cashfreeCredentials()),
   });
 }

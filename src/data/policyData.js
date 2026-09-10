@@ -1,7 +1,9 @@
 // Policy pages - IATMSI-2027
 //
-// Required by the payment gateway before a merchant account is approved, and
-// linked from the footer where its reviewers look for them.
+// Linked from the footer on every page. Payment now happens away from this
+// site — a registration form for delegates from India and Nepal, and payment
+// links for everyone else — so these describe a site that shows fees and
+// forwards people, not one that takes money.
 //
 // Everything here restates what the conference already publishes — the
 // registration guidelines on /registration and the fee table — rather than
@@ -48,9 +50,9 @@ export const termsData = {
         {
             heading: 'Payments',
             paragraphs: [
-                'Card, net banking and wallet payments are processed by Cashfree Payments. Your card details are entered on their secure page and are never seen or stored by this website.',
-                'A registration is confirmed only once the payment has been confirmed by the payment gateway. Reaching the confirmation page is not by itself proof of payment.',
-                'Where payment is made by UPI transfer, the registration is confirmed by the registration committee after the transfer has been verified against the conference account.',
+                'No payment is taken on this website. Delegates from India and Nepal transfer the fee to the conference account and record the transaction on the registration form; delegates registering from elsewhere pay through the payment link issued for their category.',
+                'A registration is confirmed by the registration committee once the payment has been verified against the conference account. Submitting the form, or completing a payment, is not by itself confirmation.',
+                'Please keep your transaction reference until your registration has been confirmed.',
             ],
         },
         {
@@ -69,7 +71,7 @@ export const termsData = {
         {
             heading: 'Contact',
             paragraphs: [
-                `Questions about these terms can be sent to ${CONTACT_EMAIL}. Please include your Order ID if your question concerns a registration you have already paid for.`,
+                `Questions about these terms can be sent to ${CONTACT_EMAIL}. Please include your payment transaction reference if your question concerns a registration you have already paid for.`,
             ],
         },
     ],
@@ -92,9 +94,10 @@ export const privacyData = {
         {
             heading: 'What we collect when you register',
             paragraphs: [
-                'When you register for the conference we store the details you enter on the form: your name, email address, phone number, and — where you provide them — your affiliation, country, IEEE membership number, paper ID and paper title.',
-                'Alongside these we store the registration category you selected, the fee that applied, the currency, your payment status, and the payment reference returned by the payment gateway.',
-                'We also record the country your registration request came from, as reported by our hosting provider. This is used only so the organising committee can see where registrations originate; it is never used to decide what you are charged.',
+                'This website does not collect or store registration details. It shows the fee table and links you to where registration happens.',
+                'Delegates from India and Nepal register on a Google Form. The details entered there — name, email address, affiliation, paper details and the payment transaction reference — are held in Google Forms and are visible to the organising committee. Google processes them under its own privacy policy.',
+                'Delegates registering from elsewhere pay through a payment link. The details they enter are held by the payment provider operating that link, under that provider’s privacy policy, and the transaction record is shared with the organising committee.',
+                'In both cases the organising committee uses these details to administer your registration, produce your certificate and proceedings access, and contact you about the conference.',
             ],
         },
         {
@@ -102,7 +105,7 @@ export const privacyData = {
             // card on an unfamiliar site are actually asking.
             heading: 'What we do not collect',
             paragraphs: [
-                'We never see or store your card number, CVV, UPI PIN, or any other payment credential. Card and net banking payments are completed on Cashfree Payments\' own secure page; this website receives only a reference confirming whether the payment succeeded.',
+                'We never see or store your card number, CVV, UPI PIN, or any other payment credential. No payment is processed on this website at all.',
                 'This website does not use advertising trackers, analytics services, or social media tracking pixels. We do not build profiles of visitors and we do not sell or rent anyone\'s details.',
             ],
         },
@@ -114,19 +117,11 @@ export const privacyData = {
             ],
         },
         {
-            // Disclosed because the key is derived from an IP address, which is
-            // personal data in most jurisdictions even when it is transient.
-            heading: 'Temporary technical records',
-            paragraphs: [
-                'To prevent automated abuse of the registration form, we briefly record a counter against the network address a request came from. This record holds no other information, is not linked to your registration, and is discarded automatically within ten minutes.',
-            ],
-        },
-        {
             heading: 'Who your details are shared with',
             paragraphs: [
-                'Your registration details are used by the IATMSI-2027 organising committee to administer your registration, produce your certificate and proceedings access, and contact you about the conference.',
-                'We rely on a small number of service providers to run this site: Cashfree Payments processes payments; Supabase stores registration records; Vercel hosts the website; Upstash stores the visitor counter. Where receipt emails are enabled, they are sent through an email provider. These providers process data on our behalf and are not permitted to use it for their own purposes.',
-                'Some pages load content hosted by Google — documents and images from Google Drive, fonts, an embedded map on the contact page — and the UPI payment route links to a Google Form. Opening those means your browser contacts Google, subject to Google\'s own privacy policy.',
+                'Two providers are involved in running this website itself: Vercel hosts it, and Upstash stores the visitor counter described above. Neither receives registration details, because this site does not hold any.',
+                'Registration details are held by Google Forms and by the payment provider, as described above, and are seen by the IATMSI-2027 organising committee.',
+                'Some pages load content hosted by Google — documents and images from Google Drive, fonts, and an embedded map on the contact page. Opening those means your browser contacts Google, subject to Google\'s own privacy policy.',
                 'We do not sell your details, and we do not share them with anyone else except where we are required to by law.',
             ],
         },
@@ -140,7 +135,7 @@ export const privacyData = {
         {
             heading: 'Your choices',
             paragraphs: [
-                `You may ask us what we hold about you, ask for it to be corrected, or ask for it to be deleted. Write to ${CONTACT_EMAIL} from the email address you registered with, and include your Order ID.`,
+                `You may ask us what we hold about you, ask for it to be corrected, or ask for it to be deleted. Write to ${CONTACT_EMAIL} from the email address you registered with, and include your payment transaction reference.`,
                 'Please note that we may be unable to delete records of a completed payment where we are required to retain them, and that deleting a registration record may mean we can no longer confirm your attendance or issue a certificate.',
             ],
         },
@@ -187,7 +182,7 @@ export const refundsData = {
             heading: 'Payments that failed or were charged twice',
             paragraphs: [
                 'If money left your account but your registration was not confirmed, the transaction did not complete. Amounts debited against a failed or incomplete transaction are reversed automatically by your bank or card issuer, usually within 5 to 7 working days.',
-                'If you were charged twice for the same registration, or a reversal has not appeared after 7 working days, write to us with your Order ID and the date and amount of the transaction. Confirmed duplicate charges are refunded in full to the original payment method.',
+                'If you were charged twice for the same registration, or a reversal has not appeared after 7 working days, write to us with your payment transaction reference and the date and amount of the transaction. Confirmed duplicate charges are refunded in full to the original payment method.',
                 'Approved refunds are processed within 7 working days of confirmation. The time taken for the amount to appear in your account after that depends on your bank or card issuer.',
             ],
         },
@@ -206,7 +201,7 @@ export const refundsData = {
         {
             heading: 'How to reach us',
             paragraphs: [
-                `Write to ${CONTACT_EMAIL} with your Order ID, the registered name and email address, and the date and amount of the payment. Queries about payments are answered by the registration committee.`,
+                `Write to ${CONTACT_EMAIL} with your payment transaction reference, the registered name and email address, and the date and amount of the payment. Queries about payments are answered by the registration committee.`,
             ],
         },
     ],
