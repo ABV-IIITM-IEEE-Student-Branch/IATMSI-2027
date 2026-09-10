@@ -63,7 +63,27 @@ export const registrationFormData = {
      * To add them: one { id, label, url } per category, ids matching the
      * categories in the fee table above.
      */
-    internationalLinks: [],
+    internationalLinks: [
+        { id: 'tutorial', label: 'Tutorial / Workshop Attendee', url: 'https://example.com/iatmsi-2027/tutorial' },
+        { id: 'student', label: 'Student Author', url: 'https://example.com/iatmsi-2027/student' },
+        { id: 'professional', label: 'Professional Author', url: 'https://example.com/iatmsi-2027/professional' },
+        { id: 'coauthor_without_kit', label: 'Co-Author / Attendee — without kit', url: 'https://example.com/iatmsi-2027/coauthor-no-kit' },
+        { id: 'coauthor_with_kit', label: 'Co-Author / Attendee — with kit', url: 'https://example.com/iatmsi-2027/coauthor-with-kit' },
+    ],
+
+    /**
+     * The links above are placeholders on example.com, not real ones.
+     *
+     * While this is true the card carries a visible warning. That is the point:
+     * a page that looks finished but sends people to example.com is worse than
+     * one that admits it is not ready, and this site is deployed straight from
+     * main — so the mistake would be live rather than caught in review.
+     *
+     * SET TO FALSE once real links replace them, and the warning disappears.
+     */
+    internationalLinksArePlaceholders: true,
+    internationalPlaceholderWarning: "These are placeholder links and do not take payment. Real payment links have not been issued yet.",
+
     internationalPendingNote: "Payment links for international delegates are being finalised. Please check back shortly, or write to iatmsi@iiitm.ac.in and the organising committee will send you the link for your category.",
 
     feeNote: "All fees are inclusive of applicable taxes. Any payment gateway charges, if any, are borne by the registrant.",

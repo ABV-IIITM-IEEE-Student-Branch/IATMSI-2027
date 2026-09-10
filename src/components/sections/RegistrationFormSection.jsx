@@ -216,6 +216,7 @@ export default function RegistrationFormSection() {
                         note={(d.internationalLinks || []).length ? d.internationalNote : null}
                         actions={d.internationalLinks || []}
                         pendingNote={d.internationalPendingNote}
+                        warning={d.internationalLinksArePlaceholders ? d.internationalPlaceholderWarning : null}
                     />
                 </div>
 
@@ -231,7 +232,7 @@ export default function RegistrationFormSection() {
  * With no actions it shows `pendingNote` instead. An empty card would read as
  * a broken page rather than as one where something has not opened yet.
  */
-function RouteCard({ title, blurb, note, actions = [], pendingNote, emphasis = false }) {
+function RouteCard({ title, blurb, note, actions = [], pendingNote, warning, emphasis = false }) {
     const buttonClass = emphasis
         ? 'bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] border-[#C59B27]'
         : 'bg-white !text-[#722332] hover:bg-[#FAF5EB] border-[#C59B27]';
@@ -241,6 +242,16 @@ function RouteCard({ title, blurb, note, actions = [], pendingNote, emphasis = f
             <h4 className="text-base font-black text-[#4A121A] uppercase tracking-wide">{title}</h4>
             <p className="text-xs text-neutral-700 leading-relaxed">{blurb}</p>
             {note && <p className="text-[11px] text-neutral-600 leading-relaxed italic">{note}</p>}
+
+            {/*
+                Buttons that look ready but go nowhere are worse than no
+                buttons, so while they are placeholders the card says so.
+            */}
+            {warning && (
+                <p className="text-[11.5px] font-black uppercase tracking-wider text-[#8A1C1C] bg-[#FDF0F0] border-2 border-[#8A1C1C]/40 rounded-xl px-4 py-2.5 leading-relaxed">
+                    {warning}
+                </p>
+            )}
 
             <div className="flex flex-col gap-2 mt-auto pt-1">
                 {actions.length > 0 ? (
