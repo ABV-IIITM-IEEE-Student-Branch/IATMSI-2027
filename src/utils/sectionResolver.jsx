@@ -34,7 +34,6 @@ import AboutInstitute from '../components/sections/AboutInstitute';
 import PlaceholderSection from '../components/sections/PlaceholderSection';
 import VisitorStatsSection from '../components/sections/VisitorStatsSection';
 import RegistrationFormSection from '../components/sections/RegistrationFormSection';
-import PolicySection from '../components/sections/PolicySection';
 
 // Home Page Specific Sections
 import AboutConfSection from '../components/sections/AboutConfSection';
@@ -93,7 +92,6 @@ export const sectionResolver = {
     placeholder: PlaceholderSection,
     visitorStatsSection: VisitorStatsSection,
     registrationFormSection: RegistrationFormSection,
-    policySection: PolicySection,
 
     // Home Page Sections
     aboutConfSection: AboutConfSection,

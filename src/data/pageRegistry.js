@@ -54,8 +54,6 @@ export const sectionManifest = [
     { id: 'patronChairsSection', component: 'PatronChairsSection', requiresData: ['homeData'] },
     { id: 'supportersSection', component: 'SupportersSection', requiresData: ['homeData'] },
 
-    { id: 'policySection', component: 'PolicySection', requiresData: ['policyData'] },
-
     { id: 'divider', component: 'Divider', requiresData: [] },
     { id: 'placeholder', component: 'PlaceholderSection', requiresData: [] },
 ];
@@ -355,32 +353,6 @@ export const pageRegistry = [
         sections: [
             { sectionId: 'hero', props: { title: "Visitors", subtitle: `Live counts of visits to this site, by country.` } },
             { sectionId: 'visitorStatsSection', props: {} }
-        ]
-    },
-
-    // --- POLICIES (payment gateway compliance) ---
-    {
-        id: 'terms',
-        title: 'TERMS AND CONDITIONS',
-        path: '/terms',
-        sections: [
-            { sectionId: 'policySection', props: { policy: 'terms' } }
-        ]
-    },
-    {
-        id: 'privacy',
-        title: 'PRIVACY POLICY',
-        path: '/privacy',
-        sections: [
-            { sectionId: 'policySection', props: { policy: 'privacy' } }
-        ]
-    },
-    {
-        id: 'refunds',
-        title: 'REFUNDS AND CANCELLATIONS',
-        path: '/refunds',
-        sections: [
-            { sectionId: 'policySection', props: { policy: 'refunds' } }
         ]
     },
 

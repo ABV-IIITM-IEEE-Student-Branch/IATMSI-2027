@@ -121,9 +121,6 @@ export const footerLabels = {
     venue: "Venue",
     email: "Email",
     phone: "Phone",
-    terms: "Terms & Conditions",
-    privacy: "Privacy Policy",
-    refunds: "Refunds & Cancellations",
     contact: "Contact Us",
 };
 
