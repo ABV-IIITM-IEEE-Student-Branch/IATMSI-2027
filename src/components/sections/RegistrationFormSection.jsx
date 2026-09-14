@@ -211,7 +211,7 @@ export default function RegistrationFormSection() {
                         actions={[{ id: 'upi', label: d.indianButton, url: d.indianFormUrl }]}
                         emphasis
                     />
-                    <InternationalCard d={d} />
+                    <InternationalCard d={d} fees={fees} />
                 </div>
 
                 <p className="text-[11.5px] font-bold text-[#722332]">{d.refundNote}</p>
@@ -237,11 +237,25 @@ export default function RegistrationFormSection() {
  * The button appears only once a category is chosen; there is nowhere for it
  * to lead before that.
  */
-function InternationalCard({ d }) {
+function InternationalCard({ d, fees }) {
     const [categoryId, setCategoryId] = useState('');
+    const [membership, setMembership] = useState('');
 
     const links = d.internationalLinks || [];
-    const chosen = links.find((link) => link.id === categoryId);
+    const category = links.find((link) => link.id === categoryId);
+    const url = category && membership ? category.urls?.[membership] : null;
+
+    /*
+        The fee for what was chosen, read from the same table above rather than
+        written beside the link. Each Cashfree form is fixed at one amount, so
+        this is the payer's chance to notice a link pointing at the wrong one —
+        they see the figure here and again on Cashfree's page, and only a
+        mismatch between the two would reveal it.
+    */
+    const amount =
+        fees && categoryId && membership
+            ? fees.table?.[categoryId]?.[fees.currentPeriod]?.international?.[membership]
+            : null;
 
     return (
         <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] rounded-2xl border-2 border-[#C59B27]/50 p-5 flex flex-col gap-3">
@@ -269,18 +283,44 @@ function InternationalCard({ d }) {
                         </select>
                     </label>
 
-                    {chosen && (
-                        <a
-                            href={chosen.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex w-full items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 border-[#C59B27] bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] shadow-sm transition-all"
+                    <label className="block">
+                        <span className="block text-[11px] font-black uppercase tracking-wider text-[#722332] mb-1.5">
+                            {d.internationalMembershipLabel}
+                        </span>
+                        <select
+                            value={membership}
+                            onChange={(event) => setMembership(event.target.value)}
+                            className="w-full rounded-xl border border-[#C59B27]/50 bg-white px-3.5 py-2.5 text-sm text-[#2F0B11] focus:border-[#722332] focus:outline-none focus:ring-2 focus:ring-[#C59B27]/30 transition-colors"
                         >
-                            <span>{d.internationalPayButton}</span>
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
-                        </a>
+                            <option value="">{d.internationalMembershipPlaceholder}</option>
+                            <option value="ieee">{d.memberShort}</option>
+                            <option value="non_ieee">{d.nonMemberShort}</option>
+                        </select>
+                    </label>
+
+                    {url && (
+                        <>
+                            {typeof amount === 'number' && (
+                                <p className="flex items-baseline justify-between gap-2 text-xs bg-white border border-[#C59B27]/40 rounded-xl px-4 py-2.5">
+                                    <span className="font-black uppercase tracking-wider text-[#722332]">
+                                        {d.internationalAmountLabel}
+                                    </span>
+                                    <span className="text-lg font-black text-[#4A121A]">${amount}</span>
+                                </p>
+                            )}
+
+                            <a
+                                href={url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex w-full items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 border-[#C59B27] bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] shadow-sm transition-all"
+                            >
+                                <span>{d.internationalPayButton}</span>
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </>
                     )}
                 </div>
             ) : (

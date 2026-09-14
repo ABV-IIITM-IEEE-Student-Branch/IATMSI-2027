@@ -53,28 +53,66 @@ export const registrationFormData = {
     internationalNote: "Your registration is confirmed once the payment is received.",
 
     /**
-     * One entry per category, each with the link the organisers issue for it.
+     * A Cashfree payment form per category and membership.
      *
-     * Empty until those links exist. While it is empty the card shows
-     * `internationalPendingNote` instead of buttons — an empty list of ways to
-     * pay would otherwise read as a broken page rather than as one where
-     * something has not opened yet.
+     * Each form is fixed at one amount, so there is a link for every priced
+     * combination rather than one per category — which is why the card asks
+     * two questions before it shows a button.
      *
-     * To add them: one { id, label, url } per category, ids matching the
-     * categories in the fee table above.
+     * `id` matches the category ids in the fee table, so the amount shown
+     * beside the button is read from the same source the table renders from.
+     * A link pointing at the wrong form is then visible rather than silent:
+     * the payer sees the fee here and the amount on Cashfree's page, and a
+     * mismatch between them is the one thing they are placed to notice.
      */
     internationalLinks: [
-        { id: 'tutorial', label: 'Tutorial / Workshop Attendee', url: 'https://example.com/iatmsi-2027/tutorial' },
-        { id: 'student', label: 'Student Author', url: 'https://example.com/iatmsi-2027/student' },
-        { id: 'professional', label: 'Professional Author', url: 'https://example.com/iatmsi-2027/professional' },
-        { id: 'coauthor_without_kit', label: 'Co-Author / Attendee — without kit', url: 'https://example.com/iatmsi-2027/coauthor-no-kit' },
-        { id: 'coauthor_with_kit', label: 'Co-Author / Attendee — with kit', url: 'https://example.com/iatmsi-2027/coauthor-with-kit' },
+        {
+            id: 'tutorial',
+            label: 'Tutorial / Workshop Attendee',
+            urls: {
+                ieee: 'https://payments.cashfree.com/forms/tutorial',
+                non_ieee: 'https://payments.cashfree.com/forms/tutorialnonieee1',
+            },
+        },
+        {
+            id: 'student',
+            label: 'Student Author',
+            urls: {
+                ieee: 'https://payments.cashfree.com/forms/studentieee',
+                non_ieee: 'https://payments.cashfree.com/forms/studentnonieee',
+            },
+        },
+        {
+            id: 'professional',
+            label: 'Professional Author',
+            urls: {
+                ieee: 'https://payments.cashfree.com/forms/professional_IEEE',
+                non_ieee: 'https://payments.cashfree.com/forms/professional_nonIEEE',
+            },
+        },
+        {
+            id: 'coauthor_without_kit',
+            label: 'Co-Author / Attendee — without conference kit',
+            urls: {
+                ieee: 'https://payments.cashfree.com/forms/CoAuthorsieee',
+                non_ieee: 'https://payments.cashfree.com/forms/coauthors',
+            },
+        },
+        {
+            id: 'coauthor_with_kit',
+            label: 'Co-Author / Attendee — with conference kit',
+            urls: {
+                ieee: 'https://payments.cashfree.com/forms/KitCoAuthorsieee',
+                non_ieee: 'https://payments.cashfree.com/forms/KitCoAuthorsnonieee',
+            },
+        },
     ],
 
-    // Shown after a category is chosen, so the button always names one amount
-    // rather than asking people to pick the right link out of five.
     internationalSelectLabel: "Registration Category",
     internationalSelectPlaceholder: "Select your category…",
+    internationalMembershipLabel: "IEEE Membership",
+    internationalMembershipPlaceholder: "Select your membership status…",
+    internationalAmountLabel: "Amount to pay",
     internationalPayButton: "Proceed to Payment",
 
     internationalPendingNote: "Payment links for international delegates are being finalised. Please check back shortly, or write to iatmsi@iiitm.ac.in and the organising committee will send you the link for your category.",
