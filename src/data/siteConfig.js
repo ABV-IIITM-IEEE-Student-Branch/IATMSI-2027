@@ -29,20 +29,20 @@ export const siteConfig = {
     instituteUrl: 'https://iiitm.ac.in',
   },
 
-  // External service links
   /**
    * Pages that work but are not being advertised yet.
    *
-   * Registration is finished and tested, but the payment gateway is still in
-   * test mode — so it must not be findable by browsing, while remaining
-   * reachable by URL for whoever is testing it. Unlisted, not blocked.
+   * Unlisted, not blocked: a path here still resolves for anyone holding the
+   * link, it just cannot be found by browsing. Every link to a page is driven
+   * from this one array — top navigation, mobile menu, footer quick links, the
+   * Registration button in the header, and the one on the home page — so
+   * listing or unlisting a page is a single edit rather than five.
    *
-   * TO OPEN REGISTRATION: empty this array. That is the whole change — every
-   * link to it (top navigation, mobile menu, footer, the header Registration
-   * button, the one on the home page) is driven from here. Do it at the same
-   * time as setting CASHFREE_MODE=production, not before.
+   * Empty: registration is open.
    */
-  unlistedPaths: ['/registration'],
+  unlistedPaths: [],
+
+  // External service links
 
   externalLinks: {
     submissionPortal: {
