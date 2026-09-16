@@ -1,4 +1,5 @@
 import { renderRichText } from '../../utils/richText';
+import { fieldStyleClass } from '../../utils/fieldStyle';
 
 // Vertical Ornament Bar Sub-component
 function VerticalBarOrnament({ className = '' }) {
@@ -72,10 +73,16 @@ export function SectionHeader({
     subtitle,
     centered = true,
     className = '',
+    // Field ids for the two strings, so a size or alignment set in the visual
+    // editor reaches the published page. Optional: without them the header
+    // renders exactly as before, which is why passing them can be done one
+    // section at a time.
+    titleFieldId,
+    subtitleFieldId,
 }) {
     return (
         <div className={`mb-10 md:mb-12 ${centered ? 'text-center' : ''} ${className}`}>
-            <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-[#4A121A] tracking-wider uppercase mb-3">
+            <h2 className={`text-xl md:text-3xl lg:text-4xl font-black text-[#4A121A] tracking-wider uppercase mb-3 ${fieldStyleClass(titleFieldId)}`}>
                 {renderRichText(title)}
             </h2>
             
@@ -89,7 +96,7 @@ export function SectionHeader({
             </div>
 
             {subtitle && (
-                <p className="text-sm md:text-base text-neutral-700 max-w-3xl mx-auto leading-relaxed font-normal mt-2">
+                <p className={`text-sm md:text-base text-neutral-700 max-w-3xl mx-auto leading-relaxed font-normal mt-2 ${fieldStyleClass(subtitleFieldId)}`}>
                     {renderRichText(subtitle)}
                 </p>
             )}
