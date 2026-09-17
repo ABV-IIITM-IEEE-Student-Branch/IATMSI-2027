@@ -11,8 +11,14 @@ export default function DynamicPage({ pageId }) {
         return <div className="p-8 text-center text-red-500 font-bold">Error: Page "{pageId}" not found in registry.</div>;
     }
 
-    const heroSection = pageConfig.sections.find(s => s.sectionId === 'hero');
-    const otherSections = pageConfig.sections.filter(s => s.sectionId !== 'hero');
+    // Each section carries its position in pageConfig.sections, not its
+    // position on screen. The hero is lifted out and rendered above the rest,
+    // so the two stop matching after the first section — and the position is
+    // what a visual editor adds, removes and reorders by. Getting it from the
+    // map below would aim every edit one slot off.
+    const sections = pageConfig.sections.map((section, index) => ({ section, index }));
+    const heroSection = sections.find(s => s.section.sectionId === 'hero');
+    const otherSections = sections.filter(s => s.section.sectionId !== 'hero');
 
     return (
         <>
@@ -31,7 +37,12 @@ export default function DynamicPage({ pageId }) {
             {/* Hero Section and its below-the-fold components */}
             {heroSection && (
                 <div className="relative">
-                    <SectionRenderer key="hero" section={heroSection} />
+                    <SectionRenderer
+                        key="hero"
+                        section={heroSection.section}
+                        index={heroSection.index}
+                        pageId={pageConfig.id}
+                    />
                     <LatestUpdates />
                     <div className="sticky top-0 z-40">
                         <NavigationMenu />
@@ -41,10 +52,12 @@ export default function DynamicPage({ pageId }) {
 
             {/* Rest of the page sections */}
             <div className="flex flex-col relative z-10">
-                {otherSections.map((section, index) => (
-                    <SectionRenderer 
-                        key={`${section.sectionId}-${index}`} 
-                        section={section} 
+                {otherSections.map(({ section, index }) => (
+                    <SectionRenderer
+                        key={`${section.sectionId}-${index}`}
+                        section={section}
+                        index={index}
+                        pageId={pageConfig.id}
                     />
                 ))}
             </div>
@@ -53,7 +66,7 @@ export default function DynamicPage({ pageId }) {
 }
 
 // Helper to render a section
-function SectionRenderer({ section }) {
+function SectionRenderer({ section, index, pageId }) {
     const Component = sectionResolver[section.sectionId];
     if (!Component) {
         console.warn(`Component not found for sectionId: ${section.sectionId}`);
@@ -67,12 +80,23 @@ function SectionRenderer({ section }) {
     const manifestEntry = sectionManifest.find(s => s.id === section.sectionId);
     const sources = manifestEntry?.requiresData ?? [];
 
-    const rendered = <Component {...section.props} />;
-    if (sources.length === 0) return rendered;
-
+    // The page and position this section sits at in pageRegistry, which is
+    // what a visual editor needs to move or remove it. Always emitted, even
+    // for a section with no data files of its own: a section can be
+    // rearranged whether or not any of its text is editable.
+    //
+    // Because the wrapper is `display: contents` it has no box of its own, so
+    // an editor sizing an overlay to it has to take the union of its
+    // children's rectangles rather than its own.
     return (
-        <div data-weavr-source={sources.join(' ')} style={{ display: 'contents' }}>
-            {rendered}
+        <div
+            data-weavr-page={pageId}
+            data-weavr-section={index}
+            data-weavr-section-id={section.sectionId}
+            data-weavr-source={sources.length ? sources.join(' ') : undefined}
+            style={{ display: 'contents' }}
+        >
+            <Component {...section.props} />
         </div>
     );
 }
