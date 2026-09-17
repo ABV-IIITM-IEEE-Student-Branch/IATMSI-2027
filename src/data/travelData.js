@@ -40,7 +40,7 @@ export const visaInfo = {
     'Visa processing typically takes 2–3 weeks.',
   ],
   processingTime: '3-5 Days for e-Conference, 2-3 Weeks for Traditional.',
-  warningNote: 'We strongly recommend applying for your visa at least **8–10 weeks** before the conference dates (May 20-22, 2027) to account for processing delays. For any assistance, contact us at iatmsi2027@iiitm.ac.in.',
+  warningNote: 'We strongly recommend applying for your visa at least **8–10 weeks** before the conference dates (May 20–22, 2027) to account for processing delays. For any assistance, contact us at iatmsi2027@iiitm.ac.in.',
 };
 
 export const venueInfo = {
