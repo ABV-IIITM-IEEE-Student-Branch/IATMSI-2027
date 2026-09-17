@@ -1,5 +1,6 @@
 import { pageRegistry, sectionManifest } from '../data/pageRegistry';
 import { sectionResolver } from '../utils/sectionResolver';
+import { appearanceClass, appearanceAttributes } from '../utils/sectionAppearance';
 import NavigationMenu from '../components/layout/NavigationMenu';
 import LatestUpdates from '../components/sections/LatestUpdates';
 import Navbar from '../components/layout/Navbar';
@@ -85,18 +86,28 @@ function SectionRenderer({ section, index, pageId }) {
     // for a section with no data files of its own: a section can be
     // rearranged whether or not any of its text is editable.
     //
-    // Because the wrapper is `display: contents` it has no box of its own, so
-    // an editor sizing an overlay to it has to take the union of its
-    // children's rectangles rather than its own.
+    // While nothing is styled the wrapper is `display: contents` and so has no
+    // box of its own — an editor sizing an overlay to it takes the union of
+    // its children's rectangles. Setting an appearance makes it a real box,
+    // because a background has to be painted on something.
+    //
+    // `appearance` belongs to the editor, not to the component, so it is taken
+    // out of the props rather than spread onto a section that knows nothing
+    // about it.
+    const { appearance, ...componentProps } = section.props ?? {};
+    const presentation = appearanceClass(appearance);
+
     return (
         <div
             data-weavr-page={pageId}
             data-weavr-section={index}
             data-weavr-section-id={section.sectionId}
             data-weavr-source={sources.length ? sources.join(' ') : undefined}
-            style={{ display: 'contents' }}
+            {...appearanceAttributes(appearance)}
+            className={presentation || undefined}
+            style={presentation ? undefined : { display: 'contents' }}
         >
-            <Component {...section.props} />
+            <Component {...componentProps} />
         </div>
     );
 }
