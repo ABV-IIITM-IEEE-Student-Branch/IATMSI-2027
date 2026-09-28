@@ -40,15 +40,33 @@ export const registrationFormData = {
     chooserTitle: "How To Register",
     chooserNote: "Choose the option that applies to you. Fees are charged in Indian Rupees (₹) for delegates from India and Nepal, and in US Dollars ($) for everyone else.",
 
-    // --- India & Nepal: UPI transfer, then the registration form ------------
-    indianTitle: "Indian & Nepali Delegates",
-    indianBlurb: "Transfer the fee for your category to the conference UPI account, then fill in the registration form with your transaction reference.",
-    indianNote: "Confirmed manually by the registration committee. Keep your UPI transaction reference safe.",
-    indianButton: "Pay by UPI & Fill Form",
-    indianFormUrl: "https://forms.gle/6W79XUvjbeHZxRPM6",
+    // --- Indian & Nepali Delegates: Bank transfer only, then the registration form ------------
+    indianNepaliTitle: "Indian & Nepali Delegates",
+    indianNepaliBadge: "Bank Transfer Only",
+    indianNepaliBlurb: "Transfer the fee for your category via direct bank transfer (NEFT / RTGS / IMPS / SWIFT) using the banking details below, then fill in the registration form with your transaction reference.",
+    indianNepaliNote: "Confirmed manually by the registration committee. Keep your bank transfer / UTR transaction reference safe.",
+    indianNepaliButton: "Fill Registration Form",
+    indianNepaliFormUrl: "https://forms.gle/6W79XUvjbeHZxRPM6",
+    bankDetails: {
+        accountHolder: "Vidhilekha soft solutions Pvt ltd",
+        bankName: "HDFC",
+        accountNumber: "50200071655472",
+        ifscCode: "HDFC0003740",
+        swiftCode: "HDFCINBB",
+    },
+    bankLabels: {
+        accountHolder: "A/c Holder",
+        bankName: "Bank",
+        accountNumber: "A/c Number",
+        ifscCode: "IFSC Code",
+        swiftCode: "SWIFT Code",
+        copy: "Copy",
+        copied: "Copied!",
+    },
 
     // --- International: one payment link per category -----------------------
     internationalTitle: "International Delegates",
+    internationalBadge: "Online Payment",
     internationalBlurb: "Pay online using the payment link for your registration category.",
     internationalNote: "Your registration is confirmed once the payment is received.",
 

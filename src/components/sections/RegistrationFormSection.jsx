@@ -7,7 +7,7 @@ import { useFees } from '../../hooks/useFees';
  * Registration fees, and how to pay them.
  *
  * No payment is taken here. Indian and Nepali delegates transfer to the
- * conference UPI account and record it on a form; international delegates use
+ * official conference bank account and record it on a form; international delegates use
  * a payment link issued per category. Both are confirmed by the organising
  * committee, so this page's only job is to show the correct fee and send
  * people to the right place.
@@ -203,14 +203,8 @@ export default function RegistrationFormSection() {
                     <p className="text-xs text-neutral-600 mt-1.5">{d.chooserNote}</p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <RouteCard
-                        title={d.indianTitle}
-                        blurb={d.indianBlurb}
-                        note={d.indianNote}
-                        actions={[{ id: 'upi', label: d.indianButton, url: d.indianFormUrl }]}
-                        emphasis
-                    />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch">
+                    <BankTransferCard d={d} />
                     <InternationalCard d={d} fees={fees} />
                 </div>
 
@@ -221,11 +215,140 @@ export default function RegistrationFormSection() {
 }
 
 /**
- * One way of registering: what it is, what it means, and where it goes.
- *
- * With no actions it shows `pendingNote` instead. An empty card would read as
- * a broken page rather than as one where something has not opened yet.
+ * Indian & Nepali delegates: pay via direct bank transfer, then fill the Google Form.
  */
+function BankTransferCard({ d }) {
+    const [copiedKey, setCopiedKey] = useState(null);
+
+    const handleCopy = (key, value) => {
+        if (!navigator?.clipboard?.writeText) return;
+        navigator.clipboard.writeText(value);
+        setCopiedKey(key);
+        setTimeout(() => setCopiedKey(null), 2000);
+    };
+
+    const details = d.bankDetails;
+    const labels = d.bankLabels || {};
+
+    return (
+        <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] rounded-2xl border-2 border-[#C59B27]/50 p-5 flex flex-col justify-between gap-3 h-full">
+            <div className="space-y-3">
+                <div className="flex items-center justify-between gap-2">
+                    <h4 className="text-base font-black text-[#4A121A] uppercase tracking-wide">
+                        {d.indianNepaliTitle}
+                    </h4>
+                    {d.indianNepaliBadge && (
+                        <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#C59B27]/20 text-[#722332] border border-[#C59B27]/40 whitespace-nowrap">
+                            {d.indianNepaliBadge}
+                        </span>
+                    )}
+                </div>
+                <p className="text-xs text-neutral-700 leading-relaxed">{d.indianNepaliBlurb}</p>
+
+                {details && (
+                    <div className="bg-white/95 rounded-xl border border-[#C59B27]/40 p-3.5 space-y-2 text-xs shadow-xs">
+                        <div className="flex justify-between items-center text-[11.5px] pb-1.5 border-b border-neutral-100">
+                            <span className="text-neutral-500 font-semibold">{labels.bankName || 'Bank'}:</span>
+                            <span className="font-bold text-[#4A121A]">{details.bankName}</span>
+                        </div>
+                        <div className="flex justify-between items-start text-[11.5px] pb-1.5 border-b border-neutral-100">
+                            <span className="text-neutral-500 font-semibold">{labels.accountHolder || 'A/c Holder'}:</span>
+                            <span className="font-bold text-[#4A121A] text-right ml-2">{details.accountHolder}</span>
+                        </div>
+                        <div className="flex justify-between items-center text-[11.5px] pb-1.5 border-b border-neutral-100">
+                            <span className="text-neutral-500 font-semibold">{labels.accountNumber || 'A/c Number'}:</span>
+                            <div className="flex items-center gap-1.5">
+                                <span className="font-mono font-bold text-[#4A121A] tracking-wider">{details.accountNumber}</span>
+                                <button
+                                    type="button"
+                                    onClick={() => handleCopy('accountNumber', details.accountNumber)}
+                                    aria-label="Copy Account Number"
+                                    className="p-1 rounded text-neutral-400 hover:text-[#722332] hover:bg-[#FAF5EB] transition-all duration-200 cursor-pointer"
+                                    title={copiedKey === 'accountNumber' ? (labels.copied || 'Copied!') : (labels.copy || 'Copy')}
+                                >
+                                    {copiedKey === 'accountNumber' ? (
+                                        <svg className="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    ) : (
+                                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                        </svg>
+                                    )}
+                                </button>
+                            </div>
+                        </div>
+                        <div className="flex justify-between items-center text-[11.5px] pb-1.5 border-b border-neutral-100">
+                            <span className="text-neutral-500 font-semibold">{labels.ifscCode || 'IFSC Code'}:</span>
+                            <div className="flex items-center gap-1.5">
+                                <span className="font-mono font-bold text-[#4A121A] tracking-wider">{details.ifscCode}</span>
+                                <button
+                                    type="button"
+                                    onClick={() => handleCopy('ifscCode', details.ifscCode)}
+                                    aria-label="Copy IFSC Code"
+                                    className="p-1 rounded text-neutral-400 hover:text-[#722332] hover:bg-[#FAF5EB] transition-all duration-200 cursor-pointer"
+                                    title={copiedKey === 'ifscCode' ? (labels.copied || 'Copied!') : (labels.copy || 'Copy')}
+                                >
+                                    {copiedKey === 'ifscCode' ? (
+                                        <svg className="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    ) : (
+                                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                        </svg>
+                                    )}
+                                </button>
+                            </div>
+                        </div>
+                        <div className="flex justify-between items-center text-[11.5px]">
+                            <span className="text-neutral-500 font-semibold">{labels.swiftCode || 'SWIFT Code'}:</span>
+                            <div className="flex items-center gap-1.5">
+                                <span className="font-mono font-bold text-[#4A121A] tracking-wider">{details.swiftCode}</span>
+                                <button
+                                    type="button"
+                                    onClick={() => handleCopy('swiftCode', details.swiftCode)}
+                                    aria-label="Copy SWIFT Code"
+                                    className="p-1 rounded text-neutral-400 hover:text-[#722332] hover:bg-[#FAF5EB] transition-all duration-200 cursor-pointer"
+                                    title={copiedKey === 'swiftCode' ? (labels.copied || 'Copied!') : (labels.copy || 'Copy')}
+                                >
+                                    {copiedKey === 'swiftCode' ? (
+                                        <svg className="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    ) : (
+                                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                        </svg>
+                                    )}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {d.indianNepaliNote && (
+                    <p className="text-[11px] text-neutral-600 leading-relaxed italic">{d.indianNepaliNote}</p>
+                )}
+            </div>
+
+            <div className="mt-auto pt-2">
+                <a
+                    href={d.indianNepaliFormUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-full items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 border-[#C59B27] bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] shadow-sm transition-all duration-300 ease-in-out"
+                >
+                    <span>{d.indianNepaliButton}</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    );
+}
+
 /**
  * The international route: pick a category, then pay.
  *
@@ -258,12 +381,21 @@ function InternationalCard({ d, fees }) {
             : null;
 
     return (
-        <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] rounded-2xl border-2 border-[#C59B27]/50 p-5 flex flex-col gap-3">
-            <h4 className="text-base font-black text-[#4A121A] uppercase tracking-wide">
-                {d.internationalTitle}
-            </h4>
-            <p className="text-xs text-neutral-700 leading-relaxed">{d.internationalBlurb}</p>
-            <p className="text-[11px] text-neutral-600 leading-relaxed italic">{d.internationalNote}</p>
+        <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] rounded-2xl border-2 border-[#C59B27]/50 p-5 flex flex-col justify-between gap-3 h-full">
+            <div className="space-y-3">
+                <div className="flex items-center justify-between gap-2">
+                    <h4 className="text-base font-black text-[#4A121A] uppercase tracking-wide">
+                        {d.internationalTitle}
+                    </h4>
+                    {d.internationalBadge && (
+                        <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#C59B27]/20 text-[#722332] border border-[#C59B27]/40 whitespace-nowrap">
+                            {d.internationalBadge}
+                        </span>
+                    )}
+                </div>
+                <p className="text-xs text-neutral-700 leading-relaxed">{d.internationalBlurb}</p>
+                <p className="text-[11px] text-neutral-600 leading-relaxed italic">{d.internationalNote}</p>
+            </div>
 
             {links.length > 0 ? (
                 <div className="mt-auto pt-1 space-y-3">
@@ -313,7 +445,7 @@ function InternationalCard({ d, fees }) {
                                 href={url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex w-full items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 border-[#C59B27] bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] shadow-sm transition-all"
+                                className="inline-flex w-full items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 border-[#C59B27] bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] shadow-sm transition-all duration-300 ease-in-out"
                             >
                                 <span>{d.internationalPayButton}</span>
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -328,43 +460,6 @@ function InternationalCard({ d, fees }) {
                     {d.internationalPendingNote}
                 </p>
             )}
-        </div>
-    );
-}
-
-function RouteCard({ title, blurb, note, actions = [], pendingNote, emphasis = false }) {
-    const buttonClass = emphasis
-        ? 'bg-[#722332] !text-[#FAF5EB] hover:bg-[#5B1824] border-[#C59B27]'
-        : 'bg-white !text-[#722332] hover:bg-[#FAF5EB] border-[#C59B27]';
-
-    return (
-        <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF5EB] to-[#F5EBDC] rounded-2xl border-2 border-[#C59B27]/50 p-5 flex flex-col gap-3">
-            <h4 className="text-base font-black text-[#4A121A] uppercase tracking-wide">{title}</h4>
-            <p className="text-xs text-neutral-700 leading-relaxed">{blurb}</p>
-            {note && <p className="text-[11px] text-neutral-600 leading-relaxed italic">{note}</p>}
-
-            <div className="flex flex-col gap-2 mt-auto pt-1">
-                {actions.length > 0 ? (
-                    actions.map((action) => (
-                        <a
-                            key={action.id}
-                            href={action.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 shadow-sm transition-all ${buttonClass}`}
-                        >
-                            <span>{action.label}</span>
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
-                        </a>
-                    ))
-                ) : (
-                    <p className="text-[11.5px] font-bold text-[#8A4B1C] bg-[#FDF3E7] border border-[#8A4B1C]/30 rounded-xl px-4 py-3 leading-relaxed">
-                        {pendingNote}
-                    </p>
-                )}
-            </div>
         </div>
     );
 }
