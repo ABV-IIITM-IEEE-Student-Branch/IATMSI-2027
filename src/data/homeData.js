@@ -237,6 +237,11 @@ export const supportersData = {
             id: "iiitm",
             name: "ABV-IIITM Gwalior",
             logo: "https://lh3.googleusercontent.com/d/1YB-jkZUTemkmJyFEsOJBZG4zc9gnal-B"
+        },
+        {
+            id: "vidhilekha",
+            name: "Vidhilekha Soft Solutions Pvt Ltd",
+            logo: "Vidhilekha Soft Solutions Pvt Ltd"
         }
     ]
 };
