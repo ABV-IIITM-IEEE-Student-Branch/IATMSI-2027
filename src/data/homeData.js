@@ -134,9 +134,9 @@ export const teaserVideosData = {
         {
             id: 3,
             title: "IEEE IATMSI-2027 Teaser Video",
-            youtubeId: "_i28dauNR1s",
-            thumbnail: "https://img.youtube.com/vi/_i28dauNR1s/hqdefault.jpg",
-            embedUrl: "https://www.youtube.com/embed/_i28dauNR1s"
+            youtubeId: "xUGMwPhRVH0",
+            thumbnail: "https://img.youtube.com/vi/xUGMwPhRVH0/hqdefault.jpg",
+            embedUrl: "https://www.youtube.com/embed/xUGMwPhRVH0"
         }
     ]
 };
