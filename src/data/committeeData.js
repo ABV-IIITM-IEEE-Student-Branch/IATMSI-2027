@@ -244,7 +244,7 @@ export const advisoryCommittee = [
     { name: 'Prof. R. K. Sharma', role: null, affiliation: 'NIT Kurukshetra, India' },
     { name: 'Prof. R. Chandel', role: null, affiliation: 'NIT Hamirpur, India' },
     { name: 'Dr. Avtar Singh', role: null, affiliation: 'Adama Science And Technology University, Ethiopia' },
-    { name: 'Prof. Lalit Kumar Awasthi', role: 'Director', affiliation: 'NIT Uttarakhand, India' },
+    { name: 'Prof. Lalit Kumar Awasthi', role: 'Director', affiliation: 'NIT Hamirpur, India' },
     { name: 'Dr. Deepak Waikar', role: 'Managing Partner', affiliation: 'EduEnergy, Singapore' },
     { name: 'Prof. Akshay Kumar Rathore', role: null, affiliation: 'Singapore Institute of Technology, Singapore' },
     { name: 'Dr. Harish Chandra', role: null, affiliation: 'MMMUT Gorakhpur, India' },
