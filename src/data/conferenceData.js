@@ -38,7 +38,7 @@ export const aboutPageData = {
     highlightTerms: [
         '4,700 paper submissions',
         'less than 10%',
-        'Kathmandu, Nepal',
+        'The Malla Hotel, Kathmandu, Nepal',
         'Enabling the Change! Social Innovation for Sustainable Societies',
         'Advancing Technology for Humanity',
         '460,000+',
