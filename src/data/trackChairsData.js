@@ -40,6 +40,8 @@ export const trackChairsData = {
                 { name: "Dr. Alok Kumar Kamal", role: "Chair", affiliation: "ABV-IIITM Gwalior, India" },
                 { name: "Dr. Vipul Dixit", role: "Chair", affiliation: "Bennett University, India" },
                 { name: "Dr. Mayank Kumar Jain", role: "Chair", affiliation: "Bennett University, Greater Noida, India" },
+                { name: "Dr. Navdeep Bohra", role: "Chair", affiliation: "Maharaja Surajmal Institute of Technology (MSIT), New Delhi, India" },
+                { name: "Dr. Jitender Kumar", role: "Chair", affiliation: "Ganga Institute of Technology and Management, Haryana, India" },
                 { name: "Dr. Praveen Lalwani", role: null, affiliation: "VIT Vellore, India" },
                 { name: "Dr. Sachin Sharma", role: null, affiliation: "East Point College of Engg. & Technology, Bengaluru, India" },
                 { name: "Dr. Yash Agrawal", role: null, affiliation: "DA-IICT Gandhinagar, Gujarat, India" },
