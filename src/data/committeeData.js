@@ -44,7 +44,10 @@ export const organizingCoreCommittee = [
 
 export const publicityCommittee = [
     { name: 'Dr. Praveen Singya', role: 'Chair', affiliation: 'ABV-IIITM Gwalior, India' },
+    { name: 'Prof. K. T. V. Talele', role: 'Chair', affiliation: 'Sardar Patel Institute of Technology, Mumbai, India' },
     { name: 'Dr. Vikas Pathak', role: null, affiliation: 'Swami Keshwanand Institute of Technology, Management & Gramothan, Jaipur, India' },
+    { name: 'Dr. Prabhakar Tiwari', role: null, affiliation: 'Madan Mohan Malaviya University of Technology, Gorakhpur, India' },
+    { name: 'Dr. Pradeep Kumar Singh', role: null, affiliation: 'Central University of Jammu, India' },
     { name: 'Dr Lalit Kumar', role: null, affiliation: 'Delhi Skill and Entrepreneurship University, India' },
     { name: 'Dr. Prabir Barman', role: null, affiliation: 'ABV-IIITM Gwalior, India' },
     { name: 'Dr. Saurabh Pratap Singh Rathore', role: null, affiliation: 'Vikrant University, Gwalior, India' },
@@ -64,6 +67,8 @@ export const publicityCommittee = [
     { name: 'Dr. Rachana Dubey', role: null, affiliation: 'Pandit Sambhunath Shukla Vishwavidyalaya, India' },
     { name: 'Dr. Navdeep Bohra', role: null, affiliation: 'Maharaja Surajmal Institute of Technology, New Delhi, India' },
     { name: 'Dr. Kamal K Garg', role: null, affiliation: 'Pandit Deendayal Energy University, Gandhinagar, Gujarat, India' },
+    { name: 'Dr. Harish Chandra', role: null, affiliation: 'Madan Mohan Malaviya University of Technology, Gorakhpur, India' },
+    { name: 'Prof. Jeeoot Singh', role: null, affiliation: 'Madan Mohan Malaviya University of Technology, Gorakhpur, India' },
 ];
 
 export const registrationCommittee = [
@@ -176,6 +181,14 @@ export const technicalProgrammeCommittee = [
     { name: 'Dr. Narendra Singh Beniwal', role: null, affiliation: 'BIET Jhansi, India' },
     { name: 'Mr. Akshaya M Ganorkar', role: null, affiliation: 'Maven Silicon, India' },
     { name: 'Dr. Vinay Singh', role: null, affiliation: 'ABV-IIITM Gwalior, India' },
+    { name: 'Prof. H. K. Salinda Premadasa', role: null, affiliation: 'Sabaragamuwa University of Sri Lanka' },
+    { name: 'Dr. Kalpana Galappaththi', role: null, affiliation: 'Institute of Technology, University of Moratuwa, Sri Lanka' },
+    { name: 'Dr. Isuru Lakmal', role: null, affiliation: 'NSBM Green University, Sri Lanka' },
+    { name: 'Dr. Pradeep Kalansooriya', role: null, affiliation: 'General Sir John Kotelawala Defence University, Sri Lanka' },
+    { name: 'Dr. Pasan Maduranga', role: null, affiliation: 'University of Sri Jayewardenepura, Sri Lanka' },
+    { name: 'Dr. Kaneeka Vidanage', role: null, affiliation: 'General Sir John Kotelawala Defence University, Sri Lanka' },
+    { name: 'Dr. Asitha Wijewardhana', role: null, affiliation: 'Sri Lanka Technology Campus, Sri Lanka' },
+    { name: 'Dr. Naveen Virmani', role: null, affiliation: 'Institute of Management Studies (IMS), Ghaziabad, India' },
     { name: 'Dr. Ruby Beniwal', role: null, affiliation: 'JIIT Noida, India' },
     { name: 'Dr. Swati Yadav', role: null, affiliation: 'COER University, Uttarakhand, India' },
     { name: 'Dr. Amit Kumar', role: null, affiliation: 'PDEU Gandhinagar, Gujarat, India' },
