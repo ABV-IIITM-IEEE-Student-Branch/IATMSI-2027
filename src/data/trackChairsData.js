@@ -53,6 +53,7 @@ export const trackChairsData = {
                 { name: "Dr. Robin Singh Bhadoria", role: null, affiliation: "NIT Hamirpur, India" },
                 { name: "Dr. Vijay Bhaskar Semwal", role: null, affiliation: "MANIT Bhopal, India" },
                 { name: "Dr. Vivek Kumar Singh", role: null, affiliation: "ABV-IIITM Gwalior, India" },
+                { name: 'Dr. Kaneeka Vidanage', role: null, affiliation: 'General Sir John Kotelawala Defence University, Sri Lanka' },
                 { name: "Dr. Nikhil Paliwal", role: null, affiliation: "MITS – Deemed University Gwalior, India" },
                 { name: "Mr. Surendar Rama Sitaraman", role: null, affiliation: "Intel Corporation, Folsom, California, USA" },
                 { name: "Dr. Jyotindra Narayan", role: null, affiliation: "IIT Patna, India" },
@@ -63,6 +64,9 @@ export const trackChairsData = {
                 { name: "Dr. Yashwant Singh Patel", role: null, affiliation: "ABV-IIITM Gwalior, India" },
                 { name: "Dr. Divya Chaturvedi", role: null, affiliation: "MITS – Deemed University Gwalior, India" },
                 { name: "Dr. Sourabh Jain", role: null, affiliation: "IIIT Bhopal, India" },
+                { name: 'Dr. Kalpana Galappaththi', role: null, affiliation: 'Institute of Technology, University of Moratuwa, Sri Lanka' },
+                { name: 'Dr. Isuru Lakmal', role: null, affiliation: 'NSBM Green University, Sri Lanka' },
+                { name: 'Dr. Pradeep Kalansooriya', role: null, affiliation: 'General Sir John Kotelawala Defence University, Sri Lanka' },
                 { name: "Dr. Mini Rajeev", role: null, affiliation: "Agnel Charities' Fr. C. Rodrigues Institute of Technology, India" }
             ]
         },
@@ -86,6 +90,8 @@ export const trackChairsData = {
                 { name: "Dr. Prabhat Sharma", role: null, affiliation: "VNIT Nagpur, India" },
                 { name: "Dr. Amit Kumar", role: null, affiliation: "Pandit Deendayal Energy University, India" },
                 { name: "Dr. Shweta Meena", role: null, affiliation: "NIT Kurukshetra, India" },
+                { name: 'Dr. Pasan Maduranga', role: null, affiliation: 'University of Sri Jayewardenepura, Sri Lanka' },
+                { name: 'Dr. Asitha Wijewardhana', role: null, affiliation: 'Sri Lanka Technology Campus, Sri Lanka' },
                 { name: "Dr. Dharmendra Singh Yadav", role: null, affiliation: "NIT Kurukshetra, India" },
                 { name: "Dr. Jai Gopal Pandey", role: null, affiliation: "CEERI Pilani, India" },
                 { name: "Dr. Bhupendra Reniwal", role: null, affiliation: "IIT Jodhpur, India" },
@@ -132,7 +138,8 @@ export const trackChairsData = {
                 { name: "Dr. Jatoth Deepak Naik", role: "Chair", affiliation: "ABV-IIITM Gwalior, India" },
                 { name: "Dr. Gaurav Pandey", role: "Chair", affiliation: "ABV-IIITM Gwalior, India" },
                 { name: "Dr. Pragya Swami", role: "Chair", affiliation: "ABV-IIITM Gwalior, India" },
-                { name: "Dr. Kapil Kant", role: null, affiliation: "ABV-IIITM Gwalior, India" }
+                { name: "Dr. Kapil Kant", role: null, affiliation: "ABV-IIITM Gwalior, India" },
+                { name: 'Dr. Naveen Virmani', role: null, affiliation: 'Institute of Management Studies (IMS), Ghaziabad, India' }
             ]
         }
     ]
