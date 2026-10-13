@@ -11,6 +11,7 @@ export const trackChairsData = {
                 { name: "Dr. Biswabandhu Jana", role: "Chair", affiliation: "ABV-IIITM Gwalior, India" },
                 { name: "Dr. Purnedu Mishra", role: "Chair", affiliation: "ABV-IIITM Gwalior, India" },
                 { name: "Dr. Pragya Shukla", role: "Chair", affiliation: "ABV-IIITM Gwalior, India" },
+                { name: "Dr. Atul Kumar Ray", role: null, affiliation: "Government College Chinor, Gwalior, India" },
                 { name: "Dr. Bhanu Pratap Singh", role: null, affiliation: "Guru Ghasidas Vishwavidyalaya, Bilaspur, India" },
                 { name: "Dr. Naveen Mishra", role: null, affiliation: "VIT Vellore, India" },
                 { name: "Dr. Manjeet Kumar", role: null, affiliation: "Delhi Technological University, Delhi, India" },
