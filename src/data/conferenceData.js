@@ -9,10 +9,10 @@ export const conferenceInfo = {
     dates: 'May 20-22, 2027',
     organizedBy: 'ABV-IIITM IEEE Student Branch, Gwalior, Madhya Pradesh, India',
     venue: {
-        name: 'Kathmandu, Nepal',
-        shortName: 'Kathmandu, Nepal',
-        address: 'Kathmandu, Nepal',
-        city: 'Kathmandu, Nepal',
+        name: 'The Malla Hotel, Kathmandu, Nepal',
+        shortName: 'The Malla Hotel, Kathmandu, Nepal',
+        address: 'The Malla Hotel, Kathmandu, Nepal',
+        city: 'The Malla Hotel, Kathmandu, Nepal',
         mapEmbedUrl: 'https://maps.google.com/maps?q=Kathmandu+Nepal&z=15&output=embed',
     },
 };
