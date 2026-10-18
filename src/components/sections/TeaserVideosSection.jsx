@@ -2,11 +2,11 @@ import SectionContainer, { SectionHeader } from '../ui/SectionContainer';
 import { teaserVideosData } from '../../data/homeData';
 
 export default function TeaserVideosSection() {
-    const { title, videos } = teaserVideosData;
+    const { title, subtitle, videos } = teaserVideosData;
 
     return (
         <SectionContainer dataSource="homeData" id="teaser-videos">
-            <SectionHeader title={title} centered={true} />
+            <SectionHeader title={title} subtitle={subtitle} centered={true} />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
                 {videos.map((video) => (
@@ -27,6 +27,7 @@ export default function TeaserVideosSection() {
                                     className="w-full h-full"
                                     src={video.embedUrl}
                                     title={video.title}
+                                    loading="lazy"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     referrerPolicy="strict-origin-when-cross-origin"
                                     allowFullScreen

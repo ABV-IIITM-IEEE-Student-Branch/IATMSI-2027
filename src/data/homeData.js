@@ -117,7 +117,8 @@ export const awardsContestData = {
 };
 
 export const teaserVideosData = {
-    title: "IATMSI-2027 Teaser",
+    title: "IATMSI-2027 Teasers & Journey",
+    subtitle: "Watch the ABV-IIITM IEEE Student Branch anthem, explore the IATMSI journey across past editions, and view the official conference teaser.",
     videos: [
         {
             id: 1,
@@ -129,7 +130,9 @@ export const teaserVideosData = {
         {
             id: 2,
             title: "IATMSI Journey",
-            imageUrl: "https://lh3.googleusercontent.com/d/1sWTOeNuVDQxUhysQfr9DS6z9aJ5Lypj5"
+            youtubeId: "Ew-zHzV-Z04",
+            thumbnail: "https://img.youtube.com/vi/Ew-zHzV-Z04/hqdefault.jpg",
+            embedUrl: "https://www.youtube.com/embed/Ew-zHzV-Z04"
         },
         {
             id: 3,
