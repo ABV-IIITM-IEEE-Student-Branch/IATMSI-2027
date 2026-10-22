@@ -5,7 +5,7 @@ export const cameraReadyData = {
     subtitle: "Complete submission procedure, copyright notices, and IEEE PDF eXpress guidelines for IATMSI-2027.",
 
     registrationFormUrl: "https://forms.gle/6W79XUvjbeHZxRPM6",
-    conferenceIdCmt: "68868X",
+    conferenceIdCmt: "73195X",
 
     importantDates: [
         // { activity: "Call for Papers", date: "20th June 2026" },
@@ -66,7 +66,7 @@ export const cameraReadyData = {
         afterVerificationText: "After Verification, log into your IEEE PDF eXpress account by entering the Conference ID, email address, and password. Complete all the details like Name etc.",
         nextStepTitle: "Next Step is to add IATMSI-2027 to PDF eXpress Account",
         nextSteps: [
-            "1. Login by entering Conference ID (68868X), email address and password.",
+            "1. Login by entering Conference ID (73195X), email address and password.",
             "2. Click Associate your account with the conference (if you have IEEE Pdf Express Account). (Sample image 4)",
             "3. Fill up the information needed for the user profile and submit once completed.",
             "4. Go to the Dashboard and create the new title. (Sample image 5)",
