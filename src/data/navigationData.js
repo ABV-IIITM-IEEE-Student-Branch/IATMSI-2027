@@ -54,7 +54,15 @@ export const navigationTree = listed([
       { id: 'gallery', label: 'Gallery', path: '/authors/gallery' },
     ]
   },
-  { id: 'call-for-papers', label: 'Call for Papers', type: 'link', path: '/call-for-papers/tracks' },
+  {
+    id: 'call-for-papers',
+    label: 'Call for Papers',
+    type: 'dropdown',
+    items: [
+      { id: 'tracks', label: 'Conference Tracks', path: '/call-for-papers/tracks' },
+      { id: 'special-sessions', label: 'Call for Papers in Special Sessions', path: '/call-for-papers/tracks#special-sessions' },
+    ]
+  },
   { id: 'conference-program', label: 'Conference Program', type: 'link', path: '/conference-program' },
   { id: 'paper-submission', label: 'Paper Submission', type: 'link', path: '/call-for-papers/paper-submission' },
   { id: 'sponsorship', label: 'Sponsorship/Exhibits', type: 'link', path: '/sponsorship' },

@@ -17,6 +17,7 @@ export const ROUTES = {
     
     // Main Pages
     TRACKS: '/call-for-papers/tracks',
+    SPECIAL_SESSIONS: '/call-for-papers/tracks#special-sessions',
     PROGRAM: '/conference-program',
     PAPER_SUBMISSION: '/call-for-papers/paper-submission',
     SPONSORSHIP: '/sponsorship',

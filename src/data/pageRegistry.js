@@ -41,7 +41,7 @@ export const sectionManifest = [
     { id: 'paperSubmissionSection', component: 'PaperSubmissionSection', requiresData: ['submissionData'] },
     { id: 'registrationSection', component: 'RegistrationSection', requiresData: ['registrationData'] },
     { id: 'registrationFormSection', component: 'RegistrationFormSection', requiresData: ['paymentData'] },
-    { id: 'tracksGridSection', component: 'TracksGridSection', requiresData: ['tracksData'] },
+    { id: 'tracksGridSection', component: 'TracksGridSection', requiresData: ['tracksData', 'specialSessionsData', 'siteConfig'] },
     { id: 'submissionCtaSection', component: 'SubmissionCtaSection', requiresData: ['siteConfig', 'tracksData'] },
 
     // Home page sections
@@ -49,6 +49,7 @@ export const sectionManifest = [
     { id: 'programScheduleSection', component: 'ProgramScheduleSection', requiresData: ['homeData'] },
     { id: 'callForPapersSection', component: 'CallForPapersSection', requiresData: ['homeData'] },
     { id: 'themeTracksSection', component: 'ThemeTracksSection', requiresData: ['homeData'] },
+    { id: 'approvedSpecialSessionsSection', component: 'ApprovedSpecialSessionsSection', requiresData: ['specialSessionsData'] },
     { id: 'awardsContestSection', component: 'AwardsContestSection', requiresData: ['homeData'] },
     { id: 'teaserVideosSection', component: 'TeaserVideosSection', requiresData: ['homeData'] },
     { id: 'patronChairsSection', component: 'PatronChairsSection', requiresData: ['homeData'] },
@@ -68,6 +69,7 @@ export const pageRegistry = [
             { sectionId: 'hero', props: { isHomePage: true } },
             { sectionId: 'aboutConfSection', props: {} },
             { sectionId: 'callForPapersSection', props: {} },
+            { sectionId: 'approvedSpecialSessionsSection', props: {} },
             { sectionId: 'awardsContestSection', props: {} },
             { sectionId: 'teaserVideosSection', props: {} },
             { sectionId: 'patronChairsSection', props: {} },

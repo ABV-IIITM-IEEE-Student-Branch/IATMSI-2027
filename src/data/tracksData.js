@@ -156,4 +156,7 @@ export const tracksGridLabels = {
     ieeeXplorePublication: "IEEE Xplore Publication:",
     technicalTracksSubtopics: "Technical Tracks & Subtopics",
     topicsOfInterest: "Topics of Interest:",
+    specialSessionsBannerTitle: "Looking for Approved Special Sessions?",
+    specialSessionsBannerSubtitle: "We also invite high-quality research papers for our approved Special Sessions covering specialized fields such as Quantum Photonics and Nonlinear Optics.",
+    specialSessionsBannerButton: "View Special Sessions CFP",
 };

@@ -41,6 +41,7 @@ import ProgramScheduleSection from '../components/sections/ProgramScheduleSectio
 import CallForPapersSection from '../components/sections/CallForPapersSection';
 import ThemeTracksSection from '../components/sections/ThemeTracksSection';
 import AwardsContestSection from '../components/sections/AwardsContestSection';
+import ApprovedSpecialSessionsSection from '../components/sections/ApprovedSpecialSessionsSection';
 import TeaserVideosSection from '../components/sections/TeaserVideosSection';
 import PatronChairsSection from '../components/sections/PatronChairsSection';
 import SupportersSection from '../components/sections/SupportersSection';
@@ -98,6 +99,7 @@ export const sectionResolver = {
     programScheduleSection: ProgramScheduleSection,
     callForPapersSection: CallForPapersSection,
     themeTracksSection: ThemeTracksSection,
+    approvedSpecialSessionsSection: ApprovedSpecialSessionsSection,
     awardsContestSection: AwardsContestSection,
     teaserVideosSection: TeaserVideosSection,
     patronChairsSection: PatronChairsSection,

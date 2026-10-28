@@ -15,7 +15,10 @@ export default function App() {
             <Route key={page.id} path={page.path} element={<DynamicPage pageId={page.id} />} />
           ))}
 
-          {/* Backward compatibility: old call-for-papers URLs */}
+          {/* Backward compatibility & clean URL shortcuts */}
+          <Route path="/call-for-papers" element={<Navigate to="/call-for-papers/tracks" replace />} />
+          <Route path="/call-for-papers/special-sessions" element={<Navigate to="/call-for-papers/tracks#special-sessions" replace />} />
+          <Route path="/special-sessions" element={<Navigate to="/call-for-papers/tracks#special-sessions" replace />} />
           <Route path="/call-for-papers/guidelines" element={<Navigate to="/call-for-papers/paper-submission" replace />} />
           <Route path="/call-for-papers/camera-ready" element={<Navigate to="/call-for-papers/paper-submission" replace />} />
           <Route path="/paper-submission" element={<Navigate to="/call-for-papers/paper-submission" replace />} />

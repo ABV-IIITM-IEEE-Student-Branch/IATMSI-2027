@@ -53,7 +53,7 @@ export default function NavigationMenu() {
                             <div className="absolute top-full left-0 w-full h-3 bg-transparent"></div>
                             
                             {/* Dropdown Container */}
-                            <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 bg-[#4A121A] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-[#C59B27]/40 rounded-lg overflow-hidden">
+                            <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 bg-[#4A121A] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-[#C59B27]/40 rounded-lg overflow-hidden">
                                 <div className="py-2 flex flex-col">
                                     {item.items.map((subItem) => (
                                         <Link
