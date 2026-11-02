@@ -4,7 +4,7 @@ export const fellowshipsData = {
     title: "IEEE IATMSI 2027 Fellowship Program",
     subtitle: "Financial support, registration waivers, accommodation, and travel grants for deserving students and faculty.",
 
-    applicationFormUrl: "https://forms.gle/Ls54hZnhd4fcF9weA",
+    applicationFormUrl: "https://forms.gle/884qAKeouDwPFUHz6",
 
     overviewText: "IATMSI 2027 invites all interested attendees to apply for its fellowship program. Over the years, IATMSI has supported students and faculty from diverse academic institutions through generous fellowships, and this tradition continues for IATMSI 2027. The fellowship provides complimentary or discounted registration to attend the conference as a financial support mechanism.",
 
