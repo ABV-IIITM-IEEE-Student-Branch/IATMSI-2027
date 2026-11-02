@@ -78,6 +78,7 @@ export const registrationCommittee = [
 ];
 
 export const publicationCommittee = [
+    { name: 'Prof. Pankaj Srivastava', role: 'Chair', affiliation: 'ABV-IIITM Gwalior, India' },
     { name: 'Dr. Pragya Swami', role: 'Chair', affiliation: 'ABV-IIITM Gwalior, India' },
     { name: 'Dr. Pushpa Giri', role: null, affiliation: 'NIT Patna, India' },
     { name: 'Dr. Satish Chandra', role: null, affiliation: 'Motilal Nehru National Institute of Technology Allahabad, Prayagraj, India' },
