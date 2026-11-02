@@ -104,8 +104,8 @@ export const registrationFormData = {
             id: 'professional',
             label: 'Professional Author',
             urls: {
-                ieee: 'https://payments.cashfree.com/forms/professional_IEEE',
-                non_ieee: 'https://payments.cashfree.com/forms/professional_nonIEEE',
+                ieee: 'https://payments.cashfree.com/forms/professional_IEEE_new',
+                non_ieee: 'https://payments.cashfree.com/forms/professional_nonIEEE_new',
             },
         },
         {
