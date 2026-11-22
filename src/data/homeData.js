@@ -232,11 +232,6 @@ export const supportersData = {
             logo: "https://lh3.googleusercontent.com/d/1OI3dL2b10-4IrA9hjsLztg17GdAWv2cx"
         },
         {
-            id: "scholar-colab",
-            name: "Scholar Colab",
-            logo: "https://lh3.googleusercontent.com/d/1PPWZtSgN9Fibt68Iw0kCRp502niG2AGO"
-        },
-        {
             id: "iiitm",
             name: "ABV-IIITM Gwalior",
             logo: "https://lh3.googleusercontent.com/d/1YB-jkZUTemkmJyFEsOJBZG4zc9gnal-B"
